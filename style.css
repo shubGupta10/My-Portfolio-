@@ -1,0 +1,159 @@
+body {
+    /* background-color: rgb(121, 109, 109); */
+    background-color: rgb(130, 130, 130);
+    margin: 0;
+    padding: 10px;
+    overflow: visible
+}
+
+#NavPos{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgb(130, 130, 130);
+    /* background-color: rgb(59, 59, 75); */
+}
+
+/* about section */
+
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin-right: auto;
+}
+
+.leftText{
+    padding: 20px;
+    font-size: 30px;
+
+}
+
+.aboutText{
+    color: #0a2729; /* Green color */
+    font-style: italic;
+    font-size: 25px;
+}
+
+#myProfileImage{
+    margin-top: 50px;
+}
+
+.navLinksTag:hover{
+    color: aqua;
+}
+
+
+/* .activeLink:hover{
+    border: 2px solid;
+    border-radius: 15px;
+    background-color: rgb(75, 110, 75);
+    color: white;
+} */
+
+.navLinksTag{
+    font-size: 1.5rem;
+}
+
+@media (max-width : 400px) {
+    .home{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #about{
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    #myProfileImage{
+        margin-top: 30px;
+        height: 250px;
+        width: auto;
+    }
+}
+
+
+/* skills section */
+
+.container{
+    margin-top: 200px;
+}
+  
+
+.Relevantskills{
+    margin-top: 190px;
+    padding: 80px;
+    text-align: center;
+    font-size: 50px;
+
+}
+
+.skillElems{
+    padding: 20px;
+}
+
+.imagelemleft{
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 100px;
+}
+
+.imagelemRight{
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 100px;
+}
+
+.skillName {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    min-width: 460px;
+    height: 30px;
+}
+.barwidth{
+    height: 25px;
+}
+
+
+
+/* education section */
+
+/* 
+
+div.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+}
+
+.col header.title{
+    color: red;
+    padding: 0px 0px 0px 30px;
+
+}
+
+.col  .contents{
+    padding: 0 30px;
+    border-left: 2px solid black;
+}
+
+.col .contents .box{
+    position: relative;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.4s;
+    margin-bottom: 20px;
+
+}
+
+.col .contents .box:hover{
+    box-shadow: 0px 3px 12px 0px #ccc;
+    border: 1px solid transparent;
+} */
