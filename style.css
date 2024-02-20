@@ -133,6 +133,12 @@ body {
   font-size: 70px;
 }
 
+@media (max-width: 768px) {
+  #targetskillSection{
+    padding: 20px;
+  }
+}
+
 
 /* education section */
 .mycontainer {
