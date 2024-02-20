@@ -3,7 +3,8 @@ body {
     background-color: rgb(130, 130, 130);
     margin: 0;
     padding: 0px;
-    overflow: visible
+    overflow-y: scroll;
+    
 }
 
 #NavPos{
@@ -11,7 +12,6 @@ body {
     top: 0;
     z-index: 1000;
     background-color: rgb(130, 130, 130);
-    /* background-color: rgb(59, 59, 75); */
 }
 
 /* about section */
@@ -57,7 +57,7 @@ body {
     font-size: 1.5rem;
 }
 
-@media (max-width : 400px) {
+@media (max-width : 768px) {
     .home{
         display: flex;
         justify-content: center;
@@ -78,47 +78,29 @@ body {
 
 
 /* skills section */
-
 .container{
-    margin-top: 200px;
+    background-color: rgba(85, 83, 83, 0.671);
+    margin-bottom: 200px;
 }
-  
 
-.Relevantskills{
+#skillsImg{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: wheat;
+}
+
+.skillsImage{
+    max-height: 100px;
+    max-width: 100px;
+    margin-bottom: 300px;
+}
+
+#skills{
     margin-top: 190px;
-    padding: 80px;
-    text-align: center;
-    font-size: 50px;
-
+    margin-bottom: 100px;
+    font-size: 70px;
 }
-
-.skillElems{
-    padding: 20px;
-}
-
-.imagelemleft{
-    padding: 20px;
-    box-sizing: border-box;
-    max-width: 100px;
-}
-
-.imagelemRight{
-    padding: 20px;
-    box-sizing: border-box;
-    max-width: 100px;
-}
-
-.skillName {
-    font-size: 18px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    min-width: 460px;
-    height: 30px;
-}
-.barwidth{
-    height: 25px;
-}
-
 
 
 /* education section */
