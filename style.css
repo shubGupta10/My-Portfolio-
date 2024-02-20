@@ -53,6 +53,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   animation: writeText 3s steps(40) forwards;
+  color: rgb(45, 27, 27)
 }
 
 .aboutText {
@@ -106,6 +107,7 @@ body {
   color: white;
   background-color: rgba(85, 83, 83, 0.671);
   margin-bottom: 200px;
+  border-radius: 20px;
 }
 
 #skillsImg {
