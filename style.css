@@ -1,6 +1,7 @@
 body {
     /* background-color: rgb(121, 109, 109); */
     background-color: rgb(130, 130, 130);
+    /* background-color: #383232fa; */
     margin: 0;
     padding: 0px;
     overflow-y: scroll;
@@ -13,6 +14,8 @@ body {
     z-index: 1000;
     background-color: rgb(130, 130, 130);
 }
+
+
 
 /* about section */
 
@@ -112,16 +115,60 @@ body {
 }
 
 #EducationText {
-    font-size: 60px; /* Adjust the font size as needed */
-    font-weight: bold; /* Adjust the font weight as needed */
+    font-size: 60px; 
+    font-weight: bold; 
     margin-bottom: 80px;
   }
 
   .card-title {
-    font-size: 20px; /* Adjust the font size as needed */
-    font-weight: bold; /* Adjust the font weight as needed */
+    font-size: 20px; 
+    font-weight: bold; 
   }
 
   .card-text {
-    font-size: 16px; /* Adjust the font size as needed */
+    font-size: 16px; 
   }
+
+  
+
+/* project section */
+
+#projectHead{
+  text-align: center;
+  color: white;
+  margin: 10px 0px 90px 0px;   
+  font-size: 80px;
+}
+
+.projectcontainer {
+  margin: 0px auto; /* Center the container horizontally */
+  padding: 30px;
+  max-width: 1200px; /* Set a maximum width for the container */
+}
+
+#projectSection{
+  background-color:#4a4b56;
+  margin-top: 90px;
+}
+
+.card-body {
+  height: 200px; /* Adjust the height as needed */
+  overflow: hidden; /* Hide overflow content if any */
+}
+
+
+@media (max-width : 768px) {
+
+  #projectHead{
+    text-align: start;
+    color: white;
+    margin: 10px 0x 90px 0px;
+  }
+  
+.card-img-top{
+  max-width: 100%;
+  height: auto;
+}
+
+}
+
