@@ -6,12 +6,23 @@ aboutbtn.addEventListener('click', function(){
     about.scrollIntoView();
 })
 
+
+// skills target
 const skills = document.getElementById('skills');
 const skillsBtn = document.getElementById('skillsBtn');
-const skillsContainer = document.getElementById('containerbox');
+const skillsContainer = document.getElementById('targetskillSection');
 
 skillsBtn.addEventListener('click', function(){
     console.log("skills button working");
-    skillsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    skillsContainer.scrollIntoView();
+});
+
+
+//education target
+const education = document.getElementById('EducationBtn');
+const educationContainer = document.getElementById('targeteducationSection');
+
+education.addEventListener('click', function(){
+    educationContainer.scrollIntoView();
 });
 
