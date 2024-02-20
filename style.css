@@ -1,21 +1,21 @@
 body {
-    /* background-color: rgb(121, 109, 109); */
-    background-color: rgb(130, 130, 130);
-    /* background-color: #383232fa; */
-    margin: 0;
-    padding: 0px;
-    overflow-y: scroll;
-    
+  /* background-color: rgb(121, 109, 109); */
+  background-color: rgb(130, 130, 130);
+  /* background-color: #383232fa; */
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+
 }
 
-#NavPos{
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: rgb(130, 130, 130);
+#NavPos {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgb(130, 130, 130);
 }
 
-.sameColor{
+.sameColor {
   color: white;
   font-weight: 500;
 }
@@ -25,32 +25,49 @@ body {
 /* about section */
 
 
-.about{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    margin-right: auto;
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin-right: auto;
 }
 
-.leftText{
-    padding: 20px;
-    font-size: 30px;
+.leftText {
+  padding: 20px;
+  font-size: 30px;
 
 }
 
-.aboutText{
-    color: #0a2729; /* Green color */
-    font-style: italic;
-    font-size: 25px;
+@keyframes writeText {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
-#myProfileImage{
-    margin-top: 50px;
+.animated-text {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: writeText 3s steps(40) forwards;
 }
 
-.navLinksTag:hover{
-    color: aqua;
+.aboutText {
+  color: #0a2729;
+  /* Green color */
+  font-style: italic;
+  font-size: 25px;
+}
+
+#myProfileImage {
+  margin-top: 50px;
+}
+
+.navLinksTag:hover {
+  color: aqua;
 }
 
 
@@ -61,119 +78,122 @@ body {
     color: white;
 } */
 
-.navLinksTag{
-    font-size: 1.5rem;
+.navLinksTag {
+  font-size: 1.5rem;
 }
 
 @media (max-width : 768px) {
-    .home{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    #about{
-        text-align: center;
-        margin-top: 40px;
-    }
+  #about {
+    text-align: center;
+    margin-top: 40px;
+  }
 
-    #myProfileImage{
-        margin-top: 30px;
-        height: 250px;
-        width: auto;
-    }
+  #myProfileImage {
+    margin-top: 30px;
+    height: 250px;
+    width: auto;
+  }
 }
 
 /* skills section */
 .container {
-    color: white;
-    background-color: rgba(85, 83, 83, 0.671);
-    margin-bottom: 200px;
-  }
-  
-  #skillsImg {
-    color: wheat;
-  }
-  
-  #skillsImg .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .skillsImage {
-    max-height: 90px;
-    max-width: 90px;
-    margin-bottom: 90px; /* Adjust this margin as needed */
-  }
-  
-  #skills {
-    margin-top: 190px;
-    margin-bottom: 100px;
-    font-size: 70px;
-  }
-  
+  color: white;
+  background-color: rgba(85, 83, 83, 0.671);
+  margin-bottom: 200px;
+}
+
+#skillsImg {
+  color: wheat;
+}
+
+#skillsImg .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillsImage {
+  max-height: 90px;
+  max-width: 90px;
+  margin-bottom: 90px;
+  /* Adjust this margin as needed */
+}
+
+#skills {
+  margin-top: 190px;
+  margin-bottom: 100px;
+  font-size: 70px;
+}
+
 
 /* education section */
-.mycontainer{
-    padding: 40px;
+.mycontainer {
+  padding: 40px;
 }
 
 #EducationText {
-    font-size: 60px; 
-    font-weight: bold; 
-    margin-bottom: 80px;
-  }
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 80px;
+}
 
-  .card-title {
-    font-size: 20px; 
-    font-weight: bold; 
-  }
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
 
-  .card-text {
-    font-size: 16px; 
-  }
+.card-text {
+  font-size: 16px;
+}
 
-  
+
 
 /* project section */
 
-#projectHead{
+#projectHead {
   text-align: center;
   color: white;
-  margin: 10px 0px 90px 0px;   
+  margin: 10px 0px 90px 0px;
   font-size: 80px;
 }
 
 .projectcontainer {
-  margin: 0px auto; /* Center the container horizontally */
+  margin: 0px auto;
+  /* Center the container horizontally */
   padding: 30px;
-  max-width: 1200px; /* Set a maximum width for the container */
+  max-width: 1200px;
+  /* Set a maximum width for the container */
 }
 
-#projectSection{
-  background-color:#4a4b56;
+#projectSection {
+  background-color: #4a4b56;
   margin-top: 90px;
 }
 
 .card-body {
-  height: 280px; /* Adjust the height as needed */
-  overflow: hidden; /*Hide overflow content if any */
+  max-height: 300px;
+  width: 300px;
+  overflow: hidden;
 }
 
 
 @media (max-width : 768px) {
 
-  #projectHead{
+  #projectHead {
     text-align: start;
     color: white;
     margin: 10px 0x 90px 0px;
   }
-  
-.card-img-top{
-  max-width: 100%;
-  height: auto;
-}
+
+  .card-img-top {
+    max-width: 100%;
+    height: auto;
+  }
 
 }
-
