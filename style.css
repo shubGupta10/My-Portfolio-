@@ -157,8 +157,8 @@ body {
 }
 
 .card-body {
-  height: 200px; /* Adjust the height as needed */
-  overflow: hidden; /* Hide overflow content if any */
+  height: 280px; /* Adjust the height as needed */
+  overflow: hidden; /*Hide overflow content if any */
 }
 
 
