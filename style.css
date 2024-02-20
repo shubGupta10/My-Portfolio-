@@ -76,66 +76,52 @@ body {
     }
 }
 
-
 /* skills section */
-.container{
+.container {
+    color: white;
     background-color: rgba(85, 83, 83, 0.671);
     margin-bottom: 200px;
-}
-
-#skillsImg{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  }
+  
+  #skillsImg {
     color: wheat;
-}
-
-.skillsImage{
-    max-height: 100px;
-    max-width: 100px;
-    margin-bottom: 300px;
-}
-
-#skills{
+  }
+  
+  #skillsImg .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .skillsImage {
+    max-height: 90px;
+    max-width: 90px;
+    margin-bottom: 90px; /* Adjust this margin as needed */
+  }
+  
+  #skills {
     margin-top: 190px;
     margin-bottom: 100px;
     font-size: 70px;
-}
-
+  }
+  
 
 /* education section */
-
-/* 
-
-div.row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
+.mycontainer{
+    padding: 40px;
 }
 
-.col header.title{
-    color: red;
-    padding: 0px 0px 0px 30px;
+#EducationText {
+    font-size: 60px; /* Adjust the font size as needed */
+    font-weight: bold; /* Adjust the font weight as needed */
+    margin-bottom: 80px;
+  }
 
-}
+  .card-title {
+    font-size: 20px; /* Adjust the font size as needed */
+    font-weight: bold; /* Adjust the font weight as needed */
+  }
 
-.col  .contents{
-    padding: 0 30px;
-    border-left: 2px solid black;
-}
-
-.col .contents .box{
-    position: relative;
-    padding: 20px;
-    border: 1px solid #eaeaea;
-    background-color: #ffffff;
-    cursor: pointer;
-    transition: all 0.4s;
-    margin-bottom: 20px;
-
-}
-
-.col .contents .box:hover{
-    box-shadow: 0px 3px 12px 0px #ccc;
-    border: 1px solid transparent;
-} */
+  .card-text {
+    font-size: 16px; /* Adjust the font size as needed */
+  }

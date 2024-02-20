@@ -8,7 +8,7 @@ aboutbtn.addEventListener('click', function(){
 
 const skills = document.getElementById('skills');
 const skillsBtn = document.getElementById('skillsBtn');
-const skillsContainer = document.getElementById('skillsSection');
+const skillsContainer = document.getElementById('containerbox');
 
 skillsBtn.addEventListener('click', function(){
     console.log("skills button working");
