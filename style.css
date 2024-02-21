@@ -106,7 +106,7 @@ body {
 /* skills section */
 .container {
   color: rgb(201, 207, 21);
-  background-color: rgba(85, 83, 83, 0.671);
+  background-color: #ffffff26;
   margin-bottom: 200px;
   border-radius: 20px;
 }
@@ -125,11 +125,9 @@ body {
   max-height: 90px;
   max-width: 90px;
   margin-bottom: 90px;
-  /* Adjust this margin as needed */
 }
 
 #skills {
-  margin-top: 190px;
   margin-bottom: 100px;
   font-size: 70px;
 }
@@ -146,11 +144,17 @@ body {
   padding: 40px;
 }
 
+.container{
+  background-color: rgb(38, 38, 171);
+  padding: 40px;
+}
+
 #EducationText {
-  font-size: 60px;
+  font-size: 90px;
   font-weight: bold;
   margin-bottom: 80px;
   color: rgb(201, 207, 21);
+  text-align: start;
 }
 
 .card-title {
@@ -169,8 +173,8 @@ body {
   text-align: start;
   color: rgb(201, 207, 21);
   margin: 10px 0px 90px 0px;
-  margin-bottom: 30px;
-  font-size: 80px;
+  margin-bottom: 90px;
+  font-size: 90px;
 }
 
 .projectcontainer {
@@ -217,4 +221,30 @@ body {
     padding: 10px;
   }
   
+}
+
+
+
+/* contact me */
+.myContactPage {
+  color: white;
+  position: relative; /* Make the section a positioning context */
+  max-width: 700px;
+}
+
+.container{
+  background-color: #ffffff26;
+}
+
+.contact-heading {
+  margin-top: 0;
+  color: white; /* Set font color to white */
+}
+
+@media (min-width: 768px) {
+  .myContactPage {
+    height: 100vh; /* Make the section take full viewport height */
+    display: flex;
+    align-items: center; /* Vertically center content */
+  }
 }
