@@ -40,6 +40,40 @@ body {
 
 }
 
+.resumeBtn{
+  background-color: rgb(107, 52, 167);
+  color: white;
+  min-height: 2em;
+  min-width: 3em;
+  border-radius: 2em;
+  cursor: pointer;
+  padding: 0.7em 1em;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.resumeBtn:hover{
+  background-color: rgb(68, 6, 113);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+}
+
+@media (max-width: 768px) {
+  .resumeBtn{
+    padding: 10px;
+  }
+}
+
+.textcolor{
+  color: #FFFFCC;
+}
+
+.paraText{
+  color: #90EE90;
+}
+
+
+
 @keyframes writeText {
   from {
     width: 0;
@@ -54,12 +88,9 @@ body {
   white-space: nowrap;
   overflow: hidden;
   animation: writeText 3s steps(40) forwards;
-  color: rgb(45, 27, 27)
 }
 
 .aboutText {
-  color: #0a2729;
-  /* Green color */
   font-style: italic;
   font-size: 25px;
 }
