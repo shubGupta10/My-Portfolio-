@@ -80,8 +80,12 @@ body {
   color: #FFFFCC;
 }
 
+.textcolorName{
+  color: #00ced1;
+}
+
 .paraText{
-  color: #90EE90;
+  color: #FFFFCC;
 }
 
 
@@ -117,8 +121,13 @@ body {
 }
 
 .social-icons img {
-  width: 40px; /* Adjust the width according to your preference */
+  width: 40px; 
   margin-right: 10px;
+}
+
+.hoverEffect:hover{
+  border: 3px inset rgb(10, 12, 49);
+  border-radius: 15px;
 }
 
 
@@ -151,7 +160,7 @@ body {
 
   #about {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
   }
 
   #myProfileImage {
@@ -164,7 +173,7 @@ body {
 /* skills section */
 .container {
   color: rgb(201, 207, 21);
-  background-color: #ffffff26;
+  /* background-color: #2c2f3f; */
   margin-bottom: 200px;
   border-radius: 20px;
 }
@@ -179,14 +188,20 @@ body {
 
 #skillsImg .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .skillsImage {
-  max-height: 90px;
-  max-width: 90px;
+  max-height: 120px;
+  max-width: 120px;
   margin-bottom: 90px;
+}
+
+.skillsImage:hover{
+  border-radius: 30px;
+  cursor: pointer;
+  border: 4px solid white;
 }
 
 #skills {
@@ -196,7 +211,7 @@ body {
 
 @media (max-width: 768px) {
   #targetskillSection{
-    padding: 20px;
+    padding: 15px;
     margin-top: 200px;
   }
 
@@ -247,21 +262,31 @@ body {
   text-align: start;
   color: rgb(201, 207, 21);
   margin: 10px 0px 90px 0px;
-  margin-bottom: 90px;
+  margin-bottom: 10px;
   font-size: 90px;
+}
+
+.projecth2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-size: 25px;
+  line-height: normal;
+  padding: 20px;
+  margin-bottom: 50px;
+  display: inline;
 }
 
 .projectcontainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the cards horizontally */
+  justify-content: start; /* Center the cards horizontally */
   margin: 0 auto;
   padding: 30px;
   max-width: 1200px;
 }
 
 #projectSection {
-  background-color: #4a4b56;
+  background-color: #2c2f3f;
   margin-top: 90px;
   border-radius: 20px;
   padding: 10px;
@@ -307,7 +332,7 @@ body {
 }
 
 .container{
-  background-color: #ffffff26;
+  background-color: #2c2f3f;
 }
 
 .contact-heading {
@@ -322,3 +347,6 @@ body {
     align-items: center; /* Vertically center content */
   }
 }
+
+
+/* footer section */
