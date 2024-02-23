@@ -30,6 +30,11 @@ body {
 }
 
 
+.navbar-toggler-icon {
+  background-color: white; /* Change the background color to white */
+}
+
+
 
 /* about section */
 
