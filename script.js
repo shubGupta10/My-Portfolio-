@@ -7,6 +7,13 @@ aboutbtn.addEventListener('click', function(){
 })
 
 
+//resume download button
+document.getElementById('viewButton').addEventListener('click', function() {
+    var driveLink = 'https://drive.google.com/file/d/16Zpyf6xtr-J8eBPjTCttzCYTDQrL8qZi/view?usp=drive_link';
+    window.open(driveLink, '_blank');
+});
+
+
 // skills target
 const skills = document.getElementById('skills');
 const skillsBtn = document.getElementById('skillsBtn');
