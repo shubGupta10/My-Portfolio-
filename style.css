@@ -230,6 +230,7 @@ body {
 .container{
   background-color: rgb(38, 38, 171);
   padding: 40px;
+  margin-top: 250px;
 }
 
 #EducationText {
