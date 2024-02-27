@@ -8,14 +8,14 @@ aboutbtn.addEventListener('click', function(event){
 })
 
 
-//resume download button
-// document.getElementById('viewButton').addEventListener('click', function() {
-//     var resumeUrl = 'ProjectImages/Resume_New.pdf'; 
-//     var link = document.createElement('a');
-//     link.href = resumeUrl;
-//     link.download = 'Resume_New.pdf'; 
-//     link.click();
-// });
+// resume download button
+document.getElementById('viewButton').addEventListener('click', function() {
+    var resumeUrl = 'ProjectImages/Resume_New.pdf'; 
+    var link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Resume_New.pdf'; 
+    link.click();
+});
 
 
 // skills target
