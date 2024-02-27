@@ -9,10 +9,13 @@ aboutbtn.addEventListener('click', function(event){
 
 
 //resume download button
-document.getElementById('viewButton').addEventListener('click', function() {
-    var driveLink = 'https://drive.google.com/file/d/16Zpyf6xtr-J8eBPjTCttzCYTDQrL8qZi/view?usp=drive_link';
-    window.open(driveLink, '_blank');
-});
+// document.getElementById('viewButton').addEventListener('click', function() {
+//     var resumeUrl = 'ProjectImages/Resume_New.pdf'; 
+//     var link = document.createElement('a');
+//     link.href = resumeUrl;
+//     link.download = 'Resume_New.pdf'; 
+//     link.click();
+// });
 
 
 // skills target

@@ -51,8 +51,8 @@ body {
   font-size: 30px;
 
 }
-
-.resumeBtn{
+.resumeBtn {
+  display: inline-block;
   background-color: rgb(107, 52, 167);
   color: white;
   min-height: 2em;
@@ -61,14 +61,17 @@ body {
   cursor: pointer;
   padding: 0.7em 1em;
   font-size: 18px;
+  border: 2px solid black;
+  text-decoration: none; 
   transition: background-color 0.3s;
 }
 
-.resumeBtn:hover{
+.resumeBtn:hover {
   background-color: rgb(68, 6, 113);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   border: 2px solid white;
 }
+
 
 @media (max-width: 768px) {
   .resumeBtn{
