@@ -333,6 +333,10 @@ body {
     height: auto; /* Let the height adjust proportionally */
     object-fit: contain; /* Adjust the object-fit property as needed */
   }
+
+  #info{
+    font-size: 15px;
+  }
 }
 
 
