@@ -352,6 +352,7 @@ body {
 
 @media (max-width: 400px) {
   #info{
+    padding: 5px;
     font-size: 15px;
     padding: 0;
   }
