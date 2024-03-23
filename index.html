@@ -11,6 +11,25 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .card {
+        background-color: #09092c;
+        background-size: cover;
+        background-position: center;
+        color: white; /* You may need to adjust text color for better visibility */
+      }
+
+      .card-img {
+    width: 50px; /* Change the width as needed */
+    height: auto; /* Automatically adjust height based on width */
+    padding: 20px;
+  }
+
+      #skillsImg{
+        margin-bottom: 20px;
+      }
+      
+    </style>
 </head>
 <body>
     <!-- here is our navbar -->
@@ -59,7 +78,7 @@
     <section class="home">
       <div class="container-lg">
         <div class="row min-vh-80 align-items-center align-content-center">
-          <div class="col-md-5 order-md-last">
+          <div class="col-md-5 order-md-last" style="margin-top: 80px;">
             <div class="home-img text-center">
               <img id="myProfileImage"
                 src="/ProjectsImages/git_dp.jpg"
@@ -88,86 +107,166 @@
         </div>
       </div>
     </section>
+
+    <!-- new About  -->
+    <section id="aboutNew" class="aboutNew">
+      <div class="container-fluid  aboutContainer">
+        <div class="container-lg">
+          <div class="row min-vh-100  align-items-center align-content-center">
+            <!-- Photo -->
+            <div class="col-md-5 order-md-first">
+              <div class="about-img text-center">
+                <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-devops-illustration_23-2149387396.jpg" alt="Your Photo" class="rounded-circle img-fluid">
+              </div>
+            </div>
+            <!-- Text -->
+            <div class="col-md-7 order-md-last">
+              <div class="about-text">
+                <h2 class="aboutme"><span>About</span> Me</h2>
+                <p>I am a dedicated web developer currently pursuing a Bachelor of Computer Applications degree. With a good foundation in HTML, CSS, and JavaScript, I specialize in crafting responsive and user-friendly websites. I am passionate about creating engaging online experiences and thrive on the challenges of web development.
+                  In addition to my technical skills, I have a keen eye for design and strive to create visually appealing interfaces that leave a lasting impression on users. I am proficient in using frameworks and technologies such as the MERN (MongoDB, Express.js, React.js, Node.js) stack to build full-stack web applications.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     
 
     <!-- Skills section -->
-    <section id="targetskillSection">
+    <!-- <section id="targetskillSection">
       <div class="container text-center " id="containerbox">
         <h1 id="skills">Relevant Skills</h1>
         <div id="skillsImg">
           <div class="row">
-            <div class="col">
+            <div class="col-1">
               <img src="/Images/html-5.png" class="skillsImage img-fluid" alt="">
             </div>
-            <div class="col">
+            <div class="col-1">
               <img src="/Images/java.png" class="skillsImage img-fluid" alt="">
             </div>
-            <div class="col">
+            <div class="col-1">
               <img src="/Images/JavaScript.png" class="skillsImage img-fluid" alt="">
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col-1">
               <img src="/Images/react js.png" class="skillsImage img-fluid " alt="">
             </div>
-            <div class="col">
+            <div class="col-1">
               <img src="/Images/css.png" class="skillsImage img-fluid" alt="">
             </div>
           </div>
         </div>
       </div>
     </section>
+     -->
+
+
+     <section id="targetskillSection" style="background-color: #000000;">
+      <div class="container text-center min-vh-80"  id="containerbox" style="display: flex; flex-direction: column; margin-top: 40px;">
+        <div>
+          <h1 id="skills" style="  color: orangered; font-size: 80px; margin-bottom: 30px;">My <span style="color: aqua;">Skills</span></h1>
+          <div style="
+          padding: 40px; font-size: 40px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+        </div>
+        <div id="skillsImg">
+          <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/html-5.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/java.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/JavaScript.png" class="skillsImage img-fluid" alt="">
+              
+            </div>
+            <!-- Add more skills here -->
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/react js.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/mongodb.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/nodejs.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <!-- Add more skills here -->
+          </div>
+          <!-- Add more rows if necessary -->
+          <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/react js.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/mongodb.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+              <img src="/Images/nodejs.png" class="skillsImage img-fluid" alt="">
+            </div>
+            <!-- Add more skills here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
   <!-- Project section -->
   <section class="projectcontainer" id="projectSection">
     <h1 id="projectHead">Projects</h1>
-    <h3  class="projecth2 row-6">This section showcases some of my key projects. Each project represents a significant achievement and demonstrates my skills and capabilities in software development. These projects have provided valuable learning experiences and opportunities to apply theoretical knowledge in practical scenarios.</h3>
+    <h3  class="projecth2 row-6">This section showcases some of my key projects. Each project represents a significant achievement and demonstrates my skills and capabilities in software development. .</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- Project 1 -->
         <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="/ProjectsImages/passwordGenerator.png" class="card-img-top" alt="Project 1 Image">
-                <div class="card-body">
-                    <h5 class="card-title">Password Generator</h5>
-                    <p class="card-text">Tech used: React Js(Front-end)</p>
-                    <p class="card-text">Generate strong and secure passwords effortlessly with SecurePass: Your ultimate password generator app.</p>
-                    <a href="https://github.com/shubGupta10/PasswordGenerator" class="btn btn-primary">See the Code</a>
-                    <a href="https://password-generator-six-nu.vercel.app/" class="btn btn-secondary">Demo</a>
+            <div class="card" style="width: 20rem;" id="cardNew">
+                <img src="/Images/blogPoint.png"  class="card-img-top" alt="Project 1 Image">
+                <div class="card-body" style="margin-bottom: 40px;">
+                    <h5 class="card-title" style="color: aqua;">Blog Point</h5>
+                    <p class="card-text">Front-end: React Js</p>
+                    <p class="card-text">Backend: Appwrite</p>
+                    <p class="card-text">A Blog Web App where people can write blogs seamlessly.</p>
+                    <a href="https://github.com/shubGupta10/BlogPoint-" class="btn btn-primary">See the Code</a>
+                    <a href="https://blog-point.vercel.app/" class="btn btn-secondary">Demo</a>
                 </div>
             </div>
         </div>
         <!-- Project 2 -->
         <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="/ProjectsImages/Portfolio.png" class="card-img-top" alt="Project 2 Image">
-                <div class="card-body">
-                    <h5 class="card-title">My Portfolio</h5>
-                    <p class="card-text">Tech used: HTML, CSS and JavaScript</p>
-                    <p class="card-text"></p>
-                    <a href="https://github.com/shubGupta10/My-Portfolio-" class="btn btn-primary">See the code</a>
-                    <a href="https://my-portfolio-henna-tau-95.vercel.app/" class="btn btn-secondary">Demo</a>
-                </div>
-            </div>
-        </div>
+          <div class="card" style="width: 20rem;">
+              <img src="/Images/pinfuence.png" class="card-img-top" alt="Project 5 Image">
+              <div class="card-body">
+                  <h5 class="card-title" style="color: aqua;">Pinfluence WebApp</h5>
+                  <p class="card-text">Tech used: MERN</p>
+                  <p class="card-text">Cloud Service: Mongodb Atlas</p>
+                  <p class="card-text">A WebApp where people can explore their ideas!!</p>
+                  <a href="https://github.com/shubGupta10/CalcConverter" class="btn btn-primary">See the Code</a>
+                  <a href="https://pinfluence-bmhy.onrender.com/" class="btn btn-secondary">Demo</a>
+              </div>
+          </div>
+      </div>
         <!-- Project 3 -->
         <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="/ProjectsImages/TikTakToe.png" class="card-img-top" alt="Project 3 Image">
+            <div class="card" style="width: 20rem;">
+                <img src="/Images/Instagram Clone.png" class="card-img-top" alt="Project 3 Image">
                 <div class="card-body">
-                    <h5 class="card-title">Tic Tak Toe</h5>
-                    <p class="card-text">Tech used: React Js(Front-end)</p>
-                    <p class="card-text">Enjoy classic gaming fun anytime, anywhere with TikTacToe: Your go-to tic-tac-toe game app.</p>
-                    <a href="https://github.com/shubGupta10/TicTakToe" class="btn btn-primary">See the Code</a>
-                    <a href="https://tic-tak-toe-eta.vercel.app/" class="btn btn-secondary">Demo</a>
+                    <h5 class="card-title" style="color: aqua;">Instagram Clone</h5>
+                    <p class="card-text">Tech used: MERN</p>
+                    <p class="card-text">A WebApp where people can login, logout and upload their pics.</p>
+                    <a href="https://github.com/shubGupta10/Instagram-Clone" class="btn btn-primary">See the Code</a>
+                    <a href="https://github.com/shubGupta10/Instagram-Clone" class="btn btn-secondary">Demo</a>
                 </div>
             </div>
         </div>
         <!-- Project 4 -->
         <div class="col">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 20rem;">
                 <img src="/ProjectsImages/Todo.png" class="card-img-top" alt="Project 4 Image">
                 <div class="card-body">
-                    <h5 class="card-title">Todo App</h5>
+                    <h5 class="card-title" style="color: aqua;">Todo App with Local-Storage</h5>
                     <p class="card-text">Tech used: React Js</p>
                     <p class="card-text">Stay organized and on top of your tasks with Todo: Your intuitive task management app..</p>
                     <a href="https://github.com/shubGupta10/Todo-App" class="btn btn-primary">See the Code</a>
@@ -177,64 +276,68 @@
         </div>
         <!-- Project 5 -->
         <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="/ProjectsImages/app_icon.png" class="card-img-top" alt="Project 5 Image">
-                <div class="card-body">
-                    <h5 class="card-title">CalcConverter Android App</h5>
-                    <p class="card-text">Tech used: Android Studio(Java)</p>
-                    <p class="card-text">Your pocket calculator & unit converter, powered by Android.</p>
-                    <a href="https://github.com/shubGupta10/CalcConverter" class="btn btn-primary">See the Code</a>
-                    <a href="https://github.com/shubGupta10/CalcConverter/tree/main" class="btn btn-secondary">Download Apk</a>
-                </div>
-            </div>
-        </div>
+          <div class="card" style="width: 20rem;">
+              <img src="/Images/my-Portfolio.png" class="card-img-top" alt="Project 2 Image">
+              <div class="card-body">
+                  <h5 class="card-title" style="color: aqua;">My Portfolio</h5>
+                  <p class="card-text">Tech used: HTML, CSS and JavaScript</p>
+                  <p class="card-text">Framwork: Bootstrap</p>
+                  <p class="card-text">A Portfolio Website , where you get to know more about me</p>
+                  <a href="https://my-portfolio-10.vercel.app/" class="btn btn-primary">See the code</a>
+                  <a href="https://my-portfolio-henna-tau-95.vercel.app/" class="btn btn-secondary">Demo</a>
+              </div>
+          </div>
+      </div>
     </div>
 </section>
 
+
+
+
    <!-- Education section -->
-   <section class="mycontainer container" id="targeteducationSection">
-    <div class=" text-center" >
-      <h1 id="EducationText">Education</h1>
+   <section id="eduSec" class="min-vh-80" style="margin-top: 50px; padding: 40px; margin-bottom: 40px; background-color: #06081e;" >
+    <div class="text-center"style=" color: yellow; font-size: 70px; margin-bottom:20px;">
+      <div id="EducationText" >Education</div>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="/Images/BBDU.jpg" class="card-img-top" alt="BBDU Image">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Babu Banarasi Das University</h5>
-            <p class="card-text">Bachelor of Computer Applications</p>
-            <p class="card-text">Average CGPA: 8.5</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="/Images/st-thomas.jpeg" class="card-img-top" alt="St. Thomas Image">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">St. Thomas College</h5>
-            <p class="card-text">High School</p>
-            <p class="card-text">Percentage: %</p>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col">
-        <div class="card h-100">
-          <img src="/Images/gyan-peetika.jpg" class="card-img-top" alt="Gyan Peetika Image">
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Gyan Peetika Senior secondary school</h5>
-            <p class="card-text">Intermediate</p>
-            <p class="card-text">Percentage: 0%</p>
-          </div>
-        </div>
+   <div class="container" id="profile-container">
+    <div id="education-card">
+      <img id="avatar" src="/Images/BBDU.jpg" alt="avatar" style="object-fit: contain; background-color: #9a9fa2; opacity: 1;" />
+      <div id="info">
+        <h5 id="name" style="font-size: 30px; color: rgb(10, 159, 196); ">Babu Banarasi Das University  (2021-2024)</h5> 
+        <p id="activity">Bachelor of Computer Applications</p> <!-- Use <%- %> for escaping -->
+        <p class="tagline">Average CGPA: 8.5</p>
       </div>
     </div>
+  </div>
   </section>
+
+
+  <!-- 
+    <section class="mycontainer min-vh-100" id="targeteducationSection">
+  <div class="text-center">
+    <h1 id="EducationText">Education</h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col" style="width: 500px;">
+      <div class="card h-100" style="display: flex;">
+        <img src="/Images/BBDU.jpg" class="card-img-left" alt="BBDU Image" style="width: 200px; height: auto;">
+        <div class="card-body d-flex flex-column justify-content-center">
+          <h5 class="card-title">Babu Banarasi Das University</h5>
+          <p class="card-text">Bachelor of Computer Applications</p>
+          <p class="card-text">Average CGPA: 8.5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+   -->
+  
 
 
   <!-- Contact Me -->
  <section id="contactMe" style="padding: auto;">
-    <div class="container justify-content-center" style="margin: auto; margin-top: 200px; max-width:auto; margin-bottom: 100px;">
+    <div class="container justify-content-center" style="margin: auto; margin-top: 40px; max-width:auto; margin-bottom: 50px;">
       <h2 class="text-center mb-4 fs-15 " >Contact Me</h2>
       <form class="row g-3">
         <div class="col-12">

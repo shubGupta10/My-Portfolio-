@@ -5,15 +5,26 @@ aboutbtn.addEventListener('click', function(event){
     event.preventDefault();
     console.log("click");
     about.scrollIntoView();
-})
+});
+
+
+
+const aboutNew = document.getElementById('aboutNew');
+const aboutBtn = document.getElementById('aboutBtn');
+
+aboutBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log("click");
+    aboutNew.scrollIntoView();
+});
 
 
 
 
 // skills target
-const skills = document.getElementById('skills');
+const skills = document.getElementById('targetskillSection');
 const skillsBtn = document.getElementById('skillsBtn');
-const skillsContainer = document.getElementById('targetskillSection');
+const skillsContainer = document.getElementById('skills');
 
 skillsBtn.addEventListener('click', function(event){
     event.preventDefault();
@@ -24,12 +35,13 @@ skillsBtn.addEventListener('click', function(event){
 
 //education target
 const education = document.getElementById('EducationBtn');
-const educationContainer = document.getElementById('targeteducationSection');
+const educationContainer = document.getElementById('eduSec');
 
-education.addEventListener('click', function(event){
-    event.preventDefault();
-    educationContainer.scrollIntoView();
+education.addEventListener('click', function(event) {
+  event.preventDefault();
+  educationContainer.scrollIntoView({ behavior: 'smooth' });
 });
+
 
 //project target
 
