@@ -64,8 +64,3 @@ contact.addEventListener('click', function(event){
 })
 
 
-const form = document.getElementById('myForm');
-
-form.addEventListener('submit', function(event){
-    form.reset();
-});
