@@ -67,6 +67,5 @@ contact.addEventListener('click', function(event){
 const form = document.getElementById('myForm');
 
 form.addEventListener('submit', function(event){
-    event.preventDefault();
     form.reset();
 });
