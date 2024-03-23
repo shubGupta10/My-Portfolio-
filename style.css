@@ -77,7 +77,7 @@ body {
 
 @media (max-width: 768px) {
   .about-text{
-    font-size: 20px;
+    font-size: 17px;
     margin-top: 10px;
   }
 }
@@ -371,6 +371,12 @@ body {
   display: inline;
 }
 
+@media (max-width: 768px) {
+  .projecth2{
+    font-size: 15px;
+  }
+}
+
 .projectcontainer {
   display: flex;
   flex-wrap: wrap;
@@ -432,14 +438,14 @@ body {
 
 .contact-heading {
   margin-top: 0;
-  color: white; /* Set font color to white */
+  color: white; 
 }
 
 @media (min-width: 768px) {
   .myContactPage {
-    height: 100vh; /* Make the section take full viewport height */
+    height: 100vh; 
     display: flex;
-    align-items: center; /* Vertically center content */
+    align-items: center; 
   }
 }
 
