@@ -323,6 +323,10 @@ body {
   font-size: 30px;
 }
 
+#name{
+  font-size: 30px;
+}
+
 @media (max-width: 768px) {
   #education-card{
     margin-top: 10px;
