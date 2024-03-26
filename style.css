@@ -347,10 +347,12 @@ body {
   }
 
   #info{
-    font-size: 20px;
+    font-size: 17px;
   }
 
-
+  #name{
+    font-size: 18px;
+  }
  
 }
 
