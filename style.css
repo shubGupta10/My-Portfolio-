@@ -355,6 +355,7 @@ body {
   }
 }
 
+/*  for more small screen */
 @media (max-width: 400px) {
   #info{
     padding: 5px;
