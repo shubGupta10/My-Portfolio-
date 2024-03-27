@@ -329,6 +329,7 @@ body {
 
 @media (max-width: 768px) {
   #education-card{
+    padding: 0;
     margin-top: 10px;
     object-fit: cover;
     display: flex;
