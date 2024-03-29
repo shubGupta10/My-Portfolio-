@@ -73,6 +73,7 @@ body {
 .aboutme{
   color: #050517;
   margin-top: 10px;
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -138,6 +139,10 @@ body {
 
 .paraText{
   color: #FFFFCC;
+}
+
+.AboutText{
+  margin-top: 30px;
 }
 
 
