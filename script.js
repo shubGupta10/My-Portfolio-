@@ -22,14 +22,12 @@ aboutBtn.addEventListener('click', function(event) {
 
 
 // skills target
-const skills = document.getElementById('targetskillSection');
 const skillsBtn = document.getElementById('skillsBtn');
-const skillsContainer = document.getElementById('skills');
 
 skillsBtn.addEventListener('click', function(event){
     event.preventDefault();
     console.log("skills button working");
-    skillsContainer.scrollIntoView();
+    document.getElementById('targetskillSection').scrollIntoView();
 });
 
 
