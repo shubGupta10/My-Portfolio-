@@ -25,6 +25,9 @@ body {
   transition: all 1s;
 }
 
+
+
+
 .show{
   opacity: 1;
   filter: blur(0);
