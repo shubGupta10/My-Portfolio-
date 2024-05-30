@@ -21,13 +21,13 @@ const About = () => {
           <div className="container-lg">
             <div className="row  align-items-center align-content-center">
               <div className="col-md-5 order-md-first">
-                <div className="about-img text-center img">
+                <div className="about-img text-center Mainimg">
                   <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-devops-illustration_23-2149387396.jpg" alt="Your Photo" className="rounded-circle img-fluid goodlook" />
                 </div>
               </div>
               <div className="col-md-7 order-md-last">
                 <div className="about-text">
-                  <h2 className="aboutme goodlook"><span>About</span> Me</h2>
+                  <h2 className="aboutme goodlook"><span>A</span>bout <span>M</span>e</h2>
                   <p className="AboutText goodlook">I am a dedicated web developer currently pursuing a Bachelor of Computer Applications degree. With a good foundation in HTML, CSS, and JavaScript, I specialize in crafting responsive and user-friendly websites. I am passionate about creating engaging online experiences and thrive on the challenges of web development.
                     In addition to my technical skills, I have a keen eye for design and strive to create visually appealing interfaces that leave a lasting impression on users. I am proficient in using frameworks and technologies such as the MERN (MongoDB, Express.js, React.js, Node.js) stack to build full-stack web applications.</p>
                 </div>

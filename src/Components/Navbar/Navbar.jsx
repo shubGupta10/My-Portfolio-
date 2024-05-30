@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav id="NavPos" className="navbar navbar-expand-lg w-100 bg-gold">
       <div className="container-fluid">
-        <Link className="navbar-brand myportfolioColor fs-1 fw-bold" to="/" >My Portfolio</Link>
+        <Link className="navbar-brand myportfolioColor " to="/" >My Portfolio</Link>
         <Link to="/contact" className='contactIcon'>
           <FontAwesomeIcon icon={faEnvelope} />
         </Link>
