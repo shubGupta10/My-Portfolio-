@@ -23,7 +23,7 @@ const Home = () => {
               <div className="home-img text-center">
                 <img
                   id="myProfileImage"
-                  src="public\assets\git_dp.jpg"
+                  src="public/assets/git_dp.jpg"
                   alt="Profile Dp"
                   className="rounded-circle img-fluid goodlook"
                 />
