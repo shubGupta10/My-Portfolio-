@@ -4,6 +4,11 @@ import "./Projects.css"
 import Footer from '../Footer/Footer'
 import Pagination from '../PaginationLinks'
 import NewFooter from '../NewFooter/NewFooter'
+import blogPoint from "../../../public/assets/Images/blogPoint.png?url"
+import pinfluence from "../../../public/assets/Images/pinfluence.png?url"
+import InstaClone from "../../../public/assets/Images/Instagram Clone.png?url"
+import Todo from "../../../public/assets/Images/Todo.png?url"
+import portfolio from "../../../public/assets/Images/my-portfolio.png?url"
 
 const Projects = () => {
 
@@ -22,7 +27,7 @@ const Projects = () => {
           {/* Project 1 */}
           <div className="col">
             <div className="card" style={{ width: '80%' }} id="cardNew">
-              <img src="public/assets/Images/blogPoint.png" className="card-img-top" alt="Project 1 Image" />
+              <img src={blogPoint} className="card-img-top" alt="Project 1 Image" />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: 'aqua' , fontSize: '2rem' }}>Blog Point</h5>
                 <p className="card-text">Front-end: React Js <br /> Backend: Appwrite</p>
@@ -37,7 +42,7 @@ const Projects = () => {
           {/* Project 2 */}
           <div className="col">
             <div className="card" style={{ width: '80%' }}>
-              <img src="public/assets/Images/pinfuence.png" className="card-img-top" alt="Project 5 Image" />
+              <img src={pinfluence} className="card-img-top" alt="Project 5 Image" />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: 'aqua' }}>Pinfluence WebApp</h5>
                 <p className="card-text">Tech used: MERN <br /> Cloud Service: Mongodb Atlas</p>
@@ -52,7 +57,7 @@ const Projects = () => {
           {/* Project 3 */}
           <div className="col">
             <div className="card" style={{ width: '80%' }}>
-              <img src="public/assets/Images/Instagram Clone.png" className="card-img-top" alt="Project 3 Image" />
+              <img src={InstaClone} className="card-img-top" alt="Project 3 Image" />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: 'aqua' }}>Instagram Clone</h5>
                 <p className="card-text">Tech used: MERN</p>
@@ -67,7 +72,7 @@ const Projects = () => {
           {/* Project 4 */}
           <div className="col">
             <div className="card" style={{ width: '80%' }}>
-              <img src="public/assets/Images/Todo.png" className="card-img-top" alt="Project 4 Image" />
+              <img src={Todo} className="card-img-top" alt="Project 4 Image" />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: 'aqua' }}>Todo App with Local-Storage</h5>
                 <p className="card-text">Tech used: React Js</p>
@@ -82,7 +87,7 @@ const Projects = () => {
           {/* Project 5 */}
           <div className="col">
             <div className="card" style={{ width: '80%' }}>
-              <img src="public/assets/Images/my-Portfolio.png" className="card-img-top" alt="Project 2 Image" />
+              <img src={portfolio} className="card-img-top" alt="Project 2 Image" />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: 'aqua' }}>My Portfolio</h5>
                 <p className="card-text">Tech used: HTML, CSS, JavaScript <br /> Framework: Bootstrap</p>
