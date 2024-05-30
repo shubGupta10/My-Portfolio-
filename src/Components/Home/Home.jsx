@@ -6,7 +6,7 @@ import { faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-
 import Footer from '../Footer/Footer.jsx';
 import NewFooter from '../NewFooter/NewFooter.jsx';
 import Pagination from '../PaginationLinks.jsx';
-import ProfileImage from "assets/Images/blogPoint.png"
+import ProfileImage from "../../../public/assets/Images/blogPoint.png?url"
 
 const Home = () => {
 
