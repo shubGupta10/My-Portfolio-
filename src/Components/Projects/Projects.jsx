@@ -5,10 +5,10 @@ import Footer from '../Footer/Footer'
 import Pagination from '../PaginationLinks'
 import NewFooter from '../NewFooter/NewFooter'
 import blogPoint from "../../../public/assets/Images/blogPoint.png?url"
-import pinfluence from "../../../public/assets/Images/pinfluence.png?url"
+import pinfluence from "../../../public/assets/Images/pinfuence.png?url"
 import InstaClone from "../../../public/assets/Images/Instagram Clone.png?url"
 import Todo from "../../../public/assets/Images/Todo.png?url"
-import portfolio from "../../../public/assets/Images/my-portfolio.png?url"
+import portfolio from "../../../public/assets/Images/my-Portfolio.png?url"
 
 const Projects = () => {
 
