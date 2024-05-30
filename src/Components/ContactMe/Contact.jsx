@@ -11,6 +11,8 @@ import {
 import Footer from "../Footer/Footer";
 import Pagination from "../PaginationLinks";
 import NewFooter from "../NewFooter/NewFooter";
+import location from "../../../public/assets/Images/location.svg"
+import email from "../../../public/assets/Images/email.svg"
 
 const Contact = () => {
 
@@ -48,7 +50,7 @@ const Contact = () => {
             }}
           >
             <img
-              src="src\assets\Images\location.svg"
+              src={location}
               alt="Location"
               className="ContactImg"
             />
@@ -66,7 +68,7 @@ const Contact = () => {
           >
             <img
               className="ContactImg"
-              src="src\assets\Images\email.svg"
+              src={email}
               alt="Email"
               style={{ marginRight: "10px" }}
             />
