@@ -6,7 +6,7 @@ import { faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-
 import Footer from '../Footer/Footer.jsx';
 import NewFooter from '../NewFooter/NewFooter.jsx';
 import Pagination from '../PaginationLinks.jsx';
-
+import ProfileImage from "public/assets/Images/blogPoint.png"
 
 const Home = () => {
 
@@ -23,7 +23,7 @@ const Home = () => {
               <div className="home-img text-center">
                 <img
                   id="myProfileImage"
-                  src="public/assets/git_dp.jpg"
+                  src={ProfileImage}
                   alt="Profile Dp"
                   className="rounded-circle img-fluid goodlook"
                 />
