@@ -1,0 +1,159 @@
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin-right: auto;
+}
+
+
+
+
+.leftText {
+    padding: 20px;
+    font-size: 30px;
+}
+
+.home-img img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-img img:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 0 20px 5px aqua;
+    cursor: pointer;
+}
+
+.resumeBtn {
+    display: inline-block;
+    background-color: #25283b;
+    color: white;
+    min-height: 2em;
+    margin-top: 20px;
+    min-width: 3em;
+    border-radius: 2em;
+    cursor: pointer;
+    padding: 0.7em 1em;
+    font-size: 18px;
+    border: 2px solid black;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.resumeBtn:hover {
+    background-color: rgb(20, 83, 83);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid aqua;
+
+}
+
+@media (max-width: 768px) {
+    .resumeBtn {
+        padding: 10px;
+        margin-top: 30px;
+        padding: 0.7em 1em;
+        font-size: 18px;
+        border: 2px solid black;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        border-radius: 2em;
+
+    }
+
+    .social-iconss {
+        margin-left: 110px;
+        margin-top: 10px;
+    }
+}
+
+
+.textcolor {
+    color: #FFFFCC;
+}
+
+.textcolorName {
+    color: #00ced1;
+}
+
+.paraText {
+    color: #FFFFCC;
+}
+
+.AboutText {
+    margin-top: 30px;
+}
+
+@keyframes writeText {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.animated-text {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: writeText 3s steps(40) forwards;
+}
+
+.aboutText {
+    font-style: italic;
+    font-size: 25px;
+}
+
+#myProfileImage {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.social-iconss {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-iconss a {
+    color: aqua;
+}
+
+.social-iconss a:hover {
+    color: #00ced1;
+}
+
+.social-iconss img,
+.social-icons .fa-icon {
+    width: 40px;
+    filter: invert(100%);
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #about {
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    #myProfileImage {
+        margin-top: 30px;
+        height: 250px;
+        width: auto;
+    }
+
+    .social-icons {
+        margin-left: 30px;
+        gap: 25px;
+    }
+}

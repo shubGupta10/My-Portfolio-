@@ -1,0 +1,114 @@
+import React from 'react';
+import Navbar from '../Navbar/Navbar';
+import "./Skills.css";
+import htmlicon from '../../assets/icons/html-icon.svg';
+import cssicon from "../../assets/icons/css-icon.svg";
+import js from "../../assets/icons/javascript.svg";
+import react from "../../assets/icons/reactjs.svg";
+import MaterialUI from "../../assets/icons/materialUI.svg";
+import firebase from "../../assets/icons/firebase.svg";
+import tailwind from "../../assets/icons/tailwind.svg";
+import Bootstrap from "../../assets/icons/bootstrap.svg"
+import redux from "../../assets/icons/redux.svg";
+import java from "../../assets/icons/java.svg";
+import nodejs from "../../assets/icons/nodejs.svg";
+import express from "../../assets/icons/express.svg";
+import mongodb from "../../assets/icons/mongodb.svg";
+import github from "../../assets/icons/github.svg";
+import git from "../../assets/icons/git.svg";
+import vercel from "../../assets/icons/vercel.svg";
+import render from "../../assets/icons/render.svg";
+import netlify from "../../assets/icons/netlify.svg";
+import Footer from '../Footer/Footer';
+
+import Pagination from '../PaginationLinks';
+import NewFooter from '../NewFooter/NewFooter';
+
+const Skills = () => {
+
+    const nextPage = "/projects"; 
+    const prevPage = "/about";
+
+
+    const languages = [
+        {name: 'JavaScript', icon: js},
+        {name: 'Java', icon: java}
+    ];
+
+    const frontendSkills = [
+        { name: 'HTML', icon: htmlicon },
+        { name: 'CSS', icon: cssicon },
+        { name: 'JavaScript', icon: js },
+        { name: 'React Js', icon: react },
+        { name: 'MaterialUI', icon: MaterialUI },
+        { name: 'FireBase', icon: firebase },
+        { name: 'Tailwind CSS', icon: tailwind },
+        { name: 'Bootstrap', icon: Bootstrap },
+        { name: 'Redux', icon: redux }
+    ];
+
+    const backendSkills = [
+        { name: 'Node js', icon: nodejs },
+        { name: 'Express Js', icon: express },
+        { name: 'MongoDB', icon: mongodb },
+    ];
+
+    const developerToolsDeployment = [
+        { name: 'Github', icon: github },
+        { name: 'Git', icon: git },
+        { name: 'Vercel', icon: vercel },
+        { name: 'Render', icon: render },
+        { name: 'Netlify', icon: netlify }
+    ];
+
+    const renderSkills = (skills) => {
+        return skills.map((skill, index) => (
+            <div key={index} className=" col-6 col-md-4 col-lg-2 skillsection mb-4">
+                <div className="skills-section p-3 text-center">
+                    {skill.icon && <img src={skill.icon} alt={skill.name} className="skillsImage img-fluid" />}
+                    <p className="mt-2">{skill.name}</p>
+                </div>
+            </div>
+        ));
+    };
+
+    return (
+        <div>
+            <Navbar />
+            <section className="container mt-5">
+                <div className='mb-5 text-center'>
+                    <h2 className='textHead'>Here you can checkout my skills</h2>
+                </div>
+                <div className="mb-5">
+                    <h2 className='textmain'>Languages:</h2>
+                    <div className="row">
+                        {renderSkills(languages)}
+                    </div>
+                </div>
+                <div className="mb-5">
+                    <h2 className='textmain'>Frontend:</h2>
+                    <div className="row">
+                        {renderSkills(frontendSkills)}
+                    </div>
+                </div>
+                <div className="mb-5">
+                    <h2 className='textmain'>Backend:</h2>
+                    <div className="row">
+                        {renderSkills(backendSkills)}
+                    </div>
+                </div>
+                <div className="mb-5">
+                    <h2 className='textmain'>Tools and Deployment:</h2>
+                    <div className="row">
+                        {renderSkills(developerToolsDeployment)}
+                    </div>
+                </div>
+            </section>
+            <Pagination prevPage={prevPage} nextPage={nextPage} />
+            <NewFooter/>
+            <Footer/>
+        </div>
+    );
+}
+
+export default Skills;

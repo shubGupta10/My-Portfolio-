@@ -1,0 +1,70 @@
+.skills-section {
+  background-color: #09092c;
+  color: rgb(20, 243, 191);
+  border: 1px solid rgb(20, 243, 191);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-section:hover{
+  box-shadow: 0 0 20px 5px aqua;
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.skillsection{
+    padding-top: 50px;
+}
+
+.skillsImage {
+  color: rgb(20, 195, 243);
+  width: 4rem;
+  height: 4rem;
+}
+
+.textmain {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(206, 184, 39);
+}
+
+
+.textHead{
+  font-size: 40px;
+  font-weight: bold;
+  color: aqua;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 1rem;
+    font-size: 3.5em;
+  }
+
+  .skillsImage {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .textmain {
+    font-size: 1.5rem;
+  }
+
+  .skills-section p {
+    font-size: 1rem;
+  }
+
+  .textHead{
+    font-size: 1.5rem;
+  }
+}
