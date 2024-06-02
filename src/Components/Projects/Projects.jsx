@@ -49,7 +49,7 @@ const Projects = () => {
                 <p className="card-text">A WebApp where people can explore their ideas!!</p>
                 <div className="d-flex justify-content-between">
                   <a href="https://github.com/shubGupta10/CalcConverter" className="btn btn-primary">Code</a>
-                  <a href="https://pinfluence-production.up.railway.app/" className="btn btn-secondary">Demo</a>
+                  <a href="https://pinfluence-a6jx.onrender.com/" className="btn btn-secondary">Demo</a>
                 </div>
               </div>
             </div>
