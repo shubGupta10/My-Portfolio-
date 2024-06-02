@@ -44,7 +44,7 @@ const Projects = () => {
             <div className="card" style={{ width: '80%' }}>
               <img src={pinfluence} className="card-img-top" alt="Project 5 Image" />
               <div className="card-body">
-                <h5 className="card-title" style={{ color: 'aqua' }}>Pinfluence WebApp</h5>
+                <h5 className="card-title" style={{ color: 'aqua', fontSize: '2rem' }}>Pinfluence - WebApp</h5>
                 <p className="card-text">Tech used: MERN <br /> Cloud Service: Mongodb Atlas</p>
                 <p className="card-text">A WebApp where people can explore their ideas!!</p>
                 <div className="d-flex justify-content-between">
@@ -59,12 +59,12 @@ const Projects = () => {
             <div className="card" style={{ width: '80%' }}>
               <img src={InstaClone} className="card-img-top" alt="Project 3 Image" />
               <div className="card-body">
-                <h5 className="card-title" style={{ color: 'aqua' }}>Instagram Clone</h5>
-                <p className="card-text">Tech used: MERN</p>
-                <p className="card-text">A WebApp where people can login, logout and upload their pics.</p>
+                <h5 className="card-title" style={{ color: 'aqua', fontSize: '2rem' }}>DoSchedulise</h5>
+                <p className="card-text"><span className='fw-bold'>Tech used:</span> MERN, WebSocket(Socket.io)</p>
+                <p className="card-text">Appointment Booking and Scheduling App with live chat feature.</p>
                 <div className="d-flex justify-content-between">
-                  <a href="https://github.com/shubGupta10/Instagram-Clone" className="btn btn-primary">Code</a>
-                  <a href="https://instagram-clone-production-d99b.up.railway.app/" className="btn btn-secondary">Demo</a>
+                  <a href="https://github.com/shubGupta10/DoSchedulise" className="btn btn-primary">Code</a>
+                  <a href="https://do-schedulise.vercel.app" className="btn btn-secondary">Demo</a>
                 </div>
               </div>
             </div>
@@ -74,12 +74,12 @@ const Projects = () => {
             <div className="card" style={{ width: '80%' }}>
               <img src={Todo} className="card-img-top" alt="Project 4 Image" />
               <div className="card-body">
-                <h5 className="card-title" style={{ color: 'aqua' }}>Todo App with Local-Storage</h5>
-                <p className="card-text">Tech used: React Js</p>
-                <p className="card-text">Stay organized and on top of your tasks with Todo: Your intuitive task management app.</p>
+                <h5 className="card-title" style={{ color: 'aqua', fontSize: '2rem' }}>BookBlaze - A Book Store</h5>
+                <p className="card-text">Tech used: React Js + FireBase</p>
+                <p className="card-text">A Simple Book store where people can buy and invest in the books.</p>
                 <div className="d-flex justify-content-between">
-                  <a href="https://github.com/shubGupta10/Todo-App" className="btn btn-primary">Code</a>
-                  <a href="https://todo-app-store.vercel.app/" className="btn btn-secondary">Demo</a>
+                  <a href="https://github.com/shubGupta10/BookBlaze" className="btn btn-primary">Code</a>
+                  <a href="https://book-blaze.vercel.app" className="btn btn-secondary">Demo</a>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ const Projects = () => {
             <div className="card" style={{ width: '80%' }}>
               <img src={portfolio} className="card-img-top" alt="Project 2 Image" />
               <div className="card-body">
-                <h5 className="card-title" style={{ color: 'aqua' }}>My Portfolio</h5>
+                <h5 className="card-title" style={{ color: 'aqua', fontSize: '2rem' }}>My Portfolio</h5>
                 <p className="card-text">Tech used: HTML, CSS, JavaScript <br /> Framework: Bootstrap</p>
                 <p className="card-text">A Portfolio Website, where you get to know more about me</p>
                 <div className="d-flex justify-content-between">
