@@ -48,7 +48,7 @@ const Projects = () => {
                 <p className="card-text">Tech used: MERN <br /> Cloud Service: Mongodb Atlas</p>
                 <p className="card-text">A WebApp where people can explore their ideas!!</p>
                 <div className="d-flex justify-content-between">
-                  <a href="https://github.com/shubGupta10/CalcConverter" className="btn btn-primary">Code</a>
+                  <a href="https://github.com/shubGupta10/Pinfluence" className="btn btn-primary">Code</a>
                   <a href="https://pinfluence-a6jx.onrender.com/" className="btn btn-secondary">Demo</a>
                 </div>
               </div>
