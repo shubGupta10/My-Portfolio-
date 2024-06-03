@@ -90,7 +90,7 @@ const Projects = () => {
               <img src={portfolio} className="card-img-top" alt="Project 2 Image" />
               <div className="card-body">
                 <h5 className="card-title" style={{ color: 'aqua', fontSize: '2rem' }}>My Portfolio</h5>
-                <p className="card-text">Tech used: HTML, CSS, JavaScript <br /> Framework: Bootstrap</p>
+                <p className="card-text">Tech used: React Js<br /> CSS framework: Bootstrap</p>
                 <p className="card-text">A Portfolio Website, where you get to know more about me</p>
                 <div className="d-flex justify-content-between">
                   <a href="https://github.com/shubGupta10/My-Portfolio-" className="btn btn-primary">Code</a>
