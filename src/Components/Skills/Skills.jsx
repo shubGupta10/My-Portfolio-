@@ -19,6 +19,7 @@ import git from "../../../public/assets/icons/git.svg";
 import vercel from "../../../public/assets/icons/vercel.svg";
 import render from "../../../public/assets/icons/render.svg";
 import netlify from "../../../public/assets/icons/netlify.svg";
+import socketio from "../../../public/assets/icons/socketio.svg"
 import Footer from '../Footer/Footer';
 
 import Pagination from '../PaginationLinks';
@@ -51,6 +52,7 @@ const Skills = () => {
         { name: 'Node js', icon: nodejs },
         { name: 'Express Js', icon: express },
         { name: 'MongoDB', icon: mongodb },
+        {name: 'Socket.io', icon: socketio},
     ];
 
     const developerToolsDeployment = [
