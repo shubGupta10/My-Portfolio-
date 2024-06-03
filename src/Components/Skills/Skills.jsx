@@ -52,7 +52,7 @@ const Skills = () => {
         { name: 'Node js', icon: nodejs },
         { name: 'Express Js', icon: express },
         { name: 'MongoDB', icon: mongodb },
-        {name: 'Socket.io', icon: socketio},
+        {name: '(WebSocket) Socket.io', icon: socketio},
     ];
 
     const developerToolsDeployment = [
