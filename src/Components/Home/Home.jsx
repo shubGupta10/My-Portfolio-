@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer.jsx';
 import NewFooter from '../NewFooter/NewFooter.jsx';
 import Pagination from '../PaginationLinks.jsx';
 import ProfileImage from "../../../public/assets/git_dp.jpg?url"
+import Resume from "../../../public/assets/UpdatedResume.pdf"
 
 const Home = () => {
 
@@ -54,7 +55,7 @@ const Home = () => {
                 </div>
                 <a
                   className="resumeBtn"
-                  href="/Images/New Resume (main).pdf"
+                  href={Resume}
                   target="_blank"
                   id="viewButton"
                 >
