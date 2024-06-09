@@ -58,4 +58,7 @@
       color: white;
       padding: 5px;
     }
+    .navbar-brand{
+      font-size: 40px;
+    }
   }

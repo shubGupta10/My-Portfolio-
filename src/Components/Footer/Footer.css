@@ -32,7 +32,7 @@
   @media (max-width: 768px) {
     .nav-rectangle {
       display: block; 
-      position: fixed;
+      position:sticky;
       margin-right: 10px;
       margin-left: 10px;
       bottom: 20px;
@@ -48,4 +48,24 @@
       font-size: 20px;
     }
   }
+
   
+@media (max-width: 380px) {
+  .nav-rectangle{
+    display: block; 
+      position:sticky;
+      margin-right: 0px;
+      margin-left: 0;
+      bottom: 20px;
+      right: 5px;
+      left: 5px;
+      background-color: #25283b; 
+      padding: 8px;
+      border-radius: 20px;
+
+  }
+
+  .nav-rectangle nav ul li a{
+    font-size: 20px;
+  }
+}
