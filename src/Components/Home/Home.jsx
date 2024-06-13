@@ -48,7 +48,7 @@ const Home = () => {
                   <a href="https://twitter.com/i_m_shubham45" className="hoverEffect">
                     <FontAwesomeIcon icon={faTwitter} size="2x" />
                   </a>
-                  <a href="https://www.instagram.com/i_m_shubham10/" className="hoverEffect">
+                  <a href="https://www.instagram.com/" className="hoverEffect">
                     <FontAwesomeIcon icon={faInstagram} size="2x" />
                   </a>
                   
