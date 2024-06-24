@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer'
 import Pagination from '../PaginationLinks'
 import NewFooter from '../NewFooter/NewFooter'
 import blogPoint from "../../../public/assets/Images/blogPoint.png?url"
+import EduHub from "../../../public/assets/Images/EduHub.png?url"
 import pinfluence from "../../../public/assets/Images/pinfuence.png?url"
 import InstaClone from "../../../public/assets/Images/Instagram Clone.png?url"
 import Todo from "../../../public/assets/Images/Todo.png?url"
@@ -25,6 +26,21 @@ const Projects = () => {
 
         <div className="row row-cols-1 row-cols-md-3 g-4 goodlook">
           {/* Project 1 */}
+          <div className="col">
+            <div className="card" style={{ width: '80%' }} id="cardNew">
+              <img src={EduHub} className="card-img-top" alt="Project 1 Image" />
+              <div className="card-body">
+                <h5 className="card-title" style={{ color: 'aqua' , fontSize: '2rem' }}>EduHub - A EdTech App</h5>
+                <p className="card-text">Front-end: React Js <br /> Backend: Firebase + FireStore</p>
+                <p className="card-text">A EdTech platform, where people can learn and grow.</p>
+                <div className="d-flex justify-content-between">
+                  <a href="https://github.com/shubGupta10/EduHUB" className="btn btn-primary">Code</a>
+                  <a href="https://eduhub-plus.vercel.app/" className="btn btn-secondary">Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="col">
             <div className="card" style={{ width: '80%' }} id="cardNew">
               <img src={blogPoint} className="card-img-top" alt="Project 1 Image" />
