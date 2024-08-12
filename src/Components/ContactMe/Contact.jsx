@@ -6,6 +6,7 @@ import {
   faGithub,
   faLinkedin,
   faTwitter,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import Footer from "../Footer/Footer";
 import Pagination from "../PaginationLinks";
