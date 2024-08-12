@@ -6,7 +6,6 @@ import {
   faGithub,
   faLinkedin,
   faTwitter,
-  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import Footer from "../Footer/Footer";
 import Pagination from "../PaginationLinks";
@@ -81,7 +80,7 @@ const Contact = () => {
           </div>
           <div style={{ display: "flex", alignItems: "center" }}>
             <a
-              href="https://www.instagram.com/i_m_shubham10/"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
             >
