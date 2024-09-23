@@ -1,0 +1,50 @@
+[
+    {
+        "title": "EDUHUB- A Learning Platform",
+        "techUsed": "React Js, Firebase, Firebase Auth, FireStore, Firebase Storage, Tailwind CSS",
+        "description": "A EdTech platform, where people can learn and grow.",
+        "image": "https://drive.google.com/uc?id=1k4jbt6ZIZa10OVh2g6YGwvfijvz70Mbv",
+        "liveLink": "https://eduhub-plus.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/EduHUB"
+    },
+    {
+        "title": "DoSchedulise- Connect with Medical help",
+        "techUsed": "React Js, Node Js, Express Js, MongoDB, WebSocket (Socket.io), Tailwind CSS",
+        "description": "Connect Medical people to doctors by Live Chat.",
+        "image": "https://drive.google.com/uc?id=1n97nG8apVFckXqbUOvzBVDUzGSqmdlFq",
+         "liveLink": "https://do-schedulise.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/DoSchedulise"
+    },
+    {
+        "title": "BlogPoint- Write Blog and connect with people",
+        "techUsed": "React Js, Appwrite, AppWrite DB, AppWrite Bucket, Tailwind CSS",
+        "description": "A Blog Web App where people can write blogs seamlessly.",
+        "image": "https://drive.google.com/uc?id=1r-CuLHV22yflvbBPW4MxjV-Y8J4qDSwg",
+         "liveLink": "https://blog-point.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/BlogPoint-"
+    },
+    {
+        "title": "My Portfolio- A Website where people get to know me",
+        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS",
+        "description": "Builded a portfolio to showcase myself",
+        "image": "https://drive.google.com/uc?id=14rYgUNqv-kPJXEvhqyzYPPVFVbDZ4mSI",
+         "liveLink": "https://my-portfolio-10.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/My-Portfolio-"
+    },    
+    {
+        "title": "PinFluence- Share ideas and connect with people",
+        "techUsed": "React Js, Node Js, Express Js, MongoDB, Tailwind CSS",
+        "description": "A WebApp where people can explore their ideas!!",
+        "image": "https://drive.google.com/uc?id=1WQV6NdvwVlCH1cm-lIVzJNm2wKTE3x3j",
+         "liveLink": "https://pinfluence-a6jx.onrender.com",
+        "githubLink": "https://github.com/shubGupta10/Pinfluence"
+    },
+    {
+        "title": "Music-Al- A Music Streaming UI",
+        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS",
+        "description": "Explore your music career!!",
+        "image": "https://drive.google.com/uc?id=1YGi6QjRrBckL0wi2RX8GUQb2bxT4i1VR",
+         "liveLink": "https://music-al.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/MusicAl"
+    }
+]

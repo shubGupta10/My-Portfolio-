@@ -1,0 +1,80 @@
+[
+    {
+      "name": "JavaScript",
+      "image": "https://img.icons8.com/color/48/javascript--v1.png"
+    },
+    {
+      "name": "TypeScript",
+      "image": "https://img.icons8.com/color/48/typescript.png"
+    },
+    {
+      "name": "React",
+      "image": "https://img.icons8.com/plasticine/100/react.png"
+    },
+    {
+      "name": "Next.js",
+      "image": "https://www.svgrepo.com/show/368858/nextjs.svg"
+    },
+    {
+      "name": "Node.js",
+      "image": "https://img.icons8.com/fluency/48/node-js.png"
+    },
+    {
+      "name": "Tailwind",
+      "image": "https://img.icons8.com/color/50/tailwind_css.png"
+    },
+    {
+      "name": "HTML",
+      "image": "https://img.icons8.com/color/48/html-5--v1.png"
+    },
+    {
+      "name": "CSS",
+      "image": "https://img.icons8.com/color/48/css3.png"
+    },
+    {
+      "name": "Framer Motion",
+      "image": "https://img.icons8.com/color/48/html-5--v1.png"
+    },
+    {
+      "name": "MongoDB",
+      "image": "https://img.icons8.com/color/48/mongo-db.png"
+    },
+    {
+      "name": "MySQL",
+      "image": "https://img.icons8.com/color/48/mysql-logo.png"
+    },
+    {
+      "name": "Express Js",
+      "image": "https://img.icons8.com/nolan/64/express-js.png"
+    },
+    {
+      "name": "WebSockets",
+      "image": "https://drive.google.com/uc?id=1jF8ZTt8aprMFn4OFV41DzBX0raZ7evoG"
+    },
+    {
+      "name": "Shadcn",
+      "image": "https://drive.google.com/uc?id=17-prg9qGaNB4KiG-UlEYiY7I_UXczTvG"
+    },
+    {
+      "name": "Bootstrap",
+      "image": "https://img.icons8.com/color/48/bootstrap--v1.png"
+    },
+    {
+      "name": "Aceternity UI",
+      "image": "https://ui.aceternity.com/_next/image?url=%2Flogo.png&w=64&q=75"
+    },
+    {
+      "name": "FireBase",
+      "image": "https://img.icons8.com/color/48/firebase.png"
+    },
+    {
+      "name": "AppWrite",
+      "image": "https://icon.icepanel.io/Technology/svg/Appwrite.svg"
+    },
+    {
+      "name": "Framer Motion",
+      "image": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
+    }
+   
+  ]
+  
