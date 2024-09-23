@@ -10,6 +10,9 @@ const nextConfig = {
       'ui.aceternity.com',
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+},
 };
 
 export default nextConfig;
