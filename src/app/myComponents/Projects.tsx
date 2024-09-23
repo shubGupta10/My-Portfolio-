@@ -20,7 +20,7 @@ Check out what I've been up to!`
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {MyProjects.map((project, index) => (
-                    <CardContainer key={index} className="w-50">
+                    <CardContainer key={index} className="w-full">
                         <CardBody className="bg-gradient-to-br from-gray-900 via-black to-blue-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-full rounded-xl p-6 border">
                             <CardItem
                                 translateZ="50"
