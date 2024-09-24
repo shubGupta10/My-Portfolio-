@@ -34,7 +34,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ year, title, company, d
 
 const Experience: React.FC = () => {
   return (
-    <section className="py-20 mt-40 md:mt-0 bg-gradient-to-b from-gray-900 via-black to-blue-950">
+    <section className="py-20 md:mt-0 bg-gradient-to-b from-gray-900 via-black to-blue-950">
       <div className="container mx-auto px-4">
         <h2 className="text-5xl font-bold mb-12 text-center bg-gradient-to-r bg-clip-text text-transparent from-blue-400 via-purple-500 to-pink-500 leading-tight">
           My Experience

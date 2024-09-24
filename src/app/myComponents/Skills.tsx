@@ -7,7 +7,7 @@ import skillsData from '@/app/data/Skills.json';
 
 const Skills: React.FC = () => {
   return (
-    <div className="mt-40 md:mt-0 min-h-screen bg-gradient-to-br from-gray-900 via-black to-blue-900 relative flex items-center justify-center">
+    <div className=" md:mt-0 min-h-screen bg-gradient-to-br from-gray-900 via-black to-blue-900 relative flex items-center justify-center">
       <section id="skills" className="py-10 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center">
           <h2 className="text-5xl font-bold mb-12 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent leading-tight">

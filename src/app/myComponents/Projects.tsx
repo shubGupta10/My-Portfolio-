@@ -15,7 +15,7 @@ Check out what I've been up to!`
             <h1 className="text-5xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold text-center mb-12 leading-tight">
                 Check out my Projects
             </h1>
-            <div className="w-full h-[40px] text-center relative">
+            <div className="w-full  text-center relative">
                <TextGenerateEffect duration={1} words={words}/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
