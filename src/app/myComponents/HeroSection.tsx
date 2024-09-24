@@ -71,7 +71,7 @@ const HeroSection = () => {
             className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 px-8 py-4 text-lg transition-all duration-300 ease-in-out"
           >
             <IconDownload className="w-6 h-6 group-hover:animate-bounce" />
-            <a href="https://drive.google.com/uc?id=1uoXNKMQE4Ogn6Q0cF_Voa0-ymi5Zy31V" >Download Resume</a>
+            <a href="https://drive.google.com" >Download Resume</a>
           </HoverBorderGradient>
           <HoverBorderGradient
             containerClassName="rounded-full group"
