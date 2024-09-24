@@ -17,15 +17,15 @@ const AboutSection = () => {
             About Me
           </h2>
           <div className="flex flex-col-reverse md:flex-row gap-16 md:gap-8 items-center">
-            <div className="md:w-2/3 text-lg md:text-2xl mysm:text-[1rem] space-y-6">
-              <p className="text-gray-300 leading-relaxed">
+            <div className="md:w-2/3   space-y-6">
+              <p className="text-gray-300  mymd:text-[1.3rem] md:text-[1.5rem] mynew:text-[1.3rem] mysm:text-[1rem] leading-relaxed">
                 Hi there! I'm Shubham Kumar Gupta, a passionate Full Stack Developer with a knack for creating efficient and scalable web applications. With several years of experience in the tech industry, I've honed my skills in both front-end and back-end development.
               </p>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 md:text-[1.5rem] mymd:text-[1.3rem] mynew:text-[1.3rem]  mysm:text-[1rem] leading-relaxed">
                 My journey in software development started with a curiosity to understand how things work behind the scenes. This curiosity has driven me to continuously learn and adapt to new technologies and best practices in the ever-evolving world of web development.
               </p>
             </div>
-            <div className="hidden md:block md:w-1/3  justify-center">
+            <div className="hidden desktop:block md:w-1/3  justify-center">
               <div className="relative w-80 h-80 overflow-hidden rounded-lg shadow-lg border-4 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
                 <Image
                   src={profile}
