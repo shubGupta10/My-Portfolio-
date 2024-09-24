@@ -78,7 +78,7 @@ const HeroSection = () => {
             className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 px-8 py-4 text-lg transition-all duration-300 ease-in-out"
           >
             <IconBrandGithub className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
-            <span>View Projects</span>
+            <a href='https://github.com/shubGupta10'>View Projects</a>
           </HoverBorderGradient>
         </div>
       </motion.div>
