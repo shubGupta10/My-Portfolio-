@@ -39,7 +39,6 @@ const config = {
         mymd: '430px',
         mynew: "412px",
         desktop: "1100px",
-        ipad: "1024px"
       },
       colors: {
         border: "hsl(var(--border))",
