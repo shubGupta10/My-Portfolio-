@@ -17,7 +17,7 @@ const AboutSection = () => {
             About Me
           </h2>
           <div className="flex flex-col-reverse md:flex-row gap-16 md:gap-8 items-center">
-            <div className="md:w-2/3 text-lg md:text-2xl  space-y-6">
+            <div className="md:w-2/3 text-lg md:text-2xl mysm:text-[1rem] space-y-6">
               <p className="text-gray-300 leading-relaxed">
                 Hi there! I'm Shubham Kumar Gupta, a passionate Full Stack Developer with a knack for creating efficient and scalable web applications. With several years of experience in the tech industry, I've honed my skills in both front-end and back-end development.
               </p>

@@ -17,9 +17,9 @@ const Skills: React.FC = () => {
             {skillsData.map((skill: { name: string; image: string }, index: number) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                transition={{ duration: 0.2, delay: 0.1 }}
                 className=" bg-gradient-to-br from-blue-700 via-gray-800 to-gray-600 shadow-lg rounded-full flex flex-col items-center justify-center w-28 h-28 transition-transform transform hover:scale-110 hover:shadow-2xl p-4"
               >
                 <div className="relative w-20 h-20 mb-2">
