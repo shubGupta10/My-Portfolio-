@@ -5,17 +5,17 @@ import { MapPin, Mail, Instagram, Github, Twitter, Linkedin } from 'lucide-react
 const ContactForm: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.currentTarget.reset();
   };
 
   return (
-    <div className="min-h-screen flex flex-col-reverse sm:flex-row bg-gradient-to-br from-gray-900 via-black to-blue-800 py-16 sm:px-8 px-4">
-      <div className="sm:w-1/2 flex flex-col justify-center sm:pr-8">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-black to-blue-800 py-16 sm:px-8 px-4">
+      {/* Social links and get in touch section */}
+      <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between mb-16">
         <motion.div
-        className='ml-0 md:ml-20'
+          className="sm:w-1/2 mb-8 sm:mb-0 sm:pr-8"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -24,7 +24,7 @@ const ContactForm: React.FC = () => {
             Get in Touch
           </h1>
 
-          <div className=" backdrop-blur-sm rounded-lg p-8 mb-12 text-left sm:text-left">
+          <div className="backdrop-blur-sm rounded-lg p-8 text-left">
             <h2 className="text-2xl text-white font-semibold mb-4">Connect with Me</h2>
             <div className="flex items-center mb-3">
               <MapPin className="text-white mr-3" size={18} />
@@ -50,10 +50,11 @@ const ContactForm: React.FC = () => {
                 <Linkedin className="text-white hover:text-pink-500 transition" size={18} />
               </a>
             </div>
-            </div>
+          </div>
         </motion.div>
       </div>
-      <div className="sm:w-1/2 flex justify-center">
+
+      <div className="w-full flex justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

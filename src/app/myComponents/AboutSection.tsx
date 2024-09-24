@@ -25,7 +25,7 @@ const AboutSection = () => {
                 My journey in software development started with a curiosity to understand how things work behind the scenes. This curiosity has driven me to continuously learn and adapt to new technologies and best practices in the ever-evolving world of web development.
               </p>
             </div>
-            <div className="hidden md:block md:w-1/3 flex justify-center">
+            <div className="hidden md:block md:w-1/3  justify-center">
               <div className="relative w-80 h-80 overflow-hidden rounded-lg shadow-lg border-4 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
                 <Image
                   src={profile}
