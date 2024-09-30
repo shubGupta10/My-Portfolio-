@@ -8,7 +8,6 @@ import Skills from './myComponents/Skills'
 import Projects from './myComponents/Projects'
 import Contact from './myComponents/Contact'
 import Footer from './myComponents/Footer'
-import Github from '@/app/myComponents/Github'
 
 const page = () => {
   return (
@@ -17,7 +16,6 @@ const page = () => {
       <AboutSection/>
       <Skills/>
       <Experience/>
-      <Github/>
       <Projects/>
       <Contact/>
       <Footer/>
