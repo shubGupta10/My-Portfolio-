@@ -9,7 +9,7 @@
     },
     {
         "title": "EDUHUB- A Learning Platform",
-        "techUsed": "React Js, Firebase, Firebase Auth, FireStore, Firebase Storage, Tailwind CSS",
+        "techUsed": "React Js, Firebase, Firebase Auth, FireStore, Firebase Storage, Tailwind CSS, Framer Motion",
         "description": "A EdTech platform, where people can learn and grow.",
         "image": "https://drive.google.com/uc?id=1Fktf_AMz4W3d64WgiElGJteSI4nMmyRQ",
         "liveLink": "https://eduhub-plus.vercel.app",
@@ -33,7 +33,7 @@
     },
     {
         "title": "My Portfolio- A Website where people get to know me",
-        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS",
+        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS, Framer Motion",
         "description": "Builded a portfolio to showcase myself",
         "image": "https://drive.google.com/uc?id=14rYgUNqv-kPJXEvhqyzYPPVFVbDZ4mSI",
          "liveLink": "https://my-portfolio-10.vercel.app",
@@ -49,7 +49,7 @@
     },
     {
         "title": "Music-Al- A Music Streaming UI",
-        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS",
+        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS, Framer Motion",
         "description": "Explore your music career!!",
         "image": "https://drive.google.com/uc?id=1YGi6QjRrBckL0wi2RX8GUQb2bxT4i1VR",
          "liveLink": "https://music-al.vercel.app",
