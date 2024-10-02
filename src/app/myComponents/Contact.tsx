@@ -5,14 +5,9 @@ import { MapPin, Mail, Instagram, Github, Twitter, Linkedin } from 'lucide-react
 const ContactForm: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    e.currentTarget.reset();
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-black to-blue-800 py-16 sm:px-8 px-4">
-      {/* Social links and get in touch section */}
       <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between mb-16">
         <motion.div
           className="sm:w-1/2 mb-8 sm:mb-0 sm:pr-8"
@@ -61,7 +56,13 @@ const ContactForm: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="w-full bg-gray-900/50 backdrop-blur-sm rounded-lg p-8 shadow-lg sm:max-w-lg"
         >
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+          <form
+            ref={formRef}
+            action="https://formspree.io/f/mleqwkjy"
+            method="POST"
+            id="myForm"
+            className="space-y-6 row g-3 goodlook"
+          >
             {['First Name', 'Last Name', 'Email Address'].map((label, index) => (
               <div className="relative" key={index}>
                 <motion.label
@@ -115,6 +116,7 @@ const ContactForm: React.FC = () => {
               Send Message
             </motion.button>
           </form>
+
         </motion.div>
       </div>
     </div>
