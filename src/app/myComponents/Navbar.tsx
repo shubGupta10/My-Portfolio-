@@ -1,69 +1,60 @@
-"use client";
+'use client';
+
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu"
+import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { useTheme } from "next-themes";
+import { Linkedin, Twitter } from 'lucide-react';
 
 export function NavbarDemo() {
   return (
     <div className="relative w-full flex items-center justify-center">
       <Navbar className="top-2" />
-      <p className="text-black dark:text-white">
-      </p>
     </div>
   );
 }
 
 function Navbar({ className }: { className?: string }) {
+  const { resolvedTheme } = useTheme();
   const [active, setActive] = useState<string | null>(null);
+
+  const handleScrollTo = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setActive(sectionId); 
+  };
+
   return (
-    <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
-    >
+    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Home</HoveredLink>
-            <HoveredLink href="/interface-design">About</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-            <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
+        <MenuItem 
+          setActive={() => handleScrollTo("about")} 
+          active={active === "about" ? "about" : null} 
+          item="About" 
+        />
+        <MenuItem 
+          setActive={() => handleScrollTo("projects")} 
+          active={active === "projects" ? "projects" : null} 
+          item="Projects" 
+        />
+        <MenuItem 
+          setActive={() => handleScrollTo("experience")} 
+          active={active === "experience" ? "experience" : null} 
+          item="Experience" 
+        />
+        <div className={`border ${resolvedTheme === 'dark' ? 'border-white' : 'border-black'}`} />
+        <ThemeSwitcher />
+        <div className="flex gap-4">
+          <a href="https://www.linkedin.com/in/shubham-kumar-gupta-30a916234" target="_blank" rel="noopener noreferrer">
+            <Linkedin aria-label="LinkedIn profile" />
+          </a>
+          <a href="https://x.com/i_m_shubham45" target="_blank" rel="noopener noreferrer">
+            <Twitter aria-label="Twitter profile" />
+          </a>
+        </div>
       </Menu>
     </div>
   );

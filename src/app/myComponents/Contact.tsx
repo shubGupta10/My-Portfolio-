@@ -1,123 +1,142 @@
-import React, { FormEvent, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 import { MapPin, Mail, Instagram, Github, Twitter, Linkedin } from 'lucide-react';
+import {useTheme} from 'next-themes'
 
-const ContactForm: React.FC = () => {
+const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
-
+  const {resolvedTheme} = useTheme()
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-black to-blue-800 py-16 sm:px-8 px-4">
-      <div className="w-full flex flex-col sm:flex-row sm:items-center sm:justify-between mb-16">
-        <motion.div
-          className="sm:w-1/2 mb-8 sm:mb-0 sm:pr-8"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl sm:text-6xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold mb-12">
+    <div className={`min-h-screen flex flex-col py-8 px-4 sm:py-16 sm:px-6 lg:px-8 ${resolvedTheme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}>
+      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8 lg:mb-16">
+        {/* Left side - Contact Info */}
+        <div className="w-full lg:w-1/2 lg:sticky lg:top-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold mb-8">
             Get in Touch
           </h1>
 
-          <div className="backdrop-blur-sm rounded-lg p-8 text-left">
-            <h2 className="text-2xl text-white font-semibold mb-4">Connect with Me</h2>
-            <div className="flex items-center mb-3">
-              <MapPin className="text-white mr-3" size={18} />
-              <span className="text-white">Planet Earth 🌍</span>
+          <div className={`backdrop-blur-sm rounded-lg p-6 sm:p-8 ${resolvedTheme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100'}`}>
+            <h2 className={`text-xl sm:text-2xl font-semibold mb-6 ${resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+              Connect with Me
+            </h2>
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center">
+                <MapPin className={`mr-3 flex-shrink-0 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} size={18} />
+                <span className={resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>Planet Earth 🌍</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className={`mr-3 flex-shrink-0 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} size={18} />
+                <a 
+                  href="mailto:shubhamkgupta720@gmail.com" 
+                  className={`hover:underline break-all ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
+                >
+                  shubhamkgupta720@gmail.com
+                </a>
+              </div>
             </div>
-            <div className="flex items-center mb-3">
-              <Mail className="text-white mr-3" size={18} />
-              <a href="mailto:shubhamkgupta720@gmail.com" className="text-white hover:underline">
-                shubhamkgupta720@gmail.com
-              </a>
-            </div>
-            <div className="flex space-x-4">
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <Instagram className="text-white hover:text-pink-500 transition" size={18} />
-              </a>
-              <a href="https://github.com/shubGupta10" target="_blank" rel="noopener noreferrer">
-                <Github className="text-white hover:text-pink-500 transition" size={18} />
-              </a>
-              <a href="https://x.com/i_m_shubham45" target="_blank" rel="noopener noreferrer">
-                <Twitter className="text-white hover:text-pink-500 transition" size={18} />
-              </a>
-              <a href="https://www.linkedin.com/in/shubham-kumar-gupta-30a916234" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="text-white hover:text-pink-500 transition" size={18} />
-              </a>
+            <div className="flex space-x-6">
+              {[
+                { icon: Instagram, href: "https://www.instagram.com" },
+                { icon: Github, href: "https://github.com/shubGupta10" },
+                { icon: Twitter, href: "https://x.com/i_m_shubham45" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/shubham-kumar-gupta-30a916234" }
+              ].map((social, index) => (
+                <a 
+                  key={index}
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="transform hover:scale-110 transition-transform"
+                >
+                  <social.icon 
+                    className={`transition-colors hover:text-pink-500 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} 
+                    size={20} 
+                  />
+                </a>
+              ))}
             </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
 
-      <div className="w-full flex justify-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full bg-gray-900/50 backdrop-blur-sm rounded-lg p-8 shadow-lg sm:max-w-lg"
-        >
-          <form
-            ref={formRef}
-            action="https://formspree.io/f/mleqwkjy"
-            method="POST"
-            id="myForm"
-            className="space-y-6 row g-3 goodlook"
-          >
-            {['First Name', 'Last Name', 'Email Address'].map((label, index) => (
-              <div className="relative" key={index}>
-                <motion.label
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.6 + index * 0.2 }}
-                  className="text-sm text-gray-300 block mb-2"
-                  htmlFor={label.toLowerCase().replace(' ', '')}
-                >
-                  {label}
-                </motion.label>
-                <motion.input
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
-                  type={label === 'Email Address' ? 'email' : 'text'}
-                  id={label.toLowerCase().replace(' ', '')}
-                  name={label.toLowerCase().replace(' ', '')}
-                  className="w-full px-4 py-2 rounded-lg bg-gray-900/20 text-white border border-gray-400 focus:border-pink-500 outline-none"
+        {/* Right side - Form */}
+        <div className="w-full lg:w-1/2">
+          <div className={`w-full backdrop-blur-sm rounded-lg p-6 sm:p-8 shadow-lg ${resolvedTheme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100'}`}>
+            <form
+              ref={formRef}
+              action="https://formspree.io/f/mleqwkjy"
+              method="POST"
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { label: 'First Name', type: 'text' },
+                  { label: 'Last Name', type: 'text' },
+                ].map((field, index) => (
+                  <div key={index}>
+                    <label 
+                      className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
+                      htmlFor={field.label.toLowerCase().replace(' ', '')}
+                    >
+                      {field.label}
+                    </label>
+                    <input
+                      type={field.type}
+                      id={field.label.toLowerCase().replace(' ', '')}
+                      name={field.label.toLowerCase().replace(' ', '')}
+                      className={`w-full px-4 py-2 rounded-lg border outline-none transition-colors ${
+                        resolvedTheme === 'dark' 
+                          ? 'bg-gray-700 text-white border-gray-600 focus:border-pink-500' 
+                          : 'bg-white text-gray-900 border-gray-300 focus:border-blue-500'
+                      }`}
+                      required
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              <div>
+                <label className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} htmlFor="email">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className={`w-full px-4 py-2 rounded-lg border outline-none transition-colors ${
+                    resolvedTheme === 'dark' 
+                      ? 'bg-gray-700 text-white border-gray-600 focus:border-pink-500' 
+                      : 'bg-white text-gray-900 border-gray-300 focus:border-blue-500'
+                  }`}
                   required
                 />
               </div>
-            ))}
-            <div className="relative">
-              <motion.label
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 1.5 }}
-                htmlFor="message"
-                className="text-sm text-gray-300 block mb-2"
-              >
-                Message
-              </motion.label>
-              <motion.textarea
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 1.6 }}
-                id="message"
-                name="message"
-                rows={4}
-                className="w-full px-4 py-2 rounded-lg bg-gray-900/20 text-white border border-gray-400 focus:border-pink-500 outline-none"
-                required
-              />
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-2 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
-              type="submit"
-            >
-              Send Message
-            </motion.button>
-          </form>
 
-        </motion.div>
+              <div>
+                <label className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} htmlFor="message">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className={`w-full px-4 py-2 rounded-lg border outline-none transition-colors resize-none ${
+                    resolvedTheme === 'dark' 
+                      ? 'bg-gray-700 text-white border-gray-600 focus:border-pink-500' 
+                      : 'bg-white text-gray-900 border-gray-300 focus:border-blue-500'
+                  }`}
+                  required
+                />
+              </div>
+
+              <button
+                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105"
+                type="submit"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
