@@ -1,13 +1,24 @@
-import React, { useRef } from 'react';
+'use client';
+
+import React, { useRef, useEffect, useState } from 'react';
 import { MapPin, Mail, Instagram, Github, Twitter, Linkedin } from 'lucide-react';
-import {useTheme} from 'next-themes'
+import { useTheme } from 'next-themes';
 
 const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const {resolvedTheme} = useTheme()
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <div className={`min-h-screen flex flex-col py-8 px-4 sm:py-16 sm:px-6 lg:px-8 ${resolvedTheme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}>
+    <div className={`min-h-screen flex flex-col py-8 px-4 sm:py-16 sm:px-6 lg:px-8 ${resolvedTheme === 'dark' ? 'bg-gray-900' : 'bg-white'} transition-colors duration-300`}>
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8 lg:mb-16">
         {/* Left side - Contact Info */}
         <div className="w-full lg:w-1/2 lg:sticky lg:top-8">
@@ -15,20 +26,20 @@ const ContactForm = () => {
             Get in Touch
           </h1>
 
-          <div className={`backdrop-blur-sm rounded-lg p-6 sm:p-8 ${resolvedTheme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100'}`}>
-            <h2 className={`text-xl sm:text-2xl font-semibold mb-6 ${resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+          <div className={`backdrop-blur-sm rounded-lg p-6 sm:p-8 ${resolvedTheme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100'} transition-colors duration-300`}>
+            <h2 className={`text-xl sm:text-2xl font-semibold mb-6 ${resolvedTheme === 'dark' ? 'text-white' : 'text-gray-900'} transition-colors duration-300`}>
               Connect with Me
             </h2>
             <div className="space-y-4 mb-6">
               <div className="flex items-center">
-                <MapPin className={`mr-3 flex-shrink-0 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} size={18} />
-                <span className={resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>Planet Earth 🌍</span>
+                <MapPin className={`mr-3 flex-shrink-0 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`} size={18} />
+                <span className={`${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`}>Planet Earth 🌍</span>
               </div>
               <div className="flex items-center">
-                <Mail className={`mr-3 flex-shrink-0 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} size={18} />
+                <Mail className={`mr-3 flex-shrink-0 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`} size={18} />
                 <a 
                   href="mailto:shubhamkgupta720@gmail.com" 
-                  className={`hover:underline break-all ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
+                  className={`hover:underline break-all ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`}
                 >
                   shubhamkgupta720@gmail.com
                 </a>
@@ -60,7 +71,7 @@ const ContactForm = () => {
 
         {/* Right side - Form */}
         <div className="w-full lg:w-1/2">
-          <div className={`w-full backdrop-blur-sm rounded-lg p-6 sm:p-8 shadow-lg ${resolvedTheme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100'}`}>
+          <div className={`w-full backdrop-blur-sm rounded-lg p-6 sm:p-8 shadow-lg ${resolvedTheme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100'} transition-colors duration-300`}>
             <form
               ref={formRef}
               action="https://formspree.io/f/mleqwkjy"
@@ -74,7 +85,7 @@ const ContactForm = () => {
                 ].map((field, index) => (
                   <div key={index}>
                     <label 
-                      className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}
+                      className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`}
                       htmlFor={field.label.toLowerCase().replace(' ', '')}
                     >
                       {field.label}
@@ -95,7 +106,7 @@ const ContactForm = () => {
               </div>
               
               <div>
-                <label className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} htmlFor="email">
+                <label className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`} htmlFor="email">
                   Email Address
                 </label>
                 <input
@@ -112,7 +123,7 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <label className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`} htmlFor="message">
+                <label className={`text-sm block mb-2 ${resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`} htmlFor="message">
                   Message
                 </label>
                 <textarea
