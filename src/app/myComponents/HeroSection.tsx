@@ -19,11 +19,16 @@ import {
 const HeroSection = () => {
   const [showSparkles, setShowSparkles] = useState(false);
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
+  // Ensure the theme is resolved before rendering
   useEffect(() => {
+    setMounted(true);
     const timer = setTimeout(() => setShowSparkles(true), 50);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!mounted) return null; // Prevent rendering until theme is resolved
 
   const links = [
     { title: 'Portfolio', icon: <IconLink />, href: 'https://my-portfolio-10.vercel.app' },
