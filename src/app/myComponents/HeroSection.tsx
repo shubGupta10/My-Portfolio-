@@ -21,7 +21,7 @@ const HeroSection = () => {
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowSparkles(true), 100);
+    const timer = setTimeout(() => setShowSparkles(true), 50);
     return () => clearTimeout(timer);
   }, []);
 
@@ -60,7 +60,7 @@ const HeroSection = () => {
         </h1>
         <div
           className={`text-4xl md:text-6xl font-light ${
-            resolvedTheme === 'light' ? 'text-neutral-800' : 'text-neutral-200'
+            resolvedTheme === 'dark' ? 'text-white' : 'text-black'
           }`}
         >
           I'm a{' '}
@@ -68,7 +68,7 @@ const HeroSection = () => {
         </div>
         <p
           className={`text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed ${
-            resolvedTheme === 'light' ? 'text-gray-800' : 'text-neutral-300'
+            resolvedTheme === 'dark' ? 'text-white' : 'text-black'
           }`}
         >
           I enjoy building apps that are easy to use and get the job done. Whether it’s the front or back end, I’m

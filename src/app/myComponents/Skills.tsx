@@ -44,7 +44,6 @@ const Skills: React.FC = () => {
     setMounted(true);
   }, []);
 
-  // Don't render anything until mounted to prevent hydration mismatch
   if (!mounted) {
     return null;
   }
@@ -60,7 +59,7 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="relative z-10 text-center mb-16"
         >
-          <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'} transition-colors duration-300`}>
+          <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'} transition-colors duration-300`}>
             Skills & Expertise
           </h2>
         </motion.div>

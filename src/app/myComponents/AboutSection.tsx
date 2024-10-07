@@ -23,7 +23,7 @@ const AboutSection = () => {
             <div className="md:w-2/3 space-y-6">
               <p
                 className={`${
-                  resolvedTheme === 'light' ? 'text-black' : 'text-white'
+                  resolvedTheme === 'dark' ? 'text-white' : 'text-black'
                 } mymd:text-[1.3rem] md:text-[1.5rem] mynew:text-[1.3rem] mysm:text-[1rem] leading-relaxed`}
               >
                 Hi there! I'm Shubham Kumar Gupta, a passionate Full Stack Developer with a knack for creating efficient and scalable web applications. With several years of experience in the tech industry, I've honed my skills in both front-end and back-end development.
@@ -31,7 +31,7 @@ const AboutSection = () => {
 
               <p
                 className={`${
-                  resolvedTheme === 'light' ? 'text-black' : 'text-white'
+                  resolvedTheme === 'dark' ? 'text-white' : 'text-black'
                 } md:text-[1.5rem] mymd:text-[1.3rem] mynew:text-[1.3rem] mysm:text-[1rem] leading-relaxed`}
               >
                 My journey in software development started with a curiosity to understand how things work behind the scenes. This curiosity has driven me to continuously learn and adapt to new technologies and best practices in the ever-evolving world of web development.
