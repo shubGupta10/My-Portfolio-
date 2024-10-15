@@ -8,6 +8,7 @@ import Skills from './myComponents/Skills'
 import Projects from './myComponents/Projects'
 import Contact from './myComponents/Contact'
 import Footer from './myComponents/Footer'
+import { Analytics } from "@vercel/analytics/react"
 
 const page = () => {
   return (
@@ -19,6 +20,7 @@ const page = () => {
       <Projects/>
       <Contact/>
       <Footer/>
+      <Analytics/>
     </div>
   )
 }
