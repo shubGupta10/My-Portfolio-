@@ -5,7 +5,7 @@ import { Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useTheme } from "next-themes";
-import { Linkedin, Twitter } from 'lucide-react';
+import {  Twitter } from 'lucide-react';
 
 export function NavbarDemo() {
   return (
@@ -54,9 +54,6 @@ function Navbar({ className }: { className?: string }) {
         <div className={`border ${resolvedTheme === 'dark' ? 'border-white' : 'border-black'}`} />
         <ThemeSwitcher />
         <div className="flex gap-1 md:gap-4">
-          <a className="hidden md:block" href="https://www.linkedin.com/in/shubham-kumar-gupta-30a916234" target="_blank" rel="noopener noreferrer">
-            <Linkedin aria-label="LinkedIn profile" />
-          </a>
           <a href="https://x.com/i_m_shubham45" target="_blank" rel="noopener noreferrer">
             <Twitter aria-label="Twitter profile" />
           </a>
