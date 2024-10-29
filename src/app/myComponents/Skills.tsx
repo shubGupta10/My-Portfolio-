@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import skillsData from '@/app/data/Skills.json';
 import { useTheme } from 'next-themes';
@@ -23,11 +22,10 @@ const SkillCard: React.FC<{
       } p-2.5 shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-110 overflow-hidden`}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <Image
+      <img
         src={skill.image}
         alt={skill.name}
-        fill
-        className="object-contain p-1.5 drop-shadow-sm transition-transform duration-300 group-hover:scale-110"
+        className="object-contain p-1.5 drop-shadow-sm transition-transform duration-300 group-hover:scale-110 w-full h-full"
       />
     </div>
     <span className={`mt-2 text-xs font-medium text-center ${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-blue-500 transition-colors duration-300`}>
