@@ -1,121 +1,156 @@
-'use client';
+'use client'
 
-import React, { useEffect, useState } from 'react';
-import MyProjects from '@/app/data/projects.json';
-import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
-import Image from 'next/image';
-import { Github, ExternalLink } from 'lucide-react';
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-import { useTheme } from 'next-themes';
+import React, { useState, useMemo } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
+import MyProjects from '@/app/data/projects.json'
+
+interface Project {
+  title: string
+  description: string
+  image: string
+  techUsed: string
+  liveLink: string
+  githubLink: string
+}
+
+const ProjectImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => (
+  <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+    <Image
+      src={src}
+      alt={alt}
+      layout="fill"
+      objectFit="cover"
+      priority
+      className="transition-transform duration-500 ease-out hover:scale-105"
+    />
+  </div>
+)
+
+const TechBadge: React.FC<{ tech: string }> = ({ tech }) => (
+  <span className="inline-flex px-2 py-1 text-xs font-medium text-blue-300 bg-blue-500/10 rounded-full">
+    {tech}
+  </span>
+)
+
+const ProjectButton: React.FC<{ href: string; icon: React.ElementType; label: string; primary?: boolean }> = ({ href, icon: Icon, label, primary = false }) => (
+  <Button
+    variant={primary ? "default" : "outline"}
+    size="sm"
+    asChild
+  >
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2"
+    >
+      <Icon size={16} />
+      <span>{label}</span>
+    </a>
+  </Button>
+)
 
 const Projects: React.FC = () => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const [currentIndex, setCurrentIndex] = useState(0)
 
-  const words = `Here's a glimpse of the stuff I've been building.
-Check out what I've been up to!`;
+  const currentProject = useMemo(() => MyProjects[currentIndex], [currentIndex])
 
-  if (!mounted) return null; // Return early if theme is not mounted
+  const handlePrevious = () => {
+    setCurrentIndex(prev => (prev === 0 ? MyProjects.length - 1 : prev - 1))
+  }
 
-  const isDark = resolvedTheme === 'dark'; // Determine theme state
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev === MyProjects.length - 1 ? 0 : prev + 1))
+  }
+
+  const techStack = useMemo(() => 
+    currentProject.techUsed.split(', '), 
+    [currentProject.techUsed]
+  )
 
   return (
-    <div className={`${isDark ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300`}>
-      <div className="container mx-auto px-4 py-16">
-        <h1 
-          id="projects" 
-          className="text-5xl bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent font-bold text-center mb-12 leading-tight"
-        >
-          Check out my Projects
-        </h1>
-        
-        <div 
-          className={`w-full text-center relative ${isDark ? 'text-gray-300' : 'text-gray-700'} transition-colors duration-300`}
-        >
-          <TextGenerateEffect duration={1} words={words} />
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-          {MyProjects.map((project, index) => (
-            <CardContainer key={index} className="w-full">
-              <CardBody 
-                className={`relative group/card border ${isDark ? 
-                  'bg-gradient-to-br from-gray-800 via-gray-900 to-black border-gray-700 hover:border-gray-600' : 
-                  'bg-white border-gray-200 hover:border-gray-300'} w-full h-full rounded-xl p-6 transition-colors duration-300`}
-              >
-                <CardItem 
-                  translateZ="50" 
-                  className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'} transition-colors duration-300`}
-                >
-                  {project.title}
-                </CardItem>
-                
-                <CardItem translateZ="100" className="w-full h-60 relative">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
+    <section id='projects' className="py-20 lg:py-30 bg-gradient-to-b from-[#222c4a] to-[#111626]">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16 lg:mb-24 text-white">
+          Featured Projects
+        </h2>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="bg-[#1a2138] rounded-xl shadow-xl p-8 lg:p-12 mb-12 lg:mb-16"
+          >
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              <ProjectImage src={currentProject.image} alt={currentProject.title} />
+
+              <div className="flex flex-col justify-between">
+                <div>
+                  <h3 className="text-3xl lg:text-4xl font-bold mb-4 lg:mb-6 text-white">
+                    {currentProject.title}
+                  </h3>
+
+                  <p className="text-gray-300 text-lg lg:text-xl mb-6 lg:mb-8">
+                    {currentProject.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-8 lg:mb-10">
+                    {techStack.map(tech => (
+                      <TechBadge key={tech} tech={tech} />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <ProjectButton
+                    href={currentProject.liveLink}
+                    icon={ExternalLink}
+                    label="Live Demo"
+                    primary
                   />
-                </CardItem>
-                
-                <CardItem 
-                  translateZ="60" 
-                  className={`text-sm mb-4 mt-4 ${isDark ? 'text-gray-300' : 'text-gray-600'} transition-colors duration-300`}
-                >
-                  {project.description}
-                </CardItem>
-                
-                <CardItem translateZ="50" className="flex flex-wrap gap-2 mb-4">
-                  {project.techUsed.split(', ').map((tech, techIndex) => (
-                    <span 
-                      key={techIndex} 
-                      className={`px-2 py-1 text-xs font-semibold rounded-full ${isDark ? 
-                        'text-blue-300 bg-blue-500/10 border border-blue-500/20' : 
-                        'text-blue-600 bg-blue-100 border border-blue-200'} transition-colors duration-300`}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </CardItem>
-                
-                <CardItem translateZ="50" className="flex items-center justify-between mt-4">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`px-4 mr-5 py-2 rounded-full text-white text-sm font-semibold flex items-center space-x-2 transition duration-300 ${isDark ? 
-                      'bg-blue-600 hover:bg-blue-700' : 
-                      'bg-blue-500 hover:bg-blue-600'}`}
-                  >
-                    <ExternalLink size={16} />
-                    <span>Live Demo</span>
-                  </a>
-                  
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`px-4 py-2 rounded-full text-white text-sm font-semibold flex items-center space-x-2 transition duration-300 ${isDark ? 
-                      'bg-gray-700 hover:bg-gray-600' : 
-                      'bg-gray-800 hover:bg-gray-700'}`}
-                  >
-                    <Github size={16} />
-                    <span>GitHub</span>
-                  </a>
-                </CardItem>
-              </CardBody>
-            </CardContainer>
-          ))}
+                  <ProjectButton
+                    href={currentProject.githubLink}
+                    icon={Github}
+                    label="Source Code"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="flex justify-center items-center gap-6">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handlePrevious}
+            aria-label="Previous project"
+          >
+            <ChevronLeft size={24} />
+          </Button>
+
+          <div className="text-white text-lg">
+            {currentIndex + 1} / {MyProjects.length}
+          </div>
+
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleNext}
+            aria-label="Next project"
+          >
+            <ChevronRight size={24} />
+          </Button>
         </div>
       </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
-export default Projects;
+export default Projects

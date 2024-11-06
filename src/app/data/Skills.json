@@ -20,28 +20,48 @@
       "image": "https://img.icons8.com/fluency/48/node-js.png"
     },
     {
-      "name": "Tailwind",
-      "image": "https://img.icons8.com/color/50/tailwind_css.png"
+      "name": "Express Js",
+      "image": "https://img.icons8.com/nolan/64/express-js.png"
     },
     {
-      "name": "HTML",
-      "image": "https://img.icons8.com/color/48/html-5--v1.png"
+      "name": "GraphQL",
+      "image": "https://img.icons8.com/fluency/48/graphql.png"
     },
     {
-      "name": "CSS",
-      "image": "https://img.icons8.com/color/48/css3.png"
+      "name": "REST APIs",
+      "image": "https://img.icons8.com/nolan/64/api-settings.png"
+    },
+    {
+      "name": "Prisma",
+      "image": "https://img.icons8.com/ios/50/prisma-orm.png"
+    },
+    {
+      "name": "FireBase",
+      "image": "https://img.icons8.com/color/48/firebase.png"
+    },
+    {
+      "name": "AppWrite",
+      "image": "https://icon.icepanel.io/Technology/svg/Appwrite.svg"
     },
     {
       "name": "MongoDB",
       "image": "https://img.icons8.com/color/48/mongo-db.png"
     },
     {
-      "name": "MySQL",
-      "image": "https://img.icons8.com/color/48/mysql-logo.png"
+      "name": "Postgres",
+      "image": "https://img.icons8.com/color/48/postgreesql.png"
     },
     {
-      "name": "Express Js",
-      "image": "https://img.icons8.com/nolan/64/express-js.png"
+      "name": "Tailwind",
+      "image": "https://img.icons8.com/color/50/tailwind_css.png"
+    },
+    {
+      "name": "GitHub",
+      "image": "https://img.icons8.com/glyph-neue/64/github.png"
+    },
+    {
+      "name": "Postman",
+      "image": "https://img.icons8.com/dusk/64/postman-api.png"
     },
     {
       "name": "WebSockets",
@@ -55,18 +75,7 @@
       "name": "Bootstrap",
       "image": "https://img.icons8.com/color/48/bootstrap--v1.png"
     },
-    {
-      "name": "Aceternity UI",
-      "image": "https://ui.aceternity.com/_next/image?url=%2Flogo.png&w=64&q=75"
-    },
-    {
-      "name": "FireBase",
-      "image": "https://img.icons8.com/color/48/firebase.png"
-    },
-    {
-      "name": "AppWrite",
-      "image": "https://icon.icepanel.io/Technology/svg/Appwrite.svg"
-    },
+
     {
       "name": "Framer Motion",
       "image": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"

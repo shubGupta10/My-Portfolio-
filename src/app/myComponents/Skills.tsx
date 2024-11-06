@@ -17,18 +17,18 @@ const SkillCard: React.FC<{
     className={`group flex flex-col items-center w-24 transition-all duration-300`}
   >
     <div 
-      className={`relative w-16 h-16 rounded-xl ${
-        isDark ? 'bg-gray-800' : 'bg-white'
+      className={`relative w-14 h-14 lg:w-20 lg:h-20  rounded-xl ${
+        isDark ? 'bg-gray-100' : 'bg-white'
       } p-2.5 shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:scale-110 overflow-hidden`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#111626] via-[#111827] to-[#222c4a] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <img
         src={skill.image}
         alt={skill.name}
         className="object-contain p-1.5 drop-shadow-sm transition-transform duration-300 group-hover:scale-110 w-full h-full"
       />
     </div>
-    <span className={`mt-2 text-xs font-medium text-center ${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-blue-500 transition-colors duration-300`}>
+    <span className={`mt-2 text-xs font-medium text-center ${isDark ? 'text-white' : 'text-gray-600'} group-hover:text-blue-500 transition-colors duration-300`}>
       {skill.name}
     </span>
   </motion.div>
@@ -49,7 +49,7 @@ const Skills: React.FC = () => {
   const isDark = resolvedTheme === 'dark';
 
   return (
-    <section className={`relative py-20 ${isDark ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300 overflow-hidden`}>
+    <section className={`relative py-20 ${isDark ? 'bg-gradient-to-b from-[#222c4a] via-[#1a2138] to-[#111626]' : 'bg-gray-50'} transition-colors duration-300 overflow-hidden`}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

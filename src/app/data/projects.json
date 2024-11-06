@@ -1,17 +1,25 @@
 [
     {
-        "title": "Anonymous Feedback - Send Anonymous Messages",
-        "techUsed": "Next Js, TypeScript, Next Auth, Shadcn, MongoDB",
-        "description": "his platform allows users to send and receive anonymous messages.",
-        "image": "https://drive.google.com/uc?id=10WX5zPulVFvZuOVtjI6AtZGlhJc84FLq",
+        "title": "AI Powered Blog App - Blogger App",
+        "techUsed": "Next Js, TypeScript, NodeJs, GraphQL, GEMINI AI , ZOD, ShadCN UI, MongoDB",
+        "description": "An AI-enhanced blogging platform that streamlines content creation and summarization, making it easy for users to craft and manage engaging blog posts.",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151539.png?alt=media&token=36888bdb-bd19-482b-a7d0-975ad67b4191",
+        "liveLink": "https://goblogerly.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/blogger"
+    },
+    {
+        "title": "Anonymous Feedback - Your Personal Anonymous Inbox",
+        "techUsed": "Next Js, TypeScript, NodeJs, RestApi , OPEN AI, ZOD, ShadCN UI, MongoDB",
+        "description": "A platform for users to share anonymous feedback safely, fostering open communication without revealing identity.",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151608.png?alt=media&token=ee04a43d-f533-45b3-af45-e31429bf9e01",
         "liveLink": "https://anonmssg.vercel.app",
         "githubLink": "https://github.com/shubGupta10/Anonymous_Messages"
     },
     {
         "title": "EDUHUB- A Learning Platform",
         "techUsed": "React Js, Firebase, Firebase Auth, FireStore, Firebase Storage, Tailwind CSS, Framer Motion",
-        "description": "A EdTech platform, where people can learn and grow.",
-        "image": "https://drive.google.com/uc?id=1Fktf_AMz4W3d64WgiElGJteSI4nMmyRQ",
+        "description": "An interactive learning platform for students and educators, offering real-time resources and collaborative tools to enhance education.",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Feduhub.png?alt=media&token=cd2cdf56-2166-42ff-81d4-7fe310ee54bd",
         "liveLink": "https://eduhub-plus.vercel.app",
         "githubLink": "https://github.com/shubGupta10/EduHUB"
     },
@@ -19,40 +27,8 @@
         "title": "DoSchedulise- Connect with Medical help",
         "techUsed": "React Js, Node Js, Express Js, MongoDB, WebSocket (Socket.io), Tailwind CSS",
         "description": "Connect Medical people to doctors by Live Chat.",
-        "image": "https://drive.google.com/uc?id=1n97nG8apVFckXqbUOvzBVDUzGSqmdlFq",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fdoc.png?alt=media&token=b5124096-349e-4202-90ae-8f267b25ad01",
          "liveLink": "https://do-schedulise.vercel.app",
         "githubLink": "https://github.com/shubGupta10/DoSchedulise"
-    },
-    {
-        "title": "BlogPoint- Write Blog and connect with people",
-        "techUsed": "React Js, Appwrite, AppWrite DB, AppWrite Bucket, Tailwind CSS",
-        "description": "A Blog Web App where people can write blogs seamlessly.",
-        "image": "https://drive.google.com/uc?id=1r-CuLHV22yflvbBPW4MxjV-Y8J4qDSwg",
-         "liveLink": "https://blog-point.vercel.app",
-        "githubLink": "https://github.com/shubGupta10/BlogPoint-"
-    },
-    {
-        "title": "My Portfolio- A Website where people get to know me",
-        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS, Framer Motion",
-        "description": "Builded a portfolio to showcase myself",
-        "image": "https://drive.google.com/uc?id=14rYgUNqv-kPJXEvhqyzYPPVFVbDZ4mSI",
-         "liveLink": "https://my-portfolio-10.vercel.app",
-        "githubLink": "https://github.com/shubGupta10/My-Portfolio-"
-    },    
-    {
-        "title": "PinFluence- Share ideas and connect with people",
-        "techUsed": "React Js, Node Js, Express Js, MongoDB, Tailwind CSS",
-        "description": "A WebApp where people can explore their ideas!!",
-        "image": "https://drive.google.com/uc?id=1WQV6NdvwVlCH1cm-lIVzJNm2wKTE3x3j",
-         "liveLink": "https://pinfluence-a6jx.onrender.com",
-        "githubLink": "https://github.com/shubGupta10/Pinfluence"
-    },
-    {
-        "title": "Music-Al- A Music Streaming UI",
-        "techUsed": "Next Js, TypeScript, Aceternity UI, Tailwind CSS, Framer Motion",
-        "description": "Explore your music career!!",
-        "image": "https://drive.google.com/uc?id=1YGi6QjRrBckL0wi2RX8GUQb2bxT4i1VR",
-         "liveLink": "https://music-al.vercel.app",
-        "githubLink": "https://github.com/shubGupta10/MusicAl"
     }
 ]
