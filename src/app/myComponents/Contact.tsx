@@ -18,7 +18,7 @@ const ContactForm = () => {
   }
 
   return (
-    <div id='contact' className={`min-h-screen flex flex-col py-8 px-4 sm:py-16 sm:px-6 lg:px-8 ${resolvedTheme === 'dark' ? 'bg-gradient-to-b from-[#111626] via-[#1a2138] to-[#222c4a]' : 'bg-white'} transition-colors duration-300`}>
+    <div id='contact' className={`min-h-screen flex flex-col py-8 px-4 sm:py-18 sm:px-6 lg:px-8 ${resolvedTheme === 'dark' ? 'bg-gradient-to-b from-[#111626] via-[#1a2138] to-[#222c4a]' : 'bg-white'} transition-colors duration-300`}>
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8 lg:mb-16">
         {/* Left side - Contact Info */}
         <div className="w-full lg:w-1/2 lg:sticky lg:top-8">
