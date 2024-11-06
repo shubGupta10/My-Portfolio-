@@ -135,7 +135,7 @@ const NavMenu = () => {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2.5 rounded-lg hover:bg-gray-100"
+              className="p-2.5 rounded-lg hover:bg-gray-100 hover:text-black"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen 
@@ -148,7 +148,7 @@ const NavMenu = () => {
   
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 absolute top-20 left-0 right-0 bg-inherit shadow-lg">
+          <div className="md:hidden py-4 absolute top-20 left-0 bg-[#13192a] right-0  shadow-lg">
             <div className="flex flex-col space-y-2 px-6">
               {navItems.map(({ id, label }) => (
                 <button
@@ -159,7 +159,7 @@ const NavMenu = () => {
                     transition-all duration-200
                     ${activeSection === id 
                       ? 'bg-gray-100 text-gray-900'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                      : 'text-gray-100 hover:text-gray-900 hover:bg-gray-100'
                     }
                   `}
                 >
@@ -173,7 +173,7 @@ const NavMenu = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    className="p-2.5 rounded-lg transition-colors duration-200 text-gray-100 hover:text-gray-900 hover:bg-gray-100"
                     aria-label={label}
                   >
                     {icon}

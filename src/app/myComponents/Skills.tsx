@@ -14,7 +14,7 @@ const SkillCard: React.FC<{
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1, duration: 0.3 }}
-    className={`group flex flex-col items-center w-24 transition-all duration-300`}
+    className={`group flex  flex-col items-center w-24 transition-all duration-300`}
   >
     <div 
       className={`relative w-14 h-14 lg:w-20 lg:h-20  rounded-xl ${
@@ -57,7 +57,7 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="relative z-10 text-center mb-16"
         >
-          <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'} transition-colors duration-300`}>
+          <h2 className={`text-4xl mt-10 font-bold mb-4 ${isDark ? 'text-white' : 'text-black'} transition-colors duration-300`}>
             Skills & Expertise
           </h2>
         </motion.div>

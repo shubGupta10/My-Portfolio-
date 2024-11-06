@@ -40,7 +40,7 @@ const AboutSection = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="space-y-8 max-w-4xl lg:mt-20"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+            <h1 className="text-4xl mt-20 md:mt-0 lg:mt-0 md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
               Hey, I'm{' '}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient-x">
                 Shubham
@@ -56,7 +56,7 @@ const AboutSection = () => {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.5 }}
-        className="mt-12 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0"
+        className="mt-12 flex flex-col md:flex-row ml-10 md:ml-10 lg:ml-10  items-start md:items-center lg:items-center justify-between space-y-8 md:space-y-0"
       >
         <ResumeButton />
         <SocialIcons />
