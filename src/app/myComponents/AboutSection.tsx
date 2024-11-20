@@ -86,7 +86,7 @@ const ResumeAndSocial = () => {
         variant="outline"
         size="lg"
         className="group bg-transparent border-gray-500 hover:bg-gray-800 hover:border-gray-400 text-gray-300 hover:text-white"
-        onClick={() => window.open('/path-to-your-resume.pdf', '_blank')}
+        onClick={() => window.open('https://drive.google.com/file/d/1xbJeBsvNpl-cXpbSFz68nhiGEECy2dBi/view?usp=drivesdk', '_blank')}
       >
         <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
         Download Resume
