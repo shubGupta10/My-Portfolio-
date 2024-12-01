@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import experience from '@/app/data/experience.json';
-import { useTheme } from 'next-themes';
 import { Calendar, Building2 } from 'lucide-react';
 
 interface ExperienceItemProps {
@@ -13,86 +13,68 @@ interface ExperienceItemProps {
 }
 
 const ExperienceItem: React.FC<ExperienceItemProps> = ({ year, title, company, description }) => {
-  const { resolvedTheme } = useTheme();
   const bulletPoints = description.split('\n').filter(point => point.trim() !== '');
-  const isDark = resolvedTheme === 'dark';
-  
+
   return (
-    <div className={`mb-12 p-8 rounded-xl border ${
-      isDark 
-        ? 'bg-gray-800/40 hover:bg-gray-800/60 border-gray-700/30' 
-        : 'bg-white hover:bg-gray-50 border-gray-200'
-    } transition-all duration-300 backdrop-blur-sm`}>
-      {/* Header Section */}
-      <div className="flex flex-col gap-6 mb-6 border-b border-gray-700/20 pb-6">
-        {/* Year and Company */}
-        <div className="flex flex-wrap items-center gap-6">
-          <div className="flex items-center gap-2 bg-blue-500/10 text-blue-500 px-4 py-2 rounded-full">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-12 p-8 rounded-xl border border-blue-600/30 bg-gradient-to-br from-black via-blue-950 to-black text-white   transition-all duration-300 backdrop-blur-sm"
+    >
+      <div className="flex flex-col gap-6 mb-6 border-b border-blue-800/20 pb-6">
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-2 bg-blue-800/20 text-blue-300 px-4 py-2 rounded-full">
             <Calendar size={18} />
             <span className="font-semibold">{year}</span>
           </div>
-          
-          <div className="flex items-center gap-2 text-gray-400">
+          <div className="flex items-center gap-2 text-blue-300">
             <Building2 size={18} />
             <span className="font-medium text-lg">{company}</span>
           </div>
         </div>
-
-        {/* Title */}
-        <h3 className={`text-2xl font-bold ${
-          isDark ? 'text-white' : 'text-gray-900'
-        }`}>
+        <h3 className="text-2xl font-bold text-blue-100">
           {title}
         </h3>
       </div>
-
-      {/* Description List */}
       <ul className="space-y-4">
         {bulletPoints.map((point, index) => (
-          <li key={index} className="flex gap-4">
-            <span className={`mt-2 w-2 h-2 rounded-full shrink-0 ${
-              isDark ? 'bg-blue-400' : 'bg-blue-500'
-            }`} />
-            <p className={`${
-              isDark ? 'text-gray-300' : 'text-gray-600'
-            } text-base leading-relaxed`}>
+          <motion.li
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="flex gap-4"
+          >
+            <span className="mt-2 w-2 h-2 rounded-full bg-blue-400 shrink-0" />
+            <p className="text-blue-200 text-base leading-relaxed">
               {point.replace('• ', '')}
             </p>
-          </li>
+          </motion.li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 
 const Experience: React.FC = () => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <section 
-      id='experience' 
-      className={`py-20 md:mt-0 ${
-        resolvedTheme === 'dark' 
-          ? 'bg-gradient-to-b from-[#111626] via-[#1a2138] to-[#222c4a]' 
-          : 'bg-gray-50'
-      }`}
+    <section
+      id="experience"
+      className="py-20 bg-gradient-to-b from-blue-950 to-black"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-16 mt-10 text-center">
-          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl sm:text-5xl font-bold mb-16 text-center"
+        >
+          <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
             Professional Experience
           </span>
-        </h2>
-        
+        </motion.h2>
+
         <div className="max-w-4xl mx-auto">
           {experience.map((exp, index) => (
             <ExperienceItem key={index} {...exp} />
@@ -104,3 +86,4 @@ const Experience: React.FC = () => {
 };
 
 export default Experience;
+

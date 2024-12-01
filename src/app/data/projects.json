@@ -7,8 +7,8 @@
         "liveLink": "https://goblogerly.vercel.app",
         "githubLink": "https://github.com/shubGupta10/blogger",
         "features": [
-            "AI-generated blog content",
-            "AI-powered blog summarization",
+            "AI-generated blog content & blog summarization",
+            "AI Powered Blog Recommendation system",
             "User-friendly dashboard for managing blogs",
             "GraphQL for efficient data fetching",
             "ShadCN UI for seamless UI/UX"
@@ -24,7 +24,7 @@
         "features": [
             "Anonymous feedback submission",
             "Secure identity protection",
-            "REST API integration",
+            "Anon Shield to protect from abuse",
             "AI-generated feedback insights",
             "Responsive design with ShadCN UI"
         ]
@@ -43,20 +43,6 @@
             "Interactive animations with Framer Motion",
             "Modern and responsive UI with Tailwind CSS"
         ]
-    },
-    {
-        "title": "DoSchedulise- Connect with Medical help",
-        "techUsed": "React Js, Node Js, Express Js, MongoDB, WebSocket (Socket.io), Tailwind CSS",
-        "description": "Connect Medical people to doctors by Live Chat.",
-        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fdoc.png?alt=media&token=b5124096-349e-4202-90ae-8f267b25ad01",
-        "liveLink": "https://do-schedulise.vercel.app",
-        "githubLink": "https://github.com/shubGupta10/DoSchedulise",
-        "features": [
-            "Real-time live chat functionality",
-            "WebSocket-powered communication",
-            "Doctor-patient connection interface",
-            "Scalable backend with Express.js",
-            "Responsive UI with Tailwind CSS"
-        ]
     }
+  
 ]
