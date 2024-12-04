@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code2 } from 'lucide-react';
+import { ExternalLink, Github, Code2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,27 +20,31 @@ interface Project {
 }
 
 const ProjectImage: React.FC<{ src: string; alt: string }> = ({ src, alt }) => (
-  <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
+  <div className="relative aspect-[16/9] w-full overflow-hidden group">
     <Image 
       src={src} 
       alt={alt} 
       layout="fill" 
       objectFit="cover" 
-      className="transition-transform duration-300 ease-in-out group-hover:scale-105" 
+      className="transition-all duration-700 ease-out group-hover:scale-105" 
     />
+    <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/90 via-indigo-950/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
   </div>
 );
 
 const TechBadge: React.FC<{ tech: string }> = ({ tech }) => (
-  <Badge variant="secondary" className="bg-blue-900/50 text-blue-200 hover:bg-blue-800 text-xs">
+  <Badge 
+    variant="secondary" 
+    className="bg-indigo-950/60 text-indigo-200 hover:bg-indigo-900/60 text-xs px-3 py-1 rounded-full border border-indigo-500/30 backdrop-blur-sm transition-all duration-300 hover:scale-105"
+  >
     {tech}
   </Badge>
 );
 
 const FeatureItem: React.FC<{ feature: string }> = ({ feature }) => (
-  <li className="flex items-start gap-2 text-blue-100 text-sm">
-    <Code2 size={14} className="mt-1 flex-shrink-0 text-blue-400" />
-    <span>{feature}</span>
+  <li className="flex items-start gap-3 text-indigo-100/90 text-sm group cursor-default">
+    <Code2 size={16} className="mt-0.5 flex-shrink-0 text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300" />
+    <span className="group-hover:text-white transition-colors duration-300">{feature}</span>
   </li>
 );
 
@@ -49,49 +53,58 @@ const ProjectButton: React.FC<{ href: string; icon: React.ElementType; label: st
     variant={primary ? "default" : "outline"}
     size="sm"
     asChild
-    className={`transition-colors duration-300 text-xs ${
+    className={`group transition-all duration-300 ${
       primary 
-        ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-        : 'border-blue-600/50 hover:bg-blue-800/20 text-blue-200 hover:text-blue-100'
+        ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 hover:translate-y-[-2px]' 
+        : 'border-indigo-600/30 hover:border-indigo-400/60 text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600/20 hover:translate-y-[-2px]'
     }`}
   >
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1"
+      className="inline-flex items-center gap-2"
     >
-      <Icon size={14} />
-      <span>{label}</span>
+      <Icon size={16} className="transition-transform duration-300 group-hover:scale-110" />
+      <span className="relative">
+        {label}
+        <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 group-hover:w-full" />
+      </span>
     </a>
   </Button>
 );
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <Card className="bg-blue-950/30 border-blue-800/30 overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+  <Card className="group relative bg-gradient-to-br from-indigo-950/90 to-slate-900/90 border-indigo-800/30 overflow-hidden rounded-xl hover:border-indigo-700/40 transition-all duration-500 hover:translate-y-[-4px]">
     <ProjectImage src={project.image} alt={project.title} />
-    <CardHeader>
-      <CardTitle className="text-xl font-bold bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
+    <CardHeader className="relative pt-6">
+      <CardTitle className="text-2xl font-bold bg-gradient-to-r from-indigo-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
         {project.title}
+        <ArrowRight size={20} className="text-indigo-400 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0" />
       </CardTitle>
     </CardHeader>
-    <CardContent className="space-y-4">
-      <p className="text-blue-100 text-sm">{project.description}</p>
+    <CardContent className="space-y-6">
+      <p className="text-indigo-100/90 text-sm leading-relaxed">
+        {project.description}
+      </p>
       <div className="flex flex-wrap gap-2">
         {(Array.isArray(project.techUsed) ? project.techUsed : project.techUsed.split(', ')).map((tech, index) => (
           <TechBadge key={index} tech={tech} />
         ))}
       </div>
-      <div>
-        <h4 className="text-base font-semibold text-blue-200 mb-2">Key Features:</h4>
-        <ul className="space-y-1">
+      <div className="space-y-3">
+        <h4 className="text-base font-semibold text-indigo-300 flex items-center gap-2">
+          Key Features
+          <div className="h-px flex-1 bg-gradient-to-r from-indigo-500/30 to-transparent" />
+        </h4>
+        <ul className="space-y-3">
           {project.features.map((feature, index) => (
             <FeatureItem key={index} feature={feature} />
           ))}
         </ul>
       </div>
     </CardContent>
-    <CardFooter className="flex justify-between">
+    <CardFooter className="flex justify-between gap-4 border-t border-indigo-800/30 mt-6 pt-6">
       <ProjectButton
         href={project.liveLink}
         icon={ExternalLink}
@@ -109,18 +122,23 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-12 md:py-20 bg-gradient-to-b from-black to-blue-950">
-      <div className="container mx-auto px-4">
-        <motion.h2
+    <section id="projects" className="min-h-screen py-20 md:py-28 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-4 mb-16 md:mb-20"
         >
-          Featured Projects
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <p className="text-indigo-200/80 max-w-2xl mx-auto">
+            Explore my latest work and creative solutions
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {MyProjects.map((project, index) => (
             <motion.div
               key={index}
