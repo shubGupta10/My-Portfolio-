@@ -108,7 +108,7 @@ const ResumeAndSocial = () => {
         variant="outline"
         size="lg"
         className="group relative bg-blue-950/30 border-blue-400/30 hover:bg-blue-900/40 hover:border-blue-300/50 text-blue-100 hover:text-white transition-all duration-300 px-6 py-3 text-base rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20"
-        onClick={() => window.open('https://drive.google.com/file/d/1xbJeBsvNpl-cXpbSFz68nhiGEECy2dBi/view?usp=sharing', '_blank')}
+        onClick={() => window.open('/https://drive.google.com/file/d/1xbJeBsvNpl-cXpbSFz68nhiGEECy2dBi/view?usp=sharing', '_blank')}
       >
         <span className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         <Download className="mr-2 h-5 w-5 group-hover:animate-bounce transition-transform duration-300" />
