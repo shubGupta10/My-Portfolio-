@@ -82,8 +82,8 @@ const AboutContent = () => (
       whileHover={{ scale: 1.01 }}
       transition={{ type: "spring", stiffness: 300, damping: 10 }}
     >
-      <p className="text-lg leading-relaxed text-blue-100/90">
-        As a passionate full-stack developer, I blend technical expertise with creative innovation to craft exceptional digital experiences. From architecting scalable solutions to designing intuitive interfaces, I specialize in building applications that make a difference. When I'm not coding, you'll find me exploring emerging technologies, contributing to open-source projects, and sharing knowledge with the developer community. My commitment to excellence and continuous learning drives me to push the boundaries of what's possible in web development.
+      <p className="text-lg leading-loose text-blue-100/90">
+        As a Full stack Developer and Backend Developer, I have a passion for creating and developing web applications. I have experience in building full stack applications using React, Next.js, Node.js, Express.js, and MongoDB. I am always eager to learn new technologies and improve my skills. I am a quick learner and a team player who is always ready to take on new challenges. I am currently looking for opportunities to work on exciting projects and grow as a developer.
       </p>
     </motion.div>
   </motion.div>
@@ -108,8 +108,8 @@ const ResumeAndSocial = () => {
         variant="outline"
         size="lg"
         className="group relative bg-blue-950/30 border-blue-400/30 hover:bg-blue-900/40 hover:border-blue-300/50 text-blue-100 hover:text-white transition-all duration-300 px-6 py-3 text-base rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20"
-        onClick={() => window.open('/https://drive.google.com/file/d/1xbJeBsvNpl-cXpbSFz68nhiGEECy2dBi/view?usp=sharing', '_blank')}
-      >
+        onClick={() => window.open('https://drive.google.com/file/d/1xbJeBsvNpl-cXpbSFz68nhiGEECy2dBi/view?usp=sharing', '_blank')}
+        >
         <span className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-400/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         <Download className="mr-2 h-5 w-5 group-hover:animate-bounce transition-transform duration-300" />
         Download Resume
