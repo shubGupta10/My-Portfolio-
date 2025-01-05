@@ -79,7 +79,18 @@
     {
       "name": "Framer Motion",
       "image": "https://cdn.worldvectorlogo.com/logos/framer-motion.svg"
-    }
-   
+    },
+    {
+      "name": "Docker",
+      "image": "https://img.icons8.com/fluency/48/docker.png"
+    },
+    {
+      "name": "Kubernetes",
+      "image": "https://img.icons8.com/color/48/kubernetes.png"
+    },
+    {
+      "name": "Langchain",
+      "image": "https://avatars.githubusercontent.com/u/106961054?s=200&v=4"
+        }
   ]
   

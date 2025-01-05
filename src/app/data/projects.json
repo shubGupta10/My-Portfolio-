@@ -1,9 +1,39 @@
 [
     {
+        "title": "AI Powered Resume Builder - BuildMyCV",
+        "techUsed": "Next.js, TypeScript, Node.js, LangChain, GenAI, Prisma, PostgreSQL, Docker, Firebase",
+        "description": "A cutting-edge AI-powered platform that enhances resume-building efficiency and provides job analysis insights, helping users secure their dream roles.",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fbuildmycv.png?alt=media",
+        "liveLink": "https://buildmycv.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/AI-resume-builder",
+        "features": [
+            "AI-powered resume-building with efficiency enhancement by 70%",
+            "Advanced job fit analysis increasing accuracy by 50%",
+            "AI Chatbot Assistant for personalized resume insights",
+            "Streamlined deployment using Docker",
+            "PostgreSQL for scalable and secure data handling"
+        ]
+    },
+    {
+        "title": "Open Source Project Discovery - OpenSox",
+        "techUsed": "Next.js, TypeScript, Node.js, GitHub API, Docker, Supabase, ShadCN",
+        "description": "A platform for discovering and contributing to open source projects, empowering developers to find projects based on popularity, language, and skill level.",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fopensox.png?alt=media",
+        "liveLink": "https://open-sox.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/OpenSox",
+        "features": [
+            "Discover open source projects categorized by stars, difficulty, and language",
+            "Dynamic data fetching using GitHub API for real-time project updates",
+            "Search and filtering functionality for quick access to projects",
+            "Docker multi-stage builds for streamlined deployment",
+            "Scalable architecture supporting thousands of users"
+        ]
+    },        
+    {
         "title": "AI Powered Blog App - Blogger App",
         "techUsed": "Next Js, TypeScript, NodeJs, GraphQL, GEMINI AI, ZOD, ShadCN UI, MongoDB",
         "description": "An AI-enhanced blogging platform that streamlines content creation and summarization, making it easy for users to craft and manage engaging blog posts.",
-        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151539.png?alt=media&token=36888bdb-bd19-482b-a7d0-975ad67b4191",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151539.png?alt=media",
         "liveLink": "https://goblogerly.vercel.app",
         "githubLink": "https://github.com/shubGupta10/blogger",
         "features": [
@@ -18,7 +48,7 @@
         "title": "Anonymous Feedback - Your Personal Anonymous Inbox",
         "techUsed": "Next Js, TypeScript, NodeJs, RestApi, OPEN AI, ZOD, ShadCN UI, MongoDB",
         "description": "A platform for users to share anonymous feedback safely, fostering open communication without revealing identity.",
-        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151608.png?alt=media&token=ee04a43d-f533-45b3-af45-e31429bf9e01",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151608.png?alt=media",
         "liveLink": "https://anonmssg.vercel.app",
         "githubLink": "https://github.com/shubGupta10/Anonymous_Messages",
         "features": [
@@ -33,7 +63,7 @@
         "title": "EDUHUB- A Learning Platform",
         "techUsed": "React Js, Firebase, Firebase Auth, FireStore, Firebase Storage, Tailwind CSS, Framer Motion",
         "description": "An interactive learning platform for students and educators, offering real-time resources and collaborative tools to enhance education.",
-        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Feduhub.png?alt=media&token=cd2cdf56-2166-42ff-81d4-7fe310ee54bd",
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Feduhub.png?alt=media",
         "liveLink": "https://eduhub-plus.vercel.app",
         "githubLink": "https://github.com/shubGupta10/EduHUB",
         "features": [
