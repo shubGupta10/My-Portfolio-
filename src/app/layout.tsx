@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/react"
 import NavMenu from "./myComponents/Navbar";
+import DevChat from "./myComponents/DevChat";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <NavMenu/>
           <Analytics/>
         {children}
+        <DevChat/>
         </Providers>
       </body>
     </html>
