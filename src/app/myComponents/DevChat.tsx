@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, Maximize2, Minimize2, Bot } from 'lucide-react';
+import { X, Maximize2, Minimize2, Bot, ExternalLink } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -31,9 +31,9 @@ export default function DevChat() {
     <>
       {isOpen && (
         <Card className={`
-          fixed bottom-20 right-4 bg-background/95 backdrop-blur-sm
-          w-[95vw] sm:w-[600px] 
-          ${isMinimized ? 'h-14' : 'h-[600px]'}
+          fixed bottom-4 right-4 bg-background/95 backdrop-blur-sm
+          w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[55vw] max-w-[1000px]
+          ${isMinimized ? 'h-14' : 'h-[85vh] max-h-[800px]'}
           rounded-lg shadow-2xl z-50 border border-primary/10
           transition-all duration-300 ease-in-out
           ${isAnimating ? 'animate-in zoom-in-90 slide-in-from-bottom-8' : ''}
@@ -41,7 +41,7 @@ export default function DevChat() {
           <div className="absolute top-0 left-0 right-0 h-14 px-4 flex items-center justify-between border-b border-primary/10 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/50 rounded-t-lg">
             <div className="flex items-center gap-2">
               <div className="relative">
-                <Bot className="w-5 h-5 text-primary animate-pulse" />
+                <Bot className="w-5 h-5 text-primary" />
                 <div className="absolute inset-0 blur-sm bg-primary/20 rounded-full animate-pulse" />
               </div>
               <span className="font-semibold text-primary">AI Assistant</span>
@@ -69,7 +69,7 @@ export default function DevChat() {
               </Button>
             </div>
           </div>
-          <div className={`w-full ${isMinimized ? 'h-0' : 'h-[calc(100%-3.5rem)]'} transition-all duration-300`}>
+          <div className={`w-full ${isMinimized ? 'h-0' : 'h-[calc(100%-3.5rem)]'} transition-all duration-300 overflow-hidden`}>
             <iframe
               src="https://ai-devchat.vercel.app/chatbot/677c2fea82ae819c81b77440/677fced8e9ee0511b453a98b"
               className="w-full h-full rounded-b-lg"
@@ -81,21 +81,22 @@ export default function DevChat() {
         onClick={toggleChat}
         size="icon"
         className={`
-    fixed bottom-4 right-4 h-12 w-12 rounded-full shadow-lg
-    bg-primary hover:bg-primary/90
-    transition-all duration-300 ease-in-out
-    hover:scale-110 hover:shadow-xl hover:shadow-primary/20
-    active:scale-95
-    z-50
-  `}
+          fixed bottom-4 right-4 h-14 w-14 rounded-full shadow-lg
+          bg-primary hover:bg-primary/90
+          transition-all duration-300 ease-in-out
+          hover:scale-110 hover:shadow-xl hover:shadow-primary/20
+          active:scale-95
+          z-50
+        `}
       >
         <div className="relative">
           <Bot className="h-16 w-16" /> 
           {!isOpen && (
-            <span className="absolute -top-1 -right-1 h-3 w-3 bg-primary-foreground rounded-full animate-ping" />
+            <span className="absolute -top-1 -right-1 bg-primary-foreground rounded-full" />
           )}
         </div>
       </Button>
     </>
   );
 }
+
