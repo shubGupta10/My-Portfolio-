@@ -2,7 +2,6 @@
 
 import React from 'react'
 import AboutSection from './myComponents/AboutSection'
-import Experience from './myComponents/Experience'
 import Skills from './myComponents/Skills'
 import Projects from './myComponents/Projects'
 import Contact from './myComponents/Contact'
@@ -13,7 +12,6 @@ const page = () => {
     <div>
       <AboutSection/>
       <Skills/>
-      <Experience/>
       <Projects/>
       <Contact/>
       <Footer/>

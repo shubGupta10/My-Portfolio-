@@ -55,7 +55,7 @@ const NavMenu = () => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
+    // { id: 'experience', label: 'Experience' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -76,11 +76,11 @@ const NavMenu = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className={`fixed top-0 inset-x-0 z-50 h-20 transition-all duration-300 ${
+      className={`absolute top-0 inset-x-0 z-50 h-20 transition-all duration-300 ${
         isScrolled ? 'bg-blue-950/90 shadow-lg backdrop-blur-sm' : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 h-full">
+      <nav className="container  mx-auto px-6 h-full">
         <div className="flex items-center justify-between h-full">
           <motion.div
             onClick={handleHome}
