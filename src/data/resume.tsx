@@ -83,8 +83,14 @@ export const DATA = {
       logoUrl: "",
       start: "June 2024",
       end: "Jan 2025",
-      description:
-        "Developed and maintained the company's website and web applications. Worked on the frontend and backend of the website. Developed the website using React, Next.js, and Firebase. Worked on the backend using Node.js, Express, and MongoDB. Worked on the deployment of the website using Vercel and domain configuration.",
+      points : [
+        "Designed and developed a fully functional, responsive website for BioStrive Energies using Next.js, Node.js, TypeScript, and MongoDB, ensuring a seamless user experience across all devices.",
+        "Implemented a dynamic admin panel with role-based access control, allowing admins to manage website content efficiently, including notices and updates.",
+        "Developed a comprehensive notice system, enabling administrators to create, edit, and delete notices, improving internal and external communication.",
+        "Optimized website performance and SEO by implementing Redis caching and browser caching, reducing server load and improving page load times.",
+        "Utilized Framer Motion to create smooth animations, enhancing the website’s visual appeal and user engagement.",
+        "Integrated a secure JWT authentication system, ensuring a full-fledged authentication and authorization flow for the platform."
+      ]
     }
   ],
   education: [

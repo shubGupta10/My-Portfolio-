@@ -1,100 +1,80 @@
-"use client";
+"use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardHeader } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { ChevronRightIcon } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import { useState } from "react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardHeader, CardContent } from "@/components/ui/card"
+import { Briefcase, ChevronDown, ChevronUp } from "lucide-react"
 
 interface ResumeCardProps {
-  altText: string;
-  title: string;
-  subtitle?: string;
-  badges?: readonly string[];
-  period: string;
-  description?: string;
+  altText: string
+  title: string
+  subtitle?: string
+  badges?: readonly string[]
+  period: string
+  points?: readonly string[]
 }
-export const ResumeCard = ({
-  altText,
-  title,
-  subtitle,
-  badges,
-  period,
-  description,
-}: ResumeCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (description) {
-      e.preventDefault();
-      setIsExpanded(!isExpanded);
-    }
-  };
+export const ResumeCard = ({ altText, title, subtitle, badges, period, points }: ResumeCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-  
-      <Card className="flex">
-        <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
-            <AvatarImage
-              alt={altText}
-              className="object-contain"
-            />
+    <Card className="overflow-hidden transition-all hover:shadow-lg">
+      <CardHeader className="relative pb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <Avatar className="h-16 w-16 border-2 border-primary">
+            <AvatarImage src={`https://api.dicebear.com/6.x/initials/svg?seed=${altText}`} alt={altText} />
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
+          <div className="flex-grow">
+            <h3 className="text-lg font-semibold">{title}</h3>
+            {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
+          </div>
+          <div className="sm:absolute bottom-2 right-6 text-xs text-muted-foreground">{period}</div>
         </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
-          <CardHeader>
-            <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
-                {title}
-                {badges && (
-                  <span className="inline-flex gap-x-1">
-                    {badges.map((badge, index) => (
-                      <Badge
-                        variant="secondary"
-                        className="align-middle text-xs"
-                        key={index}
-                      >
-                        {badge}
-                      </Badge>
-                    ))}
-                  </span>
-                )}
-                <ChevronRightIcon
-                  className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
-                    isExpanded ? "rotate-90" : "rotate-0"
-                  )}
-                />
-              </h3>
-              <div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
-                {period}
-              </div>
-            </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
-          </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
-
-                height: isExpanded ? "auto" : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-2 text-xs sm:text-sm"
-            >
-              {description}
-            </motion.div>
+        {badges && badges.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {badges.map((badge, index) => (
+              <Badge variant="secondary" key={index} className="text-xs">
+                {badge}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </CardHeader>
+      {points && points.length > 0 && (
+        <>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="w-full px-6 py-2 text-sm text-primary hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+          >
+            {isExpanded ? (
+              <>
+                <ChevronUp className="h-4 w-4" />
+                Close Points
+              </>
+            ) : (
+              <>
+                <ChevronDown className="h-4 w-4" />
+                Show Points
+              </>
+            )}
+          </button>
+          {isExpanded && (
+            <CardContent>
+              <ul className="mt-2 space-y-2">
+                {points.map((point, index) => (
+                  <li key={index} className="flex items-start gap-2 text-sm">
+                    <Briefcase className="h-5 w-5 mt-0.5 text-primary flex-shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
           )}
-        </div>
-      </Card>
-  );
-};
+        </>
+      )}
+    </Card>
+  )
+}
+
