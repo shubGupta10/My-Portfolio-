@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import Markdown from "react-markdown";
 import { ResumeCard } from "@/components/resume-card";
 import ProjectCard from "@/components/project-card";
+import GitHub from "@/components/GitHub";
 
 const SectionHeader = ({
   title,
@@ -138,6 +139,11 @@ export default function PortfolioPage() {
             </div>
           </div>
         </Section>
+
+        <div>
+        <GitHub/>
+        </div>
+
 
         {/* Projects Section */}
         <Section>

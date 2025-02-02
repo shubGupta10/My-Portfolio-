@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import DevChat from "@/components/DevChat";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-12 sm:py-24">
               <Navbar />
               {children}
+              <DevChat/>
             </div>
           </TooltipProvider>
         </ThemeProvider>
