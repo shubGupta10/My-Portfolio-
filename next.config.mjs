@@ -1,20 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
-    unoptimized: true, 
-    domains: [
-      'assets.aceternity.com',
-      'img.icons8.com', 
-      'drive.google.com',
-      'www.franciscomoretti.com',
-      'avatars.githubusercontent.com',
-      'ui.aceternity.com',
-    ],
+    domains: ['firebasestorage.googleapis.com'],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  output: 'export', 
 };
 
 export default nextConfig;
