@@ -45,7 +45,7 @@ const ProjectCard = ({
   return (
     <Card className={cn(
       "group relative flex flex-col overflow-hidden border bg-card transition-all duration-300 hover:shadow-xl",
-      "hover:translate-y-[-2px]",
+      "hover:translate-y-[-2px] ",
       className
     )}>
       <Link

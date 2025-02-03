@@ -132,7 +132,7 @@ export default function PortfolioPage() {
 
         {/* Projects Section */}
         <Section>
-          <div className="mx-auto flex flex-col gap-12 max-w-6xl">
+          <div className="mx-auto flex flex-col gap-12 max-w-full">
             <SectionHeader
               className="p-2"
               badge="My Projects"
