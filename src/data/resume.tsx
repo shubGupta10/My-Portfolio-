@@ -146,7 +146,7 @@ export const DATA = {
     },
     {
       title: "BuildMyCV - Build Your Resume & Get Analysis in Minutes",
-      href: "https://buildmycv.vercel.app/",
+      href: "https://www.buildmycv.ai/",
       dates: "Nov 2024 - Dec 2024",
       active: true,
       description:
