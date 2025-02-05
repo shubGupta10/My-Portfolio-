@@ -6,7 +6,7 @@ export const DATA = {
   initials: "img",
   url: "https://shubgupta.vercel.app",
   description:
-    "Full Stack Developer || Backend Developer",
+    "Full Stack Developer | Backend Developer | Freelance Developer",
   summary:
     "Over the past year, I’ve built and scaled multiple projects, gaining hands-on experience in full-stack development and GenAI. My journey includes developing BlogPoint, Anonymous Feedback, BuildMyCV, and OpenSox, leveraging React, Next.js, TypeScript, GraphQL, MongoDB, PostgreSQL, and Docker. I also completed an internship as a MERN stack leader, solving critical issues and leading a team. Currently, I’m focused on improving my skills in GenAI, cloud infrastructure, and DevOps, and building more innovative products.",
   avatarUrl: "/git_dp.jpg",
