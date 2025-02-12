@@ -197,7 +197,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://opensox.vercel.app/",
+          href: "https://open-sox.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
         {
