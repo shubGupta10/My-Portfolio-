@@ -178,7 +178,7 @@ export const DATA = {
     },
     {
       title: "OpenSox - Open Source projects for Developers",
-      href: "https://opensox.vercel.app/",
+      href: "https://open-sox.vercel.app",
       dates: "Jan 2025 - Jan 2025",
       active: true,
       description:
