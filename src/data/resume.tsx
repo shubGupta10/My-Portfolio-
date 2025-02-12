@@ -168,7 +168,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://buildmycv.vercel.app/",
+          href: "https://www.buildmycv.ai",
           icon: <Icons.globe className="size-3" />,
         },
        
