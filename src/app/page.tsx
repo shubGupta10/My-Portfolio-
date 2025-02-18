@@ -48,7 +48,7 @@ const Section = ({
 export default function PortfolioPage() {
   return (
     <div className="bg-gradient-to-b from-background via-background/90 to-background">
-      <main className="mx-auto max-w-7xl">
+      <main className="mx-auto max-w-4xl">
         {/* Hero Section */}
         <Section>
           <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
