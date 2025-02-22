@@ -81,8 +81,8 @@ export const DATA = {
       location: "Remote",
       title: "Freelancer Full Stack Developer",
       logoUrl: "",
-      start: "June 2024",
-      end: "Jan 2025",
+      start: "May 2024",
+      end: "Feb 2025",
       points : [
         "Designed and developed a fully functional, responsive website for BioStrive Energies using Next.js, Node.js, TypeScript, and MongoDB, ensuring a seamless user experience across all devices.",
         "Implemented a dynamic admin panel with role-based access control, allowing admins to manage website content efficiently, including notices and updates.",
