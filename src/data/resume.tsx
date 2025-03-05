@@ -109,42 +109,6 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "DevChat - Build Intelligent & Context aware Chatbots",
-      href: "https://ai-devchat.vercel.app/",
-      dates: "Dec 2024 - Jan 2025",
-      active: true,
-      description:
-        "DevChat is a platform that allows you to build intelligent and context-aware chatbots. It uses the latest GenAI models to generate responses to user queries. It also allows you to train your chatbot using your own data.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "Node.js",
-        "Langchain",
-        "Next-Auth",
-        "Redis",
-        "MongoDB",
-        "Firebase",
-        "REST API",
-        "TailwindCSS",
-        "Shadcn UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://ai-devchat.vercel.app",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/shubGupta10/ai-chatbot-platform",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fthumbnail.png?alt=media",
-      video:
-        "",
-    },
-    {
       title: "BuildMyCV - Build Your Resume & Get Analysis in Minutes",
       href: "https://www.buildmycv.ai",
       dates: "Nov 2024 - Dec 2024",
@@ -208,6 +172,42 @@ export const DATA = {
       ],
       image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fopensox.png?alt=media",
       video: "",
+    },
+    {
+      title: "DevChat - Build Intelligent & Context aware Chatbots",
+      href: "https://ai-devchat.vercel.app/",
+      dates: "Dec 2024 - Jan 2025",
+      active: true,
+      description:
+        "DevChat is a platform that allows you to build intelligent and context-aware chatbots. It uses the latest GenAI models to generate responses to user queries. It also allows you to train your chatbot using your own data.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "Node.js",
+        "Langchain",
+        "Next-Auth",
+        "Redis",
+        "MongoDB",
+        "Firebase",
+        "REST API",
+        "TailwindCSS",
+        "Shadcn UI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://ai-devchat.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/shubGupta10/ai-chatbot-platform",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fthumbnail.png?alt=media",
+      video:
+        "",
     },
     {
       title: "Anonymous Feedback - Your Personal Anonymous Inbox",
