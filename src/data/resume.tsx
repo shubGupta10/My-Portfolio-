@@ -109,6 +109,36 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "CodeX – AI-Powered Web-Based Code Editor",
+      href: "https://x-codex.vercel.app",
+      dates: "Feb 2025 - Feb 2025",
+      active: true,
+      description:
+        "I built CodeX, a simple web-based code editor that helps you write, run, and optimize code with AI assistance. It supports multiple programming languages, provides real-time execution, and lets you convert code between languages seamlessly. With AI-powered suggestions and simple file management, CodeX makes coding more accessible and efficient.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "Node.js",
+        "Langchain",
+        "MongoDB",
+        "Next Auth",
+        "Supabase",
+        "TailwindCSS",
+        "Shadcn UI",
+        "Vercel",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://x-codex.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+       
+      ],
+      image: "https://res.cloudinary.com/dkp6hsvoy/image/upload/v1741259245/codex-app_j3pdcr.png",
+      video: "",
+    },
+    {
       title: "BuildMyCV - Build Your Resume & Get Analysis in Minutes",
       href: "https://www.buildmycv.ai",
       dates: "Nov 2024 - Dec 2024",
