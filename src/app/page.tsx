@@ -59,7 +59,7 @@ export default function PortfolioPage() {
               <p className="text-xl leading-relaxed text-muted-foreground">{DATA.description}</p>
               <button className="rounded-lg bg-gradient-to-r from-white to-gray-50 px-4 py-2 font-medium text-black transition-all duration-300 border-2 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                 <a
-                  href="https://drive.google.com/file/d/10d2gv9AV0jFJFX5btGN_SmAKKSnSqFZv/view"
+                  href="https://drive.google.com/file/d/139oC45gM7go95oI1vMuItv6ywoxAsCM_/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
