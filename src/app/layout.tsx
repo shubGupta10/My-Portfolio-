@@ -59,7 +59,7 @@ export default function RootLayout({
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider delayDuration={0}>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-12 sm:py-24">
+            <div>
               <Navbar />
               {children}
               <DevChat/>
