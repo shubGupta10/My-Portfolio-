@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ['firebasestorage.googleapis.com', 'res.cloudinary.com'],
-  },
+    images: {
+        domains: ['cdn.jsdelivr.net', 'res.cloudinary.com',  'firebasestorage.googleapis.com',], 
+      },
 };
 
 export default nextConfig;
