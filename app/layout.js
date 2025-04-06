@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: "Shubham Gupta | Full-Stack Web Developer",
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
