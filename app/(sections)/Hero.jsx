@@ -56,9 +56,8 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-[50%] w-full flex items-start sm:items-center justify-center p-6 sm:px-8 lg:px-12 bg-[var(--background)] relative overflow-hidden"
-      id="home"
-    >
+  className="min-h-[70vh] w-full flex items-start sm:items-center justify-center p-6 pt-16 sm:pt-20 lg:pt-24 sm:px-8 lg:px-12 bg-[var(--background)] relative overflow-hidden"
+  id="home">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
         <motion.div

@@ -32,19 +32,19 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-8 bg-[var(--background)]">
+    <section id="experience" className="py-12 sm:py-20 px-4 sm:px-8 bg-[var(--background)]">
       <div className="mx-auto">
         {/* Section Header */}
         <motion.div
-          className="mb-14 relative"
+          className="mb-8 sm:mb-14 relative"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-[var(--foreground)] inline-block">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] inline-block">
             Work <span className="text-[var(--primary)]">Experience</span>
           </h2>
-          <div className="h-1 w-20 bg-[var(--primary)] mt-4"></div>
+          <div className="h-1 w-16 sm:w-20 bg-[var(--primary)] mt-3 sm:mt-4"></div>
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[var(--primary)]/5 rounded-full blur-3xl -z-10"></div>
         </motion.div>
 
@@ -54,23 +54,23 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="bg-[var(--muted)]/10 rounded-xl p-6 border border-[var(--muted)]/30 relative overflow-hidden"
+          className="bg-[var(--muted)]/10 rounded-xl p-4 sm:p-6 border border-[var(--muted)]/30 relative overflow-hidden"
         >
           {/* Background glow */}
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-[var(--primary)]/5 rounded-full blur-3xl"></div>
 
           <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-12 h-12 rounded-lg bg-[var(--muted)]/50 flex items-center justify-center border border-[var(--primary)]/20">
-                <Building size={24} className="text-[var(--primary)]" />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--muted)]/50 flex items-center justify-center border border-[var(--primary)]/20">
+                <Building size={20} className="text-[var(--primary)]" />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-[var(--foreground)]">{experience.company}</h3>
-                <p className="text-xl text-[var(--primary)] font-medium">{experience.role}</p>
+                <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)]">{experience.company}</h3>
+                <p className="text-lg sm:text-xl text-[var(--primary)] font-medium">{experience.role}</p>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-x-6 gap-y-2 my-6 ml-14">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-y-2 gap-x-6 my-4 sm:my-6 ml-0 sm:ml-14">
               <div className="flex items-center text-[var(--foreground)]/70 text-sm">
                 <Calendar size={16} className="mr-2 text-[var(--primary)]" />
                 {experience.period}
@@ -87,13 +87,13 @@ const Experience = () => {
               </div>
             </div>
 
-            <div className="ml-14">
-              <p className="text-[var(--foreground)]/80 mb-4 leading-relaxed">{experience.description}</p>
+            <div className="ml-0 sm:ml-14">
+              <p className="text-[var(--foreground)]/80 mb-4 leading-relaxed text-sm sm:text-base">{experience.description}</p>
 
               {/* View Key Contributions Button */}
               <button
                 onClick={togglePoints}
-                className="mb-4 text-[var(--primary)] font-medium flex items-center gap-1 hover:gap-2 transition-all cursor-pointer"
+                className="mb-4 text-[var(--primary)] font-medium flex items-center gap-1 hover:gap-2 transition-all cursor-pointer text-sm sm:text-base"
               >
                 {showPoints ? "Hide Key Contributions" : "View Key Contributions"}
                 {showPoints ? (
@@ -111,7 +111,7 @@ const Experience = () => {
                   transition={{ duration: 0.3 }}
                   className="mb-6"
                 >
-                  <ul className="list-disc pl-5 space-y-2 text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-[var(--foreground)]/80 text-sm sm:text-base">
                     {experience.points.map((point, idx) => (
                       <li key={idx}>{point}</li>
                     ))}
@@ -120,12 +120,12 @@ const Experience = () => {
               )}
 
               <div className="mb-6">
-                <h4 className="text-sm font-medium text-[var(--foreground)]/70 mb-3">TECHNOLOGIES</h4>
+                <h4 className="text-xs sm:text-sm font-medium text-[var(--foreground)]/70 mb-2 sm:mb-3">TECHNOLOGIES</h4>
                 <div className="flex flex-wrap gap-2">
                   {experience.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 text-sm rounded-full bg-[var(--muted)]/50 text-[var(--primary)] border border-[var(--primary)]/20"
+                      className="px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full bg-[var(--muted)]/50 text-[var(--primary)] border border-[var(--primary)]/20"
                     >
                       {skill}
                     </span>
@@ -136,12 +136,12 @@ const Experience = () => {
               <div className="flex gap-4">
                 <Link href={experience.link} legacyBehavior>
                   <motion.a
-                    className="text-[var(--primary)] cursor-pointer text-sm font-medium border py-2 px-4 rounded-lg border-[var(--primary)] inline-flex items-center gap-2"
+                    className="text-[var(--primary)] cursor-pointer text-xs sm:text-sm font-medium border py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border-[var(--primary)] inline-flex items-center gap-1 sm:gap-2"
                     whileHover={{ backgroundColor: "rgba(0,191,255,0.1)" }}
                     whileTap={{ scale: 0.97 }}
                   >
                     Visit Website
-                    <ExternalLink size={16} />
+                    <ExternalLink size={14} className="sm:size-auto lg:size-4 md:size-auto" />
                   </motion.a>
                 </Link>
               </div>

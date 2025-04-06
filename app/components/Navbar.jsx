@@ -59,33 +59,32 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full sticky py-2 top-0 z-50 transition-all duration-300 ease-in-out ${
-        scrolled || mobileMenuOpen
-          ? 'bg-[#08131f] backdrop-blur-lg border-b border-[#1F1F2E] py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className={`w-full sticky py-2 top-0 z-50 transition-all duration-300 ease-in-out border-b ${scrolled || mobileMenuOpen
+          ? 'bg-[#08131f] backdrop-blur-lg border-[#1F1F2E] py-3'
+          : 'bg-transparent py-5 border-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <div 
-          className="flex cursor-pointer items-center gap-2 relative z-10 transition-all duration-300 hover:scale-105" 
-          onClick={() => window.location.href="/"}>
+        <div
+          className="flex cursor-pointer items-center gap-2 relative z-10 transition-all duration-300 hover:scale-105"
+          onClick={() => window.location.href = "/"}>
           <div className="flex items-center">
             {/* Optional: Add an icon that represents your field */}
-            <svg 
-              className="w-6 h-6 mr-2 text-[#00BFFF]" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
+            <svg
+              className="w-6 h-6 mr-2 text-[#00BFFF]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg">
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth="2" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4">
               </path>
             </svg>
-            
+
             <h1 className="font-bold text-xl text-[#E0E0E0] tracking-wider">
               <span className="hover:text-[#00BFFF] transition-colors duration-300">S</span>
               <span className="hover:text-[#00BFFF] transition-colors duration-300">h</span>
@@ -118,7 +117,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden flex items-center gap-4 relative z-50">
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="cursor-pointer text-[#E0E0E0] hover:text-[#00BFFF] transition-colors"
             aria-label="Toggle menu"
@@ -128,12 +127,11 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        <div 
-          className={`absolute text-center border-b-4 border-[#00BFFF] rounded-b-2xl top-full left-0 w-full bg-[#08131f] backdrop-blur-lg z-[60] transition-all duration-300 ease-in-out ${
-            mobileMenuOpen 
-              ? 'opacity-100 translate-y-0 max-h-[80vh]' 
+        <div
+          className={`absolute text-center border-b-4 border-[#00BFFF] rounded-b-2xl top-full left-0 w-full bg-[#08131f] backdrop-blur-lg z-[60] transition-all duration-300 ease-in-out ${mobileMenuOpen
+              ? 'opacity-100 translate-y-0 max-h-[80vh]'
               : 'opacity-0 -translate-y-4 max-h-0 overflow-hidden'
-          }`}
+            }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
             <nav className="mb-8">
