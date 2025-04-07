@@ -4,9 +4,8 @@ import Footer from "./components/Footer";
 import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
-  title: "Shubham Gupta | Full-Stack Web Developer",
-  description:
-    "Explore the portfolio of Shubham Gupta, a full-stack web developer skilled in Next.js, TypeScript, MERN, and Tailwind CSS. Check out my projects, skills, and contact information.",
+  title: "Shubham Gupta | Full-Stack Web Developer | TypeScript & Next.js Projects",
+  description: "Explore Shubham Gupta's portfolio of TypeScript and Next.js projects. View details of my full-stack web development work including SaaS applications and open-source contributions.",
   keywords: [
     "Shubham Gupta",
     "Full-Stack Developer",
@@ -28,7 +27,7 @@ export const metadata = {
     siteName: "Shubham Gupta Portfolio",
     images: [
       {
-        url: "https://shubgupta.vercel.app/og-image.png", 
+        url: "https://shubgupta.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Shubham Gupta Portfolio",
@@ -42,8 +41,8 @@ export const metadata = {
     title: "Shubham Gupta | Full-Stack Web Developer",
     description:
       "Explore the portfolio of Shubham Gupta, showcasing projects, skills, and experience in full-stack development.",
-    images: ["https://shubgupta.vercel.app/og-image.png"], 
-    creator: "@i_m_shubham45", 
+    images: ["https://shubgupta.vercel.app/og-image.png"],
+    creator: "@i_m_shubham45",
   },
 };
 
