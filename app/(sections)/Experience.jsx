@@ -32,14 +32,32 @@ const Experience = () => {
   }
 
   return (
-    <section id="experience" className="py-12 sm:py-20 px-4 sm:px-8 bg-[var(--background)]">
+    <motion.section
+      id="experience"
+      className="py-12 sm:py-20 px-4 sm:px-8 bg-[var(--background)]"
+      initial={{ scale: 0.8, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      viewport={{
+        once: true,
+        amount: 0.2 // Triggers when 20% of the element is in view
+      }}
+      transition={{
+        duration: 1.5, // Slower animation (increased from 0.8)
+        ease: "easeOut" // Smoother easing function
+      }}
+    >
       <div className="mx-auto">
         {/* Section Header */}
         <motion.div
           className="mb-8 sm:mb-14 relative"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
+          transition={{
+            duration: 1.2, // Slower animation
+            ease: "easeInOut",
+            delay: 0.3
+          }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] inline-block">
             Work <span className="text-[var(--primary)]">Experience</span>
@@ -53,7 +71,10 @@ const Experience = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
+          transition={{
+            delay: 0.6, // Increased delay for sequential effect
+            duration: 1.2 // Slower animation
+          }}
           className="bg-[var(--muted)]/10 rounded-xl p-4 sm:p-6 border border-[var(--muted)]/30 relative overflow-hidden"
         >
           {/* Background glow */}
@@ -108,7 +129,7 @@ const Experience = () => {
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.6 }} // Slowed this animation too
                   className="mb-6"
                 >
                   <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-[var(--foreground)]/80 text-sm sm:text-base">
@@ -133,23 +154,47 @@ const Experience = () => {
                 </div>
               </div>
 
-              <div className="flex gap-4">
+              <motion.div
+                className="flex gap-4"
+                initial={{ scale: 1 }}
+                whileHover={{
+                  scale: 1.1,
+                  transition: {
+                    duration: 0.5,
+                    ease: [0.19, 1.0, 0.22, 1.0] 
+                  }
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: { duration: 0.2 }
+                }}
+              >
                 <Link href={experience.link} legacyBehavior>
                   <motion.a
                     className="text-[var(--primary)] cursor-pointer text-xs sm:text-sm font-medium border py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border-[var(--primary)] inline-flex items-center gap-1 sm:gap-2"
-                    whileHover={{ backgroundColor: "rgba(0,191,255,0.1)" }}
-                    whileTap={{ scale: 0.97 }}
+                    whileHover={{
+                      backgroundColor: "rgba(0,191,255,0.15)",
+                      boxShadow: "0 0 10px rgba(0,191,255,0.3)",
+                      borderColor: "rgba(0,191,255,0.6)"
+                    }}
+                    transition={{ duration: 0.3 }}
                   >
                     Visit Website
-                    <ExternalLink size={14} className="sm:size-auto lg:size-4 md:size-auto" />
+                    <motion.span
+                      initial={{ x: 0 }}
+                      whileHover={{ x: 3 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ExternalLink size={14} className="sm:size-auto lg:size-4 md:size-auto" />
+                    </motion.span>
                   </motion.a>
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

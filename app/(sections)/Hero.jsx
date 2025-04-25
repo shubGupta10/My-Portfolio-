@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 
@@ -10,11 +10,25 @@ const Hero = () => {
     { icon: "github", url: "https://github.com/shubGupta10", label: "GitHub" },
     { icon: "twitter", url: "https://x.com/i_m_shubham45", label: "Twitter" },
     { icon: "linkedin", url: "https://www.linkedin.com/in/shubhamgupta-codes", label: "LinkedIn" },
-    { icon: "mail", url: "mailto:shubhamkgupta720@gmail.com", label: "Email" },
+    { icon: "mail", url: "mailto:shubhamgupta720@gmail.com", label: "Email" },
   ]
 
   // Ref for the animated text
   const textRef = useRef(null)
+  
+  // Ref for the section
+  const sectionRef = useRef(null)
+  
+  // Setup scroll animations
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  })
+  
+  // Transform scrollYProgress to x position values
+  const leftXPos = useTransform(scrollYProgress, [0, 0.5], [0, -500])
+  const rightXPos = useTransform(scrollYProgress, [0, 0.5], [0, 500])
+  const opacityValue = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   // Text animation effect
   useEffect(() => {
@@ -39,12 +53,12 @@ const Hero = () => {
       let typeSpeed = isDeleting ? 50 : 100
 
       if (!isDeleting && currentText === currentRole) {
-        typeSpeed = 2000 // Pause at the end
+        typeSpeed = 2000 
         isDeleting = true
       } else if (isDeleting && currentText === "") {
         isDeleting = false
         currentIndex = (currentIndex + 1) % roles.length
-        typeSpeed = 500 // Pause before typing next
+        typeSpeed = 500 
       }
 
       setTimeout(typeEffect, typeSpeed)
@@ -56,7 +70,8 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-[70vh] w-full flex items-start sm:items-center justify-center p-6 pt-16 sm:pt-20 lg:pt-24 sm:px-8 lg:px-12 bg-[var(--background)] relative overflow-hidden"
+      ref={sectionRef}
+      className="min-h-[100vh] w-full flex items-start sm:items-center justify-center p-6 pt-16 sm:pt-20 lg:pt-24 sm:px-8 lg:px-12 bg-[var(--background)] relative overflow-hidden"
       id="home">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
@@ -84,11 +99,17 @@ const Hero = () => {
       <div className="container max-w-7xl mx-auto relative z-10 pt-8 lg:mt-4 sm:pt-0">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-12">
           {/* Text Content Side - Full width on mobile/tablet */}
-          <div className="w-full lg:w-3/5 text-left">
+          <motion.div
+            className="w-full lg:w-3/5 text-left"
+            style={{ 
+              x: leftXPos, 
+              opacity: opacityValue 
+            }}
+          >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: -500, }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
               className="space-y-6 sm:space-y-8"
             >
 
@@ -96,9 +117,9 @@ const Hero = () => {
                 <span className="text-[var(--primary)]">Hey ✌️ I'm </span>
                 <motion.span
                   className="text-[var(--foreground)] relative inline-block"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -500 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
                 >
                   Shubham
                   <motion.div
@@ -193,14 +214,20 @@ const Hero = () => {
                 ))}
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Image Side - ONLY VISIBLE ON LARGE SCREENS (lg and up) */}
           <motion.div
+            drag
+            dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
             className="hidden lg:flex w-full lg:w-2/5 justify-center items-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ 
+              x: rightXPos, 
+              opacity: opacityValue 
+            }}
+            transition={{ duration: 0.5 }}
           >
             <div className="relative w-80 h-80">
               {/* Orbital rings */}

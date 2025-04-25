@@ -1,14 +1,21 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Server, Database, Terminal, Layout } from "lucide-react"
 import Image from "next/image"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("Frontend")
   const [hoveredSkill, setHoveredSkill] = useState(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isAnimating, setIsAnimating] = useState(false)
+  
+  // Create a ref for the section element
+  const sectionRef = useRef(null)
+  // Use the useInView hook to detect when the section is in view
+  // Note: 'once' is set to false to repeat animations every time the section comes into view
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
 
   const skillCategories = [
     {
@@ -65,10 +72,24 @@ const Skills = () => {
     }
 
     window.addEventListener("mousemove", handleMouseMove)
+    
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
+
+  // Reset animations when component goes out of view and comes back in
+  useEffect(() => {
+    if (!isInView) {
+      setIsAnimating(true)
+      
+      const timeout = setTimeout(() => {
+        setIsAnimating(false)
+      }, 100)
+      
+      return () => clearTimeout(timeout)
+    }
+  }, [isInView])
 
   const handleCategoryChange = (category) => {
     if (category !== activeCategory) {
@@ -97,10 +118,115 @@ const Skills = () => {
 
   const activeCategorySkills = skillCategories.find((cat) => cat.name === activeCategory).skills
 
+  // Main container slide-in animation
+  const containerVariants = {
+    hidden: { 
+      opacity: 0,
+      x: "-100%" 
+    },
+    visible: { 
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        mass: 1,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  // Heading animation
+  const headingVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 20 
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  // Tab animation
+  const tabVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30 
+    },
+    visible: i => ({ 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: i * 0.1,
+        ease: "easeOut"
+      }
+    })
+  }
+
+  // Skill card animation
+  const skillVariants = {
+    hidden: i => ({ 
+      opacity: 0,
+      y: 20,
+      scale: 0.8
+    }),
+    visible: i => ({ 
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        delay: i * 0.05,
+        ease: "easeOut"
+      }
+    }),
+    hover: {
+      y: -8,
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  // Background animation
+  const backgroundVariants = {
+    hidden: {
+      opacity: 0
+    },
+    visible: {
+      opacity: 0.1,
+      transition: {
+        duration: 1.5,
+        ease: "easeOut"
+      }
+    }
+  }
+
   return (
-    <section id="skills" className="w-full py-10 px-4 sm:px-8 bg-transparent relative overflow-hidden">
+    <section 
+      id="skills"
+      ref={sectionRef}
+      className="w-full py-10 px-4 sm:px-8 bg-transparent relative overflow-hidden"
+    >
       {/* Enhanced animated background */}
-      <div className="absolute inset-0 opacity-10" style={{ zIndex: -1 }}>
+      <motion.div 
+        className="absolute inset-0" 
+        style={{ zIndex: -1 }}
+        variants={backgroundVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        key={`bg-${isInView}`} 
+      >
         <div
           className="absolute w-96 h-96 rounded-full blur-3xl"
           style={{
@@ -123,27 +249,52 @@ const Skills = () => {
             transition: "bottom 1.2s ease-out, right 1.2s ease-out",
           }}
         />
-      </div>
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto relative">
+      <motion.div 
+        className="max-w-7xl mx-auto relative"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        key={`container-${isInView}`} 
+      >
         {/* Section Header */}
-        <div className="mb-16 relative">
+        <motion.div 
+          className="mb-16 relative"
+          variants={headingVariants}
+        >
           <h2 className="text-4xl font-bold text-[var(--foreground)] inline-block">
             Technical <span className="text-[var(--primary)]">Skills</span>
           </h2>
-          <div className="h-1 w-24 bg-[var(--primary)] mt-4 relative">
+          <motion.div 
+            className="h-1 w-24 bg-[var(--primary)] mt-4 relative"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: "6rem" } : { width: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.5,
+              ease: "easeOut"
+            }}
+            key={`underline-${isInView}`} 
+          >
             <div className="absolute h-1 w-12 bg-[var(--primary)] opacity-50 blur-sm -top-1"></div>
-          </div>
+          </motion.div>
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[var(--primary)]/5 rounded-full blur-3xl -z-10"></div>
-        </div>
+        </motion.div>
 
         {/* Improved category tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {skillCategories.map((category, index) => {
             const isActive = activeCategory === category.name
             return (
-              <button
-                key={index}
+              <motion.button
+                key={`tab-${index}-${isInView}`} // Force re-render of animation
+                custom={index}
+                variants={tabVariants}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
                 onClick={() => handleCategoryChange(category.name)}
                 className={`cursor-pointer relative px-5 py-3 rounded-lg transition-all duration-300 overflow-hidden group ${
                   isActive ? "shadow-lg" : ""
@@ -181,34 +332,48 @@ const Skills = () => {
 
                 {/* Enhanced animated underline */}
                 {isActive && (
-                  <div
-                    className="absolute bottom-0 left-0 h-1 w-full"
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-1"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                    key={`underline-tab-${index}-${isInView}`} 
                     style={{
                       background: "var(--primary)",
                       boxShadow: "0 0 8px 1px var(--primary)",
                     }}
                   />
                 )}
-              </button>
+              </motion.button>
             )
           })}
         </div>
 
-        {/* Improved Skills grid - more compact */}
-        <div
-          className={`transition-all duration-300 ${isAnimating ? "opacity-0 transform scale-95" : "opacity-100 transform scale-100"}`}
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 items-start justify-center">
+        {/* Skills grid with staggered animations */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`skills-${activeCategory}-${isInView}`} 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 items-start justify-center"
+          >
             {activeCategorySkills.map((skill, index) => (
-              <div
-                key={index}
+              <motion.div
+                key={`skill-${skill.name}-${isInView}-${index}`} // Force re-render of animation
+                custom={index}
+                variants={skillVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                whileHover="hover"
                 className="relative group"
                 onMouseEnter={() => setHoveredSkill(skill.name)}
                 onMouseLeave={() => setHoveredSkill(null)}
               >
-                {/* Modernized skill card - more compact */}
+                {/* Modernized skill card */}
                 <div
-                  className="p-4 rounded-lg backdrop-blur-sm transition-all duration-300 h-full flex flex-col items-center justify-between group-hover:shadow-lg transform group-hover:-translate-y-1"
+                  className="p-4 rounded-lg backdrop-blur-sm transition-all duration-300 h-full flex flex-col items-center justify-between"
                   style={{
                     background: hoveredSkill === skill.name ? "rgba(31, 31, 46, 0.5)" : "rgba(31, 31, 46, 0.3)",
                     border: hoveredSkill === skill.name 
@@ -217,9 +382,9 @@ const Skills = () => {
                     boxShadow: hoveredSkill === skill.name ? `0 4px 12px rgba(0, 191, 255, 0.1)` : "none",
                   }}
                 >
-                  {/* Skill icon without circle border */}
+                  {/* Skill icon */}
                   <div className="relative w-full flex justify-center mb-3">
-                    <div className="w-12 h-12 relative transform transition-transform duration-300 group-hover:scale-110">
+                    <div className="w-12 h-12 relative">
                       <Image
                         src={skill.icon || "/placeholder.svg"}
                         alt={skill.name}
@@ -228,30 +393,56 @@ const Skills = () => {
                         className="object-contain"
                       />
                       
-                      {/* Subtle glow effect on hover */}
+                      {/* Enhanced glow effect on hover */}
                       {hoveredSkill === skill.name && (
-                        <div 
-                          className="absolute inset-0 -z-10 opacity-20 blur-md rounded-full"
+                        <motion.div 
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 0.4, scale: 1.2 }}
+                          className="absolute inset-0 -z-10 blur-md rounded-full"
                           style={{ backgroundColor: getLevelColor(skill.level) }}
                         />
                       )}
                     </div>
                   </div>
 
-                  {/* Skill name - simple version without progress bar */}
+                  {/* Skill name */}
                   <h3 className="font-medium text-center text-sm text-[var(--foreground)]">{skill.name}</h3>
+                  
+                  {/* Subtle level indicator */}
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: hoveredSkill === skill.name ? "60%" : "40%" }}
+                    transition={{ duration: 0.3 }}
+                    className="h-0.5 mt-2 rounded-full"
+                    style={{ 
+                      background: getLevelColor(skill.level),
+                      opacity: hoveredSkill === skill.name ? 1 : 0.5
+                    }}
+                  />
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
 
       {/* CSS animations */}
       <style jsx>{`
         @keyframes shimmer {
           0% { background-position: 200% 0; }
           100% { background-position: -200% 0; }
+        }
+        
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+          0% { opacity: 0.3; }
+          50% { opacity: 0.6; }
+          100% { opacity: 0.3; }
         }
       `}</style>
     </section>

@@ -54,6 +54,7 @@ export default function RootLayout({ children }) {
         style={{
           backgroundColor: "var(--background)",
           color: "var(--foreground)",
+          fontFamily: "sans-serif"
         }}
       >
         <Navbar />
