@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import { Github, Linkedin, Twitter, Mail } from "lucide-react"
 
@@ -18,17 +18,6 @@ const Hero = () => {
   
   // Ref for the section
   const sectionRef = useRef(null)
-  
-  // Setup scroll animations
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"]
-  })
-  
-  // Transform scrollYProgress to x position values
-  const leftXPos = useTransform(scrollYProgress, [0, 0.5], [0, -500])
-  const rightXPos = useTransform(scrollYProgress, [0, 0.5], [0, 500])
-  const opacityValue = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   // Text animation effect
   useEffect(() => {
@@ -101,13 +90,12 @@ const Hero = () => {
           {/* Text Content Side - Full width on mobile/tablet */}
           <motion.div
             className="w-full lg:w-3/5 text-left"
-            style={{ 
-              x: leftXPos, 
-              opacity: opacityValue 
-            }}
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <motion.div
-              initial={{ opacity: 0, x: -500, }}
+              initial={{ opacity: 0, x: -500 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               className="space-y-6 sm:space-y-8"
@@ -222,10 +210,6 @@ const Hero = () => {
             className="hidden lg:flex w-full lg:w-2/5 justify-center items-center"
             initial={{ opacity: 0, x: 500 }}
             animate={{ opacity: 1, x: 0 }}
-            style={{ 
-              x: rightXPos, 
-              opacity: opacityValue 
-            }}
             transition={{ duration: 0.5 }}
           >
             <div className="relative w-80 h-80">
