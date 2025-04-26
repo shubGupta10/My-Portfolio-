@@ -46,7 +46,7 @@ const Navbar = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
+    { name: 'About', href: '/' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
