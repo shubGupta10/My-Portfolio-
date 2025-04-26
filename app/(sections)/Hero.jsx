@@ -112,7 +112,6 @@ const Hero = () => {
               transition={{ duration: 0.5 }}
               className="space-y-6 sm:space-y-8"
             >
-
               <h1 className="text-5xl sm:text-6xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 <span className="text-[var(--primary)]">Hey ✌️ I'm </span>
                 <motion.span

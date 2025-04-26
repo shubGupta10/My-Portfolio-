@@ -38,8 +38,7 @@ const Experience = () => {
       initial={{ scale: 0.8, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       viewport={{
-        once: true,
-        amount: 0.2 // Triggers when 20% of the element is in view
+        amount: 0.1 
       }}
       transition={{
         duration: 1.5, // Slower animation (increased from 0.8)
@@ -50,13 +49,11 @@ const Experience = () => {
         {/* Section Header */}
         <motion.div
           className="mb-8 sm:mb-14 relative"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
+          initial={{ x: -300 }}
+          animate={{ x: 0 }}
           transition={{
-            duration: 1.2, // Slower animation
+            duration: 1.2, 
             ease: "easeInOut",
-            delay: 0.3
           }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] inline-block">
@@ -72,8 +69,7 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{
-            delay: 0.6, // Increased delay for sequential effect
-            duration: 1.2 // Slower animation
+            duration: 1.2
           }}
           className="bg-[var(--muted)]/10 rounded-xl p-4 sm:p-6 border border-[var(--muted)]/30 relative overflow-hidden"
         >
@@ -129,7 +125,7 @@ const Experience = () => {
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.6 }} // Slowed this animation too
+                  transition={{ duration: 0.8 }} // Slowed this animation too
                   className="mb-6"
                 >
                   <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-[var(--foreground)]/80 text-sm sm:text-base">
@@ -156,21 +152,10 @@ const Experience = () => {
 
               <motion.div
                 className="flex gap-4"
-                initial={{ scale: 1 }}
-                whileHover={{
-                  scale: 1.1,
-                  transition: {
-                    duration: 0.5,
-                    ease: [0.19, 1.0, 0.22, 1.0] 
-                  }
-                }}
-                whileTap={{
-                  scale: 0.95,
-                  transition: { duration: 0.2 }
-                }}
               >
                 <Link href={experience.link} legacyBehavior>
                   <motion.a
+                    target="_blank"
                     className="text-[var(--primary)] cursor-pointer text-xs sm:text-sm font-medium border py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border-[var(--primary)] inline-flex items-center gap-1 sm:gap-2"
                     whileHover={{
                       backgroundColor: "rgba(0,191,255,0.15)",
