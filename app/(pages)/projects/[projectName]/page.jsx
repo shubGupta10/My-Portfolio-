@@ -84,15 +84,15 @@ const ProjectDetails = () => {
     },
     {
       id: 4,
-      slug: "opensox",
-      title: "OpenSox - Discover Open Source Projects",
+      slug: "openfindr",
+      title: "OpenFindr - Discover Open Source Projects",
       description:
         "A curated directory of open source projects, filterable by stars, difficulty, language, and more. Helps developers find ideal contributions.",
       image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fopensox.png?alt=media",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn", "Supabase"],
-      liveUrl: "https://open-sox.vercel.app",
-      githubUrl: "https://github.com/shubGupta10/OpenSox",
-      longDescription: "OpenSox is a web platform designed to help developers discover open source projects tailored to their skill levels and tech stack. It features categorized listings of GitHub projects with filtering by language, level, and topic, making it easier for beginners and contributors to find relevant repositories.",
+      liveUrl: "https://open-findr.vercel.app",
+      githubUrl: "https://github.com/shubGupta10/OpenFindr",
+      longDescription: "OpenFindr is a web platform designed to help developers discover open source projects tailored to their skill levels and tech stack. It features categorized listings of GitHub projects with filtering by language, level, and topic, making it easier for beginners and contributors to find relevant repositories.",
       keyFeatures: [
         "Filter projects by programming language, stars, difficulty level, and tags",
         "Beginner-friendly listings with 'good first issue' and 'help wanted' tags",
@@ -102,7 +102,7 @@ const ProjectDetails = () => {
         "Plans to add GitHub OAuth for personalized recommendations"
       ],
       challenges: "Creating an intuitive and fast filtering experience while working with real-time GitHub data was challenging. We had to balance performance with relevant project discovery, especially when handling large datasets through the GitHub API.",
-      outcome:"OpenSox is live and being explored by early users. It currently lists hundreds of open source projects with categorized filters, and aims to grow into a go-to place for beginners and contributors looking for curated OSS opportunities."
+      outcome:"OpenFindr is live and being explored by early users. It currently lists hundreds of open source projects with categorized filters, and aims to grow into a go-to place for beginners and contributors looking for curated OSS opportunities."
     },
     {
       id: 5,
