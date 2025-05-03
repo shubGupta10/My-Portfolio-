@@ -60,14 +60,14 @@ const Projects = () => {
     },
     {
       id: 4,
-      slug: "opensox",
-      title: "OpenSox - Discover Open Source Projects",
+      slug: "openfindr",
+      title: "OpenFindr - Discover Open Source Projects",
       description:
         "A curated directory of open source projects, filterable by stars, difficulty, language, and more. Helps developers find ideal contributions.",
       image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fopensox.png?alt=media",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn", "Supabase"],
-      liveUrl: "https://open-sox.vercel.app",
-      githubUrl: "https://github.com/shubGupta10/OpenSox",
+      liveUrl: "https://open-findr.vercel.app",
+      githubUrl: "https://github.com/shubGupta10/OpenFindr",
       color: "#0f1826",
     },
     {
