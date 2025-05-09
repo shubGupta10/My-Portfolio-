@@ -42,7 +42,7 @@ const ProjectDetails = () => {
       title: "BuildMyCV - AI Resume Builder",
       description:
         "An intelligent resume builder with ATS support, AI job analysis, role-based suggestions, and job recommendations. Built for job seekers to enhance their chances.",
-      image: "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2FScreenshot%202025-04-05%20192226.png?alt=media",
+      image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fbuildmycv-new-img.png?alt=media",
       technologies: ["Next.js", "TypeScript", "Firebase", "LangChain", "Gemini AI", "Stripe", "PostgreSql", "Shadcn", "Tailwind CSS", "Clerk Authentication"],
       liveUrl: "https://buildmycv.ai",
       githubUrl: "",
@@ -62,6 +62,38 @@ const ProjectDetails = () => {
     },
     {
       id: 3,
+      slug: "techhunt",
+      title: "TechHunt – Curated Tech Job Board",
+      description:
+        "A focused job board for tech professionals in India, surfacing remote-friendly, junior-to-mid level software roles with fresh listings every 4 days.",
+      image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Ftechunt.png?alt=media",
+      technologies: [
+        "Next.js",
+        "Node.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Redis",
+        "Web Scraping",
+        "Express",
+        "GitHub Actions"
+      ],
+      liveUrl: "https://tech-hunt-jobs.vercel.app",
+      githubUrl: "https://github.com/shubGupta10/tech-hunt-client",
+      longDescription: "TechHunt is a curated tech job board built for Indian developers. It focuses on aggregating remote and work-from-home software development roles for those with 0–5 years of experience. With powerful filters and a simple UI, it helps junior and mid-level engineers quickly discover fresh and relevant job opportunities. The backend leverages web scraping, Redis caching, and GitHub Actions for smooth automation and performance.",
+      keyFeatures: [
+        "Curated listings of remote tech jobs across roles like Full Stack, Frontend, Backend, and DevOps",
+        "Focus on entry-level to mid-level jobs (0–5 years)",
+        "Updated every 4 days with fresh job listings",
+        "Category-based filtering for faster navigation",
+        "Redis caching for improved performance",
+        "GitHub Actions for deployment automation and scraping schedule",
+        "Clean and responsive UI built with Tailwind CSS and Next.js"
+      ],
+      challenges: "Designing an efficient web scraping flow that avoids rate limits and broken selectors was a key challenge. Ensuring fast data delivery with caching and structuring listings to stay relevant to junior developers also required thoughtful iteration.",
+      outcome: "TechHunt is live and actively maintained. It has started receiving positive feedback for its clean UX, developer-focused listings, and practical filtering. It continues to evolve with plans to integrate notifications and bookmarking."
+    },
+    {
+      id: 4,
       slug: "interviewbuddy",
       title: "Interview Buddy - AI Interview Prep",
       description:
@@ -83,7 +115,7 @@ const ProjectDetails = () => {
       outcome: "Interview Buddy recently launched and is actively being used by early adopters to prepare for interviews. Initial users have found the tailored questions and in-depth explanations helpful in structuring their preparation and boosting confidence."
     },
     {
-      id: 4,
+      id: 5,
       slug: "openfindr",
       title: "OpenFindr - Discover Open Source Projects",
       description:
@@ -102,10 +134,10 @@ const ProjectDetails = () => {
         "Plans to add GitHub OAuth for personalized recommendations"
       ],
       challenges: "Creating an intuitive and fast filtering experience while working with real-time GitHub data was challenging. We had to balance performance with relevant project discovery, especially when handling large datasets through the GitHub API.",
-      outcome:"OpenFindr is live and being explored by early users. It currently lists hundreds of open source projects with categorized filters, and aims to grow into a go-to place for beginners and contributors looking for curated OSS opportunities."
+      outcome: "OpenFindr is live and being explored by early users. It currently lists hundreds of open source projects with categorized filters, and aims to grow into a go-to place for beginners and contributors looking for curated OSS opportunities."
     },
     {
-      id: 5,
+      id: 6,
       slug: "eduhub",
       title: "AI Powered Blog App - Blogger App",
       description:
@@ -127,7 +159,7 @@ const ProjectDetails = () => {
       outcome: "The Blogger App was actively used by early users after launch and has been stable in production for over 6 months. While it currently has low active usage, it serves as a solid foundation for future improvements or new use cases."
     },
     {
-      id: 6,
+      id: 7,
       slug: "anonymous-feedback",
       title: "Anonymous Feedback Platform",
       description:
@@ -136,7 +168,7 @@ const ProjectDetails = () => {
       technologies: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "Zod", "Shadcn", "Framer Motion"],
       liveUrl: "https://anonmssg.vercel.app/",
       githubUrl: "https://github.com/shubGupta10/Anonymous_Messages",
-      longDescription:  "The Anonymous Feedback Platform is a secure and intuitive tool that enables users to receive honest, anonymous feedback. Inspired by apps like NGL, it allows users to create personalized links that others can use to send anonymous messages, while ensuring basic safety and moderation mechanisms are in place.",
+      longDescription: "The Anonymous Feedback Platform is a secure and intuitive tool that enables users to receive honest, anonymous feedback. Inspired by apps like NGL, it allows users to create personalized links that others can use to send anonymous messages, while ensuring basic safety and moderation mechanisms are in place.",
       keyFeatures: [
         "Anonymous messaging via shareable feedback links",
         "JWT authentication for secure user login and session management",
@@ -144,8 +176,8 @@ const ProjectDetails = () => {
         "Responsive UI built with Tailwind for seamless mobile and desktop experience",
         "User dashboard to manage and respond to received feedback"
       ],
-      challenges:"The main challenge was balancing true anonymity with safety. Preventing spam and abuse without storing sender information required implementing lightweight but effective content filtering and throttling mechanisms.",
-      outcome:"Since launch, the platform has handled thousands of anonymous messages and has been positively received by early adopters, particularly among students and small communities looking for honest, unfiltered feedback."
+      challenges: "The main challenge was balancing true anonymity with safety. Preventing spam and abuse without storing sender information required implementing lightweight but effective content filtering and throttling mechanisms.",
+      outcome: "Since launch, the platform has handled thousands of anonymous messages and has been positively received by early adopters, particularly among students and small communities looking for honest, unfiltered feedback."
     },
   ];
 

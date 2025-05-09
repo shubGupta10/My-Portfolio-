@@ -39,7 +39,7 @@ const Projects = () => {
       description:
         "BuildMyCV is my first SaaS application built for a client — an intelligent resume builder with ATS support, AI job analysis, role-based suggestions, and personalized job recommendations to help job seekers improve their chances.",
       image:
-        "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2FScreenshot%202025-04-05%20192226.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fbuildmycv-new-img.png?alt=media",
       technologies: ["Next.js", "TypeScript", "Firebase", "LangChain", "Gemini AI", "Shadcn", "Tailwind CSS", "Clerk"],
       liveUrl: "https://buildmycv.ai",
       githubUrl: "",
@@ -47,6 +47,28 @@ const Projects = () => {
     },
     {
       id: 3,
+      slug: "techhunt",
+      title: "TechHunt – Curated Tech Job Board",
+      description:
+        "TechHunt is a specialized job board tailored for tech professionals in India. It aggregates high-quality, entry-to-mid level tech roles across domains like Full Stack, Frontend, Backend, and Data Science. With features like fresh listings every 4 days, remote-friendly filters, and category-based search, it simplifies the job hunt for junior developers. Built with modern web scraping techniques and fast performance using Redis caching.",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Ftechunt.png?alt=media",
+      technologies: [
+        "Next.js",
+        "Node.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Redis",
+        "Web Scraping",
+        "Express",
+        "GitHub Actions"
+      ],
+      liveUrl: "https://tech-hunt-jobs.vercel.app",
+      githubUrl: "https://github.com/shubGupta10/tech-hunt-client",
+      color: "#0f1826",
+    },
+    {
+      id: 4,
       slug: "interviewbuddy",
       title: "Interview Buddy - AI Interview Prep",
       description:
@@ -59,7 +81,7 @@ const Projects = () => {
       color: "#0f1826",
     },
     {
-      id: 4,
+      id: 5,
       slug: "openfindr",
       title: "OpenFindr - Discover Open Source Projects",
       description:
@@ -71,7 +93,7 @@ const Projects = () => {
       color: "#0f1826",
     },
     {
-      id: 5,
+      id: 6,
       slug: "blogger",
       title: "AI Powered Blog App - Blogger App",
       description:
@@ -84,7 +106,7 @@ const Projects = () => {
       color: "#0f1826",
     },
     {
-      id: 6,
+      id: 7,
       slug: "anonymous-feedback",
       title: "Anonymous Feedback Platform",
       description:
@@ -126,7 +148,7 @@ const Projects = () => {
           <h2 className="text-4xl font-bold text-[var(--foreground)] inline-block">
             Featured <span className="text-[var(--primary)]">Projects</span>
           </h2>
-          <motion.div 
+          <motion.div
             className="h-1 w-20 bg-[var(--primary)] mt-2 mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 80 }}
@@ -135,17 +157,17 @@ const Projects = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           {projects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              index={index} 
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
               hoveredProject={hoveredProject}
               setHoveredProject={setHoveredProject}
             />
@@ -159,19 +181,19 @@ const Projects = () => {
 const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
   // Alternate entrance direction based on index
   const direction = index % 2 === 0 ? -100 : 100
-  
+
   // Card variants for animation
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       x: direction,
       y: 20
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       y: 0,
-      transition: { 
+      transition: {
         type: "spring",
         damping: 15,
         stiffness: 80
@@ -193,7 +215,7 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
     visible: i => ({
       scale: 1,
       opacity: 1,
-      transition: { 
+      transition: {
         delay: 0.3 + (i * 0.05),
         duration: 0.2
       }
@@ -207,7 +229,7 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
       whileHover="hover"
       onMouseEnter={() => setHoveredProject(project.id)}
       onMouseLeave={() => setHoveredProject(null)}
-      style={{ 
+      style={{
         boxShadow: "0 4px 6px -1px rgba(0, 191, 255, 0.05), 0 2px 4px -1px rgba(0, 191, 255, 0.03)"
       }}
     >
@@ -218,16 +240,16 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
           variants={imageVariants}
           whileHover="hover"
         >
-          <Image 
-            src={project.image || "/placeholder.svg"} 
-            alt={project.title} 
-            fill 
-            className="object-cover" 
+          <Image
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            fill
+            className="object-cover"
           />
         </motion.div>
-        
+
         {/* Image Overlay on Hover */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-black/70 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
@@ -241,10 +263,10 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
           </Link>
         </motion.div>
       </div>
-      
+
       {/* Project Content */}
       <div className="p-6 flex flex-col flex-grow">
-        <motion.h3 
+        <motion.h3
           className="text-xl font-bold text-[#00bfff] mb-3"
           initial={{ opacity: 0, y: 5 }}
           animate={{ opacity: 1, y: 0 }}
@@ -252,18 +274,18 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
         >
           {project.title}
         </motion.h3>
-        
-        <motion.p 
+
+        <motion.p
           className="text-white/80 text-sm mb-5 flex-grow"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.4 }}
         >
-          {project.description.length > 120 
-            ? `${project.description.substring(0, 120)}...` 
+          {project.description.length > 120
+            ? `${project.description.substring(0, 120)}...`
             : project.description}
         </motion.p>
-        
+
         {/* Technologies */}
         <div className="mb-5">
           <div className="flex flex-wrap gap-2">
@@ -280,7 +302,7 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
               </motion.span>
             ))}
             {project.technologies.length > 4 && (
-              <motion.span 
+              <motion.span
                 custom={4}
                 variants={tagVariants}
                 initial="hidden"
@@ -292,7 +314,7 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
             )}
           </div>
         </div>
-        
+
         {/* Links */}
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
           <motion.a
@@ -307,7 +329,7 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
               <ArrowRight size={14} />
             </motion.div>
           </motion.a>
-          
+
           <div className="flex gap-3">
             {project.liveUrl && (
               <motion.a
