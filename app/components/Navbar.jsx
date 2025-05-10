@@ -59,8 +59,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full sticky py-2 top-0 z-50 transition-all duration-300 ease-in-out border-b ${scrolled || mobileMenuOpen
-          ? 'bg-[#08131f] backdrop-blur-lg border-[#1F1F2E] py-3'
+      className={`w-full sticky py-4 top-0 z-50 text-lg transition-all duration-300 ease-in-out border-b ${scrolled || mobileMenuOpen
+          ? 'bg-[#000000] backdrop-blur-lg border-gray-800 py-3'
           : 'bg-transparent py-5 border-transparent'
         }`}
     >

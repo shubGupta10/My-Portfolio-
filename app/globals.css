@@ -7,14 +7,15 @@ html {
 
 /* ===== Custom Theme Variables ===== */
 :root {
-  --background: #08131f;
-  --foreground: #E0E0E0;
-  --primary: #00BFFF; 
-  --muted: #1F1F2E;
+  --background: #000000;      /* Deep black for high contrast */
+  --foreground: #F5F5F7;      /* Very light gray – clean and modern */
+  --primary: #38BDF8;         /* Sky blue (Tailwind’s blue-400) – vibrant, less harsh than pure cyan */
+  --muted: #121212;           /* Rich muted black – useful for card or nav background */
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
   --font-mono: var(--font-geist-mono, monospace);
 }
+
 
 body {
   background-color: var(--background); 

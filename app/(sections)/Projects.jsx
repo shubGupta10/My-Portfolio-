@@ -92,19 +92,19 @@ const Projects = () => {
       githubUrl: "https://github.com/shubGupta10/OpenFindr",
       color: "#0f1826",
     },
-    {
-      id: 6,
-      slug: "blogger",
-      title: "AI Powered Blog App - Blogger App",
-      description:
-        "An AI-enhanced blogging platform that streamlines content creation and summarization, making it easy for users to craft and manage engaging blog posts.",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151539.png?alt=media",
-      technologies: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "https://goblogerly.vercel.app/",
-      githubUrl: "https://github.com/shubGupta10/blogger",
-      color: "#0f1826",
-    },
+    // {
+    //   id: 6,
+    //   slug: "blogger",
+    //   title: "AI Powered Blog App - Blogger App",
+    //   description:
+    //     "An AI-enhanced blogging platform that streamlines content creation and summarization, making it easy for users to craft and manage engaging blog posts.",
+    //   image:
+    //     "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151539.png?alt=media",
+    //   technologies: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
+    //   liveUrl: "https://goblogerly.vercel.app/",
+    //   githubUrl: "https://github.com/shubGupta10/blogger",
+    //   color: "#0f1826",
+    // },
     {
       id: 7,
       slug: "anonymous-feedback",
