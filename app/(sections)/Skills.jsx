@@ -212,9 +212,6 @@ const Skills = () => {
               }}
             />
           </div>
-          <p className="text-lg text-gray-400 mt-6 max-w-2xl mx-auto">
-            My technical expertise spans various domains. Each skill represents years of practice and real-world application.
-          </p>
         </motion.div>
 
         <motion.div
