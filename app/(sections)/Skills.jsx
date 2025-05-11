@@ -10,51 +10,81 @@ const Skills = () => {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.1, threshold: 0 })
 
+  // SVG Icons for each category
+  const categoryIcons = {
+    Frontend: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    ),
+    Backend: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+      </svg>
+    ),
+    Databases: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+      </svg>
+    ),
+    DevOps: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+      </svg>
+    )
+  }
+
   const skillCategories = [
     {
       name: "Frontend",
       icon: "💻",
       skills: [
-        { name: "React", level: "Expert" },
-        { name: "Next.js", level: "Advanced" },
-        { name: "TypeScript", level: "Expert" },
-        { name: "JavaScript", level: "Expert" },
-        { name: "Tailwind", level: "Expert" },
-        { name: "Framer Motion", level: "Expert" },
+        { name: "React" },
+        { name: "Next.js" },
+        { name: "TypeScript" },
+        { name: "JavaScript" },
+        { name: "Tailwind" },
+        { name: "Framer Motion" },
       ],
     },
     {
       name: "Backend",
       icon: "⚙️",
       skills: [
-        { name: "Node.js", level: "Expert" },
-        { name: "Express", level: "Advanced" },
-        { name: "Prisma", level: "Advanced" },
-        { name: "Firebase", level: "Intermediate" },
-        { name: "Supabase", level: "Expert" },
-        { name: "Appwrite", level: "Expert" },
-        { name: "GraphQL", level: "Advanced" },
+        { name: "Node.js" },
+        { name: "Express" },
+        { name: "Prisma" },
+        { name: "Firebase" },
+        { name: "Supabase" },
+        { name: "Appwrite" },
+        { name: "GraphQL" },
       ],
     },
     {
       name: "Databases",
       icon: "🗄️",
       skills: [
-        { name: "MongoDB", level: "Expert" },
-        { name: "PostgreSQL", level: "Advanced" },
-        { name: "MySQL", level: "Advanced" },
-        { name: "Redis", level: "Intermediate" },
-        { name: "Firebase", level: "Intermediate" },
-        { name: "Supabase", level: "Expert" },
-        { name: "Appwrite", level: "Expert" },
+        { name: "MongoDB" },
+        { name: "PostgreSQL" },
+        { name: "MySQL" },
+        { name: "Redis" },
+        { name: "Firebase" },
+        { name: "Supabase" },
+        { name: "Appwrite" },
       ],
     },
     {
       name: "DevOps",
-      icon: "🚀",
+      icon: "🔁",
       skills: [
-        { name: "Docker", level: "Advanced" },
-        { name: "Git", level: "Expert" },
+        { name: "Docker" },
+        { name: "Git" },
       ],
     },
   ]
@@ -63,20 +93,6 @@ const Skills = () => {
     setActiveCategory(category)
   }
 
-  const getLevelColor = (level) => {
-    switch (level) {
-      case "Expert":
-        return "var(--primary)"
-      case "Advanced":
-        return "#4CD964"
-      case "Intermediate":
-        return "#FF9500"
-      default:
-        return "var(--primary)"
-    }
-  }
-
-  // Removed getLevelPercentage function as we no longer need progress bars
 
   const containerVariants = {
     hidden: {
@@ -196,6 +212,9 @@ const Skills = () => {
               }}
             />
           </div>
+          <p className="text-lg text-gray-400 mt-6 max-w-2xl mx-auto">
+            My technical expertise spans various domains. Each skill represents years of practice and real-world application.
+          </p>
         </motion.div>
 
         <motion.div
