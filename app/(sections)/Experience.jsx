@@ -1,11 +1,14 @@
 "use client"
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Building, Calendar, MapPin, Users, ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
+
+import { useState, useRef } from "react"
+import { motion, AnimatePresence, useInView } from "framer-motion"
+import { Building, Calendar, MapPin, Users, ExternalLink, ChevronDown, ChevronUp, Briefcase } from "lucide-react"
 import Link from "next/link"
 
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState(null)
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 })
 
   const experiences = [
     {
@@ -15,7 +18,7 @@ const Experience = () => {
       location: "London Area, United Kingdom · Remote",
       type: "Freelance",
       description:
-        "Worked with the founder of Dignify a Girl to build BuildMyCV, a resume builder with AI-powered features. The app was developed using Next.js, Node.js, TypeScript, and Firebase. AI tools were integrated using LangChain and Gemini AI to help users with resume generation and job analysis. Stripe was set up to support subscriptions, discounts, and one-time payments. Authentication was handled using Clerk. The user interface was designed with Tailwind CSS and Shadcn. Key features included job suggestions and resume assessments tailored to user profiles. The app was deployed on Vercel with performance optimizations and caching in place.",
+        "Worked with the founder of Dignify a Girl to build BuildMyCV, a resume builder with AI-powered features. The app was developed using Next.js, Node.js, TypeScript, and Firebase. AI tools were integrated using LangChain and Gemini AI to help users with resume generation and job analysis.",
       points: [
         "Developed the BuildMyCV app using Next.js, Node.js, TypeScript, and Firebase.",
         "Integrated LangChain and Gemini AI for resume generation and job matching.",
@@ -24,8 +27,20 @@ const Experience = () => {
         "Designed a responsive UI using Tailwind CSS and Shadcn.",
         "Deployed app on Vercel with performance and SEO optimizations.",
       ],
-      skills: ["Next.js", "TypeScript", "Node.js", "Firebase", "Stripe", "Clerk", "LangChain", "Gemini AI", "Tailwind CSS", "Shadcn"],
+      skills: [
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Firebase",
+        "Stripe",
+        "Clerk",
+        "LangChain",
+        "Gemini AI",
+        "Tailwind CSS",
+        "Shadcn",
+      ],
       link: "https://www.buildmycv.ai",
+      current: true,
     },
     {
       company: "BioStrive Energies Pvt. Ltd.",
@@ -45,167 +60,217 @@ const Experience = () => {
       ],
       skills: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Appwrite", "Framer Motion", "Redis", "JWT Auth"],
       link: "https://biostriveenergies.in",
+      current: false,
     },
-  ];
+  ]
 
   const togglePoints = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index)
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  }
+
   return (
-    <motion.section
-      id="experience"
-      className="py-12 sm:py-20 px-4 sm:px-8 bg-[var(--background)]"
-      initial={{ scale: 0.8, opacity: 0 }}
-      whileInView={{ scale: 1, opacity: 1 }}
-      viewport={{
-        amount: 0.1
-      }}
-      transition={{
-        duration: 1.5,
-        ease: "easeOut"
-      }}
-    >
-      <div className="mx-auto">
-        {/* Section Header */}
-        <motion.div
-          className="mb-8 sm:mb-14 relative"
-          initial={{ x: -300 }}
-          animate={{ x: 0 }}
-          transition={{
-            duration: 1.2,
-            ease: "easeInOut",
-          }}
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] inline-block">
-            Work <span className="text-[var(--primary)]">Experience</span>
-          </h2>
-          <div className="h-1 w-16 sm:w-20 bg-[var(--primary)] mt-3 sm:mt-4"></div>
-          <div className="absolute -top-10 -left-10 w-40 h-40 bg-[var(--primary)]/5 rounded-full blur-3xl -z-10"></div>
-        </motion.div>
+    <section ref={sectionRef} id="experience" className="w-full bg-[var(--background)] relative py-24 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-32 left-10 w-80 h-80 bg-[var(--primary)]/15 rounded-full blur-3xl" />
+      </div>
 
-        {/* Experience Details */}
-        <div className="space-y-6">
-          {experiences.map((experience, index) => (
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="experience-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#experience-grid)" className="text-[var(--primary)]" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+          {/* Section Header */}
+          <motion.div className="relative mb-20 text-center" variants={itemVariants}>
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.2
-              }}
-              className="bg-[var(--muted)]/10 rounded-xl p-4 sm:p-6 border border-[var(--muted)]/30 relative overflow-hidden"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-4 border border-[var(--primary)]/20"
+              variants={itemVariants}
             >
-              {/* Background glow */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-[var(--primary)]/5 rounded-full blur-3xl"></div>
+              <Briefcase size={16} />
+              Professional Journey
+            </motion.div>
 
-              <div className="relative z-10">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--muted)]/50 flex items-center justify-center border border-[var(--primary)]/20">
-                    <Building size={20} className="text-[var(--primary)]" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-[var(--foreground)]">{experience.company}</h3>
-                    <p className="text-lg sm:text-xl text-[var(--primary)] font-medium">{experience.role}</p>
-                  </div>
-                </div>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--foreground)] mb-6">
+              Work <span className="text-[var(--primary)]">Experience</span>
+            </h2>
 
-                <div className="flex flex-col sm:flex-row flex-wrap gap-y-2 gap-x-6 my-4 sm:my-6 ml-0 sm:ml-14">
-                  <div className="flex items-center text-[var(--foreground)]/70 text-sm">
-                    <Calendar size={16} className="mr-2 text-[var(--primary)]" />
-                    {experience.period}
-                  </div>
+            <motion.div
+              className="h-1.5 bg-[var(--primary)] mx-auto"
+              initial={{ width: 0 }}
+              animate={isInView ? { width: "120px" } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            />
 
-                  <div className="flex items-center text-[var(--foreground)]/70 text-sm">
-                    <MapPin size={16} className="mr-2 text-[var(--primary)]" />
-                    {experience.location}
-                  </div>
+            <motion.p
+              className="text-xl text-[var(--foreground)]/70 max-w-2xl mx-auto mt-6 leading-relaxed"
+              variants={itemVariants}
+            >
+              My professional experience building innovative solutions and working with cutting-edge technologies.
+            </motion.p>
+          </motion.div>
 
-                  <div className="flex items-center text-[var(--foreground)]/70 text-sm">
-                    <Users size={16} className="mr-2 text-[var(--primary)]" />
-                    {experience.type}
-                  </div>
-                </div>
+          {/* Experience Timeline */}
+          <motion.div className="relative" variants={itemVariants}>
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[var(--border)] hidden md:block" />
 
-                <div className="ml-0 sm:ml-14">
-                  <p className="text-[var(--foreground)]/80 mb-4 leading-relaxed text-sm sm:text-base">{experience.description}</p>
+            <div className="space-y-12">
+              {experiences.map((experience, index) => (
+                <motion.div key={index} variants={itemVariants} className="relative">
+                  {/* Timeline dot */}
+                  <div className="absolute left-6 top-8 w-4 h-4 bg-[var(--primary)] rounded-full border-4 border-[var(--background)] z-10 hidden md:block" />
 
-                  {/* View Key Contributions Button */}
-                  <button
-                    onClick={() => togglePoints(index)}
-                    className="mb-4 text-[var(--primary)] font-medium flex items-center gap-1 hover:gap-2 transition-all cursor-pointer text-sm sm:text-base"
-                  >
-                    {expandedIndex === index ? "Hide Key Contributions" : "View Key Contributions"}
-                    {expandedIndex === index ? (
-                      <ChevronUp size={16} />
-                    ) : (
-                      <ChevronDown size={16} />
-                    )}
-                  </button>
-
-                  {/* Expandable Points */}
-                  {expandedIndex === index && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      transition={{ duration: 0.8 }}
-                      className="mb-6"
-                    >
-                      <ul className="list-disc pl-4 sm:pl-5 space-y-2 text-[var(--foreground)]/80 text-sm sm:text-base">
-                        {experience.points.map((point, idx) => (
-                          <li key={idx}>{point}</li>
-                        ))}
-                      </ul>
-                    </motion.div>
+                  {/* Current indicator */}
+                  {experience.current && (
+                    <div className="absolute left-5 top-7 w-6 h-6 bg-[var(--primary)]/20 rounded-full animate-pulse hidden md:block" />
                   )}
 
-                  <div className="mb-6">
-                    <h4 className="text-xs sm:text-sm font-medium text-[var(--foreground)]/70 mb-2 sm:mb-3">TECHNOLOGIES</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {experience.skills.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full bg-[var(--muted)]/50 text-[var(--primary)] border border-[var(--primary)]/20"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <div className="md:ml-16">
+                    <div className="bg-[var(--card)] backdrop-blur-sm border border-[var(--border)] rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300">
+                      {/* Current badge */}
+                      {experience.current && (
+                        <div className="absolute top-4 right-4 px-3 py-1.5 bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold rounded-full">
+                          Current
+                        </div>
+                      )}
 
-                  <motion.div
-                    className="flex gap-4"
-                  >
-                    <Link href={experience.link} legacyBehavior>
-                      <motion.a
+                      {/* Company header */}
+                      <div className="flex items-start gap-4 mb-6">
+                        <div className="p-3 rounded-xl bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20">
+                          <Building size={24} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-[var(--foreground)] mb-1">{experience.company}</h3>
+                          <p className="text-xl text-[var(--primary)] font-semibold mb-3">{experience.role}</p>
+
+                          {/* Meta information */}
+                          <div className="flex flex-wrap gap-4 text-sm text-[var(--foreground)]/70">
+                            <div className="flex items-center gap-2">
+                              <Calendar size={16} className="text-[var(--primary)]" />
+                              {experience.period}
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <MapPin size={16} className="text-[var(--primary)]" />
+                              {experience.location}
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Users size={16} className="text-[var(--primary)]" />
+                              {experience.type}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-[var(--foreground)]/80 mb-6 leading-relaxed">{experience.description}</p>
+
+                      {/* Key contributions toggle */}
+                      <button
+                        onClick={() => togglePoints(index)}
+                        className="flex items-center gap-2 text-[var(--primary)] font-semibold mb-6 hover:gap-3 transition-all duration-300"
+                      >
+                        {expandedIndex === index ? "Hide Key Contributions" : "View Key Contributions"}
+                        {expandedIndex === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                      </button>
+
+                      {/* Expandable contributions */}
+                      <AnimatePresence>
+                        {expandedIndex === index && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mb-6 overflow-hidden"
+                          >
+                            <div className="bg-[var(--muted)]/30 rounded-xl p-6 border border-[var(--border)]">
+                              <h4 className="text-lg font-semibold text-[var(--foreground)] mb-4">Key Contributions</h4>
+                              <ul className="space-y-3">
+                                {experience.points.map((point, idx) => (
+                                  <motion.li
+                                    key={idx}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="flex items-start gap-3 text-[var(--foreground)]/80"
+                                  >
+                                    <div className="w-2 h-2 bg-[var(--primary)] rounded-full mt-2 flex-shrink-0" />
+                                    {point}
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      {/* Technologies */}
+                      <div className="mb-6">
+                        <h4 className="text-sm font-semibold text-[var(--foreground)]/70 mb-3 uppercase tracking-wider">
+                          Technologies Used
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {experience.skills.map((skill, idx) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1.5 text-sm font-medium rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 hover:bg-[var(--primary)]/20 transition-colors"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Visit website link */}
+                      <Link
+                        href={experience.link}
                         target="_blank"
-                        className="text-[var(--primary)] cursor-pointer text-xs sm:text-sm font-medium border py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg border-[var(--primary)] inline-flex items-center gap-1 sm:gap-2"
-                        whileHover={{
-                          backgroundColor: "rgba(0,191,255,0.15)",
-                          boxShadow: "0 0 10px rgba(0,191,255,0.3)",
-                          borderColor: "rgba(0,191,255,0.6)"
-                        }}
-                        transition={{ duration: 0.3 }}
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-full font-semibold hover:bg-[var(--primary)]/90 transition-all duration-300 hover:scale-105 shadow-lg shadow-[var(--primary)]/25"
                       >
                         Visit Website
-                        <motion.span
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 3 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <ExternalLink size={14} className="sm:size-auto lg:size-4 md:size-auto" />
-                        </motion.span>
-                      </motion.a>
-                    </Link>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                        <ExternalLink size={16} />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   )
 }
 

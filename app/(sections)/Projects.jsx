@@ -2,12 +2,14 @@
 
 import { useState, useRef } from "react"
 import Image from "next/image"
-import { ExternalLink, Github, ArrowRight } from "lucide-react"
+import { ExternalLink, Github, ArrowRight, Star, Code2, Zap } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null)
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 })
 
   const projects = [
     {
@@ -30,7 +32,8 @@ const Projects = () => {
       ],
       liveUrl: "https://x-codex.vercel.app",
       githubUrl: "",
-      color: "#0f1826",
+      category: "Full Stack",
+      featured: true,
     },
     {
       id: 2,
@@ -43,14 +46,15 @@ const Projects = () => {
       technologies: ["Next.js", "TypeScript", "Firebase", "LangChain", "Gemini AI", "Shadcn", "Tailwind CSS", "Clerk"],
       liveUrl: "https://buildmycv.ai",
       githubUrl: "",
-      color: "#0f1826",
+      category: "SaaS",
+      featured: true,
     },
     {
       id: 3,
       slug: "techhunt",
       title: "TechHunt – Curated Tech Job Board",
       description:
-        "TechHunt is a specialized job board tailored for tech professionals in India. It aggregates high-quality, entry-to-mid level tech roles across domains like Full Stack, Frontend, Backend, and Data Science. With features like fresh listings every 4 days, remote-friendly filters, and category-based search, it simplifies the job hunt for junior developers. Built with modern web scraping techniques and fast performance using Redis caching.",
+        "TechHunt is a specialized job board tailored for tech professionals in India. It aggregates high-quality, entry-to-mid level tech roles across domains like Full Stack, Frontend, Backend, and Data Science. With features like fresh listings every 4 days, remote-friendly filters, and category-based search.",
       image:
         "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Ftechunt.png?alt=media",
       technologies: [
@@ -65,7 +69,7 @@ const Projects = () => {
       ],
       liveUrl: "https://tech-hunt-jobs.vercel.app",
       githubUrl: "https://github.com/shubGupta10/tech-hunt-client",
-      color: "#0f1826",
+      category: "Web App",
     },
     {
       id: 4,
@@ -78,7 +82,7 @@ const Projects = () => {
       technologies: ["Next.js", "TypeScript", "LangChain", "Gemini AI", "Tailwind CSS", "Shadcn"],
       liveUrl: "https://interviewbuddy-platform.vercel.app/",
       githubUrl: "",
-      color: "#0f1826",
+      category: "AI Tool",
     },
     {
       id: 5,
@@ -90,21 +94,8 @@ const Projects = () => {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn", "Supabase"],
       liveUrl: "https://open-findr.vercel.app",
       githubUrl: "https://github.com/shubGupta10/OpenFindr",
-      color: "#0f1826",
+      category: "Developer Tool",
     },
-    // {
-    //   id: 6,
-    //   slug: "blogger",
-    //   title: "AI Powered Blog App - Blogger App",
-    //   description:
-    //     "An AI-enhanced blogging platform that streamlines content creation and summarization, making it easy for users to craft and manage engaging blog posts.",
-    //   image:
-    //     "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2FScreenshot%202024-11-06%20151539.png?alt=media",
-    //   technologies: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
-    //   liveUrl: "https://goblogerly.vercel.app/",
-    //   githubUrl: "https://github.com/shubGupta10/blogger",
-    //   color: "#0f1826",
-    // },
     {
       id: 7,
       slug: "anonymous-feedback",
@@ -116,7 +107,7 @@ const Projects = () => {
       technologies: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS", "Zod", "Shadcn", "Framer Motion"],
       liveUrl: "https://anonmssg.vercel.app/",
       githubUrl: "https://github.com/shubGupta10/Anonymous_Messages",
-      color: "#0f1826",
+      category: "Web App",
     },
   ]
 
@@ -126,42 +117,101 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   }
 
   return (
-    <section id="projects" className="w-full bg-[var(--background)] relative py-20 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--primary)]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 left-20 w-72 h-72 bg-[var(--primary)]/8 rounded-full blur-3xl -z-10" />
+    <section 
+      ref={sectionRef}
+      id="projects" 
+      className="w-full bg-[var(--background)] relative py-24 overflow-hidden"
+    >
+      {/* Background elements using app variables */}
+      <div className="absolute inset-0 opacity-20">
+        <motion.div
+          className="absolute top-20 right-10 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY }}
+        />
+        <motion.div
+          className="absolute bottom-32 left-10 w-80 h-80 bg-[var(--primary)]/15 rounded-full blur-3xl"
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 40, 0],
+            scale: [1, 0.9, 1]
+          }}
+          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Geometric background patterns */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="project-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#project-grid)" className="text-[var(--primary)]"/>
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          className="relative mb-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          className="relative mb-20 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold text-[var(--foreground)] inline-block">
-            Featured <span className="text-[var(--primary)]">Projects</span>
-          </h2>
           <motion.div
-            className="h-1 w-20 bg-[var(--primary)] mt-2 mx-auto"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-4 border border-[var(--primary)]/20"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={isInView ? { scale: 1, opacity: 1 } : {}}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
+            <Code2 size={16} />
+            Portfolio Showcase
+          </motion.div>
+          
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--foreground)] mb-6">
+            Featured{" "}
+            <span className="text-[var(--primary)]">
+              Projects
+            </span>
+          </h2>
+          
+          <motion.div
+            className="h-1.5 bg-[var(--primary)] mx-auto"
             initial={{ width: 0 }}
-            animate={{ width: 80 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            animate={isInView ? { width: "120px" } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
           />
+          
+          <motion.p
+            className="text-xl text-[var(--foreground)]/70 max-w-2xl mx-auto mt-6 leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            A collection of projects that showcase my expertise in full-stack development, 
+            AI integration, and modern web technologies.
+          </motion.p>
         </motion.div>
 
         {/* Projects Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={isInView ? "visible" : "hidden"}
         >
           {projects.map((project, index) => (
             <ProjectCard
@@ -173,68 +223,89 @@ const Projects = () => {
             />
           ))}
         </motion.div>
+
       </div>
     </section>
   )
 }
 
 const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
-  // Alternate entrance direction based on index
-  const direction = index % 2 === 0 ? -100 : 100
+  const isHovered = hoveredProject === project.id
+  const isEven = index % 2 === 0
 
-  // Card variants for animation
+  // Card variants
   const cardVariants = {
     hidden: {
       opacity: 0,
-      x: direction,
-      y: 20
+      y: 60,
+      rotateX: 15,
     },
     visible: {
       opacity: 1,
-      x: 0,
       y: 0,
+      rotateX: 0,
       transition: {
         type: "spring",
-        damping: 15,
-        stiffness: 80
+        damping: 20,
+        stiffness: 80,
+        duration: 0.8
       }
-    },
-    hover: {
-      y: -8,
-      boxShadow: "0 20px 25px -5px rgba(0, 191, 255, 0.1), 0 10px 10px -5px rgba(0, 191, 255, 0.04)",
-      transition: { type: "spring", stiffness: 300, damping: 10 }
     }
   }
 
   const imageVariants = {
-    hover: { scale: 1.05, transition: { duration: 0.3 } }
+    hover: { 
+      scale: 1.1, 
+      rotateY: isEven ? 2 : -2,
+      transition: { duration: 0.4, ease: "easeOut" } 
+    }
   }
 
-  const tagVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: i => ({
+  const overlayVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
       scale: 1,
-      opacity: 1,
-      transition: {
-        delay: 0.3 + (i * 0.05),
-        duration: 0.2
-      }
-    })
+      transition: { duration: 0.3, ease: "easeOut" }
+    }
   }
 
   return (
     <motion.div
-      className="flex flex-col bg-[#0f1826] rounded-xl overflow-hidden shadow-lg h-full"
+      className={`group relative bg-[var(--card)] backdrop-blur-sm border border-[var(--border)] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-500 ${project.featured ? 'md:col-span-1 xl:col-span-1' : ''}`}
       variants={cardVariants}
-      whileHover="hover"
+      whileHover={{ 
+        y: -12,
+        rotateY: isEven ? 1 : -1,
+      }}
       onMouseEnter={() => setHoveredProject(project.id)}
       onMouseLeave={() => setHoveredProject(null)}
-      style={{
-        boxShadow: "0 4px 6px -1px rgba(0, 191, 255, 0.05), 0 2px 4px -1px rgba(0, 191, 255, 0.03)"
-      }}
     >
+      {/* Featured badge */}
+      {project.featured && (
+        <motion.div
+          className="absolute top-4 right-4 z-20 flex items-center gap-1 px-3 py-1.5 bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold rounded-full shadow-lg"
+          initial={{ scale: 0, rotate: -12 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
+        >
+          <Star size={12} fill="currentColor" />
+          Featured
+        </motion.div>
+      )}
+
+      {/* Category badge */}
+      <motion.div
+        className="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full text-xs font-semibold bg-[var(--muted)] text-[var(--muted-foreground)] backdrop-blur-md border border-[var(--border)]"
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
+        {project.category}
+      </motion.div>
+
       {/* Project Image */}
-      <div className="relative h-52 w-full overflow-hidden">
+      <div className="relative h-56 sm:h-64 w-full overflow-hidden">
         <motion.div
           className="h-full w-full"
           variants={imageVariants}
@@ -244,102 +315,142 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-cover transition-all duration-500 group-hover:brightness-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </motion.div>
 
-        {/* Image Overlay on Hover */}
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/80 via-[var(--background)]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+
+        {/* Hover overlay */}
         <motion.div
-          className="absolute inset-0 bg-black/70 flex items-center justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
+          className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/90 via-[var(--background)]/50 to-transparent flex items-center justify-center"
+          variants={overlayVariants}
+          initial="hidden"
+          animate={isHovered ? "visible" : "hidden"}
         >
-          <Link
-            href={`/projects/${project.slug}`}
-            className="px-5 py-2.5 bg-[#00bfff] text-black rounded-lg font-medium hover:bg-opacity-90 transition-colors"
-          >
-            View Details
-          </Link>
+          <div className="text-center space-y-4">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-full font-semibold hover:bg-[var(--primary)]/90 transition-colors shadow-lg"
+            >
+              <Zap size={16} />
+              View Details
+            </Link>
+            <div className="flex gap-3 justify-center">
+              {project.liveUrl && (
+                <motion.a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] hover:bg-[var(--muted)]/80 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ExternalLink size={18} />
+                </motion.a>
+              )}
+              {project.githubUrl && (
+                <motion.a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] hover:bg-[var(--muted)]/80 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Github size={18} />
+                </motion.a>
+              )}
+            </div>
+          </div>
         </motion.div>
       </div>
 
       {/* Project Content */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-6 sm:p-8 flex flex-col flex-grow relative">
+        {/* Decorative element */}
+        <div className="absolute top-0 left-6 w-12 h-1 rounded-full bg-[var(--primary)]" />
+
         <motion.h3
-          className="text-xl font-bold text-[#00bfff] mb-3"
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.3 }}
+          className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-3 mt-2 group-hover:text-[var(--primary)] transition-colors"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
         >
           {project.title}
         </motion.h3>
 
         <motion.p
-          className="text-white/80 text-sm mb-5 flex-grow"
+          className="text-[var(--foreground)]/80 text-sm sm:text-base mb-6 flex-grow leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.4 }}
+          transition={{ delay: 0.3 }}
         >
-          {project.description.length > 120
-            ? `${project.description.substring(0, 120)}...`
+          {project.description.length > 140
+            ? `${project.description.substring(0, 140)}...`
             : project.description}
         </motion.p>
 
         {/* Technologies */}
-        <div className="mb-5">
+        <div className="mb-6">
           <div className="flex flex-wrap gap-2">
-            {project.technologies.slice(0, 4).map((tech, idx) => (
+            {project.technologies.slice(0, 3).map((tech, idx) => (
               <motion.span
                 key={idx}
-                custom={idx}
-                variants={tagVariants}
-                initial="hidden"
-                animate="visible"
-                className="px-2.5 py-1 text-xs rounded-full bg-[#00bfff]/10 text-[#00bfff] hover:bg-[#00bfff]/20 transition-colors"
+                className="px-3 py-1.5 text-xs font-medium rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 hover:bg-[var(--primary)]/20 transition-all duration-300"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.4 + (idx * 0.1) }}
+                whileHover={{ scale: 1.05 }}
               >
                 {tech}
               </motion.span>
             ))}
-            {project.technologies.length > 4 && (
+            {project.technologies.length > 3 && (
               <motion.span
-                custom={4}
-                variants={tagVariants}
-                initial="hidden"
-                animate="visible"
-                className="px-2.5 py-1 text-xs rounded-full bg-[#00bfff]/10 text-[#00bfff]"
+                className="px-3 py-1.5 text-xs font-medium rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] border border-[var(--border)]"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.7 }}
               >
-                +{project.technologies.length - 4}
+                +{project.technologies.length - 3}
               </motion.span>
             )}
           </div>
         </div>
 
-        {/* Links */}
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
+        {/* Links section */}
+        <div className="flex items-center justify-between pt-4 border-t border-[var(--border)]">
           <motion.a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-white text-sm hover:text-[#00bfff] transition-colors"
+            className="flex items-center gap-2 text-[var(--foreground)] text-sm font-medium hover:text-[var(--primary)] transition-colors group/link"
             whileHover={{ x: 4 }}
           >
             <span>View Live</span>
-            <motion.div whileHover={{ x: 2 }} transition={{ repeat: Infinity, repeatType: "mirror", duration: 0.6 }}>
-              <ArrowRight size={14} />
+            <motion.div 
+              className="group-hover/link:translate-x-1 transition-transform"
+              animate={{ x: [0, 4, 0] }}
+              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+            >
+              <ArrowRight size={16} />
             </motion.div>
           </motion.a>
 
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             {project.liveUrl && (
               <motion.a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-full bg-[#00bfff]/10 text-white hover:bg-[#00bfff]/20 transition-colors"
-                whileHover={{ scale: 1.1 }}
+                className="p-2 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-colors"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <ExternalLink size={14} />
+                <ExternalLink size={16} />
               </motion.a>
             )}
             {project.githubUrl && (
@@ -347,10 +458,11 @@ const ProjectCard = ({ project, index, hoveredProject, setHoveredProject }) => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1.5 rounded-full bg-[#00bfff]/10 text-white hover:bg-[#00bfff]/20 transition-colors"
-                whileHover={{ scale: 1.1 }}
+                className="p-2 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-colors"
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Github size={14} />
+                <Github size={16} />
               </motion.a>
             )}
           </div>

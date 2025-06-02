@@ -1,318 +1,233 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
+import { Code2, Server, Database, Settings } from "lucide-react"
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState("Frontend")
-  const [hoveredSkill, setHoveredSkill] = useState(null)
-
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.1, threshold: 0 })
+  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 })
 
-  // SVG Icons for each category
   const categoryIcons = {
-    Frontend: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <polyline points="16 18 22 12 16 6"></polyline>
-        <polyline points="8 6 2 12 8 18"></polyline>
-      </svg>
-    ),
-    Backend: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-        <line x1="6" y1="6" x2="6.01" y2="6"></line>
-        <line x1="6" y1="18" x2="6.01" y2="18"></line>
-      </svg>
-    ),
-    Databases: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-      </svg>
-    ),
-    DevOps: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-      </svg>
-    )
+    Frontend: <Code2 className="w-5 h-5" />,
+    Backend: <Server className="w-5 h-5" />,
+    Databases: <Database className="w-5 h-5" />,
+    DevOps: <Settings className="w-5 h-5" />,
   }
 
   const skillCategories = [
     {
       name: "Frontend",
-      icon: "💻",
       skills: [
-        { name: "React" },
-        { name: "Next.js" },
-        { name: "TypeScript" },
-        { name: "JavaScript" },
-        { name: "Tailwind" },
-        { name: "Framer Motion" },
+        { name: "React", level: 95 },
+        { name: "Next.js", level: 90 },
+        { name: "TypeScript", level: 88 },
+        { name: "JavaScript", level: 92 },
+        { name: "Tailwind CSS", level: 90 },
+        { name: "Framer Motion", level: 85 },
       ],
     },
     {
       name: "Backend",
-      icon: "⚙️",
       skills: [
-        { name: "Node.js" },
-        { name: "Express" },
-        { name: "Prisma" },
-        { name: "Firebase" },
-        { name: "Supabase" },
-        { name: "Appwrite" },
-        { name: "GraphQL" },
+        { name: "Node.js", level: 88 },
+        { name: "Express", level: 85 },
+        { name: "Prisma", level: 80 },
+        { name: "Firebase", level: 85 },
+        { name: "Supabase", level: 82 },
+        { name: "Appwrite", level: 75 },
+        { name: "GraphQL", level: 70 },
       ],
     },
     {
       name: "Databases",
-      icon: "🗄️",
       skills: [
-        { name: "MongoDB" },
-        { name: "PostgreSQL" },
-        { name: "MySQL" },
-        { name: "Redis" },
-        { name: "Firebase" },
-        { name: "Supabase" },
-        { name: "Appwrite" },
+        { name: "MongoDB", level: 85 },
+        { name: "PostgreSQL", level: 80 },
+        { name: "MySQL", level: 78 },
+        { name: "Redis", level: 75 },
+        { name: "Firebase", level: 85 },
+        { name: "Supabase", level: 82 },
+        { name: "Appwrite", level: 75 },
       ],
     },
     {
       name: "DevOps",
-      icon: "🔁",
       skills: [
-        { name: "Docker" },
-        { name: "Git" },
+        { name: "Docker", level: 70 },
+        { name: "Git", level: 90 },
+        { name: "GitHub Actions", level: 65 },
+        { name: "Vercel", level: 88 },
       ],
     },
   ]
 
-  const handleCategoryChange = (category) => {
-    setActiveCategory(category)
-  }
-
-
   const containerVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30
-    },
+    hidden: { opacity: 0, y: 60 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 15,
-        when: "beforeChildren",
-        staggerChildren: 0.07
-      }
-    }
+        duration: 0.6,
+        staggerChildren: 0.1,
+      },
+    },
   }
 
-  const headingVariants = {
-    hidden: {
-      opacity: 0,
-      y: 15
-    },
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const tabVariants = {
-    hidden: {
-      opacity: 0,
-      y: 8
+      transition: { duration: 0.5 },
     },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 10,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-        when: "beforeChildren",
-        staggerChildren: 0.04
-      }
-    },
-    exit: {
-      opacity: 0,
-      y: -10,
-      transition: {
-        duration: 0.15
-      }
-    }
   }
 
   const skillVariants = {
-    hidden: {
-      opacity: 0,
-      y: 10
-    },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut"
-      }
-    }
+      transition: { duration: 0.4 },
+    },
   }
 
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="w-full py-16 px-4 sm:px-8 bg-transparent relative overflow-hidden"
-    >
-      <motion.div
-        className="max-w-6xl mx-auto relative"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div
-          className="mb-12 text-center"
-          variants={headingVariants}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] inline-block">
-            Technical <span className="text-[var(--primary)]">Skills</span>
-          </h2>
-          <div className="flex justify-center">
+    <section ref={sectionRef} id="skills" className="w-full bg-[var(--background)] relative py-24 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-32 right-10 w-80 h-80 bg-[var(--primary)]/15 rounded-full blur-3xl" />
+      </div>
+
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="skills-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#skills-grid)" className="text-[var(--primary)]" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+          {/* Section Header */}
+          <motion.div className="relative mb-20 text-center" variants={itemVariants}>
             <motion.div
-              className="h-1 w-24 bg-[var(--primary)] mt-4 relative"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-4 border border-[var(--primary)]/20"
+              variants={itemVariants}
+            >
+              <Code2 size={16} />
+              Technical Expertise
+            </motion.div>
+
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--foreground)] mb-6">
+              My <span className="text-[var(--primary)]">Skills</span>
+            </h2>
+
+            <motion.div
+              className="h-1.5 bg-[var(--primary)] mx-auto"
               initial={{ width: 0 }}
-              animate={isInView ? { width: "6rem" } : { width: 0 }}
-              transition={{
-                duration: 0.2,
-                delay: 0.05,
-                ease: "easeOut"
-              }}
+              animate={isInView ? { width: "120px" } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
             />
-          </div>
-        </motion.div>
 
-        <motion.div
-          className="flex flex-wrap justify-center mb-10 gap-2 sm:gap-0"
-          variants={tabVariants}
-        >
-          {skillCategories.map((category, index) => {
-            const isActive = activeCategory === category.name
-            return (
-              <motion.button
-                key={`tab-${index}`}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => handleCategoryChange(category.name)}
-                className={`px-3 sm:px-6 py-3 relative text-base sm:text-lg font-bold transition-all duration-300 rounded-full mb-2 sm:mb-0 
-                  ${isActive 
-                    ? "text-[var(--primary)] bg-[rgba(var(--primary-rgb),0.1)] shadow-lg" 
-                    : "text-[var(--foreground)] opacity-70 hover:opacity-100"}`}
-              >
-                <span className="mr-2">{category.icon}</span>
-                {category.name}
-                {isActive && (
-                  <motion.div
-                    layoutId="activePill"
-                    className="absolute inset-0 rounded-full border-2 border-[var(--primary)]"
-                    transition={{ duration: 0.15 }}
-                  />
-                )}
-              </motion.button>
-            )
-          })}
-        </motion.div>
+            <motion.p
+              className="text-xl text-[var(--foreground)]/70 max-w-2xl mx-auto mt-6 leading-relaxed"
+              variants={itemVariants}
+            >
+              A comprehensive overview of my technical skills and expertise across different areas of software
+              development.
+            </motion.p>
+          </motion.div>
 
-        <div className="mt-10 min-h-[350px]">
-          <AnimatePresence mode="wait">
+          {/* Category Tabs */}
+          <motion.div className="flex flex-wrap justify-center mb-12 gap-2" variants={itemVariants}>
             {skillCategories.map((category) => {
-              if (category.name !== activeCategory) return null
-
+              const isActive = activeCategory === category.name
               return (
-                <motion.div
-                  key={`content-${category.name}`}
-                  variants={contentVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="bg-[rgba(31,31,46,0.4)] backdrop-blur-sm border border-gray-700/20 rounded-2xl p-6 sm:p-8 shadow-xl"
+                <button
+                  key={category.name}
+                  onClick={() => setActiveCategory(category.name)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                    isActive
+                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-lg shadow-[var(--primary)]/25"
+                      : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:bg-[var(--muted)]/80"
+                  }`}
                 >
-                  <motion.div 
-                    className="flex items-center mb-8"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <div className="flex items-center">
-                      <span className="text-3xl mr-3">{category.icon}</span>
-                      <h3 className="text-2xl font-bold text-[var(--primary)]">
-                        {category.name} Technologies
-                      </h3>
-                    </div>
-                  </motion.div>
-
-                  <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {category.skills.map((skill, index) => (
-                      <motion.div
-                        key={`skill-${skill.name}`}
-                        variants={skillVariants}
-                        className="relative"
-                        whileHover={{
-                          scale: 1.03,
-                          transition: { duration: 0.2 }
-                        }}
-                        onMouseEnter={() => setHoveredSkill(skill.name)}
-                        onMouseLeave={() => setHoveredSkill(null)}
-                      >
-                        <div
-                          className="p-5 rounded-xl transition-all duration-300 h-full border-2 border-gray-700/30 flex items-center justify-center"
-                          style={{
-                            background: "rgba(31, 31, 46, 0.6)",
-                            boxShadow: hoveredSkill === skill.name ? "0 8px 20px rgba(0, 0, 0, 0.2)" : "none",
-                          }}
-                        >
-                          <h4
-                            className="text-xl font-bold transition-all duration-300 text-center"
-                            style={{
-                              color: hoveredSkill === skill.name
-                                ? "var(--primary)"
-                                : "var(--foreground)"
-                            }}
-                          >
-                            {skill.name}
-                          </h4>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </motion.div>
+                  {categoryIcons[category.name]}
+                  {category.name}
+                </button>
               )
             })}
-          </AnimatePresence>
-        </div>
-      </motion.div>
+          </motion.div>
+
+          {/* Skills Content */}
+          <motion.div className="min-h-[400px]" variants={itemVariants}>
+            <AnimatePresence mode="wait">
+              {skillCategories.map((category) => {
+                if (category.name !== activeCategory) return null
+
+                return (
+                  <motion.div
+                    key={category.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-[var(--card)] backdrop-blur-sm border border-[var(--border)] rounded-2xl p-8 shadow-xl"
+                  >
+                    <div className="flex items-center mb-8">
+                      <div className="flex items-center gap-3">
+                        <div className="p-3 rounded-full bg-[var(--primary)]/10 text-[var(--primary)]">
+                          {categoryIcons[category.name]}
+                        </div>
+                        <h3 className="text-2xl font-bold text-[var(--foreground)]">{category.name} Technologies</h3>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {category.skills.map((skill, index) => (
+                        <motion.div
+                          key={skill.name}
+                          variants={skillVariants}
+                          initial="hidden"
+                          animate="visible"
+                          transition={{ delay: index * 0.1 }}
+                          className="group"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="text-lg font-semibold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
+                              {skill.name}
+                            </h4>
+                            {/* <span className="text-sm text-[var(--foreground)]/60 font-medium">{skill.level}%</span> */}
+                          </div>
+                          <div className="w-full bg-[var(--muted)] rounded-full h-2 overflow-hidden">
+                            <motion.div
+                              className="h-full bg-gradient-to-r from-[var(--primary)] to-[var(--primary)]/80 rounded-full"
+                              initial={{ width: 0 }}
+                              animate={{ width: `${skill.level}%` }}
+                              transition={{
+                                duration: 1,
+                                delay: index * 0.1 + 0.3,
+                                ease: "easeOut",
+                              }}
+                            />
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </AnimatePresence>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   )
 }

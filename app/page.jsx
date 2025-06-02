@@ -43,9 +43,9 @@ function Home() {
           <div className="border-b border-[var(--muted)] w-full my-4 opacity-30"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GithubStats />
-        </div>
+        </div> */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-b border-[var(--muted)] w-full my-4 opacity-30"></div>
         </div>
@@ -55,15 +55,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Custom grid pattern style */}
-      <style jsx global>{`
-        .bg-grid-pattern {
-          background-size: 50px 50px;
-          background-image: 
-            linear-gradient(to right, rgba(0, 191, 255, 0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 191, 255, 0.05) 1px, transparent 1px);
-        }
-      `}</style>
     </main>
   )
 }

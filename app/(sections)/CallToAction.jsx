@@ -1,252 +1,191 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useRef } from "react"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { Mail, Twitter, ArrowRight } from "lucide-react"
+import { motion, useInView } from "framer-motion"
+import { Mail, Twitter, ArrowRight, MessageCircle, Send } from "lucide-react"
 
 const CTA = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [hoveredLink, setHoveredLink] = useState(null)
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 })
 
   const DATA = {
     contact: {
       email: "shubhamkgupta720@gmail.com",
       social: {
-        X: { url: "https://x.com/i_m_shubham45" }
-      }
-    }
+        X: { url: "https://x.com/i_m_shubham45" },
+      },
+    },
   }
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+  const containerVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2,
+      },
+    },
+  }
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  }
 
   return (
-    <motion.section 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      id="cta" 
-      className="w-full py-20 px-4 sm:px-8 bg-transparent relative overflow-hidden"
-    >
-      {/* Animated background */}
-      <div className="absolute inset-0 opacity-10" style={{ zIndex: -1 }}>
-        <motion.div
-          className="absolute w-64 h-64 rounded-full blur-3xl"
-          animate={{
-            top: mousePosition.y / 10,
-            left: mousePosition.x / 10,
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.4, 0.3]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-          style={{
-            background: "var(--primary)",
-            transform: "translate(-50%, -50%)",
-          }}
-        />
-        <motion.div
-          className="absolute w-96 h-96 rounded-full blur-3xl"
-          animate={{
-            bottom: mousePosition.y / 15,
-            right: mousePosition.x / 15,
-            scale: [1, 0.9, 1],
-            opacity: [0.1, 0.2, 0.1]
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-          style={{
-            background: "var(--primary)",
-            transform: "translate(50%, 50%)",
-          }}
-        />
+    <section ref={sectionRef} id="cta" className="w-full bg-[var(--background)] relative py-24 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-32 right-10 w-80 h-80 bg-[var(--primary)]/15 rounded-full blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-3xl relative">
-        {/* Section Header */}
-        <motion.div 
-          className="text-center space-y-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="mb-6 relative">
-            <motion.div 
-              className="flex justify-center mb-3"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="cta-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#cta-grid)" className="text-[var(--primary)]" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+          {/* Section Header */}
+          <motion.div className="relative mb-20 text-center" variants={itemVariants}>
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-4 border border-[var(--primary)]/20"
+              variants={itemVariants}
             >
-              <span className="px-4 py-1.5 text-sm font-medium rounded-full text-[var(--primary)] bg-[var(--primary)]/10 border border-[var(--primary)]/20">
-                Contact
-              </span>
+              <MessageCircle size={16} />
+              Get In Touch
             </motion.div>
-            <motion.h2 
-              className="text-4xl font-bold text-[var(--foreground)] inline-block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              Let&apos;s <span className="text-[var(--primary)]">Connect</span>
-            </motion.h2>
-            <motion.div 
-              className="h-1 bg-[var(--primary)] mt-4 mx-auto"
+
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--foreground)] mb-6">
+              Let's <span className="text-[var(--primary)]">Connect</span>
+            </h2>
+
+            <motion.div
+              className="h-1.5 bg-[var(--primary)] mx-auto"
               initial={{ width: 0 }}
-              animate={{ width: "5rem" }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              animate={isInView ? { width: "120px" } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
             />
-          </div>
 
-          <motion.p 
-            className="text-lg text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-          >
-            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-          </motion.p>
-
-          {/* Contact cards */}
-          <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            {/* Email card */}
-            <Link
-              href={`mailto:${DATA.contact.email}`}
-              className="group block"
-              onMouseEnter={() => setHoveredLink("email")}
-              onMouseLeave={() => setHoveredLink(null)}
+            <motion.p
+              className="text-xl text-[var(--foreground)]/70 max-w-2xl mx-auto mt-6 leading-relaxed"
+              variants={itemVariants}
             >
-              <motion.div
-                className="relative p-6 rounded-lg backdrop-blur-sm overflow-hidden group-hover:shadow-lg h-full"
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                style={{
-                  background: "rgba(31, 31, 46, 0.3)",
-                  border: "1px solid rgba(0, 191, 255, 0.15)",
-                }}
-              >
-                {/* Shimmering effect on hover */}
-                <div
-                  className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                  style={{
-                    background: "linear-gradient(45deg, transparent 25%, rgba(0, 191, 255, 0.5) 50%, transparent 75%)",
-                    backgroundSize: "200% 200%",
-                    animation: "shimmer 1.5s infinite linear",
-                  }}
-                />
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            </motion.p>
+          </motion.div>
 
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <motion.div
-                    className="p-4 rounded-full"
-                    whileHover={{ scale: 1.1 }}
-                    style={{
-                      background: "var(--muted)",
-                      border: "1px solid var(--primary)",
-                    }}
-                  >
-                    <Mail size={26} className="text-[var(--primary)]" />
-                  </motion.div>
-                  <h3 className="text-xl font-medium">Email Me</h3>
-                  <p className="text-muted-foreground">{DATA.contact.email}</p>
-                  <span className="inline-flex items-center text-sm font-medium text-[var(--primary)]">
-                    Send a Message
-                    <motion.div
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <ArrowRight size={16} className="ml-1" />
-                    </motion.div>
-                  </span>
+          {/* Contact Cards */}
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" variants={itemVariants}>
+            {/* Email Card */}
+            <motion.div variants={itemVariants}>
+              <Link href={`mailto:${DATA.contact.email}`} className="group block h-full">
+                <div className="bg-[var(--card)] backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300 group-hover:-translate-y-2 h-full">
+                  {/* Icon */}
+                  <div className="flex justify-center mb-6">
+                    <div className="p-4 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 group-hover:bg-[var(--primary)] group-hover:text-[var(--primary-foreground)] transition-all duration-300">
+                      <Mail size={32} />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="text-center space-y-4">
+                    <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
+                      Email Me
+                    </h3>
+                    <p className="text-[var(--foreground)]/70 text-lg">{DATA.contact.email}</p>
+                    <p className="text-[var(--foreground)]/60 leading-relaxed">
+                      Send me an email for project inquiries, collaborations, or just to say hello!
+                    </p>
+
+                    {/* CTA */}
+                    <div className="pt-4">
+                      <div className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold group-hover:gap-3 transition-all duration-300">
+                        <Send size={18} />
+                        Send Message
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-            </Link>
+              </Link>
+            </motion.div>
 
-            {/* Twitter Card */}
-            <a
-              href={DATA.contact.social.X.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-              onMouseEnter={() => setHoveredLink("twitter")}
-              onMouseLeave={() => setHoveredLink(null)}
-            >
-              <motion.div
-                className="relative p-6 rounded-lg backdrop-blur-sm overflow-hidden group-hover:shadow-lg h-full"
-                whileHover={{ y: -8 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                style={{
-                  background: "rgba(31, 31, 46, 0.3)",
-                  border: "1px solid rgba(0, 191, 255, 0.15)",
-                }}
+            {/* Twitter/X Card */}
+            <motion.div variants={itemVariants}>
+              <a
+                href={DATA.contact.social.X.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full"
               >
-                {/* Shimmering effect on hover */}
-                <div
-                  className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                  style={{
-                    background: "linear-gradient(45deg, transparent 25%, rgba(0, 191, 255, 0.5) 50%, transparent 75%)",
-                    backgroundSize: "200% 200%",
-                    animation: "shimmer 1.5s infinite linear",
-                  }}
-                />
+                <div className="bg-[var(--card)] backdrop-blur-sm  rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300 group-hover:-translate-y-2 h-full">
+                  {/* Icon */}
+                  <div className="flex justify-center mb-6">
+                    <div className="p-4 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 group-hover:bg-[var(--primary)] group-hover:text-[var(--primary-foreground)] transition-all duration-300">
+                      <Twitter size={32} />
+                    </div>
+                  </div>
 
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <motion.div
-                    className="p-4 rounded-full"
-                    whileHover={{ scale: 1.1 }}
-                    style={{
-                      background: "var(--muted)",
-                      border: "1px solid var(--primary)",
-                    }}
-                  >
-                    <Twitter size={26} className="text-[var(--primary)]" />
-                  </motion.div>
-                  <h3 className="text-xl font-medium">DM Me</h3>
-                  <p className="text-muted-foreground">@i_m_shubham45</p>
-                  <span className="inline-flex items-center text-sm font-medium text-[var(--primary)]">
-                    Connect on X
-                    <motion.div
-                      whileHover={{ x: 4 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      <ArrowRight size={16} className="ml-1" />
-                    </motion.div>
-                  </span>
+                  {/* Content */}
+                  <div className="text-center space-y-4">
+                    <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
+                      Follow on X
+                    </h3>
+                    <p className="text-[var(--foreground)]/70 text-lg">@i_m_shubham45</p>
+                    <p className="text-[var(--foreground)]/60 leading-relaxed">
+                      Follow me on X for updates, tech insights, and behind-the-scenes content!
+                    </p>
+
+                    {/* CTA */}
+                    <div className="pt-4">
+                      <div className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold group-hover:gap-3 transition-all duration-300">
+                        <Twitter size={18} />
+                        Connect on X
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-            </a>
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Additional CTA */}
+          <motion.div className="text-center mt-16" variants={itemVariants}>
+            <div className="bg-[var(--muted)]/30 rounded-2xl p-8  max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-[var(--foreground)] mb-4">Ready to Start a Project?</h3>
+              <p className="text-[var(--foreground)]/70 mb-6 leading-relaxed">
+                Whether you have a clear vision or just an idea, I'd love to help bring it to life. Let's discuss how we
+                can work together.
+              </p>
+              <Link
+                href={`mailto:${DATA.contact.email}?subject=Project Inquiry`}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-full font-semibold text-lg shadow-lg shadow-[var(--primary)]/25 hover:shadow-xl hover:shadow-[var(--primary)]/40 hover:bg-[var(--primary)]/90 transition-all duration-300 hover:scale-105"
+              >
+                Start a Conversation
+                <ArrowRight size={20} />
+              </Link>
+            </div>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Add CSS animations */}
-      <style jsx>{`
-        @keyframes shimmer {
-          0% { background-position: 200% 0; }
-          100% { background-position: -200% 0; }
-        }
-      `}</style>
-    </motion.section>
+    </section>
   )
 }
 

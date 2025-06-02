@@ -7,10 +7,10 @@ html {
 
 /* ===== Custom Theme Variables ===== */
 :root {
-  --background: #000000;      /* Deep black for high contrast */
-  --foreground: #F5F5F7;      /* Very light gray – clean and modern */
-  --primary: #38BDF8;         /* Sky blue (Tailwind’s blue-400) – vibrant, less harsh than pure cyan */
-  --muted: #121212;           /* Rich muted black – useful for card or nav background */
+  --background: #121212;       /* Charcoal black – easier on eyes, not harsh like #000 */
+  --foreground: #e6e6e6;       /* Soft light gray – readable, balanced with background */
+  --primary: #ff6b3d;          /* Warm clay orange – energetic but elegant */
+  --muted: #1e1e1e;            /* Deep muted gray – perfect for cards/secondary UI */
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
   --font-mono: var(--font-geist-mono, monospace);
@@ -18,8 +18,7 @@ html {
 
 
 body {
-  background-color: var(--background); 
+  background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
-

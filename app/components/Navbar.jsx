@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <header
       className={`w-full sticky py-4 top-0 z-50 text-lg transition-all duration-300 ease-in-out border-b ${scrolled || mobileMenuOpen
-          ? 'bg-[#000000] backdrop-blur-lg border-gray-800 py-3'
+          ? 'bg-[var(--background)] backdrop-blur-lg border-[var(--muted)] py-3'
           : 'bg-transparent py-5 border-transparent'
         }`}
     >
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="flex items-center">
             {/* Optional: Add an icon that represents your field */}
             <svg
-              className="w-6 h-6 mr-2 text-[#00BFFF]"
+              className="w-6 h-6 mr-2 text-[var(--primary)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -85,15 +85,15 @@ const Navbar = () => {
               </path>
             </svg>
 
-            <h1 className="font-bold text-xl text-[#E0E0E0] tracking-wider">
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">S</span>
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">h</span>
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">u</span>
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">b</span>
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">h</span>
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">a</span>
-              <span className="hover:text-[#00BFFF] transition-colors duration-300">m</span>
-              <span className="text-[#00BFFF] font-extrabold">.</span>
+            <h1 className="font-bold text-xl text-[var(--foreground)] tracking-wider">
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">S</span>
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">h</span>
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">u</span>
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">b</span>
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">h</span>
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">a</span>
+              <span className="hover:text-[var(--primary)] transition-colors duration-300">m</span>
+              <span className="text-[var(--primary)] font-extrabold">.</span>
             </h1>
           </div>
         </div>
@@ -105,10 +105,10 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="scroll-smooth p-2 text-[#E0E0E0] hover:text-[#00BFFF] transition-colors duration-200 font-medium relative group"
+                  className="scroll-smooth p-2 text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200 font-medium relative group"
                 >
                   {link.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00BFFF] group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--primary)] group-hover:w-full transition-all duration-300"></span>
                 </a>
               </li>
             ))}
@@ -119,7 +119,7 @@ const Navbar = () => {
         <div className="lg:hidden flex items-center gap-4 relative z-50">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="cursor-pointer text-[#E0E0E0] hover:text-[#00BFFF] transition-colors"
+            className="cursor-pointer text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
@@ -128,7 +128,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Dropdown */}
         <div
-          className={`absolute text-center border-b-4 border-[#00BFFF] rounded-b-2xl top-full left-0 w-full bg-[#08131f] backdrop-blur-lg z-[60] transition-all duration-300 ease-in-out ${mobileMenuOpen
+          className={`absolute text-center border-b-4 border-[var(--primary)] rounded-b-2xl top-full left-0 w-full bg-[var(--muted)] backdrop-blur-lg z-[60] transition-all duration-300 ease-in-out ${mobileMenuOpen
               ? 'opacity-100 translate-y-0 max-h-[80vh]'
               : 'opacity-0 -translate-y-4 max-h-0 overflow-hidden'
             }`}
@@ -140,7 +140,7 @@ const Navbar = () => {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-[#E0E0E0] hover:text-[#00BFFF] transition-colors duration-200 text-lg font-medium block"
+                      className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors duration-200 text-lg font-medium block"
                       onClick={handleMenuItemClick}
                     >
                       {link.name}
