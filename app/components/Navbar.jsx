@@ -47,9 +47,9 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', href: '/' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#cta' },
   ];
 
@@ -60,8 +60,8 @@ const Navbar = () => {
   return (
     <header
       className={`w-full sticky py-4 top-0 z-50 text-lg transition-all duration-300 ease-in-out border-b ${scrolled || mobileMenuOpen
-          ? 'bg-[var(--background)] backdrop-blur-lg border-[var(--muted)] py-3'
-          : 'bg-transparent py-5 border-transparent'
+        ? 'bg-[var(--background)] backdrop-blur-lg border-[var(--muted)] py-3'
+        : 'bg-transparent py-5 border-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -129,8 +129,8 @@ const Navbar = () => {
         {/* Mobile Menu Dropdown */}
         <div
           className={`absolute text-center border-b-4 border-[var(--primary)] rounded-b-2xl top-full left-0 w-full bg-[var(--muted)] backdrop-blur-lg z-[60] transition-all duration-300 ease-in-out ${mobileMenuOpen
-              ? 'opacity-100 translate-y-0 max-h-[80vh]'
-              : 'opacity-0 -translate-y-4 max-h-0 overflow-hidden'
+            ? 'opacity-100 translate-y-0 max-h-[80vh]'
+            : 'opacity-0 -translate-y-4 max-h-0 overflow-hidden'
             }`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">

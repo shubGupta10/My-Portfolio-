@@ -7,14 +7,26 @@ html {
 
 /* ===== Custom Theme Variables ===== */
 :root {
-  --background: #121212;       /* Charcoal black – easier on eyes, not harsh like #000 */
-  --foreground: #e6e6e6;       /* Soft light gray – readable, balanced with background */
-  --primary: #ff6b3d;          /* Warm clay orange – energetic but elegant */
-  --muted: #1e1e1e;            /* Deep muted gray – perfect for cards/secondary UI */
+  /* Light Theme */
+  --background: #f8fafc;        /* Soft white – clean and modern */
+  --foreground: #0f172a;        /* Dark slate – excellent contrast for text */
+  --primary: #3b82f6;           /* Blue – professional and widely trusted */
+  --muted: #e2e8f0;             /* Light slate – subtle for cards/backgrounds */
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
   --font-mono: var(--font-geist-mono, monospace);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;      /* Deep slate – dev vibe dark mode */
+    --foreground: #f8fafc;      /* Soft white – highly readable */
+    --primary: #3b82f6;         /* Blue – consistent with light theme */
+    --muted: #1e293b;           /* Slate gray – ideal for card backgrounds */
+  }
+}
+
+
 
 
 body {

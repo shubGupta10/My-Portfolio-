@@ -23,6 +23,10 @@ function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Projects />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Experience />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,12 +40,6 @@ function Home() {
           <div className="border-b border-[var(--muted)] w-full my-4 opacity-30"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Projects />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-b border-[var(--muted)] w-full my-4 opacity-30"></div>
-        </div>
 
         {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GithubStats />
