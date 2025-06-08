@@ -4,22 +4,7 @@ import { MenuIcon, X } from "lucide-react"
 import { useState, useEffect } from "react"
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [scrolled])
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,13 +43,7 @@ const Navbar = () => {
   }
 
   return (
-    <header
-      className={`w-full sticky py-3 sm:py-4 lg:py-5 top-0 z-50 text-sm sm:text-base lg:text-lg transition-all duration-300 ease-in-out ${
-        scrolled || mobileMenuOpen
-          ? "bg-[var(--background)] backdrop-blur-lg py-2 sm:py-3"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="w-full sticky py-3 sm:py-4 lg:py-5 top-0 z-50 text-sm sm:text-base lg:text-lg bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <div
@@ -134,7 +113,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Dropdown */}
         <div
-          className={`absolute text-center border-b-4 border-[var(--primary)] rounded-b-2xl top-full left-0 w-full bg-[var(--card)] backdrop-blur-lg z-[60] transition-all duration-300 ease-in-out ${
+          className={`absolute text-center border-b-4 border-[var(--primary)] rounded-b-2xl top-full left-0 w-full bg-[var(--background)] z-[60] transition-all duration-300 ease-in-out ${
             mobileMenuOpen
               ? "opacity-100 translate-y-0 max-h-[80vh]"
               : "opacity-0 -translate-y-4 max-h-0 overflow-hidden"
