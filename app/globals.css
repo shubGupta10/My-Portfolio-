@@ -19,7 +19,7 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f172a;      /* Deep slate – dev vibe dark mode */
+    --background: #0a101d;      /* Deep slate – dev vibe dark mode */
     --foreground: #f8fafc;      /* Soft white – highly readable */
     --primary: #3b82f6;         /* Blue – consistent with light theme */
     --muted: #1e293b;           /* Slate gray – ideal for card backgrounds */
