@@ -40,29 +40,11 @@ const CTA = () => {
   }
 
   return (
-    <section ref={sectionRef} id="cta" className="w-full bg-[var(--background)] relative py-24 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-32 right-10 w-80 h-80 bg-[var(--primary)]/15 rounded-full blur-3xl" />
-      </div>
-
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="cta-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#cta-grid)" className="text-[var(--primary)]" />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section ref={sectionRef} id="cta" className="w-full bg-[var(--background)] py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
           {/* Section Header */}
-          <motion.div className="relative mb-20 text-center" variants={itemVariants}>
+          <motion.div className="mb-20 text-center" variants={itemVariants}>
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-4 border border-[var(--primary)]/20"
               variants={itemVariants}
@@ -74,13 +56,6 @@ const CTA = () => {
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--foreground)] mb-6">
               Let's <span className="text-[var(--primary)]">Connect</span>
             </h2>
-
-            <motion.div
-              className="h-1.5 bg-[var(--primary)] mx-auto"
-              initial={{ width: 0 }}
-              animate={isInView ? { width: "120px" } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            />
 
             <motion.p
               className="text-xl text-[var(--foreground)]/70 max-w-2xl mx-auto mt-6 leading-relaxed"
@@ -96,14 +71,12 @@ const CTA = () => {
             <motion.div variants={itemVariants}>
               <Link href={`mailto:${DATA.contact.email}`} className="group block h-full">
                 <div className="bg-[var(--card)] backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300 group-hover:-translate-y-2 h-full">
-                  {/* Icon */}
                   <div className="flex justify-center mb-6">
                     <div className="p-4 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 group-hover:bg-[var(--primary)] group-hover:text-[var(--primary-foreground)] transition-all duration-300">
                       <Mail size={32} />
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="text-center space-y-4">
                     <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
                       Email Me
@@ -113,7 +86,6 @@ const CTA = () => {
                       Send me an email for project inquiries, collaborations, or just to say hello!
                     </p>
 
-                    {/* CTA */}
                     <div className="pt-4">
                       <div className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold group-hover:gap-3 transition-all duration-300">
                         <Send size={18} />
@@ -134,15 +106,13 @@ const CTA = () => {
                 rel="noopener noreferrer"
                 className="group block h-full"
               >
-                <div className="bg-[var(--card)] backdrop-blur-sm  rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300 group-hover:-translate-y-2 h-full">
-                  {/* Icon */}
+                <div className="bg-[var(--card)] backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300 group-hover:-translate-y-2 h-full">
                   <div className="flex justify-center mb-6">
                     <div className="p-4 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 group-hover:bg-[var(--primary)] group-hover:text-[var(--primary-foreground)] transition-all duration-300">
                       <Twitter size={32} />
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="text-center space-y-4">
                     <h3 className="text-2xl font-bold text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
                       Follow on X
@@ -152,7 +122,6 @@ const CTA = () => {
                       Follow me on X for updates, tech insights, and behind-the-scenes content!
                     </p>
 
-                    {/* CTA */}
                     <div className="pt-4">
                       <div className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold group-hover:gap-3 transition-all duration-300">
                         <Twitter size={18} />
@@ -168,7 +137,7 @@ const CTA = () => {
 
           {/* Additional CTA */}
           <motion.div className="text-center mt-16" variants={itemVariants}>
-            <div className="bg-[var(--muted)]/30 rounded-2xl p-8  max-w-2xl mx-auto">
+            <div className="bg-[var(--muted)]/30 rounded-2xl p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold text-[var(--foreground)] mb-4">Ready to Start a Project?</h3>
               <p className="text-[var(--foreground)]/70 mb-6 leading-relaxed">
                 Whether you have a clear vision or just an idea, I'd love to help bring it to life. Let's discuss how we

@@ -7,11 +7,11 @@ html {
 
 /* ===== Custom Theme Variables ===== */
 :root {
-  /* Light Theme */
-  --background: #f8fafc;        /* Soft white – clean and modern */
-  --foreground: #0f172a;        /* Dark slate – excellent contrast for text */
-  --primary: #3b82f6;           /* Blue – professional and widely trusted */
-  --muted: #e2e8f0;             /* Light slate – subtle for cards/backgrounds */
+  /* Rich Professional Theme */
+  --background: #fefefe;        /* Pure white with subtle warmth */
+  --foreground: #1a1a1a;        /* Rich charcoal – sophisticated and readable */
+  --primary: #2563eb;           /* Deep royal blue – authoritative and trustworthy */
+  --muted: #f1f5f9;             /* Whisper gray – elegant for subtle elements */
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
   --font-mono: var(--font-geist-mono, monospace);

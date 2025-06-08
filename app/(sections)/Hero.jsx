@@ -14,7 +14,6 @@ const Hero = () => {
 
   const textRef = useRef(null)
 
-  // Optimized typing effect
   useEffect(() => {
     const roles = ["Full Stack Developer", "Backend Developer", "Freelance Developer", "Open Source Contributor"]
     let currentIndex = 0
@@ -54,36 +53,17 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-[90vh] w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 bg-transparent relative overflow-hidden"
+      className="min-h-[90vh] w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
       id="home"
     >
-      {/* Enhanced background pattern with animated gradient */}
-      <div className="absolute inset-0 w-full h-full opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        ></div>
-      </div>
-
-      {/* Subtle animated gradient blobs */}
-      <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-[var(--primary)]/5 rounded-full blur-3xl animate-blob"></div>
-      <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-[var(--primary)]/5 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-1/4 h-1/4 bg-[var(--primary)]/5 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
-
-      {/* Main container */}
-      <div className="container max-w-6xl mx-auto relative z-10">
+      <div className="container max-w-6xl mx-auto">
         <div className="flex flex-col items-center justify-center">
-          {/* Text Content */}
           <motion.div
             className="text-center space-y-6 sm:space-y-8 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {/* Main heading with enhanced animation */}
             <div className="space-y-2">
               <motion.h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight"
@@ -105,7 +85,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                  Shubham
+                 <span className="ml-4">Shubham</span> 
                   <motion.div
                     className="absolute -bottom-1 left-0 h-1.5 bg-[var(--primary)] rounded-full"
                     initial={{ width: 0 }}
@@ -115,7 +95,6 @@ const Hero = () => {
                 </motion.span>
               </motion.h1>
 
-              {/* Animated role text with improved styling */}
               <motion.div
                 className="flex items-center justify-center mt-4"
                 initial={{ opacity: 0, y: 20 }}
@@ -134,7 +113,6 @@ const Hero = () => {
               </motion.div>
             </div>
 
-            {/* Description with enhanced styling */}
             <motion.p
               className="text-lg sm:text-xl lg:text-2xl text-[var(--foreground)]/80 max-w-3xl mx-auto leading-relaxed font-medium"
               initial={{ opacity: 0, y: 20 }}
@@ -148,7 +126,6 @@ const Hero = () => {
               through hands-on projects.
             </motion.p>
 
-            {/* Action buttons with improved styling */}
             <motion.div
               className="flex flex-col sm:flex-row gap-5 pt-6 justify-center"
               initial={{ opacity: 0, y: 20 }}
@@ -158,7 +135,7 @@ const Hero = () => {
               <motion.a
                 href="/Shubham_Gupta_Resume.pdf"
                 download
-                className="px-8 py-4 rounded-lg text-lg font-bold bg-[var(--primary)] text-[#08131f] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 transform-gpu"
+                className="px-8 py-4 rounded-lg text-lg font-bold bg-[var(--primary)] text-[#08131f] shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -189,7 +166,7 @@ const Hero = () => {
               </motion.a>
               <motion.a
                 href="/about-me"
-                className="cursor-pointer px-8 py-4 rounded-lg text-lg font-bold border-2 border-[var(--primary)] text-[var(--primary)] flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[var(--primary)]/10 transform-gpu"
+                className="cursor-pointer px-8 py-4 rounded-lg text-lg font-bold border-2 border-[var(--primary)] text-[var(--primary)] flex items-center justify-center gap-2 transition-all duration-300 hover:bg-[var(--primary)]/10"
                 whileHover={{
                   backgroundColor: "rgba(0,191,255,0.1)",
                   scale: 1.05,
@@ -200,7 +177,6 @@ const Hero = () => {
               </motion.a>
             </motion.div>
 
-            {/* Social links with improved styling */}
             <motion.div
               className="flex gap-4 pt-8 justify-center"
               initial={{ opacity: 0, y: 20 }}
@@ -227,7 +203,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
     </section>
   )
 }
@@ -246,34 +221,5 @@ const SocialIcon = ({ name, size = 20 }) => {
       return null
   }
 }
-
-const style = `
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-}
-
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-`
 
 export default Hero

@@ -42,7 +42,7 @@ const AboutPage = () => {
           }}
         />
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Back Button */}
         <div className="mb-8">
@@ -66,36 +66,26 @@ const AboutPage = () => {
         {/* Bio Section */}
         <div className="prose dark:prose-invert max-w-none">
           <p className="mb-6 leading-7 text-lg">
-            Hey there! 👋 I'm <strong className="text-[var(--primary)]">Shubham Gupta</strong>, a passionate and curious full-stack developer with a 
-            strong foundation in web technologies. Currently, I'm diving deep into the world of software development,
-            building cool SaaS products like <strong className="text-[var(--primary)]">CodeX</strong>, <strong className="text-[var(--primary)]">BuildMyCV</strong>, and <strong className="text-[var(--primary)]">Interview Buddy</strong>,
-            solving real-world problems, and always exploring new things to level up.
+            Hey, I'm <strong className="text-[var(--primary)]">Shubham Gupta</strong>. I build web apps, mostly full-stack stuff using Next.js, Node.js, and MongoDB. I’ve been learning by doing — building actual products and figuring things out along the way. No big talk, just real work.
           </p>
-          
+
           <p className="mb-6 leading-7 text-lg">
-            I've also built platforms like <strong className="text-[var(--primary)]">Anonymous Feedback</strong> (inspired by NGL).
-            These projects have taught me everything from secure authentication with JWT and NextAuth to file handling,
-            AI integration, and production optimization using tools like Redis and Supabase.
+            Some of the things I’ve built: <strong className="text-[var(--primary)]">CodeX</strong> (an online code editor), <strong className="text-[var(--primary)]">BuildMyCV</strong> (an AI resume builder), and <strong className="text-[var(--primary)]">Interview Buddy</strong> (a platform for AI-based interview prep). I’ve also made a clone of NGL called <strong className="text-[var(--primary)]">Anonymous Feedback</strong>, and learned a lot about file uploads, JWT, and NextAuth from it.
           </p>
-          
+
           <p className="mb-6 leading-7 text-lg">
-            I've worked as a Freelancer at <strong className="text-[var(--primary)]">BioStrive Energies</strong>, where I handled complete website development using 
-            Next.js, Node.js, MongoDB, and Tailwind CSS. I designed an admin panel, integrated JWT authentication, built a dynamic notice system,
-            and even optimized performance with Redis caching.
+            I worked as a freelancer with <strong className="text-[var(--primary)]">BioStrive Energies</strong>, where I handled their full website from scratch — frontend, backend, auth, admin panel, notice system, and all. Used Redis for performance, and even added some nice UI animations with Framer Motion.
           </p>
-          
+
           <p className="mb-6 leading-7 text-lg">
-            Beyond that, I've led teams as a MERN Stack Leader at <strong className="text-[var(--primary)]">Balaji Infotech</strong>, solved bugs in team projects,
-            and even contributed to open-source projects. I love collaborating with others and sharing knowledge.
-            I'm constantly learning — recently exploring Docker, GraphQL, Prisma, and Supabase to level up my backend and DevOps skills.
+            I also led a team during my time at <strong className="text-[var(--primary)]">Balaji Infotech</strong>. I helped teammates fix bugs and pushed the project across the finish line. These days, I'm learning more about Docker, Prisma, GraphQL, Supabase — just trying to get better and go deeper into backend and deployment.
           </p>
-          
+
           <p className="mb-10 leading-7 text-lg">
-            My focus right now is on building beautiful, fast, production-ready apps with smooth UX using tools like Shadcn, Tailwind CSS,
-            and Framer Motion. I love crafting intuitive UI and integrating smart features like AI Assistants, Code Suggestions,
-            and Language Translators to make the user experience next-level.
+            Right now, I'm focused on making clean, smooth apps with good UX. I enjoy working with Shadcn, Tailwind CSS, and Framer Motion to build fast, good-looking interfaces. I like adding things like AI assistants and real-time features that actually help users instead of just looking cool.
           </p>
         </div>
+
 
         {/* Education Section - Styled consistently with Skills section */}
         <div className="mt-12 relative">
@@ -106,11 +96,11 @@ const AboutPage = () => {
             <div className="absolute h-1 w-10 bg-[var(--primary)] opacity-50 blur-sm -top-1"></div>
           </div>
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--primary)]/5 rounded-full blur-3xl -z-10"></div>
-          
+
           <div className="space-y-5">
             {education.map((edu, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="p-5 rounded-lg backdrop-blur-sm transition-all duration-300 border hover:shadow-lg transform hover:-translate-y-1 group"
                 style={{
                   background: "rgba(31, 31, 46, 0.3)",
@@ -124,11 +114,11 @@ const AboutPage = () => {
                   </span>
                 </div>
                 <p className="text-[var(--foreground)]/80 mt-2">{edu.degree}</p>
-                
+
                 {/* Add subtle glow effect on hover - matching skills cards */}
-                <div 
+                <div
                   className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-20 rounded-lg transition-opacity duration-300"
-                  style={{ 
+                  style={{
                     background: "var(--primary)",
                     boxShadow: "0 4px 12px rgba(0, 191, 255, 0.1)"
                   }}

@@ -90,28 +90,10 @@ const Experience = () => {
   }
 
   return (
-    <section ref={sectionRef} id="experience" className="w-full bg-[var(--background)] relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
-      {/* Background elements - Responsive positioning */}
-      <div className="absolute inset-0 opacity-10 sm:opacity-20">
-        <div className="absolute top-10 sm:top-20 right-5 sm:right-10 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-[var(--primary)]/10 rounded-full blur-2xl sm:blur-3xl" />
-        <div className="absolute bottom-16 sm:bottom-32 left-5 sm:left-10 w-40 h-40 sm:w-60 sm:h-60 lg:w-80 lg:h-80 bg-[var(--primary)]/15 rounded-full blur-2xl sm:blur-3xl" />
-      </div>
-
-      {/* Grid pattern - Responsive */}
-      <div className="absolute inset-0 opacity-3 sm:opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="experience-grid" width="40" height="40" patternUnits="userSpaceOnUse" className="sm:w-60 sm:h-60">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#experience-grid)" className="text-[var(--primary)]" />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
+    <section ref={sectionRef} id="experience" className="w-full bg-[var(--background)] py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
-          {/* Section Header - Fully responsive */}
+          {/* Section Header */}
           <motion.div className="relative mb-12 sm:mb-16 md:mb-20 text-center" variants={itemVariants}>
             <motion.div
               className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-xs sm:text-sm font-medium mb-3 sm:mb-4 border border-[var(--primary)]/20"
@@ -140,32 +122,32 @@ const Experience = () => {
             </motion.p>
           </motion.div>
 
-          {/* Experience Timeline - Responsive layout */}
+          {/* Experience Timeline */}
           <motion.div className="relative" variants={itemVariants}>
-            {/* Timeline line - Hidden on mobile, visible on desktop */}
+            {/* Timeline line */}
             <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-0.5 bg-[var(--border)] hidden lg:block" />
 
             <div className="space-y-8 sm:space-y-12">
               {experiences.map((experience, index) => (
                 <motion.div key={index} variants={itemVariants} className="relative">
-                  {/* Timeline dot - Responsive positioning */}
+                  {/* Timeline dot */}
                   <div className="absolute left-4 sm:left-6 top-6 sm:top-8 w-3 h-3 sm:w-4 sm:h-4 bg-[var(--primary)] rounded-full border-2 sm:border-4 border-[var(--background)] z-10 hidden lg:block" />
 
-                  {/* Current indicator - Responsive */}
+                  {/* Current indicator */}
                   {experience.current && (
                     <div className="absolute left-3 sm:left-5 top-5 sm:top-7 w-5 h-5 sm:w-6 sm:h-6 bg-[var(--primary)]/20 rounded-full animate-pulse hidden lg:block" />
                   )}
 
                   <div className="lg:ml-12 xl:ml-16">
-                    <div className="bg-[var(--card)] backdrop-blur-sm border border-[var(--border)] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg sm:shadow-xl hover:shadow-2xl hover:shadow-[var(--primary)]/10 transition-all duration-300">
-                      {/* Current badge - Responsive positioning */}
+                    <div className="bg-[var(--card)] backdrop-blur-sm border border-[var(--border)] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-300">
+                      {/* Current badge */}
                       {experience.current && (
                         <div className="absolute top-3 sm:top-4 right-3 sm:right-4 px-2 sm:px-3 py-1 sm:py-1.5 bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold rounded-full">
                           Current
                         </div>
                       )}
 
-                      {/* Company header - Responsive layout */}
+                      {/* Company header */}
                       <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
                         <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/20 flex-shrink-0">
                           <Building size={20} className="sm:w-6 sm:h-6" />
@@ -178,7 +160,7 @@ const Experience = () => {
                             {experience.role}
                           </p>
 
-                          {/* Meta information - Responsive stacking */}
+                          {/* Meta information */}
                           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-[var(--foreground)]/70">
                             <div className="flex items-center gap-1.5 sm:gap-2">
                               <Calendar size={14} className="text-[var(--primary)] flex-shrink-0" />
@@ -196,12 +178,12 @@ const Experience = () => {
                         </div>
                       </div>
 
-                      {/* Description - Responsive text size */}
+                      {/* Description */}
                       <p className="text-sm sm:text-base text-[var(--foreground)]/80 mb-4 sm:mb-6 leading-relaxed">
                         {experience.description}
                       </p>
 
-                      {/* Key contributions toggle - Responsive */}
+                      {/* Key contributions toggle */}
                       <button
                         onClick={() => togglePoints(index)}
                         className="flex items-center gap-1.5 sm:gap-2 text-[var(--primary)] font-semibold mb-4 sm:mb-6 hover:gap-2 sm:hover:gap-3 transition-all duration-300 text-sm sm:text-base"
@@ -219,7 +201,7 @@ const Experience = () => {
                         )}
                       </button>
 
-                      {/* Expandable contributions - Responsive */}
+                      {/* Expandable contributions */}
                       <AnimatePresence>
                         {expandedIndex === index && (
                           <motion.div
@@ -252,7 +234,7 @@ const Experience = () => {
                         )}
                       </AnimatePresence>
 
-                      {/* Technologies - Responsive layout */}
+                      {/* Technologies */}
                       <div className="mb-4 sm:mb-6">
                         <h4 className="text-xs sm:text-sm font-semibold text-[var(--foreground)]/70 mb-2 sm:mb-3 uppercase tracking-wider">
                           Technologies Used
@@ -269,7 +251,7 @@ const Experience = () => {
                         </div>
                       </div>
 
-                      {/* Visit website link - Responsive */}
+                      {/* Visit website link */}
                       <Link
                         href={experience.link}
                         target="_blank"
