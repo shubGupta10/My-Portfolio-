@@ -1,7 +1,7 @@
 import "./globals.css";
-import Navbar from "./components/Navbar.jsx";
-import Footer from "./components/Footer";
-import { Analytics } from '@vercel/analytics/next';
+import { Space_Grotesk } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner"
+
 
 export const metadata = {
   title: "Shubham Gupta | Full-Stack Web Developer | TypeScript & Next.js Projects",
@@ -46,21 +46,19 @@ export const metadata = {
   },
 };
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weights: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className="antialiased scroll-smooth"
-        style={{
-          backgroundColor: "var(--background)",
-          color: "var(--foreground)",
-          fontFamily: "sans-serif"
-        }}
-      >
-        <Navbar />
+      <body className={spaceGrotesk.className}>
         {children}
-        <Analytics />
-        <Footer />
+        <Toaster />
       </body>
     </html>
   );
