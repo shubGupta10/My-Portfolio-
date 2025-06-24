@@ -3,10 +3,10 @@ import ReviewOnScroll from '../ReviewOnScroll'
 
 function About() {
 
-    const frontendSkills = ["React", "NextJs", "TypeScript", "TailwindCSS", "Firebase"]
-    const backendSkills = ["Node.js", "Python", "GO", "Express", "REST APIs"]
-    const devopsSkills = ["Docker", "AWS", "Git", "GitHub Actions", "Linux"]
-    const databaseSkills = ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Prisma"]
+    const frontendSkills = ["React", "Next.js", "TypeScript", "Tailwind CSS", "Firebase", "Supabase", "Appwrite", "Framer Motion"];
+    const backendSkills = ["Node.js", "Go", "Express", "REST APIs", "GraphQL", "LangChain", "WebSockets"];
+    const devopsSkills = ["Docker", "Docker Hub", "AWS", "Git", "GitHub Actions", "Vercel", "Netlify"];
+    const databaseSkills = ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Firebase"];
 
     return (
         <ReviewOnScroll>
@@ -88,6 +88,7 @@ function About() {
                             <div className='bg-white/5 rounded-xl p-6 border border-white/10 hover:-translate-y-1 transition-all duration-300'>
                                 <h3 className='text-xl font-bold mb-6 text-white'>Education</h3>
                                 <div className='space-y-4'>
+                                    {/* Education Item 1 */}
                                     <div className='border-l-4 border-blue-500 pl-4'>
                                         <h4 className='font-semibold text-white text-lg'>Bachelor of Computer Applications</h4>
                                         <p className='text-gray-400 text-sm mt-1'>Babu Banarasi Das University</p>
@@ -97,8 +98,21 @@ function About() {
                                             <span className='ml-2 text-blue-400 font-semibold'>8.4/10</span>
                                         </div>
                                     </div>
+
+                                    {/* Education Item 2 */}
+                                    <div className='border-l-4 border-blue-500 pl-4'>
+                                        <h4 className='font-semibold text-white text-lg'>Masters of Computer Applications</h4>
+                                        <p className='text-gray-400 text-sm mt-1'>Chandigarh University</p>
+                                        <p className='text-gray-400 text-sm'>2024 - Present</p>
+                                        <div className='mt-2 flex items-center'>
+                                            <span className='text-gray-300 text-sm'>CGPA: </span>
+                                            <span className='ml-2 text-blue-400 font-semibold'>8.8/10</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+
 
                             <div className='bg-white/5 rounded-xl p-6 border border-white/10 hover:-translate-y-1 transition-all duration-300'>
                                 <h3 className='text-xl font-bold mb-6 text-white'>Work Experience</h3>
