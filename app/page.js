@@ -5,6 +5,7 @@ import MobileMenu from '@/components/MobileMenu'
 import Navbar from '@/components/Navbar'
 import About from '@/components/sections/About'
 import Contact from '@/components/sections/Contact'
+import Experience from '@/components/sections/Experience'
 import Home from '@/components/sections/Home'
 import Projects from '@/components/sections/Projects'
 import React, { useState } from 'react'
@@ -27,6 +28,7 @@ function App() {
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Home />
         <About />
+        <Experience/>
         <Projects />
         <Contact />
       </div>
