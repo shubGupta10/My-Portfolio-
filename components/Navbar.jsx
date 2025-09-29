@@ -24,6 +24,8 @@ function Navbar({menuOpen, setMenuOpen}) {
 
                     <a href="#about" className='text-gray-300 hover:text-white transition-colors'>About</a>
 
+                    <a href="#experience" className='text-gray-300 hover:text-white transition-colors'>Experience</a>
+
                     <a href="#projects" className='text-gray-300 hover:text-white transition-colors'>Projects</a>
 
                     <a href="#contact" className='text-gray-300 hover:text-white transition-colors'>Contact</a>

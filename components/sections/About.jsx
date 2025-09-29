@@ -69,10 +69,10 @@ function About() {
                     {/* Technical Skills Section */}
                     <div>
                         <div className='text-center mb-8'>
-                            <h3 className='text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2'>
+                            <h3 className='text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2'>
                                 Technical Skills
                             </h3>
-                            <div className='w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full'></div>
+                            <div className='w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto rounded-full'></div>
                         </div>
 
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>

@@ -15,7 +15,7 @@ function Experience() {
             borderColor: "border-cyan-500",
             companyColor: "text-cyan-400",
             bgGradient: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10",
-            statusColor: "bg-green-500/20 text-green-300 border-green-500/30"
+            statusColor: "bg-blue-500/20 text-blue-300 border-green-500/30"
         },
         {
             id: 2,
@@ -40,8 +40,8 @@ function Experience() {
             technologies: ["Next.js", "Node.js", "MongoDB", "JWT", "Admin Panel", "SEO"],
             borderColor: "border-blue-500",
             companyColor: "text-blue-400",
-            bgGradient: "bg-gradient-to-br from-blue-500/10 to-purple-500/10",
-            statusColor: "bg-blue-500/20 text-blue-300 border-blue-500/30"
+            bgGradient: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10",
+            statusColor: "bg-green-500/20 text-green-300 border-blue-500/30"
         }
     ];
 
