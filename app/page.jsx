@@ -8,6 +8,7 @@ import Contact from '@/components/sections/Contact'
 import Experience from '@/components/sections/Experience'
 import Home from '@/components/sections/Home'
 import Projects from '@/components/sections/Projects'
+import Testimonials from '@/components/sections/Testimonials'
 import React, { useState } from 'react'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <About />
         <Experience/>
         <Projects />
+        <Testimonials/>
         <Contact />
       </div>
 

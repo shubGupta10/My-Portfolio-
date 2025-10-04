@@ -8,7 +8,7 @@ function Home() {
         id="home"
         className="min-h-[70vh] md:min-h-[80vh] flex items-center justify-center relative overflow-hidden pt-20 md:pt-24"
       >
-        {/* Simple background elements */}
+        {/* Background gradient blur elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/8 rounded-full blur-3xl"></div>
@@ -30,6 +30,7 @@ function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+            {/* Primary Button */}
             <a
               href="#projects"
               className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-8 rounded-lg font-medium transition-all duration-300 relative overflow-hidden hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(59,130,246,0.4)] transform hover:scale-105 active:scale-95"
@@ -38,13 +39,14 @@ function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
             </a>
 
+            {/* Secondary Button (Enhanced Glass Effect) */}
             <a
               href="/Shubham_Gupta_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto border-2 border-blue-500/50 text-blue-400 py-3 px-8 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(59,130,246,0.3)] hover:bg-blue-500/10 hover:border-blue-400 backdrop-blur-sm transform hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto border border-blue-400/30 bg-blue-500/10 text-blue-300 py-3 px-8 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(59,130,246,0.3)] hover:bg-blue-500/20 hover:border-blue-400/70 hover:text-white backdrop-blur-sm transform hover:scale-105 active:scale-95"
             >
-              Download Resume
+              <span className="relative z-10">Download Resume</span>
             </a>
           </div>
         </div>

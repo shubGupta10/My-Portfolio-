@@ -1,9 +1,8 @@
 import React from 'react'
 import ReviewOnScroll from '../ReviewOnScroll'
-import { ArrowBigRight } from 'lucide-react'
+import { ArrowBigRight, PlayCircle, Github } from 'lucide-react'
 
 function Projects() {
-
     const projects = [
         {
             title: "PostMyGig - Freelance Gig Sharing Platform",
@@ -47,69 +46,64 @@ function Projects() {
         }
     ];
 
-
-
     return (
         <ReviewOnScroll>
             <section
                 id='projects'
-                className='min-h-[60vh] flex items-center justify-center py-12 sm:py-16 lg:py-20'
+                className='py-20 sm:py-24'
             >
-                <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
-                    <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center'>
-                        Featured Projects
-                    </h2>
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+                    <div className='mb-12'>
+                        <h3 className='text-2xl font-bold text-white'>Featured Projects</h3>
+                    </div>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                         {projects.map((project, index) => (
                             <div
                                 key={index}
-                                className='bg-white/5 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_8px_25px_rgba(59,130,246,0.15)] transition-all duration-300 overflow-hidden'
+                                className='bg-white/5 rounded-2xl border border-white/10 flex flex-col hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_8px_25px_rgba(59,130,246,0.15)] transition-all duration-300 overflow-hidden'
                             >
-                                {/* Project Image */}
                                 <div className='relative overflow-hidden'>
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className='w-full h-48 sm:h-52 object-cover transition-transform duration-300 hover:scale-105'
+                                        className='w-full h-48 object-cover transition-transform duration-300 hover:scale-105'
                                     />
                                     <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent'></div>
                                 </div>
 
-                                {/* Project Content */}
-                                <div className='p-6'>
-                                    <h3 className='text-xl sm:text-2xl font-bold mb-3 text-white'>{project.title}</h3>
-
-                                    <p className='text-gray-300 text-sm sm:text-base mb-4 leading-relaxed'>
+                                <div className='p-6 flex flex-col flex-grow'>
+                                    <h3 className='text-xl font-bold mb-2 text-white'>{project.title}</h3>
+                                    <p className='text-gray-300 text-sm mb-4 leading-relaxed flex-grow'>
                                         {project.description}
                                     </p>
-
-                                    {/* Technologies */}
                                     <div className='flex flex-wrap gap-2 mb-6'>
-                                        {project.technologies.map((tech, techIndex) => (
+                                        {project.technologies.slice(0, 4).map((tech, techIndex) => ( // Show first 4 techs
                                             <span
                                                 key={techIndex}
-                                                className='bg-blue-500/20 text-blue-300 py-1.5 px-3 rounded-lg text-xs sm:text-sm border border-blue-500/30 hover:bg-blue-500/30 transition-all duration-200'
+                                                className='bg-blue-500/10 text-blue-300 py-1 px-3 rounded-md text-xs border border-blue-500/20'
                                             >
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
-
-                                    {/* Action Buttons */}
-                                    <div className='flex gap-3'>
+                                    <div className='flex gap-4 mt-auto'>
                                         <a
                                             href={project.liveLink}
                                             target='_blank'
-                                            className='flex-1 bg-blue-500/20 text-blue-300 py-2.5 px-4 rounded-lg text-center text-sm font-medium border border-blue-500/30 hover:bg-blue-500/30 hover:text-white transition-all duration-200'
+                                            rel="noopener noreferrer"
+                                            className='flex-1 inline-flex items-center justify-center gap-2 bg-blue-500/20 text-blue-300 py-2.5 px-4 rounded-lg text-center text-sm font-medium border border-blue-500/30 hover:bg-blue-500/30 hover:text-white transition-all duration-200'
                                         >
+                                            <PlayCircle className='w-4 h-4' />
                                             Live Demo
                                         </a>
                                         <a
                                             href={project.githubLink}
                                             target='_blank'
-                                            className='flex-1 bg-gray-500/20 text-gray-300 py-2.5 px-4 rounded-lg text-center text-sm font-medium border border-gray-500/30 hover:bg-gray-500/30 hover:text-white transition-all duration-200'
+                                            rel="noopener noreferrer"
+                                            className={`flex-1 inline-flex items-center justify-center gap-2 bg-gray-500/20 text-gray-300 py-2.5 px-4 rounded-lg text-center text-sm font-medium border border-gray-500/30 hover:bg-gray-500/30 hover:text-white transition-all duration-200 ${project.githubLink === '#' ? 'cursor-not-allowed opacity-50' : ''}`}
                                         >
+                                            <Github className='w-4 h-4' />
                                             GitHub
                                         </a>
                                     </div>
@@ -118,16 +112,15 @@ function Projects() {
                         ))}
                     </div>
 
-                    {/* View More Projects Button */}
-                    <div className='text-center mt-12'>
+                    <div className='text-center mt-16'>
                         <a
                             href="https://github.com/shubGupta10"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className='inline-flex items-center bg-white/5 text-blue-300 py-3 px-6 rounded-lg font-medium border border-blue-500/30 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 hover:-translate-y-1'
+                            className='inline-flex items-center gap-2 bg-white/5 text-blue-300 py-3 px-6 rounded-lg font-medium border border-blue-500/30 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 hover:-translate-y-1'
                         >
-                            View More Projects on GitHub
-                            <ArrowBigRight />
+                            View More on GitHub
+                            <ArrowBigRight className='w-5 h-5' />
                         </a>
                     </div>
                 </div>

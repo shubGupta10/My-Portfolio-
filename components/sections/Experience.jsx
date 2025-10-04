@@ -1,5 +1,6 @@
-import React from 'react'
-import ReviewOnScroll from '../ReviewOnScroll'
+import React from 'react';
+import ReviewOnScroll from '../ReviewOnScroll';
+import { Briefcase, Link as LinkIcon } from 'lucide-react';
 
 function Experience() {
     const experiences = [
@@ -11,11 +12,7 @@ function Experience() {
             status: "Current",
             description: "Working as a Product Engineer, contributing across both frontend and backend. Building new features, improving the landing page, and enhancing the platform experience for freelancers to share gigs and connect.",
             technologies: ["Next.js", "React.js", "Node.js", "AWS"],
-            liveUrl: "[https://huzl.in](https://huzl.in)",
-            borderColor: "border-cyan-500",
-            companyColor: "text-cyan-400",
-            bgGradient: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10",
-            statusColor: "bg-blue-500/20 text-blue-300 border-green-500/30"
+            liveUrl: "https://huzl.in",
         },
         {
             id: 2,
@@ -25,10 +22,6 @@ function Experience() {
             status: "Completed",
             description: "Worked with the founder of Dignify a Girl to develop BuildMyCV, a resume builder using Next.js, Node.js, TypeScript, and Firebase. Integrated LangChain and Gemini AI for resume creation and job analysis.",
             technologies: ["Next.js", "Node.js", "TypeScript", "Firebase", "LangChain", "Gemini AI"],
-            borderColor: "border-cyan-500",
-            companyColor: "text-cyan-400",
-            bgGradient: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10",
-            statusColor: "bg-green-500/20 text-green-300 border-green-500/30"
         },
         {
             id: 3,
@@ -38,114 +31,82 @@ function Experience() {
             status: "Completed",
             description: "Developed a full-stack platform for BioStrive Energies using Next.js, Node.js, and MongoDB. Built an admin panel with role-based access, a real-time notice system, secure JWT authentication, and optimized SEO with caching and efficient asset loading.",
             technologies: ["Next.js", "Node.js", "MongoDB", "JWT", "Admin Panel", "SEO"],
-            borderColor: "border-blue-500",
-            companyColor: "text-blue-400",
-            bgGradient: "bg-gradient-to-br from-cyan-500/10 to-blue-500/10",
-            statusColor: "bg-green-500/20 text-green-300 border-blue-500/30"
         }
     ];
 
     return (
         <ReviewOnScroll>
-            <section
-                id='experience'
-                className='min-h-[60vh] flex items-center justify-center py-12 sm:py-16 lg:py-20'
-            >
+            <section id='experience' className='py-20 sm:py-24'>
                 <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
-                    <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center'>
-                        Work Experience
-                    </h2>
+                    <div className='mb-12'>
+                        <h3 className='text-2xl font-bold text-white'>Work Experience</h3>
+                    </div>
 
                     <div className='relative'>
-                        {/* Timeline Line */}
-                        <div className='absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-blue-500 via-cyan-400 to-purple-500 opacity-30'></div>
+                        {/* Responsive Timeline Line */}
+                        <div className='absolute left-4 w-0.5 h-full bg-white/10 md:left-1/2 md:-translate-x-1/2' aria-hidden="true"></div>
 
                         <div className='space-y-12'>
-                            {experiences.map((experience, index) => (
-                                <div
-                                    key={experience.id}
-                                    className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                                        }`}
-                                >
-                                    {/* Timeline Dot */}
-                                    <div className='absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 border-4 border-gray-900 z-10'></div>
+                            {experiences.map((exp, index) => (
+                                <div key={exp.id} className='relative pl-10 md:grid md:grid-cols-2 md:gap-x-12 md:pl-0'>
 
-                                    {/* Experience Card */}
-                                    <div className={`flex-1 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                                        <div className={`${experience.bgGradient} rounded-xl p-6 sm:p-8 border border-white/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden`}>
-                                            {/* Background Pattern */}
-                                            <div className='absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-white/5 to-transparent rounded-full -translate-y-16 translate-x-16'></div>
-
-                                            <div className='relative z-10'>
-                                                {/* Header */}
-                                                <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6'>
-                                                    <div className='flex-1'>
-                                                        <div className={`border-l-4 ${experience.borderColor} pl-4 mb-4`}>
-                                                            <h3 className='text-xl sm:text-2xl font-bold text-white mb-2'>
-                                                                {experience.position}
-                                                            </h3>
-                                                            <p className={`${experience.companyColor} text-base sm:text-lg font-semibold mb-2`}>
-                                                                {experience.company}
-                                                            </p>
-                                                            <div className='flex flex-wrap items-center gap-3'>
-                                                                <p className='text-gray-400 text-sm'>
-                                                                    {experience.duration}
-                                                                </p>
-                                                                <span className={`${experience.statusColor} py-1 px-3 rounded-full text-xs font-medium border`}>
-                                                                    {experience.status}
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Description */}
-                                                <div className='mb-6'>
-                                                    <p className='text-gray-300 text-sm sm:text-base leading-relaxed'>
-                                                        {experience.description}
-                                                    </p>
-                                                </div>
-
-                                                {/* Technologies */}
-                                                <div className='space-y-3'>
-                                                    <div className='flex items-center gap-2'>
-                                                        <div className='w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400'></div>
-                                                        <h4 className='text-white font-semibold text-sm'>Technologies & Tools</h4>
-                                                    </div>
-                                                    <div className='flex flex-wrap gap-2'>
-                                                        {experience.technologies.map((tech, techIndex) => (
-                                                            <span
-                                                                key={techIndex}
-                                                                className='bg-white/10 backdrop-blur-sm text-gray-200 py-2 px-3 rounded-lg text-xs font-medium border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-200'
-                                                            >
-                                                                {tech}
-                                                            </span>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    {/* Responsive Timeline Icon */}
+                                    <div className='absolute top-0 left-4 -translate-x-1/2 bg-gray-900 p-1.5 rounded-full md:left-1/2'>
+                                        <div className='w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-cyan-400/30 flex items-center justify-center'>
+                                            <Briefcase className='w-4 h-4 text-cyan-300' />
                                         </div>
                                     </div>
 
-                                    {/* Empty space for timeline balance on larger screens */}
-                                    <div className='hidden md:block flex-1'></div>
+                                    {/* Card Content */}
+                                    <div className={`space-y-1 ${index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1 md:text-right'}`}>
+                                        <div className={`bg-white/5 rounded-2xl p-6 border border-white/10 hover:-translate-y-1 transition-transform duration-300 ${index % 2 === 0 ? '' : 'md:text-left'}`}>
+                                            <span
+                                                className={`absolute top-4 right-4 py-1 px-3 rounded-full text-xs font-medium border
+                          ${exp.status === 'Current'
+                                                        ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+                                                        : 'bg-green-500/20 text-green-300 border-green-500/30'
+                                                    }`}
+                                            >
+                                                {exp.status}
+                                            </span>
+
+                                            <h3 className='text-xl font-bold text-white mb-1'>{exp.position}</h3>
+
+                                            <div className={`flex items-center gap-2 mb-2 ${index % 2 !== 0 && 'md:justify-end'}`}>
+                                                <a
+                                                    href={exp.liveUrl}
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                    className='text-cyan-400 font-semibold hover:underline'
+                                                >
+                                                    {exp.company}
+                                                </a>
+                                                {exp.liveUrl && <LinkIcon className='w-3 h-3 text-cyan-400' />}
+                                            </div>
+
+                                            <p className='text-gray-400 text-sm mb-4'>{exp.duration}</p>
+                                            <p className='text-gray-300 text-sm leading-relaxed mb-6'>{exp.description}</p>
+
+                                            <div className='flex flex-wrap gap-2'>
+                                                {exp.technologies.map((tech) => (
+                                                    <span
+                                                        key={tech}
+                                                        className='bg-white/10 backdrop-blur-sm text-gray-200 py-1.5 px-3 rounded-lg text-xs font-medium border border-white/20'
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-
-                    {experiences.length === 0 && (
-                        <div className='text-center py-12'>
-                            <div className='bg-white/5 rounded-xl p-8 border border-white/10'>
-                                <p className='text-gray-400 text-lg mb-4'>No work experience added yet.</p>
-                                <p className='text-gray-500 text-sm'>Add your first experience to get started!</p>
-                            </div>
-                        </div>
-                    )}
                 </div>
             </section>
         </ReviewOnScroll>
-    )
+    );
 }
 
-export default Experience
+export default Experience;
