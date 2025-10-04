@@ -43,26 +43,23 @@ function Experience() {
                     </div>
 
                     <div className='relative'>
-                        {/* Responsive Timeline Line */}
                         <div className='absolute left-4 w-0.5 h-full bg-white/10 md:left-1/2 md:-translate-x-1/2' aria-hidden="true"></div>
 
                         <div className='space-y-12'>
                             {experiences.map((exp, index) => (
                                 <div key={exp.id} className='relative pl-10 md:grid md:grid-cols-2 md:gap-x-12 md:pl-0'>
 
-                                    {/* Responsive Timeline Icon */}
                                     <div className='absolute top-0 left-4 -translate-x-1/2 bg-gray-900 p-1.5 rounded-full md:left-1/2'>
                                         <div className='w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-cyan-400/30 flex items-center justify-center'>
                                             <Briefcase className='w-4 h-4 text-cyan-300' />
                                         </div>
                                     </div>
 
-                                    {/* Card Content */}
-                                    <div className={`space-y-1 ${index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1 md:text-right'}`}>
-                                        <div className={`bg-white/5 rounded-2xl p-6 border border-white/10 hover:-translate-y-1 transition-transform duration-300 ${index % 2 === 0 ? '' : 'md:text-left'}`}>
+                                    <div className={`space-y-1 ${index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1'}`}>
+                                        <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:-translate-y-1 transition-transform duration-300">
                                             <span
                                                 className={`absolute top-4 right-4 py-1 px-3 rounded-full text-xs font-medium border
-                          ${exp.status === 'Current'
+                                                ${exp.status === 'Current'
                                                         ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                                                         : 'bg-green-500/20 text-green-300 border-green-500/30'
                                                     }`}
@@ -70,9 +67,10 @@ function Experience() {
                                                 {exp.status}
                                             </span>
 
-                                            <h2 className='text-xl font-bold text-white mb-1'>{exp.position}</h2>
+                                            <h3 className='text-xl font-bold text-white mb-1'>{exp.position}</h3>
 
-                                            <div className={`flex items-center gap-2 mb-2 ${index % 2 !== 0 && 'md:justify-end'}`}>
+                                            {/* This div is now the same for all cards */}
+                                            <div className="flex items-center gap-2 mb-2">
                                                 <a
                                                     href={exp.liveUrl}
                                                     target='_blank'
