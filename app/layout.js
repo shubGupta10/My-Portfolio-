@@ -3,6 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/next"
 import Footer from "@/components/sections/Footer";
+import Header from "@/components/Header";
 
 
 export const metadata = {
@@ -60,7 +61,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={spaceGrotesk.className}>
         <Analytics />
+        <Header>
         {children}
+        </Header>
         <Footer />
         <Toaster />
       </body>

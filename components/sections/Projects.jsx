@@ -54,7 +54,7 @@ function Projects() {
             >
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
                     <div className='mb-12'>
-                        <h3 className='text-2xl font-bold text-white'>Featured Projects</h3>
+                        <h2 className='text-2xl font-bold text-white'>Featured Projects</h2>
                     </div>
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -66,7 +66,7 @@ function Projects() {
                                 <div className='relative overflow-hidden'>
                                     <img
                                         src={project.image}
-                                        alt={project.title}
+                                        alt={`Screenshot of the ${project.title} project`}
                                         className='w-full h-48 object-cover transition-transform duration-300 hover:scale-105'
                                     />
                                     <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent'></div>
@@ -78,7 +78,7 @@ function Projects() {
                                         {project.description}
                                     </p>
                                     <div className='flex flex-wrap gap-2 mb-6'>
-                                        {project.technologies.slice(0, 4).map((tech, techIndex) => ( // Show first 4 techs
+                                        {project.technologies.slice(0, 4).map((tech, techIndex) => ( 
                                             <span
                                                 key={techIndex}
                                                 className='bg-blue-500/10 text-blue-300 py-1 px-3 rounded-md text-xs border border-blue-500/20'

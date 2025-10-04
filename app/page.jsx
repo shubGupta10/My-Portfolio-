@@ -1,19 +1,16 @@
-'use client'
+'use client';
 
-import LoadingScreen from '@/components/LoadingScreen'
-import MobileMenu from '@/components/MobileMenu'
-import Navbar from '@/components/Navbar'
-import About from '@/components/sections/About'
-import Contact from '@/components/sections/Contact'
-import Experience from '@/components/sections/Experience'
-import Home from '@/components/sections/Home'
-import Projects from '@/components/sections/Projects'
-import Testimonials from '@/components/sections/Testimonials'
-import React, { useState } from 'react'
+import LoadingScreen from '@/components/LoadingScreen';
+import About from '@/components/sections/About';
+import Contact from '@/components/sections/Contact';
+import Experience from '@/components/sections/Experience';
+import Home from '@/components/sections/Home';
+import Projects from '@/components/sections/Projects';
+import Testimonials from '@/components/sections/Testimonials';
+import React, { useState } from 'react';
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <>
@@ -25,18 +22,15 @@ function App() {
       >
         <div className="absolute inset-0 bg-black/50"></div>
 
-        <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Home />
         <About />
-        <Experience/>
+        <Experience />
         <Projects />
-        <Testimonials/>
+        <Testimonials />
         <Contact />
       </div>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;

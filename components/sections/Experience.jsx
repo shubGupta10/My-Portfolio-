@@ -18,7 +18,7 @@ function Experience() {
             id: 2,
             position: "Freelance Full Stack Developer",
             company: "DIGNIFY A GIRL LTD",
-            duration: "Nov 2024 - Present",
+            duration: "Nov 2024 - June 2025",
             status: "Completed",
             description: "Worked with the founder of Dignify a Girl to develop BuildMyCV, a resume builder using Next.js, Node.js, TypeScript, and Firebase. Integrated LangChain and Gemini AI for resume creation and job analysis.",
             technologies: ["Next.js", "Node.js", "TypeScript", "Firebase", "LangChain", "Gemini AI"],
@@ -39,7 +39,7 @@ function Experience() {
             <section id='experience' className='py-20 sm:py-24'>
                 <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
                     <div className='mb-12'>
-                        <h3 className='text-2xl font-bold text-white'>Work Experience</h3>
+                        <h2 className='text-2xl font-bold text-white'>Work Experience</h2>
                     </div>
 
                     <div className='relative'>
@@ -70,7 +70,7 @@ function Experience() {
                                                 {exp.status}
                                             </span>
 
-                                            <h3 className='text-xl font-bold text-white mb-1'>{exp.position}</h3>
+                                            <h2 className='text-xl font-bold text-white mb-1'>{exp.position}</h2>
 
                                             <div className={`flex items-center gap-2 mb-2 ${index % 2 !== 0 && 'md:justify-end'}`}>
                                                 <a

@@ -40,7 +40,7 @@ function Contact() {
             >
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full'>
                     <div className='mb-12'>
-                        <h3 className='text-2xl font-bold text-white'>Get In Touch</h3>
+                        <h2 className='text-2xl font-bold text-white'>Get In Touch</h2>
                     </div>
 
                     <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
