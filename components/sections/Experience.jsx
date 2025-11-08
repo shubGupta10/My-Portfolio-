@@ -6,12 +6,12 @@ function Experience() {
     const experiences = [
         {
             id: 1,
-            position: "Product Engineer",
+            position: "Full Stack Engineer",
             company: "HUZL.IN",
             duration: "June 2025 - Present",
             status: "Current",
-            description: "Working as a Product Engineer, contributing across both frontend and backend. Building new features, improving the landing page, and enhancing the platform experience for freelancers to share gigs and connect.",
-            technologies: ["Next.js", "React.js", "Node.js", "AWS"],
+            description: "Building and maintaining full-stack features for a freelancer platform. Developing responsive frontend interfaces with Next.js and React, implementing backend APIs with Node.js, and managing cloud infrastructure on AWS. Focused on creating seamless user experiences that help freelancers showcase their work and connect with opportunities.",
+            technologies: ["Next.js", "React.js", "Node.js", "AWS", "MongoDB"],
             liveUrl: "https://huzl.in",
         },
         {
@@ -56,9 +56,9 @@ function Experience() {
                                     </div>
 
                                     <div className={`space-y-1 ${index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1 md:row-start-1'}`}>
-                                        <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:-translate-y-1 transition-transform duration-300">
+                                        <div className="relative bg-white/5 rounded-2xl p-6 border border-white/10 hover:-translate-y-1 transition-transform duration-300">
                                             <span
-                                                className={`absolute top-4 right-4 py-1 px-3 rounded-full text-xs font-medium border
+                                                className={`absolute top-4 right-4 py-2 px-3 rounded-full text-xs font-medium border
                                                 ${exp.status === 'Current'
                                                         ? 'bg-blue-500/20 text-blue-300 border-blue-500/30'
                                                         : 'bg-green-500/20 text-green-300 border-green-500/30'
@@ -67,9 +67,8 @@ function Experience() {
                                                 {exp.status}
                                             </span>
 
-                                            <h3 className='text-xl font-bold text-white mb-1'>{exp.position}</h3>
+                                            <h3 className='text-xl font-bold text-white mb-1 pr-24'>{exp.position}</h3>
 
-                                            {/* This div is now the same for all cards */}
                                             <div className="flex items-center gap-2 mb-2">
                                                 <a
                                                     href={exp.liveUrl}
