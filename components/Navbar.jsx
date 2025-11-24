@@ -37,14 +37,11 @@ function Navbar({ menuOpen, setMenuOpen }) {
     }, []);
 
     const navLinks = [
-        { href: "#home", label: "Home" },
-        { href: "#about", label: "About" },
         { href: "#experience", label: "Experience" },
         { href: "#projects", label: "Projects" },
         { href: "#contact", label: "Contact" },
     ];
 
-    // Use "/" instead of hash links when on login page
     const getNavHref = (href) => {
         return isLoginPage ? "/" : href;
     };

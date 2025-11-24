@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next"
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/Header";
 
-
 export const metadata = {
   title: "Shubham Gupta | Full-Stack Web Developer | TypeScript & Next.js Projects",
   description: "Explore Shubham Gupta's portfolio of TypeScript and Next.js projects. View details of my full-stack web development work including SaaS applications and open-source contributions.",
@@ -61,9 +60,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={spaceGrotesk.className}>
         <Analytics />
-        <Header>
+        <Header />
         {children}
-        </Header>
         <Footer />
         <Toaster />
       </body>

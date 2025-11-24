@@ -23,8 +23,8 @@ function App() {
         <div className="absolute inset-0 bg-black/50"></div>
 
         <Home />
-        <About />
         <Experience />
+        <About />
         <Projects />
         <Testimonials />
         <Contact />

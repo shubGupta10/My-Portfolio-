@@ -1,0 +1,89 @@
+[
+    {
+        "title": "PostMyGig - Freelance Gig Sharing Platform",
+        "description": "A platform where freelancers can post excess gigs they can’t handle, allowing other freelancers to pick them up. It features real-time chat, gig discovery, and a feedback system.",
+        "technologies": [
+            "Next.js",
+            "Node.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Redis",
+            "Socket.IO",
+            "MongoDB"
+        ],
+        "image": "https://postmygig.xyz/og-image.png",
+        "liveLink": "https://postmygig.xyz",
+        "githubLink": "https://github.com/shubGupta10/postmygig",
+        "slug": "postmygig"
+    },
+    {
+        "title": "CodeX - Cloud IDE",
+        "description": "A flexible cloud-powered IDE similar to Replit, using Monaco Editor, AI-powered code tools, a code converter, and seamless file control powered by Supabase.",
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Monaco Editor",
+            "Piston API",
+            "Supabase",
+            "LangChain",
+            "Tailwind CSS",
+            "Redis"
+        ],
+        "image": "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2Fx-codex-pic.avif?alt=media",
+        "liveLink": "https://x-codex.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/CodeX-Editor",
+        "slug": "codex"
+    },
+    {
+        "title": "BuildMyCV - AI Resume Builder",
+        "description": "An AI-powered resume builder with ATS support, role-based suggestions, job analysis, and smart recommendations to help job seekers create strong resumes.",
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Firebase",
+            "LangChain",
+            "Gemini AI",
+            "Shadcn",
+            "Tailwind CSS",
+            "Clerk"
+        ],
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fbuildmycv-new-img.png?alt=media",
+        "liveLink": "https://buildmycv.ai",
+        "githubLink": "#",
+        "slug": "buildmycv"
+    },
+    {
+        "title": "TechHunt – Curated Tech Job Board",
+        "description": "A curated job board for Indian tech professionals with remote filters, category-based search, and updated listings every four days for quick job discovery.",
+        "technologies": [
+            "Next.js",
+            "Node.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Redis",
+            "Express",
+            "Web Scraping",
+            "GitHub Actions"
+        ],
+        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Ftechunt.png?alt=media",
+        "liveLink": "https://tech-hunt-jobs.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/tech-hunt-client",
+        "slug": "techhunt"
+    },
+    {
+        "title": "Interview Buddy - AI Interview Prep",
+        "description": "An AI-driven interview preparation tool with role-specific questions, difficulty control, detailed answers, and language-based practice for multiple interview rounds.",
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "LangChain",
+            "Gemini AI",
+            "Tailwind CSS",
+            "Shadcn"
+        ],
+        "image": "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2Finterview-buddy-launch-1.png?alt=media",
+        "liveLink": "https://interviewbuddy-platform.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/interview-buddy",
+        "slug": "interviewbuddy"
+    }
+]
