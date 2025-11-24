@@ -1,63 +1,58 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { ArrowUp, Heart, Code, Coffee } from 'lucide-react'
+import React from "react";
+import { ArrowUp, Heart, Code, Coffee } from "lucide-react";
 
 function Footer() {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
-        })
-    }
-
-    const quickLinks = [
-        { name: "Home", href: "#home" },
-        { name: "About", href: "#about" },
-        { name: "Projects", href: "#projects" },
-        { name: "Skills", href: "#skills" },
-        { name: "Contact", href: "#contact" }
-    ]
+            behavior: "smooth",
+        });
+    };
 
     return (
-        <footer className='bg-transparent backdrop-blur-sm'>
-            <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
-                {/* Tech Stack & Scroll to Top */}
-                <div className='flex flex-col sm:flex-row items-center justify-between'>
-                    <div className='flex items-center space-x-4 mb-4 sm:mb-0'>
-                        <div className='flex items-center space-x-2'>
-                            <Code className='w-4 h-4 text-blue-400' />
-                            <span className='text-gray-400 text-sm'>Built with Next.js</span>
-                        </div>
-                        <div className='flex items-center space-x-2'>
-                            <Coffee className='w-4 h-4 text-cyan-400' />
-                            <span className='text-gray-400 text-sm'>Powered by coffee</span>
-                        </div>
+        <footer className="relative mt-24 border-t border-white/10 bg-black/40 backdrop-blur-lg">
+            <div className="max-w-7xl mx-auto px-6 py-12">
+
+                {/* Tech + Scroll */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div className="flex items-center gap-6 text-gray-400 text-sm">
+                        <span className="flex items-center gap-2">
+                            <Code className="w-4 h-4 text-blue-400" />
+                            Built with Next.js
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <Coffee className="w-4 h-4 text-cyan-400" />
+                            Fueled by Coffee
+                        </span>
                     </div>
 
                     <button
                         onClick={scrollToTop}
-                        className='w-10 h-10 bg-white/5 border border-white/20 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-500/20 hover:border-blue-500/50 transition-all duration-200 hover:-translate-y-1'
-                        title="Back to top"
+                        className="group w-11 h-11 rounded-full border border-blue-500/30 bg-blue-500/10 
+            flex items-center justify-center text-blue-300 transition-all duration-300
+            hover:bg-blue-500 hover:text-white hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]
+            active:scale-95"
                     >
-                        <ArrowUp className='w-5 h-5' />
+                        <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-all duration-300" />
                     </button>
                 </div>
 
-                {/* Bottom Copyright */}
-                <div className='mt-8 pt-6 border-t border-white/10 text-center'>
-                    <p className='text-gray-400 text-sm flex items-center justify-center space-x-1'>
-                        <span>&copy; {new Date().getFullYear()}  Made with</span>
-                        <Heart className='w-4 h-4 text-red-400 fill-current' />
-                        <span>by Shubham Gupta</span>
+                {/* Copyright */}
+                <div className="mt-10 pt-6 border-t border-white/10 text-center">
+                    <p className="text-gray-300 text-sm flex items-center justify-center gap-1">
+                        © {new Date().getFullYear()} Made with{" "}
+                        <Heart className="w-4 h-4 text-red-400 animate-pulse" /> by
+                        <span className="font-semibold text-white">Shubham Gupta</span>
                     </p>
-                    <p className='text-gray-500 text-xs mt-2'>
+                    <p className="text-gray-500 text-xs mt-2">
                         All rights reserved. Thanks for visiting!
                     </p>
                 </div>
             </div>
         </footer>
-    )
+    );
 }
 
-export default Footer
+export default Footer;

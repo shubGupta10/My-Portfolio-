@@ -1,10 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import TestimonialCard from '../TestimonialCard';
-import RevealOnScroll from '../ReviewOnScroll';
-import { fetchTestimonials } from '@/lib/actions';
+import React, { useState, useEffect } from "react";
+import ReviewOnScroll from "../ReviewOnScroll";
+import Section from "../ui/Section";
+import Container from "../ui/Container";
+import TestimonialCard from "../TestimonialCard";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { fetchTestimonials } from "@/lib/actions";
 
 export default function Testimonials() {
     const [testimonials, setTestimonials] = useState([]);
@@ -36,56 +38,53 @@ export default function Testimonials() {
     };
 
     return (
-        <RevealOnScroll>
-            <section id="testimonials" className="py-20 sm:py-24">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className='mb-12'>
-                        <h3 className='text-2xl font-bold text-white'>What People Are Saying</h3>
-                    </div>
-                </div>
+        <ReviewOnScroll>
+            <Section id="testimonials">
+                <Container>
+                    <h2 className="section-title mb-16">What People Are Saying</h2>
 
-                <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     {isLoading ? (
-                        <p className="text-center text-white">Loading testimonials...</p>
+                        <p className="text-center text-gray-300">Loading testimonials...</p>
                     ) : testimonials.length === 0 ? (
                         <div className="flex justify-center">
-                            <div className="relative flex flex-col items-center justify-center min-h-[280px] w-full max-w-3xl p-10 bg-white/5 rounded-2xl border border-dashed border-white/20 backdrop-blur-sm">
-                                <Quote className="w-16 h-16 text-white/10 mb-4" strokeWidth={1} />
-                                <p className="text-center text-white text-lg">No testimonials yet.</p>
-                                <p className="text-center text-white/60 mt-2">Be the first to leave a review!</p>
+                            <div className="glass-card p-10 text-center max-w-lg">
+                                <Quote className="w-16 h-16 text-white/10 mx-auto mb-4" />
+                                <p className="text-white text-lg">No testimonials yet.</p>
+                                <p className="text-white/60 mt-2">Be the first to leave a review!</p>
                             </div>
                         </div>
                     ) : (
-                        <div className="relative">
+                        <div className="relative flex flex-col items-center">
                             <TestimonialCard testimonial={testimonials[currentIndex]} />
 
                             {testimonials.length > 1 && (
                                 <>
+                                    {/* Navigation Arrows */}
                                     <button
                                         onClick={prevTestimonial}
-                                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 w-12 h-12 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/10 transition-all duration-200"
-                                        aria-label="Previous testimonial"
+                                        aria-label="Previous"
+                                        className="nav-btn left-0 -translate-x-6 md:left-1/2 md:-translate-x-[150%]"
                                     >
                                         <ChevronLeft className="w-6 h-6" />
                                     </button>
+
                                     <button
                                         onClick={nextTestimonial}
-                                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 w-12 h-12 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/10 transition-all duration-200"
-                                        aria-label="Next testimonial"
+                                        aria-label="Next"
+                                        className="nav-btn right-0 translate-x-6 md:right-1/2 md:translate-x-[150%]"
                                     >
                                         <ChevronRight className="w-6 h-6" />
                                     </button>
 
+                                    {/* Dots */}
                                     <div className="flex justify-center gap-2 mt-8">
                                         {testimonials.map((_, index) => (
                                             <button
                                                 key={index}
                                                 onClick={() => setCurrentIndex(index)}
-                                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                                    ? 'w-8 bg-blue-500'
-                                                    : 'w-2 bg-white/20 hover:bg-white/40'
+                                                aria-label={`Slide ${index + 1}`}
+                                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "w-8 bg-blue-500" : "w-2 bg-white/20 hover:bg-white/40"
                                                     }`}
-                                                aria-label={`Go to testimonial ${index + 1}`}
                                             />
                                         ))}
                                     </div>
@@ -93,8 +92,8 @@ export default function Testimonials() {
                             )}
                         </div>
                     )}
-                </div>
-            </section>
-        </RevealOnScroll>
+                </Container>
+            </Section>
+        </ReviewOnScroll>
     );
 }

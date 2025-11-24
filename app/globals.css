@@ -171,3 +171,144 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.hero-heading {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
+  bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 
+  bg-clip-text text-transparent font-bold leading-tight tracking-tight;
+}
+
+.btn-primary {
+  @apply bg-blue-900 text-white py-3 px-8 rounded-lg font-medium 
+  transition-all duration-300 relative overflow-hidden 
+  hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/50
+  hover:scale-105 active:scale-95;
+}
+
+.btn-secondary {
+  @apply border border-blue-800/30 bg-blue-900/10 text-blue-500 py-3 px-8 
+  rounded-lg font-medium backdrop-blur-md transition-all duration-300
+  hover:-translate-y-1 hover:bg-blue-900/20 hover:border-blue-800/70 
+  hover:text-white hover:scale-105 active:scale-95;
+}
+
+
+.glass-card {
+  @apply rounded-2xl transition-all duration-500;
+  
+  background: linear-gradient(
+    180deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 0px solid rgba(255, 255, 255, 0.4); /* Shiny top edge */
+  border-left: 1px solid rgba(255, 255, 255, 0.2); /* Subtle side reflection */
+  
+  /* The Depth */
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.6), /* Deep drop shadow */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Inner ring */
+}
+
+.glass-card:hover {
+  /* Brighten slightly on hover */
+  background: linear-gradient(
+    180deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  border-top: 1px solid rgba(255, 255, 255, 0.7); /* Super shiny top on hover */
+  
+  box-shadow: 
+    0 15px 50px 0 rgba(0, 0, 0, 0.8),
+    inset 0 0 20px rgba(255, 255, 255, 0.05); /* Inner glow */
+    
+  transform: translateY(-4px);
+}
+
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold text-white text-left;
+}
+
+.badge-skill {
+  @apply bg-blue-500/20 text-blue-300 py-2 px-3 rounded-lg text-sm 
+  transition-colors duration-200 hover:bg-blue-500/30;
+}
+
+
+.badge-status {
+  @apply border rounded-full py-2 px-3 text-xs font-medium;
+}
+
+.badge-status-current {
+  @apply bg-blue-500/20 text-blue-300 border-blue-500/30;
+}
+
+.badge-status-done {
+  @apply bg-green-500/20 text-green-300 border-green-500/30;
+}
+
+
+.nav-btn {
+  @apply absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full
+  bg-white/5 border border-white/10 backdrop-blur-md
+  flex items-center justify-center text-white
+  hover:bg-white/10 transition-all duration-200;
+}
+
+
+.input-field {
+  @apply w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 
+  text-white transition outline-none 
+  focus:border-blue-500 focus:bg-blue-500/5 placeholder-gray-400;
+}
+
+.icon-box {
+  @apply w-10 h-10 rounded-lg flex items-center justify-center border;
+}
+
+.icon {
+  @apply w-5 h-5 text-blue-400;
+}
+
+.icon-button {
+  @apply w-12 h-12 rounded-lg flex items-center justify-center text-gray-300 
+  border border-white/10 bg-white/5 transition-all duration-300 
+  hover:bg-blue-500/20 hover:border-blue-500/30 hover:text-blue-300 hover:-translate-y-1;
+}
+
+
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-900 to-blue-950 text-white font-semibold
+  py-3 px-6 rounded-xl transition-all duration-300 
+  shadow-[0_4px_20px_rgba(15,23,42,0.45)]
+  flex items-center justify-center gap-2
+  hover:scale-[1.02] hover:shadow-[0_6px_24px_rgba(15,23,42,0.65)]
+  active:scale-[0.97];
+}
+
+.btn-secondary {
+  @apply bg-white/5 border border-white/20 text-gray-200
+  py-3 px-6 rounded-xl transition-all duration-300
+  flex items-center justify-center gap-2
+  hover:bg-white/10 hover:border-blue-800/30 hover:text-blue-500
+  hover:scale-[1.02];
+}
+
+.btn-icon {
+  @apply w-10 h-10 rounded-xl flex items-center justify-center
+  bg-white/5 border border-white/10 text-gray-300
+  transition-all duration-300
+  hover:bg-blue-900/20 hover:text-white hover:border-blue-900/30 hover:scale-110;
+}

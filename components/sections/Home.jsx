@@ -1,56 +1,87 @@
 import React from "react";
 import ReviewOnScroll from "../ReviewOnScroll";
+import Section from "../ui/Section";
+import Container from "../ui/Container";
 
 function Home() {
   return (
     <ReviewOnScroll>
-      <section
-        id="home"
-        className="min-h-[70vh] md:min-h-[80vh] flex items-center justify-center relative overflow-hidden pt-20 md:pt-24"
-      >
-        {/* Background gradient blur elements */}
+      <Section id="home" className="h-screen flex items-center justify-center relative pb-24">
+        
+        {/* Background Ambient Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/8 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="text-center z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent leading-tight font-bold tracking-tight">
-            Hi, I am Shubham Gupta
-          </h1>
+        <Container className="relative z-10 w-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+            
+            {/* Left Column: Typography */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+              
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                <span className="text-blue-500 font-semibold tracking-widest text-sm uppercase">
+                  Hi, I am Shubham Gupta
+                </span>
+              </div>
 
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-200 mb-6">
-            Full Stack Developer
-          </h2>
+              <h1 className="hero-heading text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-[1.1] tracking-tight">
+                <span className="text-gray-100 block">Full Stack</span>
+                <span className="text-blue-500 block">Developer</span>
+              </h1>
 
-          <p className="text-gray-300 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-            I enjoy building full-stack apps with Next.js, Node.js, and
-            TypeScript. Lately, I've been exploring AI and always try to learn
-            something new through hands-on projects.
-          </p>
+              <p className="text-gray-400 text-lg sm:text-xl leading-relaxed mb-8 max-w-lg font-light">
+                I enjoy building full-stack apps with Next.js, Node.js, and TypeScript. 
+                Lately, I've been exploring AI and always try to learn something new.
+              </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-            {/* Primary Button */}
-            <a
-              href="#projects"
-              className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-8 rounded-lg font-medium transition-all duration-300 relative overflow-hidden hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(59,130,246,0.4)] transform hover:scale-105 active:scale-95"
-            >
-              <span className="relative z-10">View Projects</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
-            </a>
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#projects" className="btn-primary w-full sm:w-auto px-8 py-3.5 rounded-xl text-center shadow-lg shadow-blue-500/20 transition-all hover:scale-105">
+                  View Projects
+                </a>
 
-            {/* Secondary Button (Enhanced Glass Effect) */}
-            <a
-              href="/Shubham_Gupta_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto border border-blue-400/30 bg-blue-500/10 text-blue-300 py-3 px-8 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(59,130,246,0.3)] hover:bg-blue-500/20 hover:border-blue-400/70 hover:text-white backdrop-blur-sm transform hover:scale-105 active:scale-95"
-            >
-              <span className="relative z-10">Download Resume</span>
-            </a>
+                <a
+                  href="/Shubham_Gupta_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary w-full sm:w-auto px-8 py-3.5 rounded-xl text-center transition-all hover:bg-gray-800"
+                >
+                  Download Resume
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Glass Card & Image */}
+            <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end items-center">
+              
+              {/* ADDED 'glass-card' class here.
+                  REMOVED 'pointer-events-none' so the hover effect works.
+                  KEPT 'maskImage' so the glass fades out at the bottom cleanly.
+              */}
+              <div 
+                className="glass-card relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] flex justify-center items-center p-4"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+                }}
+              >
+                {/* Internal Glow (Optional: Adds light inside the glass) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-blue-500/20 rounded-full blur-[60px]"></div>
+                
+                <img 
+                   src="/profileImage.png" 
+                   alt="Shubham Gupta"
+                   className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
+                   loading="eager"
+                />
+              </div>
+            </div>
+
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </ReviewOnScroll>
   );
 }
