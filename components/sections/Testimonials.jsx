@@ -29,11 +29,11 @@ export default function Testimonials() {
         loadTestimonials();
     }, []);
 
-    const nextTestimonial = () => {
+    const goNext = () => {
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     };
 
-    const prevTestimonial = () => {
+    const goPrev = () => {
         setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     };
 
@@ -41,49 +41,51 @@ export default function Testimonials() {
         <ReviewOnScroll>
             <Section id="testimonials">
                 <Container>
-                    <h2 className="section-title mb-16">What People Are Saying</h2>
+                    <h2 className="section-title mb-14 text-center">
+                        Feedback From People I’ve Worked With
+                    </h2>
 
                     {isLoading ? (
                         <p className="text-center text-gray-300">Loading testimonials...</p>
                     ) : testimonials.length === 0 ? (
-                        <div className="flex justify-center">
-                            <div className="glass-card p-10 text-center max-w-lg">
-                                <Quote className="w-16 h-16 text-white/10 mx-auto mb-4" />
-                                <p className="text-white text-lg">No testimonials yet.</p>
-                                <p className="text-white/60 mt-2">Be the first to leave a review!</p>
-                            </div>
-                        </div>
+                        <p className="text-center text-gray-300">No testimonials yet.</p>
                     ) : (
-                        <div className="relative flex flex-col items-center">
-                            <TestimonialCard testimonial={testimonials[currentIndex]} />
+                        <div className="flex flex-col items-center w-full">
+
+                            <div className="w-full max-w-3xl min-h-[320px] flex items-center">
+                                <div className="w-full transition-all duration-300">
+                                    <TestimonialCard testimonial={testimonials[currentIndex]} />
+                                </div>
+                            </div>
 
                             {testimonials.length > 1 && (
                                 <>
-                                    {/* Navigation Arrows */}
-                                    <button
-                                        onClick={prevTestimonial}
-                                        aria-label="Previous"
-                                        className="nav-btn left-0 -translate-x-6 md:left-1/2 md:-translate-x-[150%]"
-                                    >
-                                        <ChevronLeft className="w-6 h-6" />
-                                    </button>
+                                    <div className="flex items-center justify-center gap-6 mt-10">
+                                        <button
+                                            aria-label="Previous"
+                                            onClick={goPrev}
+                                            className="bg-white/5 hover:bg-white/10 p-3 rounded-full transition border border-gray-600 cursor-pointer"
+                                        >
+                                            <ChevronLeft className="w-6 h-6" />
+                                        </button>
+                                        <button
+                                            aria-label="Next"
+                                            onClick={goNext}
+                                            className="bg-white/5 hover:bg-white/10 p-3 rounded-full transition border border-gray-600 cursor-pointer"
+                                        >
+                                            <ChevronRight className="w-6 h-6" />
+                                        </button>
+                                    </div>
 
-                                    <button
-                                        onClick={nextTestimonial}
-                                        aria-label="Next"
-                                        className="nav-btn right-0 translate-x-6 md:right-1/2 md:translate-x-[150%]"
-                                    >
-                                        <ChevronRight className="w-6 h-6" />
-                                    </button>
-
-                                    {/* Dots */}
-                                    <div className="flex justify-center gap-2 mt-8">
+                                    <div className="flex justify-center gap-2 mt-6">
                                         {testimonials.map((_, index) => (
                                             <button
                                                 key={index}
-                                                onClick={() => setCurrentIndex(index)}
                                                 aria-label={`Slide ${index + 1}`}
-                                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex ? "w-8 bg-blue-500" : "w-2 bg-white/20 hover:bg-white/40"
+                                                onClick={() => setCurrentIndex(index)}
+                                                className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                                                        ? "w-7 bg-blue-500"
+                                                        : "w-2 bg-white/20 hover:bg-white/40"
                                                     }`}
                                             />
                                         ))}
