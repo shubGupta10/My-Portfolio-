@@ -29,7 +29,7 @@
             "Tailwind CSS",
             "Redis"
         ],
-        "image": "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2Fx-codex-pic.avif?alt=media",
+        "image": "/x-codex-pic.avif",
         "liveLink": "https://x-codex.vercel.app",
         "githubLink": "https://github.com/shubGupta10/CodeX-Editor",
         "slug": "codex"
@@ -53,24 +53,6 @@
         "slug": "buildmycv"
     },
     {
-        "title": "TechHunt – Curated Tech Job Board",
-        "description": "A curated job board for Indian tech professionals with remote filters, category-based search, and updated listings every four days for quick job discovery.",
-        "technologies": [
-            "Next.js",
-            "Node.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "Redis",
-            "Express",
-            "Web Scraping",
-            "GitHub Actions"
-        ],
-        "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Ftechunt.png?alt=media",
-        "liveLink": "https://tech-hunt-jobs.vercel.app",
-        "githubLink": "https://github.com/shubGupta10/tech-hunt-client",
-        "slug": "techhunt"
-    },
-    {
         "title": "Interview Buddy - AI Interview Prep",
         "description": "An AI-driven interview preparation tool with role-specific questions, difficulty control, detailed answers, and language-based practice for multiple interview rounds.",
         "technologies": [
@@ -81,7 +63,7 @@
             "Tailwind CSS",
             "Shadcn"
         ],
-        "image": "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2Finterview-buddy-launch-1.png?alt=media",
+        "image": "/interviewbuddy.png",
         "liveLink": "https://interviewbuddy-platform.vercel.app",
         "githubLink": "https://github.com/shubGupta10/interview-buddy",
         "slug": "interviewbuddy"

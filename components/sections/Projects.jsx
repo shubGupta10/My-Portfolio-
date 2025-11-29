@@ -19,7 +19,7 @@ function Projects() {
             title: "CodeX - Cloud IDE",
             description:
                 "A flexible cloud-powered IDE similar to Replit, using Monaco Editor, AI-powered code tools, a code converter, and seamless file control powered by Supabase.",
-            image: "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2Fx-codex-pic.avif?alt=media",
+            image: "/x-codex-pic.avif",
             link: "/project-details/codex",
         },
         {
@@ -32,7 +32,7 @@ function Projects() {
         {
             title: "Interview Buddy - AI Interview Prep",
             description: "An AI-driven interview preparation tool with role-specific questions, difficulty control, detailed answers, and language-based practice for multiple interview rounds.",
-            image: "https://firebasestorage.googleapis.com/v0/b/fir-31914.appspot.com/o/ContactImages%2Finterview-buddy-launch-1.png?alt=media",
+            image: "/interviewbuddy.png",
             link: "/project-details/interviewbuddy",
             slug: "interviewbuddy"
         }
@@ -76,15 +76,13 @@ function Projects() {
                                     </p>
 
                                     <div className="mt-auto pt-4">
-                                        <a
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn-secondary w-full flex justify-center items-center gap-2 py-3 group cursor-pointer"
+                                        <button
                                             onClick={() => router.push(project.link)}
+                                            className="btn-secondary w-full flex justify-center items-center gap-2 py-3 group cursor-pointer"
                                         >
                                             View Details
                                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
