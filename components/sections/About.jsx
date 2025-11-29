@@ -40,17 +40,14 @@ function About() {
 
                     {/* About + Education Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-start">
-                        
+
                         {/* Left Column: About Text */}
                         <div className="glass-card hover-lift p-8 h-full flex flex-col justify-center">
                             <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                                I am a full-stack developer who builds web apps with <span className="text-blue-400 font-medium">Next.js, TypeScript, and Node.js</span>.
-                            </p>
-                            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-                                I focus on practical, scalable products like SaaS platforms, realtime features, and AI-assisted tools.
+                                I am a full stack developer with 1+ year of experience working on production apps in both full time and freelance roles. I enjoy building SaaS tools, AI powered features, and real time user experiences.
                             </p>
                             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                                I care about clean UI, smooth user experience, and deployments that just work.
+                                I like taking ideas to a complete product. I focus on clean UI, smooth flows, and code that stays simple to maintain. I enjoy improving things over time and learning new ways to build better software.
                             </p>
                         </div>
 
@@ -58,8 +55,7 @@ function About() {
                         <div className="flex flex-col gap-6">
                             {educationData.map((edu, i) => (
                                 <div key={i} className="glass-card hover-lift p-6 relative overflow-hidden group">
-                                    
-                                    {/* DECORATIVE: Watermark Icon (Subtle Background) */}
+
                                     <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
                                         <GraduationCap className="w-32 h-32 text-white transform -rotate-12" />
                                     </div>
@@ -75,7 +71,7 @@ function About() {
                                                 <span className="text-sm">{edu.institute}</span>
                                             </div>
                                         </div>
-                                        
+
                                         {/* Year Badge (Uniform Blue Theme) */}
                                         <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30 bg-blue-500/10 text-blue-400 whitespace-nowrap">
                                             <Calendar className="w-3 h-3" />

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ReviewOnScroll from "../ReviewOnScroll";
 import Section from "../ui/Section";
 import Container from "../ui/Container";
-import experiencesData from "@/data/experience.json";
+import experiencesData from "../../lib/data/experience.json";
 import ExperienceCard from "../ExperienceCard";
 
 export default function Experience() {
