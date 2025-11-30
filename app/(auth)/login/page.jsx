@@ -24,7 +24,7 @@ export default function LoginPage() {
                 setError(result.error);
                 setIsLoading(false);
             } else {
-                router.push('/admin-panel');
+                router.push('/admin');
             }
         } catch (err) {
             setError('An unexpected error occurred. Please try again.');

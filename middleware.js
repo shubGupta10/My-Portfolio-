@@ -9,17 +9,19 @@ export async function middleware(req) {
         data: { session },
     } = await supabase.auth.getSession();
 
-    if (!session && req.nextUrl.pathname.startsWith('/admin-panel')) {
+    // Protect the admin route
+    if (!session && req.nextUrl.pathname.startsWith('/admin')) {
         return NextResponse.redirect(new URL('/login', req.url));
     }
 
+    // If already logged in, redirect login to admin
     if (session && req.nextUrl.pathname === '/login') {
-        return NextResponse.redirect(new URL('/admin-panel', req.url));
+        return NextResponse.redirect(new URL('/admin', req.url));
     }
 
     return res;
 }
 
 export const config = {
-    matcher: ['/admin-panel/:path*', '/login'],
+    matcher: ['/admin/:path*', '/login'],
 };

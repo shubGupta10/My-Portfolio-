@@ -67,7 +67,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
                                 href={getNavHref(link.href)}
                                 onClick={() => !isLoginPage && setActiveLink(link.href.substring(1))}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                  ${!isLoginPage && activeLink === link.href.substring(1)
+                                    ${!isLoginPage && activeLink === link.href.substring(1)
                                         ? "text-white bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-blue-500/40"
                                         : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
                                     }
