@@ -8,15 +8,30 @@ import { Menu, X, KeyRound } from "lucide-react";
 function Navbar({ menuOpen, setMenuOpen }) {
     const [activeLink, setActiveLink] = useState("home");
     const pathname = usePathname();
-    const isLoginPage = pathname === "/login";
+    const isHome = pathname === "/";
 
+    const navLinks = isHome
+        ? [
+            { href: "#experience", label: "Experience" },
+            { href: "#projects", label: "Projects" },
+            { href: "/blog", label: "Blog", isRoute: true },
+            { href: "#contact", label: "Contact" },
+        ]
+        : [
+            { href: "/", label: "Home", isRoute: true },
+            { href: "/blog", label: "Blog", isRoute: true },
+        ];
+
+    // Disable scroll locking on other pages
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
     }, [menuOpen]);
 
     useEffect(() => {
+        if (!isHome) return;
+
         const handleScroll = () => {
-            const sections = ["home", "about", "experience", "projects", "contact"];
+            const sections = ["about", "experience", "projects", "contact"];
             const scrollPosition = window.scrollY + 120;
 
             for (const id of sections) {
@@ -34,17 +49,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const navLinks = [
-        { href: "#experience", label: "Experience" },
-        { href: "#projects", label: "Projects" },
-        { href: "#contact", label: "Contact" },
-    ];
-
-    const getNavHref = (href) => {
-        return isLoginPage ? "/" : href;
-    };
+    }, [isHome]);
 
     return (
         <nav className="fixed top-0 z-50 w-full bg-black/40 backdrop-blur-xl border-b border-white/10">
@@ -53,31 +58,36 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
                     {/* Logo */}
                     <Link
-                        href={isLoginPage ? "/" : "/"}
+                        href="/"
                         className="text-xl font-semibold tracking-wide bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent hover:opacity-90 transition-all cursor-pointer"
                     >
                         SHUBHAM
                     </Link>
 
-                    {/* Desktop Nav Links */}
+                    {/* Desktop Nav */}
                     <div className="hidden md:flex items-center gap-2">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={getNavHref(link.href)}
-                                onClick={() => !isLoginPage && setActiveLink(link.href.substring(1))}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
-                                    ${!isLoginPage && activeLink === link.href.substring(1)
-                                        ? "text-white bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-blue-500/40"
-                                        : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
-                                    }
-                `}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isActive =
+                                link.isRoute
+                                    ? pathname === link.href
+                                    : isHome && activeLink === link.href.substring(1);
 
-                        {/* Login Button (Desktop only) */}
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                  ${isActive
+                                            ? "text-white bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-blue-500/40"
+                                            : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
+                                        }`}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
+
+                        {/* Login */}
                         <Link
                             href="/login"
                             className="ml-2 px-4 py-2 rounded-lg text-sm font-medium text-cyan-300 
@@ -88,13 +98,14 @@ function Navbar({ menuOpen, setMenuOpen }) {
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Toggle */}
+                    {/* Mobile Menu */}
                     <button
                         className="md:hidden p-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-md transition"
                         onClick={() => setMenuOpen((prev) => !prev)}
                     >
                         {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                     </button>
+
                 </div>
             </div>
         </nav>

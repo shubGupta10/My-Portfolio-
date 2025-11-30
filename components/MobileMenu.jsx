@@ -14,6 +14,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
         { href: "#about", label: "About" },
         { href: "#experience", label: "Experience" },
         { href: "#projects", label: "Projects" },
+        { href: "/blog", label: "Blog", isRoute: true },
         { href: "#contact", label: "Contact" },
     ];
 
@@ -33,7 +34,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
             {menuLinks.map((link) => (
                 <Link
                     key={link.href}
-                    href={getMenuHref(link.href)}
+                    href={link.isRoute ? link.href : getMenuHref(link.href)}
                     onClick={() => setMenuOpen(false)}
                     className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 >

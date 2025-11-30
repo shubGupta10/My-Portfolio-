@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/next"
 import Footer from "@/components/sections/Footer";
 import Header from "@/components/Header";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 export const metadata = {
   title: "Shubham Gupta | Full-Stack Web Developer | TypeScript & Next.js Projects",
@@ -60,8 +61,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className={spaceGrotesk.className}>
         <Analytics />
-        {children}
-        <Footer />
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
         <Toaster />
       </body>
     </html>

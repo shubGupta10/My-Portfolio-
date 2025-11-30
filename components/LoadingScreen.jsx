@@ -9,8 +9,19 @@ function LoadingScreen({
     delayBeforeComplete = 1000
 }) {
     const [displayText, setDisplayText] = useState("")
+    const [shouldShow, setShouldShow] = useState(false)
 
     useEffect(() => {
+        const hasSeenAnimation = sessionStorage.getItem('hasSeenLoadingAnimation')
+        
+        if (!hasSeenAnimation) {
+            setShouldShow(true)
+            sessionStorage.setItem('hasSeenLoadingAnimation', 'true')
+        } else {
+            onComplete?.()
+            return
+        }
+
         let index = 0
         let timeoutId
 
@@ -32,6 +43,10 @@ function LoadingScreen({
             clearTimeout(timeoutId)
         }
     }, [text, typingSpeed, delayBeforeComplete, onComplete])
+
+    if (!shouldShow) {
+        return null
+    }
 
     return (
         <div className='fixed inset-0 z-50 bg-black text-gray-100 flex flex-col items-center justify-center'>

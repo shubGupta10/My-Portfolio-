@@ -85,6 +85,8 @@ export default function LoginPage() {
                                 </>
                             )}
                         </button>
+
+                        <h2>Return to <span className='text-blue-500 underline cursor-pointer text-center' onClick={() => router.push('/')}>home</span></h2>
                     </form>
                 </div>
             </div>
