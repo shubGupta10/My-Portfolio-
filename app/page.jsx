@@ -1,5 +1,6 @@
 'use client';
 
+import Header from '@/components/Header';
 import LoadingScreen from '@/components/LoadingScreen';
 import About from '@/components/sections/About';
 import Contact from '@/components/sections/Contact';
@@ -21,7 +22,7 @@ function App() {
         style={{ backgroundImage: "url('/backgroundImage2.png')" }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
-
+        <Header/>
         <Home />
         <Experience />
         <About />

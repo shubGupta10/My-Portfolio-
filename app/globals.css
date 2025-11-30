@@ -172,7 +172,6 @@ body {
   }
 }
 
-
 .hero-heading {
   @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
   bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 
@@ -193,24 +192,23 @@ body {
   hover:text-white hover:scale-105 active:scale-95;
 }
 
-
 .glass-card {
   @apply rounded-2xl transition-all duration-500;
-  
+
   background: linear-gradient(
     180deg, 
     rgba(255, 255, 255, 0.08) 0%, 
     rgba(255, 255, 255, 0.03) 100%
   );
-  
+
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  
+
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-top: 1px solid rgba(255, 255, 255, 0.4); /* Shiny top edge */
   border-left: 1px solid rgba(255, 255, 255, 0.2); /* Subtle side reflection */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  
+
   /* The Depth */
   box-shadow: 
     0 8px 32px 0 rgba(0, 0, 0, 0.6), /* Deep drop shadow */
@@ -224,13 +222,13 @@ body {
     rgba(255, 255, 255, 0.15) 0%, 
     rgba(255, 255, 255, 0.05) 100%
   );
-  
+
   border-top: 1px solid rgba(255, 255, 255, 0.7); /* Super shiny top on hover */
-  
+
   box-shadow: 
     0 15px 50px 0 rgba(0, 0, 0, 0.8),
     inset 0 0 20px rgba(255, 255, 255, 0.05); /* Inner glow */
-    
+
   transform: translateY(-4px);
 }
 
@@ -264,7 +262,6 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.55);
 }
 
-
 .hover-lift {
   @apply transition-transform duration-300 hover:-translate-y-1;
 }
@@ -278,7 +275,6 @@ body {
   transition-colors duration-200 hover:bg-blue-500/30;
 }
 
-
 .badge-status {
   @apply border rounded-full py-2 px-3 text-xs font-medium;
 }
@@ -291,14 +287,12 @@ body {
   @apply bg-green-500/20 text-green-300 border-green-500/30;
 }
 
-
 .nav-btn {
   @apply absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full
   bg-white/5 border border-white/10 backdrop-blur-md
   flex items-center justify-center text-white
   hover:bg-white/10 transition-all duration-200;
 }
-
 
 .input-field {
   @apply w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 
@@ -322,8 +316,6 @@ body {
   @apply border-blue-500/40 text-blue-400 bg-blue-500/10;
   transform: translateY(-2px);
 }
-
-
 
 .btn-primary {
   @apply bg-gradient-to-r from-blue-900 to-blue-950 text-white font-semibold

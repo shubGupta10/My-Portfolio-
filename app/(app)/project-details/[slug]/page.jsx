@@ -6,7 +6,7 @@ import ReviewOnScroll from "@/components/ReviewOnScroll";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import { ArrowLeft, Github, ExternalLink, Globe, Layers } from "lucide-react";
-import projectsData from "../../../lib/data/project.json";
+import projectsData from "@/lib/data/project.json";
 
 function ProjectDetails() {
   const { slug } = useParams();

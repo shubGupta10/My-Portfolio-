@@ -57,10 +57,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={spaceGrotesk.className}>
         <Analytics />
-        <Header />
         {children}
         <Footer />
         <Toaster />
