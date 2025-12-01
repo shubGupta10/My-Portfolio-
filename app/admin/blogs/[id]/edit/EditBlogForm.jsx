@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { editBlog } from "@/lib/actions";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import RichTextEditor from "@/components/RichTextEditor";
 
 export default function EditBlogForm({ blog, blogId }) {
     const router = useRouter();
@@ -17,6 +15,7 @@ export default function EditBlogForm({ blog, blogId }) {
     const [tags, setTags] = useState(blog.tags || []);
     const [tagInput, setTagInput] = useState("");
     const [content, setContent] = useState(blog.content || "");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleTitleChange = (e) => {
         const newTitle = e.target.value;
@@ -41,30 +40,41 @@ export default function EditBlogForm({ blog, blogId }) {
     };
 
     async function onSubmit(formData) {
-        formData.set("id", blogId);
-        formData.set("title", title);
-        formData.set("slug", slug);
-        formData.set("cover_img", coverImg);
-        formData.set("tags", JSON.stringify(tags));
-        formData.set("content", content);
+        setIsSubmitting(true);
+        try {
+            formData.set("id", blogId);
+            formData.set("title", title);
+            formData.set("slug", slug);
+            formData.set("cover_img", coverImg);
+            formData.set("tags", JSON.stringify(tags));
+            formData.set("content", content);
 
-        const res = await editBlog(formData);
-        if (res.success) {
-            router.push("/admin/blogs");
-            router.refresh();
+            const res = await editBlog(formData);
+            if (res.success) {
+                router.push("/admin/blogs");
+                router.refresh();
+            }
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 max-w-6xl mx-auto">
             <div>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">Edit Blog</h2>
                 <p className="text-muted-foreground">Update your blog post</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 items-start">
                 {/* EDITOR */}
-                <form action={onSubmit} className="space-y-6">
+                <form action={onSubmit} className="space-y-6 p-6 border border-border bg-card rounded-lg shadow-sm">
+                    {isSubmitting && (
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <ButtonLoader />
+                            Saving changes...
+                        </div>
+                    )}
                     <div className="space-y-4">
                         <div>
                             <label className="text-sm font-medium text-foreground mb-2 block">Blog Title</label>
@@ -141,34 +151,32 @@ export default function EditBlogForm({ blog, blogId }) {
 
                         {/* CONTENT */}
                         <div>
-                            <label className="text-sm font-medium text-foreground mb-2 block">Content (Markdown)</label>
-                            <textarea
-                                rows={15}
-                                placeholder="Write your blog in markdown..."
+                            <label className="text-sm font-medium text-foreground mb-2 block">Content</label>
+                            <RichTextEditor
                                 value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                className="w-full p-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring font-mono text-sm"
-                                required
+                                onChange={setContent}
+                                className="min-h-[520px]"
                             />
                         </div>
                     </div>
 
                     <button
                         type="submit"
-                        disabled={!content.trim() || !title.trim()}
+                        disabled={!content.trim() || !title.trim() || isSubmitting}
                         className={cn(
-                            "w-full py-3 rounded-lg transition font-medium",
-                            content.trim() && title.trim()
+                            "w-full py-3 rounded-lg transition font-medium flex items-center justify-center gap-2",
+                            content.trim() && title.trim() && !isSubmitting
                                 ? "bg-primary text-primary-foreground hover:bg-primary/90"
                                 : "bg-muted text-muted-foreground cursor-not-allowed"
                         )}
                     >
-                        Update Blog
+                        {isSubmitting && <ButtonLoader />}
+                        {isSubmitting ? "Saving..." : "Update Blog"}
                     </button>
                 </form>
 
                 {/* PREVIEW */}
-                <div className="p-6 border border-border bg-card rounded-lg overflow-auto max-h-[calc(100vh-200px)]">
+                <div className="p-6 border border-border bg-card rounded-lg shadow-sm overflow-auto max-h-[calc(100vh-200px)] lg:sticky lg:top-6">
                     <h3 className="text-xl font-semibold mb-4 text-card-foreground">Live Preview</h3>
 
                     {coverImg && (
@@ -179,16 +187,41 @@ export default function EditBlogForm({ blog, blogId }) {
                         />
                     )}
 
-                    <div className="prose prose-invert max-w-none prose-headings:text-card-foreground prose-p:text-card-foreground/90 prose-a:text-blue-400 prose-strong:text-card-foreground prose-code:text-blue-300 prose-pre:bg-muted prose-pre:border prose-pre:border-border">
-                        <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            rehypePlugins={[rehypeHighlight]}
-                        >
-                            {content || "*Start writing to see the preview...*"}
-                        </ReactMarkdown>
-                    </div>
+                    <div
+                        className="prose prose-invert max-w-none prose-headings:text-card-foreground prose-p:text-card-foreground/90 prose-a:text-blue-400 prose-strong:text-card-foreground prose-code:text-blue-300 prose-pre:bg-muted prose-pre:border prose-pre:border-border"
+                        dangerouslySetInnerHTML={{
+                            __html:
+                                content?.trim() ||
+                                "<p><em>Start writing to see the preview...</em></p>",
+                        }}
+                    />
                 </div>
             </div>
         </div>
+    );
+}
+
+function ButtonLoader() {
+    return (
+        <svg
+            className="h-4 w-4 animate-spin text-current"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+            />
+            <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4l3-3-3-3v4a10 10 0 00-10 10h4z"
+            />
+        </svg>
     );
 }
