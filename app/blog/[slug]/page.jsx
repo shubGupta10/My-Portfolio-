@@ -1,18 +1,14 @@
 import { fetchBlogBySlug } from "@/lib/actions";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import GoBackButton from "@/components/GoBack";
 import Container from "@/components/ui/Container";
 
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    return new Date(dateString).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
     });
 }
 
@@ -23,73 +19,104 @@ function calculateReadTime(content) {
 }
 
 export default async function BlogDetailPage({ params }) {
-    const { slug } = await params;
+    const { slug } = params;
     const blog = await fetchBlogBySlug(slug);
-    console.log("Here is blog", blog);
-    
 
-    if (!blog) {
-        notFound();
-    }
+    if (!blog) notFound();
 
-    const readTime = calculateReadTime(blog.content || '');
+    const readTime = calculateReadTime(blog.content || "");
+
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: blog.title,
+        description: blog.excerpt || blog.content.substring(0, 160),
+        image: blog.cover_img,
+        datePublished: blog.created_at,
+        dateModified: blog.updated_at || blog.created_at,
+        url: `https://www.shubhamgupta.online/blog/${blog.slug}`,
+        author: {
+            "@type": "Person",
+            name: "Shubham Gupta",
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "Shubham Gupta",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://www.shubhamgupta.online/favicon.ico",
+            },
+        },
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://www.shubhamgupta.online/blog/${blog.slug}`,
+        },
+    };
 
     return (
-        <div className="min-h-screen relative" style={{ backgroundImage: "url('/backgroundImage2.png')" }}>
+        <div
+            className="min-h-screen relative"
+            style={{ backgroundImage: "url('/backgroundImage2.png')" }}
+        >
+            {/* SEO JSON-LD */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
+
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/50"></div>
 
-            {/* Gradient orbs */}
+            {/* Background Effects */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"></div>
             </div>
 
-            <Container className="relative z-10 py-32">
-                <article className="max-w-4xl mx-auto">
+            {/* Hero */}
+            {blog.cover_img && (
+                <div className="relative h-[60vh] min-h-[500px]">
+                    <Image
+                        src={blog.cover_img}
+                        alt={blog.title}
+                        fill
+                        className="object-cover"
+                        priority
+                        sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black" />
+                    <div className="absolute top-8 left-0 right-0 z-20">
+                        <Container>
+                            <GoBackButton />
+                        </Container>
+                    </div>
+                </div>
+            )}
 
-                    <GoBackButton/>
-                    
-                    {/* Cover Image */}
-                    {blog.cover_img && (
-                        <div className="glass-card relative w-full h-64 sm:h-96 mb-8 overflow-hidden p-0">
-                            <Image
-                                src={blog.cover_img}
-                                alt={blog.title}
-                                fill
-                                className="object-cover"
-                                priority
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
-                        </div>
-                    )}
+            {/* Blog Content */}
+            <Container className="relative z-10 -mt-32 pb-16 md:pb-24">
+                <article className="max-w-3xl mx-auto">
+                    <header className="mb-12">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1]">
+                            {blog.title}
+                        </h1>
 
-                    {/* Header */}
-                    <header className="mb-10">
-                        <div className="flex flex-wrap items-center gap-3 mb-6 text-sm text-gray-400">
+                        <div className="flex items-center gap-3 text-sm text-gray-400 mb-6">
                             {blog.created_at && (
                                 <time dateTime={blog.created_at}>
                                     {formatDate(blog.created_at)}
                                 </time>
                             )}
-                            {readTime > 0 && (
-                                <>
-                                    <span>•</span>
-                                    <span>{readTime} min read</span>
-                                </>
-                            )}
+                            <span className="text-gray-600">•</span>
+                            <span>{readTime} min read</span>
                         </div>
 
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                            {blog.title}
-                        </h1>
-
-                        {blog.tags && blog.tags.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mt-6">
-                                {blog.tags.map((tag, index) => (
+                        {blog.tags?.length > 0 && (
+                            <div className="flex flex-wrap gap-2">
+                                {blog.tags.map((tag, i) => (
                                     <span
-                                        key={index}
-                                        className="glass-pill text-xs px-3 py-1.5 text-blue-300"
+                                        key={i}
+                                        className="text-xs px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-blue-300"
                                     >
                                         {tag}
                                     </span>
@@ -98,31 +125,14 @@ export default async function BlogDetailPage({ params }) {
                         )}
                     </header>
 
-                    {/* Content */}
-                    <div className="glass-card p-8 md:p-12">
-                        <div className="prose prose-invert max-w-none 
-                            prose-headings:text-white prose-headings:font-bold
-                            prose-p:text-gray-300 prose-p:leading-relaxed prose-p:text-base
-                            prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 hover:prose-a:underline
-                            prose-strong:text-white prose-strong:font-semibold
-                            prose-code:text-blue-300 prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-                            prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10 prose-pre:rounded-xl
-                            prose-img:rounded-xl prose-img:border prose-img:border-white/10
-                            prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:text-gray-300 prose-blockquote:bg-white/5 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg
-                            prose-ul:text-gray-300 prose-ol:text-gray-300
-                            prose-li:text-gray-300 prose-li:leading-relaxed
-                            prose-hr:border-white/10">
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                rehypePlugins={[rehypeHighlight]}
-                            >
-                                {blog.content}
-                            </ReactMarkdown>
-                        </div>
-                    </div>
+                    {/* Render HTML Content */}
+                    <div
+                        className="prose prose-invert max-w-none
+                        prose-h2:text-3xl prose-h3:text-2xl prose-p:text-lg prose-img:rounded-xl"
+                        dangerouslySetInnerHTML={{ __html: blog.content }}
+                    />
                 </article>
             </Container>
         </div>
     );
 }
-
