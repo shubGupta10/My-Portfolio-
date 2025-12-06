@@ -1,7 +1,8 @@
 import { fetchBlogBySlug } from "@/lib/actions";
 
 export async function generateMetadata({ params }) {
-    const blog = await fetchBlogBySlug(params.slug);
+    const { slug } = await params;
+    const blog = await fetchBlogBySlug(slug);
 
     if (!blog) {
         return {

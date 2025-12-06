@@ -19,7 +19,7 @@ function calculateReadTime(content) {
 }
 
 export default async function BlogDetailPage({ params }) {
-    const { slug } = params;
+    const { slug } = await params;
     const blog = await fetchBlogBySlug(slug);
 
     if (!blog) notFound();
