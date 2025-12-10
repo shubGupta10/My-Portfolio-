@@ -41,3 +41,6 @@ CODEBASE_DOCUMENTATION.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+idea
+.idea
