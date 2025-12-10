@@ -111,7 +111,7 @@ export default function BlogActionsClient({ slug, initialCounts = null }) {
                 className="flex items-center gap-2 text-sm hover:opacity-80 transition-opacity disabled:opacity-50"
                 aria-label="Like this post"
             >
-                <Heart className="h-5 w-5 text-pink-400" />
+                <Heart className="h-5 w-5 text-pink-400 cursor-pointer" />
                 <span className="text-gray-300">{counts.likes_count}</span>
             </button>
 
@@ -121,7 +121,7 @@ export default function BlogActionsClient({ slug, initialCounts = null }) {
                 className="flex items-center gap-2 text-sm hover:opacity-80 transition-opacity"
                 aria-label="Share this post"
             >
-                <Share2 className="h-5 w-5 text-cyan-400" />
+                <Share2 className="h-5 w-5 text-cyan-400 cursor-pointer" />
                 <span className="text-gray-300">{counts.shares_count}</span>
             </button>
         </div>
