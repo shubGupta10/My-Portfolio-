@@ -1,14 +1,16 @@
 import "./globals.css";
 import { Space_Grotesk } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner"
-import { Analytics } from "@vercel/analytics/next"
-import Footer from "@/components/sections/Footer";
-import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 import ConditionalLayout from "@/components/ConditionalLayout";
 
 export const metadata = {
   title: "Shubham Gupta | Full-Stack Web Developer | TypeScript & Next.js Projects",
-  description: "Explore Shubham Gupta's portfolio of TypeScript and Next.js projects. View details of my full-stack web development work including SaaS applications and open-source contributions.",
+  description:
+    "Explore Shubham Gupta's portfolio of TypeScript and Next.js projects. View details of my full-stack web development work including SaaS applications and open-source contributions.",
+  alternates: {
+    canonical: "https://www.shubhamgupta.online",
+  },
   keywords: [
     "Shubham Gupta",
     "Full-Stack Developer",
@@ -51,19 +53,18 @@ export const metadata = {
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weights: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className={spaceGrotesk.className}>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body
+        className={`${spaceGrotesk.className} min-h-screen bg-background text-foreground antialiased`}
+      >
         <Analytics />
-        <ConditionalLayout>
-          {children}
-        </ConditionalLayout>
+        <ConditionalLayout>{children}</ConditionalLayout>
         <Toaster />
       </body>
     </html>
