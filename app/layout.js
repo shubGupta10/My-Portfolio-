@@ -21,16 +21,16 @@ export const metadata = {
   ],
   authors: [{ name: "Shubham Gupta" }],
   creator: "Shubham Gupta",
-  metadataBase: new URL("https://shubgupta.vercel.app"),
+  metadataBase: new URL("https://www.shubhamgupta.online"),
   openGraph: {
     title: "Shubham Gupta | Full-Stack Web Developer",
     description:
       "Portfolio of Shubham Gupta – building fast, modern full-stack apps using Next.js, TypeScript, and more.",
-    url: "https://shubgupta.vercel.app",
+    url: "https://www.shubhamgupta.online",
     siteName: "Shubham Gupta Portfolio",
     images: [
       {
-        url: "https://shubgupta.vercel.app/og-image.png",
+        url: "https://www.shubhamgupta.online/og-image.png",
         width: 1200,
         height: 630,
         alt: "Shubham Gupta Portfolio",
@@ -44,7 +44,7 @@ export const metadata = {
     title: "Shubham Gupta | Full-Stack Web Developer",
     description:
       "Explore the portfolio of Shubham Gupta, showcasing projects, skills, and experience in full-stack development.",
-    images: ["https://shubgupta.vercel.app/og-image.png"],
+    images: ["https://www.shubhamgupta.online/og-image.png"],
     creator: "@i_m_shubham45",
   },
 };
