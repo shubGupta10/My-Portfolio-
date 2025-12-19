@@ -3,6 +3,7 @@ import { Space_Grotesk } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
 import ConditionalLayout from "@/components/ConditionalLayout";
+import RegisterSW from "@/components/RegisterSW";
 
 export const metadata = {
   title: "Shubham Gupta | Full-Stack Web Developer | TypeScript & Next.js Projects",
@@ -64,7 +65,10 @@ export default function RootLayout({ children }) {
         className={`${spaceGrotesk.className} min-h-screen bg-background text-foreground antialiased`}
       >
         <Analytics />
-        <ConditionalLayout>{children}</ConditionalLayout>
+        <ConditionalLayout>
+          <RegisterSW/>
+          {children}
+          </ConditionalLayout>
         <Toaster />
       </body>
     </html>
