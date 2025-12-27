@@ -13,7 +13,6 @@ function formatDate(dateString) {
     });
 }
 
-// Helper function to calculate read time
 function calculateReadTime(content) {
     if (!content) return 0;
     const wordsPerMinute = 200;
