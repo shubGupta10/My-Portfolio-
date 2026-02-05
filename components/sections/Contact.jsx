@@ -28,9 +28,9 @@ function Contact() {
 
     const socialLinks = [
         { name: "GitHub", url: "https://github.com/shubGupta10", icon: <Github /> },
-        { name: "LinkedIn", url: "https://www.linkedin.com/in/shubhamgupta-codes", icon: <Linkedin /> },
+        { name: "LinkedIn", url: "https://www.linkedin.com", icon: <Linkedin /> },
         { name: "Twitter", url: "https://x.com/buildwithshub", icon: <Twitter /> },
-        { name: "Peerlist", url: "https://peerlist.io/shubham10", icon: <Peerlist /> },
+        { name: "Peerlist", url: "https://peerlist.io", icon: <Peerlist /> },
     ];
 
     return (
