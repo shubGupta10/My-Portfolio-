@@ -53,7 +53,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
     return (
         <nav className="fixed top-0 z-50 w-full bg-black/40 backdrop-blur-xl border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="flex items-center justify-between h-20">
 
                     {/* Logo */}
@@ -76,7 +76,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95
                   ${isActive
                                             ? "text-white bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-blue-500/40"
                                             : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
@@ -90,9 +90,9 @@ function Navbar({ menuOpen, setMenuOpen }) {
                         {/* Login */}
                         <Link
                             href="/login"
-                            className="ml-2 px-4 py-2 rounded-lg text-sm font-medium text-cyan-300 
-              border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 hover:text-white 
-              hover:border-cyan-400/50 transition-all duration-300 flex items-center gap-2"
+                            className="ml-2 px-4 py-2 rounded-lg text-sm font-bold text-black border border-white
+              bg-white hover:bg-gray-100 shadow-[0_0_15px_rgba(255,255,255,0.2)] 
+              active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
                         >
                             <KeyRound className="w-4 h-4" />
                         </Link>

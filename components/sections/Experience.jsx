@@ -16,41 +16,42 @@ export default function Experience() {
 
     return (
         <ReviewOnScroll>
-            <Section id="experience">
-                <Container>
-                    <h2 className="section-title mb-12 text-center">
-                        Work Experience
-                    </h2>
+            {/* Unified 24py margin alignment */}
+            <Section id="experience" className="py-20 lg:py-24">
+                {/* Unified max-w-7xl alignment container */}
+                <Container className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
+                    
+                    <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16">
+                        {/* Unified mb-0 since parent has mb-16 vertical rhythm spacing */}
+                        <h2 className="section-title text-center lg:text-left mb-6 lg:mb-0">
+                            Work Experience
+                        </h2>
 
-                    {/* Tabs */}
-                    <div className="flex justify-end gap-3 mb-14">
-                        {["fulltime", "freelance"].map((tab) => (
-                            <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`px-6 py-2 rounded-full text-sm font-medium transition cursor-pointer
-                  ${activeTab === tab
-                                        ? "bg-blue-900 text-white"
-                                        : "bg-white/5 text-gray-300 border border-white/10"
-                                    }
-                `}
-                            >
-                                {tab === "fulltime" ? "Full-Time" : "Freelance"}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Vertical Line */}
-                    <div className="relative">
-                        <div className="absolute left-6 w-0.5 h-full bg-white/10 md:left-1/2 md:-translate-x-1/2" />
-
-                        {/* Timeline Cards */}
-                        <div className="space-y-16">
-                            {filteredExperiences.map((exp, index) => (
-                                <ExperienceCard key={exp.id} exp={exp} index={index} />
+                        {/* Vercel-style sleek tabs */}
+                        <div className="flex bg-[#111111]/80 border border-white/10 p-1.5 rounded-xl shadow-lg">
+                            {["fulltime", "freelance"].map((tab) => (
+                                <button
+                                    key={tab}
+                                    onClick={() => setActiveTab(tab)}
+                                    className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer active:scale-95 ${
+                                        activeTab === tab
+                                            ? "bg-white text-black shadow-md"
+                                            : "text-gray-400 hover:text-white hover:bg-white/5"
+                                    }`}
+                                >
+                                    {tab === "fulltime" ? "Full-Time" : "Freelance"}
+                                </button>
                             ))}
                         </div>
                     </div>
+
+                    {/* Vercel styled grid mirroring Projects.jsx strictly */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 w-full">
+                        {filteredExperiences.map((exp) => (
+                            <ExperienceCard key={exp.id} exp={exp} />
+                        ))}
+                    </div>
+
                 </Container>
             </Section>
         </ReviewOnScroll>
