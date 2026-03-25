@@ -146,7 +146,7 @@ function ExperienceDetails() {
                       className="w-full group py-4 rounded-xl flex items-center justify-center gap-3 font-bold bg-white text-black hover:bg-gray-100 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:scale-[1.02] active:scale-95 transition-all text-sm uppercase tracking-wider"
                     >
                       <Globe className="w-4 h-4" />
-                      <span>Company Website</span>
+                      <span>Live URL</span>
                     </a>
                   </div>
                 )}

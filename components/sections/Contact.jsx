@@ -28,25 +28,25 @@ function Contact() {
 
     const socialLinks = [
         { name: "GitHub", url: "https://github.com/shubGupta10", icon: <Github className="w-5 h-5" /> },
-        { name: "LinkedIn", url: "https://www.linkedin.com", icon: <Linkedin className="w-5 h-5" /> },
+        { name: "LinkedIn", url: "https://www.linkedin.com/in/shubhamgupta-codes", icon: <Linkedin className="w-5 h-5" /> },
         { name: "Twitter", url: "https://x.com/buildwithshub", icon: <Twitter className="w-5 h-5" /> },
-        { name: "Peerlist", url: "https://peerlist.io", icon: <Peerlist className="w-5 h-5" /> },
+        { name: "Peerlist", url: "https://peerlist.io/shubham10", icon: <Peerlist className="w-5 h-5" /> },
     ];
 
     return (
         <ReviewOnScroll>
             <Section id="contact" className="py-20 lg:py-24">
                 <Container className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-                    
+
                     <h2 className="section-title mb-16 text-center lg:text-left text-gray-100">Get In Touch</h2>
 
                     {/* Clean 2-column grid: 5 cols for Info, 7 cols for Form (standard premium split) */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
-                        
+
                         {/* ── LEFT SIDE: CLEAN INFO (UNBOXED) ── */}
                         <div className="lg:col-span-5 flex flex-col justify-start">
                             <h3 className="text-3xl font-bold text-white mb-6 tracking-tight">Let's Connect</h3>
-                            
+
                             <p className="text-gray-300 text-lg leading-relaxed mb-12 max-w-md font-light">
                                 I'm always interested in new opportunities and exciting collaborations.
                                 Reach out anytime — I usually reply within a day!

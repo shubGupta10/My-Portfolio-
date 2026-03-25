@@ -57,7 +57,8 @@
             "OpenAI",
             "Pinecone",
             "Upstash Redis"
-        ]
+        ],
+        "liveUrl": "https://www.kaizla.com"
     },
     {
         "id": 3,
@@ -85,7 +86,8 @@
             "LangChain",
             "Gemini AI",
             "Stripe"
-        ]
+        ],
+        "liveUrl": "https://www.buildmycv.ai"
     },
     {
         "id": 4,
@@ -110,6 +112,7 @@
             "MongoDB",
             "JWT",
             "SEO"
-        ]
+        ],
+        "liveUrl": "https://www.biostriveenergies.in"
     }
 ]
