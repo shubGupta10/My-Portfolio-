@@ -37,8 +37,8 @@ export default function ExperienceCard({ exp }) {
         {exp.duration}
       </p>
 
-      <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow font-light relative z-10">
-        {exp.description}
+      <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow font-light relative z-10 line-clamp-3">
+        {Array.isArray(exp.description) ? exp.description.join(" ") : exp.description}
       </p>
 
       <div className="flex flex-wrap gap-2 mb-8 relative z-10">

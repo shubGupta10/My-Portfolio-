@@ -35,7 +35,7 @@ function ProjectDetails() {
   return (
     <ReviewOnScroll>
       <Section id="project-details" className="pt-32 pb-24">
-        <Container>
+        <Container className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* 1. Header Navigation */}
           <button
             onClick={() => router.back()}
@@ -65,14 +65,24 @@ function ProjectDetails() {
             
             {/* Main Article Content (Spans 8 cols) */}
             <div className="lg:col-span-8">
-              <h3 className="text-2xl font-bold text-white mb-6">About the Project</h3>
+              <h3 className="text-2xl font-bold text-gray-100 mb-6 flex items-center gap-3">
+                 <Layers className="w-6 h-6 text-cyan-400" />
+                 About the Project
+              </h3>
               <div className="prose prose-invert prose-lg max-w-none">
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  {project.description}
-                </p>
-                {/* If you had more long-form content in your JSON (like "challenges", "solutions"), 
-                   you would map them here. For now, the description is styled as the lead paragraph.
-                */}
+                <div className="text-gray-300 text-base md:text-lg leading-relaxed mb-10 bg-[#111111]/60 p-8 rounded-[2rem] border border-white/[0.08] shadow-2xl">
+                  {Array.isArray(project.description) ? (
+                    <ul className="list-disc pl-5 space-y-4">
+                      {project.description.map((sentence, index) => (
+                        <li key={index} className="text-gray-300">
+                          {sentence}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{project.description}</p>
+                  )}
+                </div>
               </div>
             </div>
 

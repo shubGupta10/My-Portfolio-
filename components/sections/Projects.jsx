@@ -70,8 +70,8 @@ function Projects() {
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-base leading-relaxed mb-10 flex-grow font-light">
-                                        {project.description}
+                                    <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow font-light line-clamp-3">
+                                        {Array.isArray(project.description) ? project.description.join(" ") : project.description}
                                     </p>
 
                                     {/* ── Subtle Action Link (Vercel Style) ── */}

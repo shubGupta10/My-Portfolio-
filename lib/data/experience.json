@@ -6,13 +6,27 @@
         "company": "HUZL.IN",
         "duration": "June 2025 - Present",
         "status": "Current",
-        "description": "Building and maintaining full-stack features for a freelancer platform. Responsible for frontend interfaces with Next.js and backend APIs with Node.js, plus cloud deployment on AWS.",
+        "description": [
+            "Worked at HUZL, a freelance platform where hirers post jobs and hustlers apply, manage projects, and track work after hiring.",
+            "I built the backend for Hustler Development Program (HDP), a contest feature where users participate in competitions (like photography, development) and win rewards based on rankings. I handled schema design, APIs, and overall contest flow.",
+            "I built the Community and Activity feature where platform activities like hiring, posting projects, following users, and other actions are shown in a feed.",
+            "I implemented follow and unfollow functionality and created a ‘Following’ tab to show activity only from users you follow.",
+            "I faced race condition issues while handling activity counts and updates, and fixed them to ensure data stays correct during concurrent operations.",
+            "I used MongoDB aggregation to fetch and structure activity feed data efficiently even with high activity.",
+            "I worked on a major feature called Session-Based Booking where hustlers can create sessions and hirers can book them.",
+            "I designed the complete database schema for session providers, session types (like 30 mins, 60 mins), availability, and recurring session patterns.",
+            "I added MongoDB transactions in multiple APIs to make sure operations are atomic, so partial or broken data does not get saved when users leave flows incomplete.",
+            "I built logic to list sessions by pairing hustlers and hirers and showing only the latest session per day for each pair.",
+            "I fixed multiple bugs in payment-related flows after integration and improved overall reliability of bookings.",
+            "I also worked on frontend improvements for booking flows and improved the landing page UI with better structure and animations.",
+            "Worked across Next.js, Node.js, MongoDB, and AWS, with more focus on backend logic and data handling."
+        ],
         "technologies": [
             "Next.js",
             "React.js",
             "Node.js",
-            "AWS",
-            "MongoDB"
+            "MongoDB",
+            "AWS"
         ],
         "liveUrl": "https://huzl.in"
     },
@@ -23,10 +37,22 @@
         "company": "Kaiz La",
         "duration": "Sept 2025 - Nov 2025",
         "status": "Completed",
-        "description": "Engineered a TypeScript API for a lead qualification bot, replacing manual forms. Integrated OpenAI/Pinecone for contextual query handling. Used PostgreSQL/Prisma for state management, creating a highly reliable system.",
+        "description": [
+            "Worked with Kaiz La (China-based product) as a freelance developer through a Bangalore client to build their landing page and an AI chatbot experience.",
+            "I built the full landing page for the product and connected it with a chatbot flow through a ‘Talk to Expert’ entry point.",
+            "I built a RAG-based chatbot where users can ask questions about the product and get answers based on company data instead of generic responses.",
+            "I created backend APIs where the admin can upload product data, which is converted into embeddings and stored in a vector database (Pinecone).",
+            "When a user asks a question, the system retrieves relevant context from the vector database and sends it to GPT to generate accurate answers.",
+            "I handled the full backend flow for query processing, context retrieval, and response generation.",
+            "I added a feature where users can schedule a call with a human expert directly from the chatbot.",
+            "I integrated Calendly for scheduling and set up email notifications for both user and company after booking.",
+            "I used PostgreSQL with Prisma to manage structured data and Upstash Redis for caching and improving response speed.",
+            "Worked across frontend, backend, database design, and AI integration using TypeScript and Node.js."
+        ],
         "technologies": [
             "TypeScript",
             "Node.js",
+            "PostgreSQL",
             "Prisma",
             "OpenAI",
             "Pinecone",
@@ -40,14 +66,25 @@
         "company": "DIGNIFY A GIRL LTD",
         "duration": "Nov 2024 - June 2025",
         "status": "Completed",
-        "description": "Worked with the founder to develop BuildMyCV — a Next.js & Firebase-based AI-powered resume builder with LangChain + Gemini AI.",
+        "description": [
+            "Worked directly with the founder to build BuildMyCV, an AI-powered resume platform where users can create, analyze, and improve resumes based on job requirements.",
+            "I built features where users can generate resumes using AI and edit them through an interactive interface.",
+            "I developed a feature where users can upload their resume along with a job description, and the system analyzes how well the resume matches the job using AI.",
+            "I built an AI assistant that helps users understand their resume, gives suggestions on what to improve, and answers questions based on their profile.",
+            "I implemented a job recommendation system where AI suggests relevant jobs from a pool of listings based on the user’s resume.",
+            "I worked on AI flows using LangChain and Gemini AI to generate structured outputs for resume content and analysis.",
+            "I integrated Stripe payments to support subscription-based access and premium features.",
+            "I handled both frontend and backend development using Next.js and Node.js, and used Firebase for storing user data and resume-related information.",
+            "Worked across the full stack to connect AI features, payments, and user workflows into a single product."
+        ],
         "technologies": [
             "Next.js",
             "Node.js",
             "TypeScript",
             "Firebase",
             "LangChain",
-            "Gemini AI"
+            "Gemini AI",
+            "Stripe"
         ]
     },
     {
@@ -57,13 +94,21 @@
         "company": "Biostrive Energies",
         "duration": "May 2024 - Nov 2024",
         "status": "Completed",
-        "description": "Developed web platform using Next.js and MongoDB. Built secure authentication, SEO optimization, caching, and a dynamic admin panel.",
+        "description": [
+            "Worked as a freelance full stack developer to build the company’s web platform and landing page from scratch.",
+            "I developed a responsive landing page to present the company’s vision, projects, and information clearly.",
+            "I built a notice system where admins can create, edit, and delete notices, and users can view them on a dedicated notice page.",
+            "I developed an admin panel to manage notices and basic user-related operations.",
+            "I implemented authentication and authorization using JWT to secure admin actions.",
+            "I worked on SEO improvements and performance optimizations to improve page load speed and visibility.",
+            "I used caching techniques to reduce server load and improve response times.",
+            "Worked across frontend and backend using Next.js, Node.js, and MongoDB to deliver a complete working platform."
+        ],
         "technologies": [
             "Next.js",
             "Node.js",
             "MongoDB",
             "JWT",
-            "Admin Panel",
             "SEO"
         ]
     }

@@ -1,7 +1,17 @@
 [
     {
         "title": "PostMyGig - Freelance Gig Sharing Platform",
-        "description": "A platform where freelancers can post excess gigs they can’t handle, allowing other freelancers to pick them up. It features real-time chat, gig discovery, and a feedback system.",
+        "description": [
+            "Built a platform where freelancers can post extra work they can’t handle and other freelancers can discover and take those gigs.",
+            "I designed the full flow where a freelancer posts a gig, other users browse and apply, and the owner can shortlist and connect with them.",
+            "I built a real-time chat system using WebSockets (Socket.IO) with a separate Node.js backend, allowing freelancers to communicate instantly.",
+            "I handled chat events, connections, and messaging flow between users in real time.",
+            "I built a Community and Activity feature to show platform activity like users posting gigs, hiring, and interacting, helping build trust and engagement.",
+            "I implemented email notifications using Resend for user actions like applications and interactions.",
+            "I developed both frontend and backend using Next.js and Node.js, and designed database structure using MongoDB.",
+            "I used Redis to improve performance and speed up frequently accessed data.",
+            "Worked across the full stack to connect gig posting, real-time chat, activity tracking, and notifications into a single platform."
+        ],
         "technologies": [
             "Next.js",
             "Node.js",
@@ -18,7 +28,19 @@
     },
     {
         "title": "CodeX - Cloud IDE",
-        "description": "A flexible cloud-powered IDE similar to Replit, using Monaco Editor, AI-powered code tools, a code converter, and seamless file control powered by Supabase.",
+        "description": [
+            "Built a cloud-based IDE similar to Replit where users can write, edit, and run code directly in the browser.",
+            "I integrated Monaco Editor to provide a VS Code-like coding experience with syntax highlighting and multi-language support.",
+            "I implemented code execution using Piston API, allowing users to run code securely in multiple languages.",
+            "I built a file management system using Supabase where users can create, edit, and manage project files.",
+            "I developed an AI code assistant that helps users debug code, suggest improvements, and understand code using file context.",
+            "I added AI-based code suggestions and autocomplete that adapts based on the current code.",
+            "I built a code converter feature that translates code between different programming languages while keeping functionality intact.",
+            "I implemented rate limiting using Redis and MongoDB to control API usage and prevent abuse.",
+            "I used Redis for caching to improve performance and reduce repeated API calls.",
+            "I handled both frontend and backend using Next.js API routes and managed state using Zustand.",
+            "I focused on building a smooth and responsive UI using Tailwind CSS and Shadcn components."
+        ],
         "technologies": [
             "Next.js",
             "TypeScript",
@@ -36,7 +58,18 @@
     },
     {
         "title": "BuildMyCV - AI Resume Builder",
-        "description": "An AI-powered resume builder with ATS support, role-based suggestions, job analysis, and smart recommendations to help job seekers create strong resumes.",
+        "description": [
+            "Built BuildMyCV as a personal project, which was later acquired and extended in collaboration with the owner of Dignify A Girl.",
+            "Initially developed core features including AI resume builder, job description analysis, and an AI assistant to help users improve their resumes.",
+            "I built a resume builder where users can generate and edit resumes using AI in an interactive interface.",
+            "I implemented a feature where users can upload their resume along with a job description, and the system analyzes how well the resume matches the job.",
+            "I built an AI assistant that answers questions based on the user’s resume and suggests improvements.",
+            "After the project was taken forward, I worked on adding more features like job recommendations based on user profiles.",
+            "I integrated Stripe payments to support subscription-based access and premium features.",
+            "I worked on AI flows using LangChain and Gemini AI to generate structured outputs for resumes and analysis.",
+            "I used Firebase for storing user data and resume-related information and handled both frontend and backend using Next.js and Node.js.",
+            "Worked across the full stack to connect AI features, payments, and user workflows into a complete product."
+        ],
         "technologies": [
             "Next.js",
             "TypeScript",
@@ -45,7 +78,8 @@
             "Gemini AI",
             "Shadcn",
             "Tailwind CSS",
-            "Clerk"
+            "Clerk",
+            "Stripe"
         ],
         "image": "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fbuildmycv-new-img.png?alt=media",
         "liveLink": "https://buildmycv.ai",
@@ -54,7 +88,16 @@
     },
     {
         "title": "Interview Buddy - AI Interview Prep",
-        "description": "An AI-driven interview preparation tool with role-specific questions, difficulty control, detailed answers, and language-based practice for multiple interview rounds.",
+        "description": [
+            "Built an AI-powered interview preparation platform where users can practice different types of interview questions based on role and difficulty.",
+            "I developed a system where users can generate role-specific questions (e.g., frontend, backend, system design) with adjustable difficulty levels.",
+            "I built support for multiple interview types including technical, behavioral, and HR rounds.",
+            "I implemented AI-generated answers with structured explanations to help users understand concepts clearly.",
+            "I added support for multiple programming languages, allowing users to practice language-specific questions.",
+            "I designed the UI to provide a smooth flow between different interview rounds and questions.",
+            "I worked on AI flows using LangChain and Gemini AI to generate relevant questions and detailed responses.",
+            "I focused on building a clean and interactive interface using Next.js, Tailwind CSS, and Shadcn components."
+        ],
         "technologies": [
             "Next.js",
             "TypeScript",
