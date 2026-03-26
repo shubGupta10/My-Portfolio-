@@ -57,7 +57,7 @@ function Home() {
                 </a>
 
                 <a
-                  href="/Shubham_Gupta_Resume.pdf"
+                  href="/Shubham_New_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-4 rounded-xl text-center transition-all bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 active:scale-95 text-lg text-white font-medium"
