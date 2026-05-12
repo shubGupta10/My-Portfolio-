@@ -3,12 +3,26 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, KeyRound } from "lucide-react";
+import { Menu, X, Calendar } from "lucide-react";
+import { getCalApi } from "@calcom/embed-react";
 
 function Navbar({ menuOpen, setMenuOpen }) {
     const [activeLink, setActiveLink] = useState("home");
     const pathname = usePathname();
     const isHome = pathname === "/";
+
+    useEffect(() => {
+        const initCal = async () => {
+            const cal = await getCalApi();
+            cal("ui", {
+                theme: "dark",
+                styles: { branding: { brandColor: "#ffffff" } },
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+        };
+        initCal();
+    }, []);
 
     const navLinks = isHome
         ? [
@@ -87,15 +101,17 @@ function Navbar({ menuOpen, setMenuOpen }) {
                             );
                         })}
 
-                        {/* Login */}
-                        <Link
-                            href="/login"
+                        {/* Book a Call */}
+                        <button
+                            data-cal-link="shubham-gupta-1012"
+                            data-cal-config='{"layout":"month_view"}'
                             className="ml-2 px-4 py-2 rounded-lg text-sm font-bold text-black border border-white
               bg-white hover:bg-gray-100 shadow-[0_0_15px_rgba(255,255,255,0.2)] 
-              active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
+              active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                         >
-                            <KeyRound className="w-4 h-4" />
-                        </Link>
+                            <Calendar className="w-4 h-4" />
+                            <span>Book Call</span>
+                        </button>
                     </div>
 
                     {/* Mobile Menu */}

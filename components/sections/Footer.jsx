@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Heart } from "lucide-react";
 
 function Footer() {
@@ -8,7 +9,7 @@ function Footer() {
         <footer className="mt-20 border-t border-white/10 bg-black/40 backdrop-blur-lg">
             <div className="max-w-7xl mx-auto px-6 py-10 text-center">
                 <p className="text-gray-300 text-sm flex items-center justify-center gap-1">
-                    © {new Date().getFullYear()} Made with 
+                    <Link href="/login" className="cursor-default">©</Link> {new Date().getFullYear()} Made with 
                     <Heart className="w-4 h-4 text-red-400 animate-pulse" /> 
                     by <span className="font-semibold text-white">Shubham Gupta</span>
                 </p>

@@ -1,15 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import ReviewOnScroll from "../ReviewOnScroll";
 import Section from "../ui/Section";
 import Container from "../ui/Container";
 import { toast } from "sonner";
 import emailjs from "emailjs-com";
-import { Github, Linkedin, Mail, Twitter, MapPin, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter, MapPin, Send, Calendar, Clock } from "lucide-react";
 import { Peerlist } from "@/lib/icon";
 
 function Contact() {
+
+    useEffect(() => {
+        const scheduleCall = async () => {
+            const cal = await getCalApi();
+            cal("ui", {
+                theme: "dark",
+                styles: { branding: { brandColor: "ffffff"}},
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            })
+        }
+        scheduleCall()
+    },[])
+
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
     const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
@@ -51,6 +66,28 @@ function Contact() {
                                 I'm always interested in new opportunities and exciting collaborations.
                                 Reach out anytime — I usually reply within a day!
                             </p>
+
+                            <div className="mb-12">
+                                <span className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold block mb-4">Book a meeting</span>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <button
+                                        data-cal-link="shubham-gupta-1012/15min"
+                                        data-cal-config='{"layout":"month_view"}'
+                                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 hover:border-blue-500/30 transition-all cursor-pointer"
+                                    >
+                                        <Clock className="w-5 h-5 text-gray-400" />
+                                        <span>15 min Call</span>
+                                    </button>
+                                    <button
+                                        data-cal-link="shubham-gupta-1012/30min"
+                                        data-cal-config='{"layout":"month_view"}'
+                                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 hover:border-blue-500/30 transition-all cursor-pointer"
+                                    >
+                                        <Calendar className="w-5 h-5 text-blue-400" />
+                                        <span>30 min Call</span>
+                                    </button>
+                                </div>
+                            </div>
 
                             <div className="space-y-10 mb-12">
                                 {/* Email Row: Icon perfectly flush left */}
