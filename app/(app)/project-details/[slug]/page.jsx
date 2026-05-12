@@ -35,24 +35,24 @@ function ProjectDetails() {
   return (
     <ReviewOnScroll>
       <Section id="project-details" className="pt-32 pb-24">
-        <Container className="max-w-7xl mx-auto px-6 lg:px-12">
+        <Container className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           {/* 1. Header Navigation */}
           <button
             onClick={() => router.back()}
-            className="mb-12 text-gray-400 hover:text-blue-400 flex items-center gap-2 transition-colors text-sm uppercase tracking-wider font-medium cursor-pointer"
+            className="mb-12 text-muted-foreground hover:text-foreground flex items-center gap-2 transition-colors text-sm uppercase tracking-wider font-medium cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Projects
           </button>
 
           {/* 2. Blog-Style Header */}
           <div className="max-w-4xl mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
               {project.title}
             </h1>
           </div>
 
           {/* 3. Hero Image (Wide & Clean) */}
-          <div className="w-full aspect-video rounded-2xl overflow-hidden border border-white/10 mb-16 bg-black/30 relative shadow-[0_8px_32px_0_rgba(0,0,0,0.6)]">
+          <div className="w-full aspect-video rounded-2xl overflow-hidden border border-border mb-16 bg-card relative shadow-sm">
             <img
               src={project.image}
               alt={project.title}
@@ -65,16 +65,16 @@ function ProjectDetails() {
             
             {/* Main Article Content (Spans 8 cols) */}
             <div className="lg:col-span-8">
-              <h3 className="text-2xl font-bold text-gray-100 mb-6 flex items-center gap-3">
-                 <Layers className="w-6 h-6 text-cyan-400" />
+              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                 <Layers className="w-6 h-6 text-primary" />
                  About the Project
               </h3>
               <div className="prose prose-invert prose-lg max-w-none">
-                <div className="text-gray-300 text-base md:text-lg leading-relaxed mb-10 bg-[#111111]/60 p-8 rounded-[2rem] border border-white/[0.08] shadow-2xl">
+                <div className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 bg-card p-8 rounded-[2rem] border border-border">
                   {Array.isArray(project.description) ? (
                     <ul className="list-disc pl-5 space-y-4">
                       {project.description.map((sentence, index) => (
-                        <li key={index} className="text-gray-300">
+                        <li key={index} className="text-muted-foreground">
                           {sentence}
                         </li>
                       ))}
@@ -90,8 +90,8 @@ function ProjectDetails() {
             <div className="lg:col-span-4 space-y-10">
               
               {/* Links Box */}
-              <div className="p-6 rounded-2xl border border-white/10 glass-card">
-                <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">
+              <div className="p-6 rounded-[2rem] border border-border bg-card">
+                <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-6">
                   Project Links
                 </h4>
                 <div className="flex flex-col gap-4">
@@ -99,9 +99,9 @@ function ProjectDetails() {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary flex items-center justify-between w-full p-4 rounded-xl group"
+                    className="flex items-center justify-between w-full p-4 rounded-xl group bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity"
                   >
-                    <span className="flex items-center gap-3 font-medium">
+                    <span className="flex items-center gap-3">
                       <Globe className="w-5 h-5" />
                       Live Demo
                     </span>
@@ -112,11 +112,11 @@ function ProjectDetails() {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`btn-secondary flex items-center justify-between w-full p-4 rounded-xl group ${
+                    className={`flex items-center justify-between w-full p-4 rounded-xl group bg-secondary text-secondary-foreground font-bold hover:bg-secondary/80 transition-colors ${
                         project.githubLink === "#" ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
                     }`}
                   >
-                    <span className="flex items-center gap-3 font-medium">
+                    <span className="flex items-center gap-3">
                       <Github className="w-5 h-5" />
                       Source Code
                     </span>
@@ -126,15 +126,15 @@ function ProjectDetails() {
               </div>
 
               {/* Tech Stack List */}
-              <div>
-                <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+              <div className="p-6 rounded-[2rem] border border-border bg-card">
+                <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-6 flex items-center gap-2">
                   <Layers className="w-4 h-4" /> Technologies
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="badge-skill"
+                      className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs font-semibold hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
                     >
                       {tech}
                     </span>

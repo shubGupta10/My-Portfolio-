@@ -4,6 +4,7 @@ import Section from "../ui/Section";
 import Container from "../ui/Container";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import HoverGlow from "../ui/HoverGlow";
 
 function Projects() {
     const router = useRouter();
@@ -40,48 +41,47 @@ function Projects() {
 
     return (
         <ReviewOnScroll>
-            <Section id="projects" className="py-20 lg:py-24">
-                <Container className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
+            <Section id="projects">
+                <Container className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                     
-                    {/* Aligned with the exact left-aligned spacing structure established in About/Hero */}
-                    <h2 className="section-title mb-16 text-center lg:text-left">Featured Projects</h2>
+                    <h2 className="text-3xl font-bold text-foreground mb-12 text-center lg:text-left">Featured Projects</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
                         {projects.map((project, index) => (
                             <div
                                 key={index}
                                 onClick={() => router.push(project.link)}
-                                className="group relative flex flex-col w-full rounded-2xl bg-[#111111]/60 border border-white/[0.08] overflow-hidden cursor-pointer hover:bg-[#161616] hover:border-white/20 active:scale-[0.98] transition-all duration-500 shadow-2xl"
+                                className="group relative flex flex-col w-full rounded-2xl bg-card border border-border overflow-hidden cursor-pointer hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50 active:scale-[0.98] transition-all duration-300"
                             >
+                                <HoverGlow />
                                 {/* ── Image Section ── */}
-                                <div className="relative w-full h-64 overflow-hidden border-b border-white/[0.05]">
-                                    <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
+                                <div className="relative w-full h-64 overflow-hidden border-b border-border">
+                                    <div className="absolute inset-0 bg-background/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
                                         loading="lazy"
                                     />
                                 </div>
 
                                 {/* ── Content Section ── */}
                                 <div className="p-8 flex flex-col flex-grow relative">
-                                    <h3 className="text-2xl font-bold text-gray-100 mb-3 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight group-hover:text-primary transition-colors duration-300">
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-base leading-relaxed mb-8 flex-grow font-light line-clamp-3">
+                                    <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-grow font-light line-clamp-3">
                                         {Array.isArray(project.description) ? project.description.join(" ") : project.description}
                                     </p>
 
-                                    {/* ── Subtle Action Link (Vercel Style) ── */}
-                                    <div className="mt-auto pt-5 flex items-center justify-between border-t border-white/[0.04] group-hover:border-white/10 transition-colors duration-300">
-                                        <span className="text-sm font-semibold text-gray-400 group-hover:text-white transition-colors duration-300">
+                                    {/* ── Subtle Action Link ── */}
+                                    <div className="mt-auto pt-5 flex items-center justify-between border-t border-border transition-colors duration-300">
+                                        <span className="text-sm font-semibold text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                                             Open Project
                                         </span>
-                                        <div className="w-8 h-8 rounded-full bg-white/5 flex flex-col items-center justify-center group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-all duration-300 text-gray-400">
-                                            {/* Diagonal arrow rotates to straight right on hover to signal entry */}
-                                            <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                                        <div className="w-8 h-8 rounded-full bg-secondary flex flex-col items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 text-muted-foreground">
+                                            <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                                         </div>
                                     </div>
                                 </div>

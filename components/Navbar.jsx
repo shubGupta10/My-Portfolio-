@@ -66,14 +66,14 @@ function Navbar({ menuOpen, setMenuOpen }) {
     }, [isHome]);
 
     return (
-        <nav className="fixed top-0 z-50 w-full bg-black/40 backdrop-blur-xl border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <nav className="fixed top-0 z-50 w-full bg-background border-b border-border">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex items-center justify-between h-20">
 
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="text-xl font-semibold tracking-wide bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent hover:opacity-90 transition-all cursor-pointer"
+                        className="text-xl font-bold tracking-wide text-foreground hover:text-muted-foreground transition-colors cursor-pointer"
                     >
                         SHUBHAM
                     </Link>
@@ -90,10 +90,10 @@ function Navbar({ menuOpen, setMenuOpen }) {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95 border
                   ${isActive
-                                            ? "text-white bg-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.3)] border border-blue-500/40"
-                                            : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
+                                            ? "text-foreground bg-accent border-border"
+                                            : "text-muted-foreground hover:text-foreground hover:bg-accent border-transparent"
                                         }`}
                                 >
                                     {link.label}
@@ -105,9 +105,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
                         <button
                             data-cal-link="shubham-gupta-1012"
                             data-cal-config='{"layout":"month_view"}'
-                            className="ml-2 px-4 py-2 rounded-lg text-sm font-bold text-black border border-white
-              bg-white hover:bg-gray-100 shadow-[0_0_15px_rgba(255,255,255,0.2)] 
-              active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                            className="ml-2 px-4 py-2 rounded-lg text-sm font-bold bg-primary text-primary-foreground hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                         >
                             <Calendar className="w-4 h-4" />
                             <span>Book Call</span>
@@ -116,7 +114,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
                     {/* Mobile Menu */}
                     <button
-                        className="md:hidden p-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-md transition"
+                        className="md:hidden p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition"
                         onClick={() => setMenuOpen((prev) => !prev)}
                     >
                         {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
