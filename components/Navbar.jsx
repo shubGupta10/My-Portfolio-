@@ -5,8 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Calendar } from "lucide-react";
 import { getCalApi } from "@calcom/embed-react";
+import Magnetic from "@/components/ui/Magnetic";
 
-function Navbar({ menuOpen, setMenuOpen }) {
+function Navbar() {
     const [activeLink, setActiveLink] = useState("home");
     const pathname = usePathname();
     const isHome = pathname === "/";
@@ -24,28 +25,22 @@ function Navbar({ menuOpen, setMenuOpen }) {
         initCal();
     }, []);
 
-    const navLinks = isHome
-        ? [
-            { href: "#experience", label: "Experience" },
-            { href: "#projects", label: "Projects" },
-            { href: "/blog", label: "Blog", isRoute: true },
-            { href: "#contact", label: "Contact" },
-        ]
-        : [
-            { href: "/", label: "Home", isRoute: true },
-            { href: "/blog", label: "Blog", isRoute: true },
-        ];
+    const navLinks = [
+        { href: isHome ? "#home" : "/", label: "Home", isRoute: !isHome },
+        { href: "/about", label: "About", isRoute: true },
+        { href: isHome ? "#experience" : "/#experience", label: "Experience", isRoute: false },
+        { href: "/services", label: "Services", isRoute: true },
+        { href: "/blog", label: "Blog", isRoute: true },
+        { href: "/contact", label: "Contact", isRoute: true },
+    ];
 
-    // Disable scroll locking on other pages
-    useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : "";
-    }, [menuOpen]);
+
 
     useEffect(() => {
         if (!isHome) return;
 
         const handleScroll = () => {
-            const sections = ["about", "experience", "projects", "contact"];
+            const sections = ["home", "experience", "projects"];
             const scrollPosition = window.scrollY + 120;
 
             for (const id of sections) {
@@ -66,20 +61,14 @@ function Navbar({ menuOpen, setMenuOpen }) {
     }, [isHome]);
 
     return (
-        <nav className="fixed top-0 z-50 w-full bg-background border-b border-border">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-                <div className="flex items-center justify-between h-20">
-
-                    {/* Logo */}
-                    <Link
-                        href="/"
-                        className="text-xl font-bold tracking-wide text-foreground hover:text-muted-foreground transition-colors cursor-pointer"
-                    >
-                        SHUBHAM
-                    </Link>
-
-                    {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-2">
+        <nav className="w-full pt-8 sm:pt-12 pb-6 sm:pb-10">
+            <div className="max-w-2xl mx-auto px-5 sm:px-8">
+                
+                {/* Container for Desktop & Mobile */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-4">
+                    
+                    {/* Links Row */}
+                    <div className="flex flex-row flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-3">
                         {navLinks.map((link) => {
                             const isActive =
                                 link.isRoute
@@ -90,35 +79,31 @@ function Navbar({ menuOpen, setMenuOpen }) {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95 border
-                  ${isActive
-                                            ? "text-foreground bg-accent border-border"
-                                            : "text-muted-foreground hover:text-foreground hover:bg-accent border-transparent"
+                                    className={`relative text-[15px] sm:text-[16px] transition-colors duration-300 tracking-tight group/nav pb-1
+                                        ${isActive 
+                                            ? "text-foreground font-bold" 
+                                            : "text-muted-foreground hover:text-foreground font-medium"
                                         }`}
                                 >
                                     {link.label}
+                                    <span className={`absolute left-0 bottom-0 w-full h-[1.5px] bg-foreground transition-transform duration-300 origin-left ${isActive ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"}`}></span>
                                 </Link>
                             );
                         })}
-
-                        {/* Book a Call */}
-                        <button
-                            data-cal-link="shubham-gupta-1012"
-                            data-cal-config='{"layout":"month_view"}'
-                            className="ml-2 px-4 py-2 rounded-lg text-sm font-bold bg-primary text-primary-foreground hover:opacity-90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                            <Calendar className="w-4 h-4" />
-                            <span>Book Call</span>
-                        </button>
                     </div>
 
-                    {/* Mobile Menu */}
-                    <button
-                        className="md:hidden p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition"
-                        onClick={() => setMenuOpen((prev) => !prev)}
-                    >
-                        {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                    </button>
+                    {/* Book a Call Button (Replacing Time Badge position) */}
+                    <div className="w-fit">
+                        <Magnetic intensity={0.15}>
+                            <button
+                                data-cal-link="shubham-gupta-1012"
+                                data-cal-config='{"layout":"month_view"}'
+                                className="px-3 py-1.5 rounded-md text-[13px] font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                            >
+                                <span>Book Call</span>
+                            </button>
+                        </Magnetic>
+                    </div>
 
                 </div>
             </div>

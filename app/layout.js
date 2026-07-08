@@ -62,14 +62,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.className} min-h-screen bg-background text-foreground antialiased`}
+        className={`${spaceGrotesk.className} min-h-screen bg-background text-foreground antialiased relative`}
       >
-        <Analytics />
-        <ConditionalLayout>
-          <RegisterSW/>
-          {children}
+        <div className="relative z-0">
+          <Analytics />
+          <ConditionalLayout>
+            <RegisterSW/>
+            {children}
           </ConditionalLayout>
-        <Toaster />
+          <Toaster />
+        </div>
       </body>
     </html>
   );

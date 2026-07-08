@@ -4,11 +4,27 @@ import React, { useState } from "react";
 import ReviewOnScroll from "../ReviewOnScroll";
 import Section from "../ui/Section";
 import Container from "../ui/Container";
+import { Briefcase } from "lucide-react";
 import experiencesData from "../../lib/data/experience.json";
-import ExperienceCard from "../ExperienceCard";
+import ExperienceItem from "../ExperienceItem";
 
 export default function Experience() {
     const [activeTab, setActiveTab] = useState("fulltime");
+    const [expandedId, setExpandedId] = useState(
+        experiencesData.find(exp => exp.type === "fulltime")?.id || null
+    );
+
+    const handleTabChange = (tab) => {
+        setActiveTab(tab);
+        const firstItemInTab = experiencesData.find(exp => exp.type === tab);
+        if (firstItemInTab) {
+            setExpandedId(firstItemInTab.id);
+        }
+    };
+
+    const toggleExpand = (id) => {
+        setExpandedId(expandedId === id ? null : id);
+    };
 
     const filteredExperiences = experiencesData.filter(
         (exp) => exp.type === activeTab
@@ -17,23 +33,24 @@ export default function Experience() {
     return (
         <ReviewOnScroll>
             <Section id="experience">
-                <Container className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-                    
-                    <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-12">
-                        <h2 className="text-3xl font-bold text-foreground text-center lg:text-left mb-6 lg:mb-0">
-                            Work Experience
-                        </h2>
+                <div className="relative z-10 w-full">
 
-                        <div className="flex bg-secondary border border-border p-1 rounded-xl">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6">
+                        <div className="mb-6 sm:mb-0">
+                            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground text-left flex items-center gap-2">
+                                Work Experience <span className="text-[0.85em]">💼</span>
+                            </h2>
+                        </div>
+
+                        <div className="flex w-full sm:w-auto bg-secondary border border-border p-1 rounded-xl">
                             {["fulltime", "freelance"].map((tab) => (
                                 <button
                                     key={tab}
-                                    onClick={() => setActiveTab(tab)}
-                                    className={`px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer active:scale-95 ${
-                                        activeTab === tab
-                                            ? "bg-background text-foreground shadow-sm border border-border"
-                                            : "text-muted-foreground hover:text-foreground border border-transparent"
-                                    }`}
+                                    onClick={() => handleTabChange(tab)}
+                                    className={`flex-1 sm:flex-none px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-300 cursor-pointer active:scale-95 ${activeTab === tab
+                                        ? "bg-foreground text-background shadow-sm border border-border"
+                                        : "text-muted-foreground hover:text-foreground border border-transparent"
+                                        }`}
                                 >
                                     {tab === "fulltime" ? "Full-Time" : "Freelance"}
                                 </button>
@@ -41,13 +58,18 @@ export default function Experience() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 w-full">
+                    <div className="flex flex-col w-full">
                         {filteredExperiences.map((exp) => (
-                            <ExperienceCard key={exp.id} exp={exp} />
+                            <ExperienceItem
+                                key={exp.id}
+                                exp={exp}
+                                isExpanded={expandedId === exp.id}
+                                onToggle={() => toggleExpand(exp.id)}
+                            />
                         ))}
                     </div>
 
-                </Container>
+                </div>
             </Section>
         </ReviewOnScroll>
     );

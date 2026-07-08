@@ -1,7 +1,7 @@
 import { fetchPublishedBlogs } from "@/lib/actions";
 import Link from "next/link";
-import Image from "next/image";
 import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
 
 // Helper function to format date
 function formatDate(dateString) {
@@ -41,105 +41,73 @@ export default async function BlogPage() {
     const blogs = await fetchPublishedBlogs();
 
     return (
-        <div className="min-h-screen relative" style={{ backgroundImage: "url('/backgroundImage2.png')" }}>
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/50"></div>
-
-            {/* Gradient orbs for visual interest */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"></div>
-            </div>
-
-            <Container className="relative z-10 py-16 md:py-24">
+        <div className="w-full">
+            <Section className="!pt-6 md:!pt-8">
+                <Container>
                 {/* Heading */}
                 <div className="mb-16">
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent mb-4 tracking-tight">
-                        Blog
+                    <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-4 flex items-center gap-2">
+                        Writing <span className="text-[0.85em]">✍️</span>
                     </h1>
-                    <p className="text-gray-400 text-lg md:text-xl">
-                        Latest dev content, tutorials & tech thoughts
+                    <p className="text-muted-foreground text-[16px] sm:text-[18px] font-normal">
+                        Thoughts, tutorials, and insights on software development.
                     </p>
                 </div>
 
-                {/* Blog Cards Grid */}
+                {/* Blog List */}
                 {blogs?.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="flex flex-col gap-12">
                         {blogs.map((blog) => {
                             const readTime = calculateReadTime(blog.content || "");
                             const excerpt = getExcerpt(blog.content || "");
 
                             return (
-                                <Link
-                                    key={blog.id}
-                                    href={`/blog/${blog.slug}`}
-                                    className="group block"
-                                >
-                                    <article className="h-full bg-white/8 backdrop-blur-md border border-white/15 rounded-xl overflow-hidden hover:bg-white/12 hover:border-white/25 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300">
-                                        {/* Image */}
-                                        {blog.cover_img && (
-                                            <div className="relative h-48 w-full overflow-hidden">
-                                                <Image
-                                                    src={blog.cover_img}
-                                                    alt={blog.title}
-                                                    fill
-                                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                                            </div>
+                                <article key={blog.id} className="flex flex-col pb-12 border-b border-border last:border-0 group">
+                                    <Link href={`/blog/${blog.slug}`} className="w-fit mb-3">
+                                        <h2 className="text-2xl sm:text-3xl font-bold text-foreground group-hover:text-primary transition-colors underline decoration-border group-hover:decoration-primary underline-offset-[6px]">
+                                            {blog.title}
+                                        </h2>
+                                    </Link>
+
+                                    <div className="text-[14px] font-medium text-muted-foreground mb-5 flex items-center gap-2">
+                                        {blog.created_at && (
+                                            <time>{formatDate(blog.created_at)}</time>
                                         )}
+                                        {readTime > 0 && (
+                                            <>
+                                                <span>|</span>
+                                                <span>{readTime} min read</span>
+                                            </>
+                                        )}
+                                    </div>
 
-                                        {/* Content */}
-                                        <div className="p-5 space-y-3">
-                                            {/* Tags */}
-                                            {blog.tags?.length > 0 && (
-                                                <div className="flex flex-wrap gap-1.5">
-                                                    {blog.tags.slice(0, 2).map((tag) => (
-                                                        <span
-                                                            key={tag}
-                                                            className="text-xs px-2.5 py-1 bg-blue-500/15 border border-blue-400/25 rounded-full text-blue-300 font-medium"
-                                                        >
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            )}
+                                    <p className="text-[16px] text-muted-foreground leading-relaxed mb-6">
+                                        {excerpt}
+                                    </p>
 
-                                            {/* Title */}
-                                            <h2 className="text-xl font-bold text-white line-clamp-2 group-hover:text-blue-400 transition-colors leading-snug">
-                                                {blog.title}
-                                            </h2>
-
-                                            {/* Excerpt */}
-                                            <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
-                                                {excerpt}
-                                            </p>
-
-                                            {/* Footer */}
-                                            <div className="text-gray-500 text-xs flex items-center gap-2 pt-1">
-                                                {blog.created_at && (
-                                                    <time>{formatDate(blog.created_at)}</time>
-                                                )}
-                                                {readTime > 0 && (
-                                                    <>
-                                                        <span className="text-gray-600">•</span>
-                                                        <span>{readTime} min</span>
-                                                    </>
-                                                )}
-                                            </div>
+                                    {blog.tags?.length > 0 && (
+                                        <div className="flex flex-wrap gap-2">
+                                            {blog.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="px-3 py-1.5 text-[12px] font-medium border border-border bg-transparent text-muted-foreground rounded-md"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
                                         </div>
-                                    </article>
-                                </Link>
+                                    )}
+                                </article>
                             );
                         })}
                     </div>
                 ) : (
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-12 text-center">
-                        <p className="text-gray-400 text-lg">No blogs yet.</p>
+                    <div className="py-12">
+                        <p className="text-muted-foreground text-lg">No posts yet. Check back soon!</p>
                     </div>
                 )}
             </Container>
+            </Section>
         </div>
     );
 }

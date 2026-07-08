@@ -33,11 +33,7 @@ export default function LoginPage() {
     };
 
     return (
-        <main 
-            className='relative min-h-screen flex items-center justify-center px-4'
-            style={{ backgroundImage: "url('/backgroundImage2.png')" }}
-        >
-            <div className="absolute inset-0 bg-black/50"></div>
+        <div className="w-full">
             
             <div className='relative z-10 w-full max-w-md'>
                 <div className='bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 backdrop-blur-sm'>
@@ -90,6 +86,6 @@ export default function LoginPage() {
                     </form>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }

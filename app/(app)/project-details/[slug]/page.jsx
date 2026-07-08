@@ -5,8 +5,9 @@ import { useParams, useRouter } from "next/navigation";
 import ReviewOnScroll from "@/components/ReviewOnScroll";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
-import { ArrowLeft, Github, ExternalLink, Globe, Layers } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Globe } from "lucide-react";
 import projectsData from "@/lib/data/project.json";
+import GoBackButton from "@/components/GoBack";
 
 function ProjectDetails() {
   const { slug } = useParams();
@@ -16,138 +17,141 @@ function ProjectDetails() {
 
   if (!project) {
     return (
-      <Section className="min-h-screen flex items-center justify-center">
-        <Container>
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Project Not Found</h2>
-            <button
-              onClick={() => router.back()}
-              className="text-gray-400 hover:text-white flex items-center justify-center gap-2 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" /> Return to Portfolio
-            </button>
-          </div>
-        </Container>
-      </Section>
+      <div
+        className="relative min-h-screen bg-black text-gray-100"
+        style={{ backgroundImage: "url('/backgroundImage2.png')" }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <main className="relative z-10 w-full">
+          <Section className="!pt-6 md:!pt-8">
+            <Container>
+              <div className="py-20">
+                <div className="mb-6">
+                  <GoBackButton label="Return to Portfolio" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-medium text-foreground mb-6">
+                  Project Not Found
+                </h2>
+              </div>
+            </Container>
+          </Section>
+        </main>
+      </div>
     );
   }
 
   return (
-    <ReviewOnScroll>
-      <Section id="project-details" className="pt-32 pb-24">
-        <Container className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          {/* 1. Header Navigation */}
-          <button
-            onClick={() => router.back()}
-            className="mb-12 text-muted-foreground hover:text-foreground flex items-center gap-2 transition-colors text-sm uppercase tracking-wider font-medium cursor-pointer"
-          >
-            <ArrowLeft className="w-4 h-4" /> Back to Projects
-          </button>
+    <div
+      className="relative min-h-screen bg-black text-gray-100"
+      style={{ backgroundImage: "url('/backgroundImage2.png')" }}
+    >
+      <div className="absolute inset-0 bg-black opacity-50"></div>
 
-          {/* 2. Blog-Style Header */}
-          <div className="max-w-4xl mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              {project.title}
-            </h1>
-          </div>
-
-          {/* 3. Hero Image (Wide & Clean) */}
-          <div className="w-full aspect-video rounded-2xl overflow-hidden border border-border mb-16 bg-card relative shadow-sm">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* 4. Content Grid (Article + Sidebar) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-            
-            {/* Main Article Content (Spans 8 cols) */}
-            <div className="lg:col-span-8">
-              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                 <Layers className="w-6 h-6 text-primary" />
-                 About the Project
-              </h3>
-              <div className="prose prose-invert prose-lg max-w-none">
-                <div className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10 bg-card p-8 rounded-[2rem] border border-border">
-                  {Array.isArray(project.description) ? (
-                    <ul className="list-disc pl-5 space-y-4">
-                      {project.description.map((sentence, index) => (
-                        <li key={index} className="text-muted-foreground">
-                          {sentence}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>{project.description}</p>
-                  )}
-                </div>
+      <main className="relative z-10 w-full">
+        <Section id="project-details" className="!pt-6 md:!pt-8">
+          <Container>
+            <ReviewOnScroll>
+              {/* Back Button */}
+              <div className="mb-6">
+                <GoBackButton label="Back to Projects" />
               </div>
-            </div>
 
-            {/* Sidebar Metadata (Spans 4 cols) - Sticky on Desktop */}
-            <div className="lg:col-span-4 space-y-10">
-              
-              {/* Links Box */}
-              <div className="p-6 rounded-[2rem] border border-border bg-card">
-                <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-6">
-                  Project Links
-                </h4>
-                <div className="flex flex-col gap-4">
+              {/* Header */}
+              <div className="mb-12">
+                <h1 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-4">
+                  {project.title}
+                </h1>
+
+                {/* Links */}
+                <div className="flex flex-wrap items-center gap-4 mt-6">
                   <a
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between w-full p-4 rounded-xl group bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    <span className="flex items-center gap-3">
-                      <Globe className="w-5 h-5" />
+                    <Globe className="w-4 h-4" />
+                    <span className="underline decoration-border hover:decoration-foreground underline-offset-4 transition-colors">
                       Live Demo
                     </span>
-                    <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ExternalLink className="w-3 h-3" />
                   </a>
 
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center justify-between w-full p-4 rounded-xl group bg-secondary text-secondary-foreground font-bold hover:bg-secondary/80 transition-colors ${
-                        project.githubLink === "#" ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
-                    }`}
-                  >
-                    <span className="flex items-center gap-3">
-                      <Github className="w-5 h-5" />
-                      Source Code
-                    </span>
-                    <ArrowLeft className="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  {project.githubLink && project.githubLink !== "#" && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span className="underline decoration-border hover:decoration-foreground underline-offset-4 transition-colors">
+                        Source Code
+                      </span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                 </div>
               </div>
 
-              {/* Tech Stack List */}
-              <div className="p-6 rounded-[2rem] border border-border bg-card">
-                <h4 className="text-sm font-bold text-muted-foreground uppercase tracking-widest mb-6 flex items-center gap-2">
-                  <Layers className="w-4 h-4" /> Technologies
-                </h4>
+              {/* Project Image */}
+              {project.image && (
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-12 border border-border">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+
+              <hr className="border-border mb-12" />
+
+              {/* Description */}
+              <div className="mb-12">
+                <h2 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6">
+                  About the Project
+                </h2>
+
+                {Array.isArray(project.description) ? (
+                  <ul className="space-y-4">
+                    {project.description.map((sentence, index) => (
+                      <li
+                        key={index}
+                        className="text-[16px] text-muted-foreground leading-relaxed pl-4 border-l-2 border-border"
+                      >
+                        {sentence}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-[16px] text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                )}
+              </div>
+
+              {/* Tech Stack */}
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6">
+                  Tech Stack
+                </h2>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-xs font-semibold hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
+                      className="px-3 py-1.5 text-[12px] font-medium border border-border bg-transparent text-muted-foreground rounded-md"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-
-            </div>
-          </div>
-
-        </Container>
-      </Section>
-    </ReviewOnScroll>
+            </ReviewOnScroll>
+          </Container>
+        </Section>
+      </main>
+    </div>
   );
 }
 

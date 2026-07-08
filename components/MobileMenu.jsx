@@ -7,20 +7,16 @@ import { usePathname } from 'next/navigation'
 
 function MobileMenu({ menuOpen, setMenuOpen }) {
     const pathname = usePathname();
-    const isLoginPage = pathname === "/login";
+    const isHome = pathname === "/";
 
     const menuLinks = [
-        { href: "#home", label: "Home" },
-        { href: "#about", label: "About" },
-        { href: "#experience", label: "Experience" },
-        { href: "#projects", label: "Projects" },
+        { href: isHome ? "#home" : "/", label: "Home", isRoute: !isHome },
+        { href: "/about", label: "About", isRoute: true },
+        { href: isHome ? "#experience" : "/#experience", label: "Experience", isRoute: false },
+        { href: "/services", label: "Services", isRoute: true },
         { href: "/blog", label: "Blog", isRoute: true },
-        { href: "#contact", label: "Contact" },
+        { href: "/contact", label: "Contact", isRoute: true },
     ];
-
-    const getMenuHref = (href) => {
-        return isLoginPage ? "/" : href;
-    };
 
     return (
         <div className={`fixed top-0 left-0 w-full bg-[rgba(10,10,10,0.8)] z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out 
@@ -34,7 +30,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
             {menuLinks.map((link) => (
                 <Link
                     key={link.href}
-                    href={link.isRoute ? link.href : getMenuHref(link.href)}
+                    href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 >

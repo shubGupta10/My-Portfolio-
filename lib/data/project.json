@@ -21,8 +21,8 @@
             "Socket.IO",
             "MongoDB"
         ],
-        "image": "https://postmygig.xyz/og-image.png",
-        "liveLink": "https://postmygig.xyz",
+        "image": "https://postmygig.vercel.app/og-image.png",
+        "liveLink": "https://postmygig.vercel.app",
         "githubLink": "https://github.com/shubGupta10/postmygig",
         "slug": "postmygig"
     },

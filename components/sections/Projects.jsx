@@ -2,96 +2,82 @@ import React from "react";
 import ReviewOnScroll from "../ReviewOnScroll";
 import Section from "../ui/Section";
 import Container from "../ui/Container";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight, Globe, Github, FolderGit2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import HoverGlow from "../ui/HoverGlow";
+import projectsData from "../../lib/data/project.json";
 
 function Projects() {
     const router = useRouter();
-    const projects = [
-        {
-            title: "PostMyGig - Freelance Gig Sharing Platform",
-            description:
-                "A platform where freelancers can post excess gigs they can’t handle, allowing other freelancers to pick them up. It features real-time chat, gig discovery, and a feedback system.",
-            image: "https://postmygig.xyz/og-image.png",
-            link: "/project-details/postmygig",
-        },
-        {
-            title: "CodeX - Cloud IDE",
-            description:
-                "A flexible cloud-powered IDE similar to Replit, using Monaco Editor, AI-powered code tools, a code converter, and seamless file control powered by Supabase.",
-            image: "/x-codex-pic.avif",
-            link: "/project-details/codex",
-        },
-        {
-            title: "BuildMyCV - AI Resume Builder",
-            description:
-                "An AI-powered resume builder with ATS support, role-based suggestions, job analysis, and smart recommendations to help job seekers create strong resumes.",
-            image: "https://firebasestorage.googleapis.com/v0/b/eduhub-15130.appspot.com/o/MyItems%2Fbuildmycv-new-img.png?alt=media",
-            link: "/project-details/buildmycv",
-        },
-        {
-            title: "Interview Buddy - AI Interview Prep",
-            description: "An AI-driven interview preparation tool with role-specific questions, difficulty control, detailed answers, and language-based practice for multiple interview rounds.",
-            image: "/interviewbuddy.png",
-            link: "/project-details/interviewbuddy",
-            slug: "interviewbuddy"
-        }
-    ];
 
     return (
-        <ReviewOnScroll>
-            <Section id="projects">
-                <Container className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-                    
-                    <h2 className="text-3xl font-bold text-foreground mb-12 text-center lg:text-left">Featured Projects</h2>
+        <Section id="projects">
+            <div className="relative z-10 w-full">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12">
-                        {projects.map((project, index) => (
-                            <div
-                                key={index}
-                                onClick={() => router.push(project.link)}
-                                className="group relative flex flex-col w-full rounded-2xl bg-card border border-border overflow-hidden cursor-pointer hover:-translate-y-1 hover:shadow-xl hover:shadow-black/50 active:scale-[0.98] transition-all duration-300"
-                            >
-                                <HoverGlow />
-                                {/* ── Image Section ── */}
-                                <div className="relative w-full h-64 overflow-hidden border-b border-border">
-                                    <div className="absolute inset-0 bg-background/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
-                                        loading="lazy"
-                                    />
-                                </div>
+                <ReviewOnScroll>
+                    <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                        Projects <span className="text-[0.85em]">🚀</span>
+                    </h2>
+                </ReviewOnScroll>
 
-                                {/* ── Content Section ── */}
-                                <div className="p-8 flex flex-col flex-grow relative">
-                                    <h3 className="text-2xl font-bold text-foreground mb-3 tracking-tight group-hover:text-primary transition-colors duration-300">
-                                        {project.title}
-                                    </h3>
+                <div className="flex flex-col">
+                    {projectsData.map((project, index) => (
+                        <ReviewOnScroll key={index} threshold={0.1}>
+                            <div className="py-5 sm:py-6 border-b border-border/50 group block">
+                                
+                                {/* Header: Title and Links */}
+                                <div className="flex flex-row items-center justify-between gap-2 sm:gap-4 mb-0.5">
+                                    <div
+                                        onClick={() => router.push(`/project-details/${project.slug}`)}
+                                        className="inline-flex items-center gap-1.5 sm:gap-2 cursor-pointer group/title w-fit truncate"
+                                    >
+                                        <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground underline decoration-foreground/40 group-hover/title:decoration-foreground group-hover/title:translate-x-1 transition-all duration-300 underline-offset-4 truncate">
+                                            {project.title.split(" - ")[0]}
+                                        </h3>
+                                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground group-hover/title:text-foreground group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
+                                    </div>
 
-                                    <p className="text-muted-foreground text-base leading-relaxed mb-8 flex-grow font-light line-clamp-3">
-                                        {Array.isArray(project.description) ? project.description.join(" ") : project.description}
-                                    </p>
-
-                                    {/* ── Subtle Action Link ── */}
-                                    <div className="mt-auto pt-5 flex items-center justify-between border-t border-border transition-colors duration-300">
-                                        <span className="text-sm font-semibold text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                                            Open Project
-                                        </span>
-                                        <div className="w-8 h-8 rounded-full bg-secondary flex flex-col items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 text-muted-foreground">
-                                            <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-                                        </div>
+                                    {/* Persistent Links (Right aligned on mobile too) */}
+                                    <div className="flex items-center gap-3 sm:gap-6 flex-shrink-0">
+                                        {project.liveLink && project.liveLink !== "#" && (
+                                            <a
+                                                href={project.liveLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-1.5 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors group/link"
+                                            >
+                                                <Globe className="w-4 h-4" />
+                                                <span className="underline decoration-transparent group-hover/link:decoration-foreground underline-offset-4 transition-colors">
+                                                    Live
+                                                </span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
 
-                </Container>
-            </Section>
-        </ReviewOnScroll>
+                                {/* Description (Concise, 2-3 lines max) */}
+                                <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed max-w-3xl mb-5 mt-4">
+                                    {project.description[0]}
+                                </p>
+
+                                {/* Tech Stack Pills */}
+                                <div className="flex flex-wrap gap-2">
+                                    {project.technologies.slice(0, 3).map((tech, i) => (
+                                        <span 
+                                            key={i} 
+                                            className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-secondary border border-border/50 text-muted-foreground text-[11px] sm:text-xs font-medium"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                            </div>
+                        </ReviewOnScroll>
+                    ))}
+                </div>
+
+            </div>
+        </Section>
     );
 }
 

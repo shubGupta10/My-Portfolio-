@@ -10,6 +10,8 @@ import {
     Building2,
     Calendar,
     Award,
+    Download,
+    User,
 } from "lucide-react";
 
 function About() {
@@ -77,91 +79,99 @@ function About() {
     return (
         <ReviewOnScroll>
             <Section id="about">
-                <Container className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+                <Container className="relative z-10 w-full">
                     
-                    <h2 className="text-3xl font-bold text-foreground mb-12 text-center lg:text-left">About Me</h2>
+                    <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                        About Me <span className="text-[0.85em]">👋</span>
+                    </h2>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-24">
-                        
-                        {/* ── LEFT: Bio Text ── */}
-                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
+                    <div className="flex flex-col gap-10 sm:gap-16 items-start mb-12 sm:mb-20">
+                        {/* Bio Section */}
+                        <div className="flex flex-col items-start text-left w-full">
+                            <h3 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 tracking-tight">
                                 Full stack developer who ships real products
                             </h3>
 
-                            <p className="text-foreground/80 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
-                                I am a full stack developer with 1+ year of experience working on production apps in both full time and freelance roles. I enjoy building SaaS tools, AI powered features, and real time user experiences.
+                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6 w-full">
+                                I am a full stack developer with experience working on production apps in both full-time and freelance roles. I enjoy building SaaS tools, AI-powered features, and real-time user experiences.
                             </p>
                             
-                            <p className="text-foreground/80 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
+                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed w-full">
                                 I like taking ideas to a complete product. I focus on clean UI, smooth flows, and code that stays simple to maintain.
                             </p>
+
+                            <a 
+                                href="/Shubham_New_Resume.pdf" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-bold text-sm rounded-lg hover:opacity-90 transition-opacity"
+                            >
+                                <Download className="w-4 h-4" />
+                                Download Resume
+                            </a>
                         </div>
 
-                        {/* ── RIGHT: Education Timeline ── */}
-                        <div className="relative border-l border-border pl-8 ml-4 lg:ml-0 flex flex-col justify-center gap-12 py-4 w-full max-w-lg mx-auto lg:mx-0">
-                            {educationData.map((edu, i) => (
-                                <div key={i} className="relative group text-left">
-                                    {/* Timeline Dot */}
-                                    <div className="absolute -left-[41px] top-1.5 w-4 h-4 rounded-full bg-background border-2 border-primary"></div>
-                                    
-                                    <div className="flex flex-col mb-3">
-                                        <h4 className="text-xl font-bold text-foreground leading-tight mb-2">
-                                            {edu.title}
-                                        </h4>
-                                        <div className="flex items-center gap-2 text-sm font-medium text-primary">
-                                            <Calendar className="w-4 h-4" />
-                                            {edu.year}
+                        {/* Education Section */}
+                        <div className="flex flex-col w-full">
+                            <h3 className="text-[14px] font-semibold text-muted-foreground uppercase tracking-widest mb-6">
+                                Education
+                            </h3>
+                            <div className="flex flex-col gap-10">
+                                {educationData.map((edu, i) => (
+                                    <div key={i} className="pl-6 border-l-2 border-border text-left">
+                                        
+                                        <div className="flex flex-col mb-3">
+                                            <h4 className="text-lg sm:text-xl font-semibold text-foreground leading-tight mb-2">
+                                                {edu.title}
+                                            </h4>
+                                            <div className="flex items-center gap-2 text-[14px] font-medium text-primary">
+                                                <Calendar className="w-4 h-4" />
+                                                {edu.year}
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="flex items-center gap-2 mb-4 text-foreground/80">
+                                            <Building2 className="w-4 h-4" />
+                                            <span className="text-[16px] font-medium">{edu.institute}</span>
+                                        </div>
+                                        
+                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary/50 text-secondary-foreground text-[14px] font-medium border border-border">
+                                            <Award className="w-4 h-4" />
+                                            CGPA: {edu.cgpa}
                                         </div>
                                     </div>
-                                    
-                                    <div className="flex items-center gap-2 mb-4 text-foreground/80">
-                                        <Building2 className="w-4 h-4" />
-                                        <span className="text-base font-medium">{edu.institute}</span>
-                                    </div>
-                                    
-                                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground text-sm font-medium">
-                                        <Award className="w-4 h-4" />
-                                        CGPA: {edu.cgpa}
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    {/* ── BOTTOM: Tech Stack ── */}
-                    <div className="mt-20">
-                        <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-10 text-center lg:text-left">
+                    <hr className="border-border my-10 sm:my-16" />
+
+                    {/* Tech Stack Section */}
+                    <div>
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 text-left tracking-tight">
                             My Tech Stack
                         </h3>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                            {skillCategories.map((category, idx) => {
-                                const Icon = category.Icon;
-                                return (
-                                    <div key={idx} className="flex flex-col space-y-5 items-center lg:items-start text-center lg:text-left">
-                                        <div className="flex items-center gap-3">
-                                            <div className="p-2 rounded-lg bg-secondary">
-                                                <Icon className="w-5 h-5 text-secondary-foreground" />
-                                            </div>
-                                            <h4 className="text-lg font-semibold text-foreground">
-                                                {category.title}
-                                            </h4>
-                                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
+                            {skillCategories.map((category, idx) => (
+                                <div key={idx} className="flex flex-col items-start text-left">
+                                    <h4 className="text-[14px] font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+                                        {category.title}
+                                    </h4>
 
-                                        <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                                            {category.skills.map((skill, i) => (
-                                                <span
-                                                    key={i}
-                                                    className="px-3 py-1.5 rounded-md bg-secondary text-secondary-foreground text-sm font-medium hover:bg-secondary/80 transition-colors cursor-default"
-                                                >
-                                                    {skill}
-                                                </span>
-                                            ))}
-                                        </div>
+                                    <div className="flex flex-wrap gap-2 justify-start">
+                                        {category.skills.map((skill, i) => (
+                                            <span
+                                                key={i}
+                                                className="px-3 py-1.5 text-[12px] font-medium border border-border bg-transparent text-muted-foreground rounded-md"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
                                     </div>
-                                );
-                            })}
+                                </div>
+                            ))}
                         </div>
                     </div>
 
