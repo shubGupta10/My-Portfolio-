@@ -24,10 +24,8 @@ export default function ExperienceItem({ exp, isExpanded, onToggle }) {
                 {exp.company}
               </h3>
               <ChevronDown
-                className={`w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground transition-all duration-300 ${
-                  isExpanded
-                    ? "rotate-180 opacity-100"
-                    : "opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0"
+                className={`w-4 h-4 text-muted-foreground transition-all duration-300 ${
+                  isExpanded ? "rotate-180" : "rotate-0"
                 }`}
               />
             </div>

@@ -10,16 +10,11 @@ import ExperienceItem from "../ExperienceItem";
 
 export default function Experience() {
     const [activeTab, setActiveTab] = useState("fulltime");
-    const [expandedId, setExpandedId] = useState(
-        experiencesData.find(exp => exp.type === "fulltime")?.id || null
-    );
+    const [expandedId, setExpandedId] = useState(null);
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
-        const firstItemInTab = experiencesData.find(exp => exp.type === tab);
-        if (firstItemInTab) {
-            setExpandedId(firstItemInTab.id);
-        }
+        setExpandedId(null);
     };
 
     const toggleExpand = (id) => {
