@@ -81,22 +81,22 @@ function About() {
             <Section id="about">
                 <Container className="relative z-10 w-full">
                     
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                    <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
                         About Me <span className="text-[0.85em]">👋</span>
                     </h2>
 
                     <div className="flex flex-col gap-10 sm:gap-16 items-start mb-12 sm:mb-20">
                         {/* Bio Section */}
                         <div className="flex flex-col items-start text-left w-full">
-                            <h3 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 tracking-tight">
+                            <h3 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6 tracking-tight">
                                 Full stack developer who ships real products
                             </h3>
 
-                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6 w-full">
+                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-6 w-full">
                                 I am a full stack developer with experience working on production apps in both full-time and freelance roles. I enjoy building SaaS tools, AI-powered features, and real-time user experiences.
                             </p>
                             
-                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed w-full">
+                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed w-full">
                                 I like taking ideas to a complete product. I focus on clean UI, smooth flows, and code that stays simple to maintain.
                             </p>
 
@@ -130,12 +130,12 @@ function About() {
                                             </div>
                                         </div>
                                         
-                                        <div className="flex items-center gap-2 mb-4 text-foreground/80">
+                                        <div className="flex items-center gap-2 mb-4 text-muted-foreground">
                                             <Building2 className="w-4 h-4" />
                                             <span className="text-[16px] font-medium">{edu.institute}</span>
                                         </div>
                                         
-                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary/50 text-secondary-foreground text-[14px] font-medium border border-border">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground text-[14px] font-medium border border-border">
                                             <Award className="w-4 h-4" />
                                             CGPA: {edu.cgpa}
                                         </div>
@@ -149,7 +149,7 @@ function About() {
 
                     {/* Tech Stack Section */}
                     <div>
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground mb-6 text-left tracking-tight">
+                        <h3 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6 text-left tracking-tight">
                             My Tech Stack
                         </h3>
 

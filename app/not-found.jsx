@@ -9,10 +9,10 @@ export default function NotFound() {
                 <Section id="not-found">
                     <Container>
                         <div className="flex flex-col items-center justify-center text-center py-20 sm:py-32">
-                            <h1 className="text-6xl sm:text-8xl font-medium tracking-tight text-foreground mb-4">
+                            <h1 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-4">
                                 404
                             </h1>
-                            <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-6">
+                            <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6">
                                 Page Not Found
                             </h2>
                             <p className="text-muted-foreground text-[16px] sm:text-[18px] mb-12 font-normal leading-relaxed max-w-md">

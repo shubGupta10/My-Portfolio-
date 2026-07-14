@@ -50,7 +50,7 @@ export default function ContactPage() {
                 <Section id="contact-form">
                     <Container>
                         
-                        <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-6">
+                        <h1 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6">
                             Let's talk.
                         </h1>
                         
@@ -58,7 +58,7 @@ export default function ContactPage() {
                             You can reach me directly at{" "}
                             <a 
                                 href="mailto:shubhamkgupta720@gmail.com" 
-                                className="text-foreground underline decoration-border hover:decoration-primary underline-offset-4 transition-colors"
+                                className="text-foreground underline underline-offset-4 transition-colors"
                             >
                                 shubhamkgupta720@gmail.com
                             </a>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                             <button
                                 data-cal-link="shubham-gupta-1012/30min"
                                 data-cal-config='{"layout":"month_view"}'
-                                className="text-foreground underline decoration-border hover:decoration-primary underline-offset-4 transition-colors cursor-pointer"
+                                className="text-foreground underline underline-offset-4 transition-colors cursor-pointer"
                             >
                                 1:1 meeting
                             </button>

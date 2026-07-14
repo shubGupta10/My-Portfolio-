@@ -39,7 +39,7 @@ function Contact() {
                 <ReviewOnScroll>
                     <div className="flex flex-col text-left">
                         
-                        <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                        <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
                             Contact <span className="text-[0.85em]">✉️</span>
                         </h2>
                         

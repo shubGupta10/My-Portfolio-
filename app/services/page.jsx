@@ -111,18 +111,18 @@ export default function ServicesPage() {
     return (
         <div className="w-full">
             <main className="w-full">
-                <Section className="!pt-6 md:!pt-8">
+                <Section>
                     <Container>
 
                         {/* Intro */}
                         <div className="mb-6">
-                            <h1 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6 flex items-center gap-2">
+                            <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6 flex items-center gap-2">
                                 Services <span className="text-[0.85em]">💻</span>
                             </h1>
-                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
+                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-6">
                                 I build web applications from scratch, refactor existing codebases, and help clients launch their products.
                             </p>
-                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed">
+                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed font-normal">
                                 Whether you're starting with just an idea or trying to improve an existing application, I focus on writing clean, maintainable code.
                             </p>
                         </div>
@@ -133,10 +133,10 @@ export default function ServicesPage() {
                         <div className="flex flex-col gap-12 sm:gap-16">
                             {services.map((service, idx) => (
                                 <div key={idx} className="max-w-4xl">
-                                    <h2 className="text-2xl sm:text-3xl font-medium text-foreground tracking-tight mb-6">
+                                    <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
                                         {service.title}
                                     </h2>
-                                    <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-10 max-w-3xl">
+                                    <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-10 max-w-3xl font-normal">
                                         {service.description}
                                     </p>
 
@@ -181,7 +181,7 @@ export default function ServicesPage() {
                                             <h3 className="text-xl font-semibold text-foreground tracking-tight mb-1">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed">
+                                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed font-normal">
                                                 {step.desc}
                                             </p>
                                         </div>
@@ -211,15 +211,15 @@ export default function ServicesPage() {
 
                         {/* Final CTA */}
                         <div className="mb-8">
-                            <h2 className="text-2xl sm:text-3xl font-medium text-foreground tracking-tight mb-6">
+                            <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
                                 Have a project in mind?
                             </h2>
-                            <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-8">
+                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-8 font-normal">
                                 Send me a message about what you're working on. We can discuss the technical requirements, timeline, and pricing.
                             </p>
                             <Link
                                 href="/contact"
-                                className="inline-flex items-center gap-2 text-foreground font-medium text-[15px] sm:text-[16px] underline underline-offset-4 decoration-border hover:decoration-foreground transition-colors"
+                                className="inline-flex items-center gap-2 text-foreground font-medium text-[15px] sm:text-[16px] underline underline-offset-4 transition-colors"
                             >
                                 Get in touch <ArrowRight className="w-4 h-4" />
                             </Link>

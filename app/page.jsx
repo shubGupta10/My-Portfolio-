@@ -2,7 +2,6 @@
 
 import LoadingScreen from '@/components/LoadingScreen';
 import Contact from '@/components/sections/Contact';
-import Experience from '@/components/sections/Experience';
 import Home from '@/components/sections/Home';
 import Projects from '@/components/sections/Projects';
 import Testimonials from '@/components/sections/Testimonials';
@@ -20,8 +19,6 @@ function App() {
         <main className="w-full">
           <Container>
             <Home />
-            <hr className="border-border" />
-            <Experience />
             <hr className="border-border" />
             <Projects />
             <hr className="border-border" />

@@ -1,43 +1,67 @@
 import React from "react";
 import Link from "next/link";
 import ReviewOnScroll from "../ReviewOnScroll";
+import Section from "../ui/Section";
 
 function Home() {
   return (
-    <ReviewOnScroll>
-      <section id="home" className="py-8 relative">
+    <>
+      <ReviewOnScroll>
+        <Section id="home">
+          <div className="relative z-10 w-full flex flex-col items-start text-left">
+            <div className="flex flex-wrap items-center gap-4 mb-4">
+              <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight">
+                Hi, I'm Shubham 👋
+              </h1>
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-green-900 bg-green-900/20 text-green-400">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                </span>
+                <span className="text-[12px] font-medium tracking-wide">
+                  Available for freelance
+                </span>
+              </div>
+            </div>
 
-        <div className="relative z-10 w-full flex flex-col items-start text-left">
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <h1 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight">
-              Hi, I'm Shubham 👋
-            </h1>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-900/50 bg-green-900/20">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-[13px] font-medium tracking-wide text-green-500">
-                Available for freelance
-              </span>
+            <div className="text-[15px] sm:text-[16px] text-foreground leading-relaxed max-w-2xl font-normal space-y-4">
+              <p>
+                I'm a Full Stack Web Developer from India, with 3+ years of coding and 1+ years of professional freelance experience, trying to make the internet a bit cooler one website at a time. You can <Link href="/about" className="font-medium text-foreground transition-colors hover:text-muted-foreground underline underline-offset-4">know more about me</Link>.
+              </p>
+              <p>
+                If you have a project in mind, you can <Link href="/services" className="font-medium text-foreground transition-colors hover:text-muted-foreground underline underline-offset-4">see what I can help with</Link>.
+              </p>
             </div>
           </div>
+        </Section>
+      </ReviewOnScroll>
 
-          <p className="text-[16px] sm:text-[18px] text-muted-foreground leading-relaxed max-w-2xl mb-8 font-normal">
-            I'm a Full Stack Web Developer from India, with <strong className="font-medium text-foreground">3+ years of coding and 1+ years of professional freelance experience</strong>, trying to make the internet a bit cooler one website at a time.
-          </p>
+      <hr className="border-border" />
 
-          <p className="text-[16px] sm:text-[18px] text-muted-foreground">
-            Want to know more about me? <Link href="/about" className="text-foreground font-medium underline underline-offset-4 transition-colors">Know more about me</Link>
-          </p>
-
-          <p className="text-[16px] sm:text-[18px] text-muted-foreground mt-3">
-            Looking for a developer? <Link href="/services" className="text-foreground font-medium underline underline-offset-4 transition-colors">See what I can help with</Link>
-          </p>
-
-        </div>
-      </section>
-    </ReviewOnScroll>
+      <ReviewOnScroll>
+        <Section className="!pt-8 sm:!pt-12 text-left">
+          <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-4">
+            Professional Work
+          </h2>
+          <div className="text-[15px] sm:text-[16px] text-foreground leading-relaxed max-w-3xl font-normal space-y-4">
+            <p>
+              I specialize in building full-stack web applications and AI-powered experiences. Currently, I'm a Full Stack Engineer at
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
+                HUZL.IN
+              </span>
+              where I build complex backend features, community platforms, and handle heavy database architectures.
+            </p>
+            <p>
+              Previously, I worked as a Freelance Developer building AI-powered products, such as a smart resume builder for
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
+                DIGNIFY A GIRL LTD
+              </span>
+              and various other custom web platforms. For more details about my background, check out my <Link href="/experience" className="underline decoration-border hover:decoration-muted-foreground transition-colors font-medium">experience</Link>.
+            </p>
+          </div>
+        </Section>
+      </ReviewOnScroll>
+    </>
   );
 }
 

@@ -42,7 +42,7 @@ export default function Testimonials() {
             <div className="relative z-10 w-full">
                 
                 <ReviewOnScroll>
-                    <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground mb-6 text-left">
+                    <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left">
                         What People Say
                     </h2>
                 </ReviewOnScroll>

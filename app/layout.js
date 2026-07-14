@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Space_Grotesk } from "next/font/google";
+
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
 import ConditionalLayout from "@/components/ConditionalLayout";
@@ -52,9 +52,10 @@ export const metadata = {
   },
 };
 
-const spaceGrotesk = Space_Grotesk({
+import { Inter } from "next/font/google";
+
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -62,8 +63,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.className} min-h-screen bg-background text-foreground antialiased relative`}
+        className={`${inter.className} min-h-screen bg-background text-foreground antialiased relative`}
       >
+        {/* Subtle premium background glow */}
+        <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,255,0.08),rgba(255,255,255,0))]" />
+        
         <div className="relative z-0">
           <Analytics />
           <ConditionalLayout>

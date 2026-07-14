@@ -42,11 +42,11 @@ export default async function BlogPage() {
 
     return (
         <div className="w-full">
-            <Section className="!pt-6 md:!pt-8">
+            <Section>
                 <Container>
                 {/* Heading */}
                 <div className="mb-16">
-                    <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-foreground mb-4 flex items-center gap-2">
+                    <h1 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-4 flex items-center gap-2">
                         Writing <span className="text-[0.85em]">✍️</span>
                     </h1>
                     <p className="text-muted-foreground text-[16px] sm:text-[18px] font-normal">
@@ -64,7 +64,7 @@ export default async function BlogPage() {
                             return (
                                 <article key={blog.id} className="flex flex-col pb-12 border-b border-border last:border-0 group">
                                     <Link href={`/blog/${blog.slug}`} className="w-fit mb-3">
-                                        <h2 className="text-2xl sm:text-3xl font-bold text-foreground group-hover:text-primary transition-colors underline decoration-border group-hover:decoration-primary underline-offset-[6px]">
+                                        <h2 className="text-2xl sm:text-[28px] font-medium text-foreground group-hover:text-primary transition-colors underline underline-offset-[6px]">
                                             {blog.title}
                                         </h2>
                                     </Link>

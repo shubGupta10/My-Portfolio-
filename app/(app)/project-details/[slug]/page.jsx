@@ -23,13 +23,13 @@ function ProjectDetails() {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <main className="relative z-10 w-full">
-          <Section className="!pt-6 md:!pt-8">
+          <Section>
             <Container>
               <div className="py-20">
                 <div className="mb-6">
                   <GoBackButton label="Return to Portfolio" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-medium text-foreground mb-6">
+                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6">
                   Project Not Found
                 </h2>
               </div>
@@ -48,7 +48,7 @@ function ProjectDetails() {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <main className="relative z-10 w-full">
-        <Section id="project-details" className="!pt-6 md:!pt-8">
+        <Section id="project-details">
           <Container>
             <ReviewOnScroll>
               {/* Back Button */}
@@ -58,7 +58,7 @@ function ProjectDetails() {
 
               {/* Header */}
               <div className="mb-12">
-                <h1 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-4">
+                <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-4">
                   {project.title}
                 </h1>
 
@@ -85,7 +85,7 @@ function ProjectDetails() {
                       className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Github className="w-4 h-4" />
-                      <span className="underline decoration-border hover:decoration-foreground underline-offset-4 transition-colors">
+                      <span className="underline underline-offset-4 transition-colors">
                         Source Code
                       </span>
                       <ExternalLink className="w-3 h-3" />
@@ -109,7 +109,7 @@ function ProjectDetails() {
 
               {/* Description */}
               <div className="mb-12">
-                <h2 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
                   About the Project
                 </h2>
 
@@ -133,7 +133,7 @@ function ProjectDetails() {
 
               {/* Tech Stack */}
               <div>
-                <h2 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
                   Tech Stack
                 </h2>
                 <div className="flex flex-wrap gap-2">

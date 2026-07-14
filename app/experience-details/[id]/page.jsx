@@ -20,13 +20,13 @@ function ExperienceDetails() {
     return (
       <div className="w-full">
         <main className="relative z-10 w-full">
-          <Section className="!pt-6 md:!pt-8">
+          <Section>
             <Container>
               <div className="py-20">
                 <div className="mb-6">
                   <GoBackButton label="Return to Portfolio" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-medium text-foreground mb-6">
+                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6">
                   Experience Not Found
                 </h2>
               </div>
@@ -41,7 +41,7 @@ function ExperienceDetails() {
     <div className="w-full">
 
       <main className="relative z-10 w-full">
-        <Section id="experience-details" className="!pt-6 md:!pt-8">
+        <Section id="experience-details">
           <Container>
             <ReviewOnScroll>
               {/* Back Button */}
@@ -51,7 +51,7 @@ function ExperienceDetails() {
 
               {/* Header */}
               <div className="mb-12">
-                <h1 className="text-4xl sm:text-5xl font-medium text-foreground tracking-tight mb-4">
+                <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-4">
                   {exp.position}
                 </h1>
 
@@ -75,7 +75,7 @@ function ExperienceDetails() {
                     className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Globe className="w-4 h-4" />
-                    <span className="underline decoration-border hover:decoration-foreground underline-offset-4 transition-colors">
+                    <span className="underline underline-offset-4 transition-colors">
                       Visit Website
                     </span>
                     <ExternalLink className="w-3 h-3" />
@@ -87,7 +87,7 @@ function ExperienceDetails() {
 
               {/* Description */}
               <div className="mb-12">
-                <h2 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
                   Overview & Responsibilities
                 </h2>
 
@@ -111,7 +111,7 @@ function ExperienceDetails() {
 
               {/* Tech Stack */}
               <div>
-                <h2 className="text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-6">
+                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
                   Tech Stack
                 </h2>
                 <div className="flex flex-wrap gap-2">

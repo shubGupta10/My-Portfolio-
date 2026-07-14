@@ -66,7 +66,7 @@ export default async function BlogDetailPage({ params }) {
 
 
       <main className="relative z-10 w-full">
-        <Section className="!pt-6 md:!pt-8">
+        <Section>
           <Container>
             <article>
             {/* Back Button */}
@@ -76,7 +76,7 @@ export default async function BlogDetailPage({ params }) {
 
             {/* Header */}
             <header className="mb-12">
-              <h1 className="text-4xl sm:text-5xl font-medium text-foreground tracking-tight mb-4">
+              <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-4">
                 {blog.title}
               </h1>
 
