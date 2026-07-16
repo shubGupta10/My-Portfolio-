@@ -51,11 +51,43 @@ const inter = Inter({
 });
 
 export default function RootLayout({ children }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.shubhamgupta.online/#person",
+        name: "Shubham Gupta",
+        url: "https://www.shubhamgupta.online",
+        jobTitle: "Full Stack Web Developer",
+        sameAs: [
+          "https://github.com/shubGupta10",
+          "https://www.linkedin.com/in/shubhamgupta-codes",
+          "https://x.com/buildwithshub",
+          "https://peerlist.io/shubham10"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.shubhamgupta.online/#website",
+        url: "https://www.shubhamgupta.online",
+        name: "Shubham Gupta Portfolio",
+        publisher: {
+          "@id": "https://www.shubhamgupta.online/#person"
+        }
+      }
+    ]
+  };
+
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${inter.className} min-h-screen bg-background text-foreground antialiased relative`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {/* Subtle premium background glow */}
         <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,255,255,0.08),rgba(255,255,255,0))]" />
         

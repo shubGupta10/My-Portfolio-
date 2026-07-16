@@ -4,6 +4,7 @@ export default function robots() {
             {
                 userAgent: '*',
                 allow: '/',
+                disallow: ['/admin/', '/api/'],
             },
         ],
         sitemap: 'https://www.shubhamgupta.online/sitemap.xml',

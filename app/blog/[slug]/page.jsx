@@ -19,7 +19,27 @@ function calculateReadTime(content) {
   const wordCount = content.split(/\s+/).length;
   return Math.ceil(wordCount / wordsPerMinute);
 }
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const blog = await fetchBlogBySlug(slug);
 
+  if (!blog) {
+    return {
+      title: "Blog Not Found | Shubham Gupta",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  const description = blog.excerpt || blog.content.substring(0, 160).replace(/<[^>]*>?/gm, '');
+
+  return {
+    title: `${blog.title} | Shubham Gupta`,
+    description,
+    alternates: {
+      canonical: `https://www.shubhamgupta.online/blog/${blog.slug}`,
+    },
+  };
+}
 export default async function BlogDetailPage({ params }) {
   const { slug } = await params;
   const blog = await fetchBlogBySlug(slug);
