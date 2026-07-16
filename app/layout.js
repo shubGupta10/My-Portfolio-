@@ -31,14 +31,6 @@ export const metadata = {
       "Portfolio of Shubham Gupta – building fast, modern full-stack apps using Next.js, TypeScript, and more.",
     url: "https://www.shubhamgupta.online",
     siteName: "Shubham Gupta Portfolio",
-    images: [
-      {
-        url: "https://www.shubhamgupta.online/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Shubham Gupta Portfolio",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -47,7 +39,6 @@ export const metadata = {
     title: "Shubham Gupta | Full-Stack Web Developer",
     description:
       "Explore the portfolio of Shubham Gupta, showcasing projects, skills, and experience in full-stack development.",
-    images: ["https://www.shubhamgupta.online/og-image.png"],
     creator: "@i_m_shubham45",
   },
 };
