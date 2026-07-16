@@ -7,25 +7,11 @@ import { Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
-import { getCalApi } from "@calcom/embed-react";
 
 export default function ContactPage() {
     const router = useRouter();
     const [formData, setFormData] = useState({ name: "", email: "", message: "" });
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-    useEffect(() => {
-        const scheduleCall = async () => {
-            const cal = await getCalApi();
-            cal("ui", {
-                theme: "dark",
-                styles: { branding: { brandColor: "#ffffff" } },
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-        };
-        scheduleCall();
-    }, []);
 
     const SERVICE_ID = process.env.NEXT_PUBLIC_SERVICE_ID;
     const TEMPLATE_ID = process.env.NEXT_PUBLIC_TEMPLATE_ID;
@@ -63,13 +49,14 @@ export default function ContactPage() {
                                 shubhamkgupta720@gmail.com
                             </a>
                             , book a{" "}
-                            <button
-                                data-cal-link="shubham-gupta-1012/30min"
-                                data-cal-config='{"layout":"month_view"}'
+                            <a
+                                href="https://calendar.app.google/zHFHaC97WvQrXr5W7"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-foreground underline underline-offset-4 transition-colors cursor-pointer"
                             >
                                 1:1 meeting
-                            </button>
+                            </a>
                             {" "}to discuss a project, or simply fill out the form below and I'll get back to you within 24 hours.
                         </p>
 
