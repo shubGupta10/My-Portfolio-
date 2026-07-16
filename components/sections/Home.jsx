@@ -46,17 +46,21 @@ function Home() {
           <div className="text-[15px] sm:text-[16px] text-foreground leading-relaxed max-w-3xl font-normal space-y-4">
             <p>
               I specialize in building full-stack web applications and AI-powered experiences. Currently, I'm a Full Stack Engineer at
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
+              <a href="https://huzl.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground hover:border-foreground transition-all text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
                 HUZL.IN
-              </span>
+              </a>
               where I build complex backend features, community platforms, and handle heavy database architectures.
             </p>
             <p>
-              Previously, I worked as a Freelance Developer building AI-powered products, such as a smart resume builder for
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
-                DIGNIFY A GIRL LTD
-              </span>
-              and various other custom web platforms. For more details about my background, check out my <Link href="/experience" className="underline decoration-border hover:decoration-muted-foreground transition-colors font-medium">experience</Link>.
+              I also work closely with clients as a Freelance Developer. Recently, I've designed and developed websites and web apps for
+              <a href="https://mokominds.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground hover:border-foreground transition-all text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
+                Moko Minds
+              </a>
+              and
+              <a href="https://unifix.co.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-secondary border border-border text-foreground hover:border-foreground transition-all text-[13px] sm:text-[14px] font-medium mx-1.5 align-middle">
+                UNIFIX
+              </a>
+              , focusing on high-performance architecture, premium UI, and strong SEO. For more details about my background, check out my <Link href="/experience" className="underline decoration-border hover:decoration-muted-foreground transition-colors font-medium">experience</Link>.
             </p>
           </div>
         </Section>
