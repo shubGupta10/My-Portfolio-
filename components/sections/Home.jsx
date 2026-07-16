@@ -13,7 +13,7 @@ function Home() {
               <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight">
                 Hi, I'm Shubham 👋
               </h1>
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-green-900 bg-green-900/20 text-green-400">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-green-900 bg-green-950 text-green-400">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
