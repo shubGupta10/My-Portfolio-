@@ -34,6 +34,60 @@
         "id": 2,
         "type": "freelance",
         "position": "Freelance Full Stack Developer",
+        "company": "Moko Minds",
+        "duration": "Jul 2026 - Present",
+        "status": "Ongoing",
+        "description": [
+            "Worked directly with the client to design and develop the official Moko Minds website from concept to deployment.",
+            "Built a fully responsive multi-page website including Home, About, Programs, Gallery, FAQ, and Contact pages.",
+            "Created a premium, modern UI focused on readability, accessibility, and a child-friendly visual experience while maintaining strong performance across devices.",
+            "Translated client feedback into multiple design and content iterations, refining the website's messaging, structure, and user experience throughout the project.",
+            "Implemented reusable components, responsive layouts, smooth page interactions, and subtle micro-interactions to create a polished browsing experience.",
+            "Optimized the website for SEO by configuring metadata, Open Graph tags, Twitter Cards, structured data (JSON-LD), sitemap, robots.txt, and canonical URLs.",
+            "Built a functional contact form and integrated production-ready contact information across the website.",
+            "Performed cross-page consistency reviews, responsive testing, accessibility improvements, and overall UI/UX polishing before delivery."
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Shadcn UI",
+            "Framer Motion",
+            "Next.js Metadata API"
+        ],
+        "liveUrl": "https://mokominds.com"
+    },
+    {
+        "id": 3,
+        "type": "freelance",
+        "position": "Freelance Full Stack Developer",
+        "company": "UNIFIX",
+        "duration": "Mar 2026 - Present",
+        "status": "Active Maintenance",
+        "description": [
+            "Worked directly with the client to design and develop the official UNIFIX website from concept to deployment.",
+            "Built a fully responsive multi-page website including Home, Products, About, and Contact pages.",
+            "Designed a clean, mobile-first user experience focused on performance, usability, and showcasing the brand's uniform collections across multiple industries.",
+            "Implemented dedicated sections for product categories, industries served, custom order process, gallery, and repeated call-to-action blocks to improve user engagement.",
+            "Integrated WhatsApp click-to-chat and a lead generation form to streamline customer enquiries and quotation requests.",
+            "Developed reusable components and responsive layouts while ensuring fast loading performance across devices.",
+            "Optimized the website for SEO by configuring metadata, Open Graph tags, Twitter Cards, structured data (JSON-LD), sitemap, robots.txt, and canonical URLs.",
+            "Collaborated closely with the client through multiple feedback iterations, refining the design, content structure, and overall user experience before delivery."
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Shadcn UI",
+            "Framer Motion",
+            "Next.js Metadata API"
+        ],
+        "liveUrl": "https://unifix.co.in"
+    },
+    {
+        "id": 4,
+        "type": "freelance",
+        "position": "Freelance Full Stack Developer",
         "company": "Kaiz La",
         "duration": "Sept 2025 - Nov 2025",
         "status": "Completed",
@@ -61,7 +115,7 @@
         "liveUrl": "https://www.kaizla.com"
     },
     {
-        "id": 3,
+        "id": 5,
         "type": "freelance",
         "position": "Freelance Full Stack Developer",
         "company": "DIGNIFY A GIRL LTD",
@@ -90,7 +144,7 @@
         "liveUrl": "https://www.buildmycv.ai"
     },
     {
-        "id": 4,
+        "id": 6,
         "type": "freelance",
         "position": "Freelance Full Stack Developer",
         "company": "Biostrive Energies",
