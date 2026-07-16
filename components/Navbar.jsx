@@ -4,26 +4,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Calendar } from "lucide-react";
-import { getCalApi } from "@calcom/embed-react";
 import Magnetic from "@/components/ui/Magnetic";
 
 function Navbar() {
     const [activeLink, setActiveLink] = useState("home");
     const pathname = usePathname();
     const isHome = pathname === "/";
-
-    useEffect(() => {
-        const initCal = async () => {
-            const cal = await getCalApi();
-            cal("ui", {
-                theme: "dark",
-                styles: { branding: { brandColor: "#ffffff" } },
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-        };
-        initCal();
-    }, []);
 
     const navLinks = [
         { href: isHome ? "#home" : "/", label: "Home", isRoute: !isHome },
@@ -66,7 +52,7 @@ function Navbar() {
 
                 {/* Container for Desktop & Mobile */}
                 <div className="w-full">
-                    
+
                     {/* Links Row */}
                     <div className="flex flex-row flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-3 w-full">
                         {navLinks.map((link) => {
@@ -80,8 +66,8 @@ function Navbar() {
                                     key={link.href}
                                     href={link.href}
                                     className={`relative text-[15px] sm:text-[16px] transition-colors duration-300 tracking-tight group/nav pb-1
-                                        ${isActive 
-                                            ? "text-foreground font-bold" 
+                                        ${isActive
+                                            ? "text-foreground font-bold"
                                             : "text-muted-foreground hover:text-foreground font-medium"
                                         }`}
                                 >
@@ -91,16 +77,17 @@ function Navbar() {
                             );
                         })}
 
-                        {/* Book a Call Button (Replacing Time Badge position) */}
+                        {/* Book a Call Button */}
                         <div className="ml-auto">
                             <Magnetic intensity={0.15}>
-                                <button
-                                    data-cal-link="shubham-gupta-1012"
-                                    data-cal-config='{"layout":"month_view"}'
+                                <a
+                                    href="https://calendar.app.google/zHFHaC97WvQrXr5W7"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="px-3 py-1.5 rounded-md text-[13px] font-medium bg-secondary text-secondary-foreground hover:bg-secondary border border-border transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
                                 >
                                     <span>Book Call</span>
-                                </button>
+                                </a>
                             </Magnetic>
                         </div>
                     </div>
