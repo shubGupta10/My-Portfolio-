@@ -14,6 +14,7 @@ function Navbar() {
     const navLinks = [
         { href: isHome ? "#home" : "/", label: "Home", isRoute: !isHome },
         { href: "/about", label: "About", isRoute: true },
+        { href: "/projects", label: "Projects", isRoute: true },
         { href: "/experience", label: "Experience", isRoute: true },
         { href: "/services", label: "Services", isRoute: true },
         { href: "/blog", label: "Blog", isRoute: true },

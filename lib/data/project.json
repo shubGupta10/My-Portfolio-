@@ -1,32 +1,5 @@
 [
     {
-        "title": "PostMyGig - Freelance Gig Sharing Platform",
-        "description": [
-            "Built a platform where freelancers can post extra work they can’t handle and other freelancers can discover and take those gigs.",
-            "I designed the full flow where a freelancer posts a gig, other users browse and apply, and the owner can shortlist and connect with them.",
-            "I built a real-time chat system using WebSockets (Socket.IO) with a separate Node.js backend, allowing freelancers to communicate instantly.",
-            "I handled chat events, connections, and messaging flow between users in real time.",
-            "I built a Community and Activity feature to show platform activity like users posting gigs, hiring, and interacting, helping build trust and engagement.",
-            "I implemented email notifications using Resend for user actions like applications and interactions.",
-            "I developed both frontend and backend using Next.js and Node.js, and designed database structure using MongoDB.",
-            "I used Redis to improve performance and speed up frequently accessed data.",
-            "Worked across the full stack to connect gig posting, real-time chat, activity tracking, and notifications into a single platform."
-        ],
-        "technologies": [
-            "Next.js",
-            "Node.js",
-            "TypeScript",
-            "Tailwind CSS",
-            "Redis",
-            "Socket.IO",
-            "MongoDB"
-        ],
-        "image": "https://postmygig.vercel.app/og-image.png",
-        "liveLink": "https://postmygig.vercel.app",
-        "githubLink": "https://github.com/shubGupta10/postmygig",
-        "slug": "postmygig"
-    },
-    {
         "title": "CodeX - Cloud IDE",
         "description": [
             "Built a cloud-based IDE similar to Replit where users can write, edit, and run code directly in the browser.",
@@ -57,7 +30,60 @@
         "slug": "codex"
     },
     {
-        "title": "BuildMyCV - AI Resume Builder",
+        "title": "PostMyGig - Freelance Gig Sharing Platform",
+        "description": [
+            "Built a platform where freelancers can post extra work they can’t handle and other freelancers can discover and take those gigs.",
+            "I designed the full flow where a freelancer posts a gig, other users browse and apply, and the owner can shortlist and connect with them.",
+            "I built a real-time chat system using WebSockets (Socket.IO) with a separate Node.js backend, allowing freelancers to communicate instantly.",
+            "I handled chat events, connections, and messaging flow between users in real time.",
+            "I built a Community and Activity feature to show platform activity like users posting gigs, hiring, and interacting, helping build trust and engagement.",
+            "I implemented email notifications using Resend for user actions like applications and interactions.",
+            "I developed both frontend and backend using Next.js and Node.js, and designed database structure using MongoDB.",
+            "I used Redis to improve performance and speed up frequently accessed data.",
+            "Worked across the full stack to connect gig posting, real-time chat, activity tracking, and notifications into a single platform."
+        ],
+        "technologies": [
+            "Next.js",
+            "Node.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Redis",
+            "Socket.IO",
+            "MongoDB"
+        ],
+        "image": "https://postmygig.vercel.app/og-image.png",
+        "liveLink": "https://postmygig.vercel.app",
+        "githubLink": "https://github.com/shubGupta10/postmygig",
+        "slug": "postmygig"
+    },
+    {
+        "title": "Quillo - Content Creation for Builders",
+        "description": [
+            "Built a platform that helps builders turn their daily work updates into social media posts without starting from a blank page.",
+            "Designed a project-based workflow where users organize their work into projects and log daily progress before generating content.",
+            "Developed support for generating posts for X, LinkedIn, Reddit, and blogs with customizable tone, perspective, and content length.",
+            "Implemented Preference Memory using Gemini embeddings and MongoDB Atlas Vector Search to retrieve semantically similar approved posts and keep future content aligned with each user's writing style.",
+            "Built a context retrieval pipeline that combines project details, daily updates, previous posts, and writing preferences to generate more relevant content.",
+            "Added support for managing projects, tracking daily updates, saving drafts, and scheduling posts from a single dashboard.",
+            "Integrated Gemini with structured outputs and custom prompt engineering to generate consistent content based on the user's actual work instead of generic prompts.",
+            "Built a responsive interface using Next.js, TypeScript, Tailwind CSS, and Shadcn UI with server actions and a scalable backend architecture."
+        ],
+        "technologies": [
+            "Next.js",
+            "TypeScript",
+            "Gemini AI",
+            "MongoDB Atlas",
+            "MongoDB Atlas Vector Search",
+            "Tailwind CSS",
+            "Shadcn UI"
+        ],
+        "image": "https://quillo-app.vercel.app/og-image.png",
+        "liveLink": "https://quillo.app",
+        "githubLink": "",
+        "slug": "quillo"
+    },
+    {
+        "title": "BuildMyCV - Automated Resume Builder",
         "description": [
             "Built BuildMyCV as a personal project, which was later acquired and extended in collaboration with the owner of Dignify A Girl.",
             "Initially developed core features including AI resume builder, job description analysis, and an AI assistant to help users improve their resumes.",
@@ -87,7 +113,7 @@
         "slug": "buildmycv"
     },
     {
-        "title": "Interview Buddy - AI Interview Prep",
+        "title": "Interview Buddy - Interactive Interview Prep",
         "description": [
             "Built an AI-powered interview preparation platform where users can practice different types of interview questions based on role and difficulty.",
             "I developed a system where users can generate role-specific questions (e.g., frontend, backend, system design) with adjustable difficulty levels.",

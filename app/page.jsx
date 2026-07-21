@@ -3,7 +3,6 @@
 import LoadingScreen from '@/components/LoadingScreen';
 import Contact from '@/components/sections/Contact';
 import Home from '@/components/sections/Home';
-import Projects from '@/components/sections/Projects';
 import Testimonials from '@/components/sections/Testimonials';
 import Container from '@/components/ui/Container';
 import React, { useState } from 'react';
@@ -19,8 +18,6 @@ function App() {
         <main className="w-full">
           <Container>
             <Home />
-            <hr className="border-border" />
-            <Projects />
             <hr className="border-border" />
             <Testimonials />
             <hr className="border-border" />

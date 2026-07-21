@@ -12,6 +12,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
     const menuLinks = [
         { href: isHome ? "#home" : "/", label: "Home", isRoute: !isHome },
         { href: "/about", label: "About", isRoute: true },
+        { href: "/projects", label: "Projects", isRoute: true },
         { href: isHome ? "#experience" : "/#experience", label: "Experience", isRoute: false },
         { href: "/services", label: "Services", isRoute: true },
         { href: "/blog", label: "Blog", isRoute: true },
