@@ -80,7 +80,7 @@ function About() {
         <ReviewOnScroll>
             <Section id="about">
                 <Container className="relative z-10 w-full">
-                    
+
                     <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
                         About Me <span className="text-[0.85em]">👋</span>
                     </h2>
@@ -95,13 +95,13 @@ function About() {
                             <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-6 w-full">
                                 I am a full stack developer with experience working on production apps in both full-time and freelance roles. I enjoy building SaaS tools, AI-powered features, and real-time user experiences.
                             </p>
-                            
+
                             <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed w-full">
                                 I like taking ideas to a complete product. I focus on clean UI, smooth flows, and code that stays simple to maintain.
                             </p>
 
-                            <a 
-                                href="/Shubham_New_Resume.pdf" 
+                            <a
+                                href="/Shubham_Gupta_FullStack_Engineer.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-bold text-sm rounded-lg hover:opacity-90 transition-opacity"
@@ -119,7 +119,7 @@ function About() {
                             <div className="flex flex-col gap-10">
                                 {educationData.map((edu, i) => (
                                     <div key={i} className="pl-6 border-l-2 border-border text-left">
-                                        
+
                                         <div className="flex flex-col mb-3">
                                             <h4 className="text-lg sm:text-xl font-semibold text-foreground leading-tight mb-2">
                                                 {edu.title}
@@ -129,12 +129,12 @@ function About() {
                                                 {edu.year}
                                             </div>
                                         </div>
-                                        
+
                                         <div className="flex items-center gap-2 mb-4 text-muted-foreground">
                                             <Building2 className="w-4 h-4" />
                                             <span className="text-[16px] font-medium">{edu.institute}</span>
                                         </div>
-                                        
+
                                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground text-[14px] font-medium border border-border">
                                             <Award className="w-4 h-4" />
                                             CGPA: {edu.cgpa}
