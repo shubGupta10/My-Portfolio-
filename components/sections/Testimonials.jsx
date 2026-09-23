@@ -38,11 +38,11 @@ export default function Testimonials() {
     };
 
     return (
-        <Section id="testimonials">
+        <Section id="testimonials" className="!pt-2 sm:!pt-4">
             <div className="relative z-10 w-full">
                 
                 <ReviewOnScroll>
-                    <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left">
+                    <h2 className="typo-h2 mb-6 text-left">
                         What People Say
                     </h2>
                 </ReviewOnScroll>

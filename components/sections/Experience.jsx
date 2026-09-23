@@ -22,7 +22,7 @@ export default function Experience() {
             <Section id="experience">
                 <div className="relative z-10 w-full">
 
-                    <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                    <h2 className="typo-h1 mb-6 flex items-center gap-2">
                         Work Experience <span className="text-[0.85em]">💼</span>
                     </h2>
 

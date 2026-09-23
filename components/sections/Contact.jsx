@@ -19,56 +19,63 @@ function Contact() {
     ];
 
     return (
-        <Section id="contact">
+        <Section id="contact" className="!pt-2 sm:!pt-4">
             <div className="relative z-10 w-full">
 
                 <ReviewOnScroll>
                     <div className="flex flex-col text-left">
 
-                        <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                        <h2 className="typo-h1 mb-8 text-left flex items-center gap-2">
                             Contact <span className="text-[0.85em]">✉️</span>
                         </h2>
 
-                        <p className="text-muted-foreground text-[17px] sm:text-[19px] leading-relaxed mb-6 font-normal">
-                            Feel free to reach out to me via email:
-                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                            {/* Email Path */}
+                            <div className="flex flex-col items-start p-6 sm:p-8 rounded-2xl border border-border bg-secondary/50">
+                                <h3 className="typo-h3 mb-3 font-semibold text-foreground">
+                                    Send an Email
+                                </h3>
+                                <p className="typo-support mb-8">
+                                    Best for quick questions, freelance inquiries, or simple introductions.
+                                </p>
+                                <div className="mt-auto flex flex-col gap-4 w-full">
+                                    <a
+                                        href="mailto:shubhamkgupta720@gmail.com"
+                                        className="flex items-center gap-2 text-foreground font-medium text-[15px] group transition-colors w-fit"
+                                    >
+                                        <Mail className="w-[18px] h-[18px]" />
+                                        <span className="underline decoration-border group-hover:decoration-primary underline-offset-4 transition-colors">
+                                            shubhamkgupta720@gmail.com
+                                        </span>
+                                    </a>
+                                    <button
+                                        onClick={() => router.push('/contact')}
+                                        className="w-fit text-[14px] font-medium text-muted-foreground hover:text-foreground underline decoration-transparent hover:decoration-border underline-offset-4 transition-all"
+                                    >
+                                        Or use a contact form
+                                    </button>
+                                </div>
+                            </div>
 
-                        <a
-                            href="mailto:shubhamkgupta720@gmail.com"
-                            className="flex items-center gap-3 w-fit text-foreground font-medium text-[17px] sm:text-[19px] group transition-colors"
-                        >
-                            <Mail className="w-5 h-5" />
-                            <span className="underline decoration-border group-hover:decoration-primary underline-offset-4 transition-colors">
-                                shubhamkgupta720@gmail.com
-                            </span>
-                        </a>
-
-                        <button
-                            onClick={() => router.push('/contact')}
-                            className="mt-6 w-fit text-[15px] font-medium text-muted-foreground hover:text-foreground underline decoration-border hover:decoration-foreground underline-offset-4 transition-all"
-                        >
-                            Prefer to use a contact form?
-                        </button>
-
-                        <hr className="border-border my-8 sm:my-12" />
-
-                        <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-foreground mb-6">
-                            Want to chat? Schedule a 1:1 with me!
-                        </h2>
-
-                        <p className="text-muted-foreground text-[17px] sm:text-[19px] leading-relaxed mb-8 font-normal">
-                            Book a time that works for you directly:
-                        </p>
-
-                        <a
-                            href="https://calendar.app.google/zHFHaC97WvQrXr5W7"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-fit flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold bg-foreground text-background hover:scale-105 transition-transform cursor-pointer"
-                        >
-                            <span>Schedule a meeting</span>
-                            <ArrowRight className="w-4 h-4" />
-                        </a>
+                            {/* Meeting Path */}
+                            <div className="flex flex-col items-start p-6 sm:p-8 rounded-2xl border border-border bg-secondary/50">
+                                <h3 className="typo-h3 mb-3 font-semibold text-foreground">
+                                    Book a Call
+                                </h3>
+                                <p className="typo-support mb-8">
+                                    Best for discussing project requirements, technical details, and timelines.
+                                </p>
+                                <a
+                                    href="https://calendar.app.google/zHFHaC97WvQrXr5W7"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium bg-foreground text-background hover:scale-[1.03] transition-transform mt-auto w-fit text-[14.5px]"
+                                >
+                                    <span>Schedule a meeting</span>
+                                    <ArrowRight className="w-4 h-4" />
+                                </a>
+                            </div>
+                        </div>
 
                         <div className="mt-12 sm:mt-20 flex flex-wrap justify-start items-center gap-6">
                             {socialLinks.map((social) => (

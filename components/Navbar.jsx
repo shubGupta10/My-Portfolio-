@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Calendar } from "lucide-react";
 import Magnetic from "@/components/ui/Magnetic";
 
 function Navbar() {
@@ -20,8 +19,6 @@ function Navbar() {
         { href: "/blog", label: "Blog", isRoute: true },
         { href: "/contact", label: "Contact", isRoute: true },
     ];
-
-
 
     useEffect(() => {
         if (!isHome) return;
@@ -48,14 +45,11 @@ function Navbar() {
     }, [isHome]);
 
     return (
-        <nav className="w-full pt-8 sm:pt-10 pb-2 sm:pb-4">
+        <nav className="w-full pt-6 sm:pt-10 pb-4">
             <div className="max-w-3xl mx-auto px-5 sm:px-8">
-
-                {/* Container for Desktop & Mobile */}
                 <div className="w-full">
-
-                    {/* Links Row */}
-                    <div className="flex flex-row flex-wrap items-center gap-x-4 sm:gap-x-5 gap-y-3 w-full">
+                    {/* Links Row - Preserving the original flex-wrap character but improving spacing */}
+                    <div className="flex flex-row flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-4 w-full">
                         {navLinks.map((link) => {
                             const isActive =
                                 link.isRoute
@@ -66,9 +60,9 @@ function Navbar() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`relative text-[15px] sm:text-[16px] transition-colors duration-300 tracking-tight group/nav pb-1
+                                    className={`relative text-[14px] sm:text-[15px] transition-colors duration-300 tracking-tight group/nav pb-1
                                         ${isActive
-                                            ? "text-foreground font-bold"
+                                            ? "text-foreground font-semibold"
                                             : "text-muted-foreground hover:text-foreground font-medium"
                                         }`}
                                 >
@@ -78,14 +72,14 @@ function Navbar() {
                             );
                         })}
 
-                        {/* Book a Call Button */}
-                        <div className="ml-auto">
+                        {/* CTA Button */}
+                        <div className="ml-auto sm:ml-auto">
                             <Magnetic intensity={0.15}>
                                 <a
                                     href="https://calendar.app.google/zHFHaC97WvQrXr5W7"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-3 py-1.5 rounded-md text-[13px] font-medium bg-secondary text-secondary-foreground hover:bg-secondary border border-border transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                                    className="px-4 py-2 rounded-md text-[13px] font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                                 >
                                     <span>Book Call</span>
                                 </a>

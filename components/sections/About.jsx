@@ -81,22 +81,22 @@ function About() {
             <Section id="about">
                 <Container className="relative z-10 w-full">
 
-                    <h2 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-6 text-left flex items-center gap-2">
+                    <h2 className="typo-h1 mb-6 flex items-center gap-2">
                         About Me <span className="text-[0.85em]">👋</span>
                     </h2>
 
                     <div className="flex flex-col gap-10 sm:gap-16 items-start mb-12 sm:mb-20">
                         {/* Bio Section */}
                         <div className="flex flex-col items-start text-left w-full">
-                            <h3 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6 tracking-tight">
+                            <h3 className="typo-h2 mb-4">
                                 Full stack developer who ships real products
                             </h3>
 
-                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-6 w-full">
+                            <p className="typo-body mb-6 w-full">
                                 I am a full stack developer with experience working on production apps in both full-time and freelance roles. I enjoy building SaaS tools, AI-powered features, and real-time user experiences.
                             </p>
 
-                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed w-full">
+                            <p className="typo-body w-full">
                                 I like taking ideas to a complete product. I focus on clean UI, smooth flows, and code that stays simple to maintain.
                             </p>
 
@@ -104,7 +104,7 @@ function About() {
                                 href="/Shubham_Gupta_FullStack_Engineer.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-bold text-sm rounded-lg hover:opacity-90 transition-opacity"
+                                className="mt-8 inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background font-medium text-[14px] rounded-lg hover:opacity-90 transition-opacity"
                             >
                                 <Download className="w-4 h-4" />
                                 Download Resume
@@ -113,7 +113,7 @@ function About() {
 
                         {/* Education Section */}
                         <div className="flex flex-col w-full">
-                            <h3 className="text-[14px] font-semibold text-muted-foreground uppercase tracking-widest mb-6">
+                            <h3 className="typo-meta mb-6">
                                 Education
                             </h3>
                             <div className="flex flex-col gap-10">
@@ -121,7 +121,7 @@ function About() {
                                     <div key={i} className="pl-6 border-l-2 border-border text-left">
 
                                         <div className="flex flex-col mb-3">
-                                            <h4 className="text-lg sm:text-xl font-semibold text-foreground leading-tight mb-2">
+                                            <h4 className="typo-h3 mb-2">
                                                 {edu.title}
                                             </h4>
                                             <div className="flex items-center gap-2 text-[14px] font-medium text-primary">
@@ -145,18 +145,18 @@ function About() {
                         </div>
                     </div>
 
-                    <hr className="border-border my-10 sm:my-16" />
+                    <hr className="border-border my-8 sm:my-12" />
 
                     {/* Tech Stack Section */}
                     <div>
-                        <h3 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6 text-left tracking-tight">
+                        <h3 className="typo-h2 mb-6">
                             My Tech Stack
                         </h3>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
                             {skillCategories.map((category, idx) => (
                                 <div key={idx} className="flex flex-col items-start text-left">
-                                    <h4 className="text-[14px] font-semibold text-muted-foreground uppercase tracking-widest mb-4">
+                                    <h4 className="typo-meta mb-4">
                                         {category.title}
                                     </h4>
 

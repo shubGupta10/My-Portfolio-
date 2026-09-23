@@ -1,15 +1,30 @@
-"use client";
-
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import Link from "next/link";
-import { ArrowRight, Rocket, Code2, Bot, Cloud, Wrench, Settings2 } from "lucide-react";
+import { ArrowRight, Rocket, Code2, Bot, Cloud, Wrench, Settings2, CheckCircle2 } from "lucide-react";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+
+export const metadata = {
+  title: "Services | Shubham Gupta",
+  description: "I help businesses build reliable web applications, launch MVPs, and integrate AI features into their products.",
+  alternates: {
+    canonical: "https://www.shubhamgupta.online/services",
+  },
+  openGraph: {
+    title: "Services | Shubham Gupta",
+    description: "I help businesses build reliable web applications, launch MVPs, and integrate AI features into their products.",
+    url: "https://www.shubhamgupta.online/services",
+  },
+  twitter: {
+    title: "Services | Shubham Gupta",
+    description: "I help businesses build reliable web applications, launch MVPs, and integrate AI features into their products.",
+  },
+};
 
 const services = [
     {
@@ -108,40 +123,57 @@ const faqs = [
 
 
 export default function ServicesPage() {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Web Development",
+        "provider": {
+            "@type": "Person",
+            "name": "Shubham Gupta",
+            "url": "https://www.shubhamgupta.online"
+        },
+        "description": "I help businesses build reliable web applications, launch MVPs, and integrate AI features into their products.",
+        "areaServed": "Worldwide"
+    };
+
     return (
         <div className="w-full">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
             <main className="w-full">
                 <Section>
                     <Container>
 
                         {/* Intro */}
                         <div className="mb-6">
-                            <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6 flex items-center gap-2">
+                            <h1 className="typo-h1 mb-6 flex items-center gap-2">
                                 Services <span className="text-[0.85em]">💻</span>
                             </h1>
-                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-6">
-                                I build web applications from scratch, refactor existing codebases, and help clients launch their products.
+                            <p className="typo-body mb-6 max-w-3xl">
+                                I help businesses build reliable web applications, launch MVPs, and integrate AI features into their products.
                             </p>
-                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed font-normal">
-                                Whether you're starting with just an idea or trying to improve an existing application, I focus on writing clean, maintainable code.
+                            <p className="typo-body max-w-3xl">
+                                Whether you are starting with a new concept or improving an existing platform, I focus on delivering functional and maintainable technical solutions.
                             </p>
                         </div>
 
                         <hr className="border-border mb-6" />
 
                         {/* Service Blocks */}
-                        <div className="flex flex-col gap-12 sm:gap-16">
+                        <div className="flex flex-col gap-10 sm:gap-16">
                             {services.map((service, idx) => (
                                 <div key={idx} className="max-w-4xl">
-                                    <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
+                                    <h2 className="typo-h2 mb-4">
                                         {service.title}
                                     </h2>
-                                    <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-10 max-w-3xl font-normal">
+                                    <p className="typo-body mb-10 max-w-3xl">
                                         {service.description}
                                     </p>
 
                                     <div>
-                                        <h3 className="text-[15px] sm:text-[16px] font-semibold text-foreground tracking-tight mb-4">
+                                        <h3 className="typo-h3 mb-4">
                                             What's included:
                                         </h3>
                                         <ul className="space-y-3">
@@ -150,38 +182,38 @@ export default function ServicesPage() {
                                                     key={i}
                                                     className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed flex items-start gap-3"
                                                 >
-                                                    <span className="text-foreground/40 mt-1.5">•</span>
-                                                    <span>{item}</span>
+                                                    <CheckCircle2 className="w-[18px] h-[18px] text-foreground/40 mt-0.5 shrink-0" />
+                                                    <span className="typo-body !text-foreground/80 font-medium">{item}</span>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
 
                                     {idx < services.length - 1 && (
-                                        <hr className="border-border mt-12 sm:mt-16" />
+                                        <hr className="border-border mt-10 sm:mt-16" />
                                     )}
                                 </div>
                             ))}
                         </div>
 
-                        <hr className="border-border my-10 sm:my-16" />
+                        <hr className="border-border my-8 sm:my-12" />
 
                         {/* Process */}
                         <div className="mb-8">
-                            <h2 className="text-2xl sm:text-3xl font-medium text-foreground tracking-tight mb-6">
+                            <h2 className="typo-h2 mb-6">
                                 How I Work
                             </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 {process.map((step) => (
                                     <div key={step.step} className="flex gap-4">
-                                        <span className="text-[14px] font-bold text-muted-foreground mt-1 shrink-0">
+                                        <span className="typo-meta !font-bold mt-1 shrink-0">
                                             {step.step}
                                         </span>
                                         <div>
-                                            <h3 className="text-xl font-semibold text-foreground tracking-tight mb-1">
+                                            <h3 className="typo-h3 mb-1">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed font-normal">
+                                            <p className="typo-body">
                                                 {step.desc}
                                             </p>
                                         </div>
@@ -190,11 +222,11 @@ export default function ServicesPage() {
                             </div>
                         </div>
 
-                        <hr className="border-border my-10 sm:my-16" />
+                        <hr className="border-border my-8 sm:my-12" />
 
                         {/* FAQ */}
                         <div className="mb-8">
-                            <h2 className="text-2xl sm:text-3xl font-medium text-foreground tracking-tight mb-6">
+                            <h2 className="typo-h2 mb-6">
                                 Frequently Asked
                             </h2>
                             <Accordion type="single" collapsible className="w-full">
@@ -207,14 +239,14 @@ export default function ServicesPage() {
                             </Accordion>
                         </div>
 
-                        <hr className="border-border my-10 sm:my-16" />
+                        <hr className="border-border my-8 sm:my-12" />
 
                         {/* Final CTA */}
                         <div className="mb-8">
-                            <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
+                            <h2 className="typo-h2 mb-4">
                                 Have a project in mind?
                             </h2>
-                            <p className="text-[15px] sm:text-[16px] text-foreground leading-relaxed mb-8 font-normal">
+                            <p className="typo-body mb-8">
                                 Send me a message about what you're working on. We can discuss the technical requirements, timeline, and pricing.
                             </p>
                             <Link

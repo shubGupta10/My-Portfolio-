@@ -18,9 +18,9 @@ function App() {
         <main className="w-full">
           <Container>
             <Home />
-            <hr className="border-border" />
+            <hr className="border-border my-4 sm:my-6" />
             <Testimonials />
-            <hr className="border-border" />
+            <hr className="border-border my-4 sm:my-6" />
             <Contact />
           </Container>
         </main>

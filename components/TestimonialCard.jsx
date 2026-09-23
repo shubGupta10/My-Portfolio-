@@ -22,17 +22,17 @@ const TestimonialCard = ({ testimonial }) => (
                     />
                 ) : (
                     <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center border border-border">
-                        <span className="text-sm font-bold text-muted-foreground">
+                        <span className="text-sm font-medium text-muted-foreground">
                             {testimonial.name?.charAt(0) || "U"}
                         </span>
                     </div>
                 )}
 
                 <div className="flex flex-col text-left">
-                    <p className="text-foreground font-bold text-lg tracking-tight">
+                    <p className="text-foreground font-medium text-[16px] tracking-tight">
                         {testimonial.name}
                     </p>
-                    <p className="text-muted-foreground text-xs font-bold tracking-widest uppercase mt-0.5">
+                    <p className="text-muted-foreground text-[12px] font-medium tracking-wider uppercase mt-1">
                         {testimonial.role}
                     </p>
                 </div>

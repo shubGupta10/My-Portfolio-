@@ -13,12 +13,22 @@ export async function generateMetadata({ params }) {
   const description = Array.isArray(project.description) 
     ? project.description.join(" ") 
     : project.description;
+  const cleanDescription = description.substring(0, 160);
 
   return {
     title: `${project.title} | Shubham Gupta Portfolio`,
-    description: description.substring(0, 160),
+    description: cleanDescription,
     alternates: {
       canonical: `https://www.shubhamgupta.online/project-details/${project.slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | Shubham Gupta Portfolio`,
+      description: cleanDescription,
+      url: `https://www.shubhamgupta.online/project-details/${project.slug}`,
+    },
+    twitter: {
+      title: `${project.title} | Shubham Gupta Portfolio`,
+      description: cleanDescription,
     },
   };
 }

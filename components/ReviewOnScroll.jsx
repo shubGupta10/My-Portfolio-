@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+"use client";
 
+import React, { useEffect, useRef } from 'react'
 function RevealOnScroll({ children }) {
     return <>{children}</>;
 }

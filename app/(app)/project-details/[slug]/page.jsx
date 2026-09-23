@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import ReviewOnScroll from "@/components/ReviewOnScroll";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
@@ -18,10 +19,10 @@ function ProjectDetails() {
   if (!project) {
     return (
       <div
-        className="relative min-h-screen bg-black text-gray-100"
+        className="relative min-h-screen bg-background"
         style={{ backgroundImage: "url('/backgroundImage2.png')" }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-background/80"></div>
         <main className="relative z-10 w-full">
           <Section>
             <Container>
@@ -29,7 +30,7 @@ function ProjectDetails() {
                 <div className="mb-6">
                   <GoBackButton label="Return to Portfolio" />
                 </div>
-                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6">
+                <h2 className="typo-h1 mb-6">
                   Project Not Found
                 </h2>
               </div>
@@ -42,10 +43,29 @@ function ProjectDetails() {
 
   return (
     <div
-      className="relative min-h-screen bg-black text-gray-100"
+      className="relative min-h-screen bg-background"
       style={{ backgroundImage: "url('/backgroundImage2.png')" }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-background/80"></div>
+      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description: Array.isArray(project.description) ? project.description.join(" ") : project.description,
+            image: project.image ? `https://www.shubhamgupta.online${project.image}` : "https://www.shubhamgupta.online/og-image.png",
+            url: `https://www.shubhamgupta.online/project-details/${project.slug}`,
+            author: {
+              "@type": "Person",
+              name: "Shubham Gupta"
+            },
+            keywords: project.technologies.join(", ")
+          })
+        }}
+      />
 
       <main className="relative z-10 w-full">
         <Section id="project-details">
@@ -57,8 +77,8 @@ function ProjectDetails() {
               </div>
 
               {/* Header */}
-              <div className="mb-12">
-                <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-4">
+              <div className="mb-8 sm:mb-12">
+                <h1 className="typo-h1 mb-4">
                   {project.title}
                 </h1>
 
@@ -68,7 +88,7 @@ function ProjectDetails() {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
+                    className="inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Globe className="w-4 h-4" />
                     <span className="underline decoration-border hover:decoration-foreground underline-offset-4 transition-colors">
@@ -82,7 +102,7 @@ function ProjectDetails() {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
+                      className="inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       <span className="underline underline-offset-4 transition-colors">
@@ -96,20 +116,23 @@ function ProjectDetails() {
 
               {/* Project Image */}
               {project.image && (
-                <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-12 border border-border">
-                  <img
+                <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8 sm:mb-12 border border-border">
+                  <Image
                     src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
+                    alt={`Screenshot of ${project.title}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                    priority
+                    className="object-cover"
                   />
                 </div>
               )}
 
-              <hr className="border-border mb-12" />
+              <hr className="border-border my-8 sm:my-12" />
 
               {/* Description */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
+              <div className="mb-8 sm:mb-12">
+                <h2 className="typo-h2 mb-6">
                   About the Project
                 </h2>
 
@@ -118,14 +141,14 @@ function ProjectDetails() {
                     {project.description.map((sentence, index) => (
                       <li
                         key={index}
-                        className="text-[16px] text-muted-foreground leading-relaxed pl-4 border-l-2 border-border"
+                        className="typo-body pl-4 border-l-2 border-border"
                       >
                         {sentence}
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-[16px] text-muted-foreground leading-relaxed">
+                  <p className="typo-body">
                     {project.description}
                   </p>
                 )}
@@ -133,7 +156,7 @@ function ProjectDetails() {
 
               {/* Tech Stack */}
               <div>
-                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
+                <h2 className="typo-h2 mb-6">
                   Tech Stack
                 </h2>
                 <div className="flex flex-wrap gap-2">

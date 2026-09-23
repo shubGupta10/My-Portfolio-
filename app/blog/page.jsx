@@ -37,6 +37,23 @@ function getExcerpt(content, length = 150) {
         : cleaned;
 }
 
+export const metadata = {
+  title: "Blog | Shubham Gupta",
+  description: "Read my thoughts, tutorials, and insights on full-stack web development, Next.js, AI integrations, and freelance engineering.",
+  alternates: {
+    canonical: "https://www.shubhamgupta.online/blog",
+  },
+  openGraph: {
+    title: "Blog | Shubham Gupta",
+    description: "Read my thoughts, tutorials, and insights on full-stack web development, Next.js, AI integrations, and freelance engineering.",
+    url: "https://www.shubhamgupta.online/blog",
+  },
+  twitter: {
+    title: "Blog | Shubham Gupta",
+    description: "Thoughts and tutorials on full-stack web development.",
+  },
+};
+
 export default async function BlogPage() {
     const blogs = await fetchPublishedBlogs();
 
@@ -45,7 +62,7 @@ export default async function BlogPage() {
             <Section>
                 <Container>
                 {/* Heading */}
-                <div className="mb-16">
+                <div className="mb-10 sm:mb-16">
                     <h1 className="text-2xl sm:text-[28px] font-medium tracking-tight text-foreground mb-4 flex items-center gap-2">
                         Writing <span className="text-[0.85em]">✍️</span>
                     </h1>
@@ -56,13 +73,13 @@ export default async function BlogPage() {
 
                 {/* Blog List */}
                 {blogs?.length > 0 ? (
-                    <div className="flex flex-col gap-12">
+                    <div className="flex flex-col gap-8 sm:gap-12">
                         {blogs.map((blog) => {
                             const readTime = calculateReadTime(blog.content || "");
                             const excerpt = getExcerpt(blog.content || "");
 
                             return (
-                                <article key={blog.id} className="flex flex-col pb-12 border-b border-border last:border-0 group">
+                                <article key={blog.id} className="flex flex-col pb-8 sm:pb-12 border-b border-border last:border-0 group">
                                     <Link href={`/blog/${blog.slug}`} className="w-fit mb-3">
                                         <h2 className="text-2xl sm:text-[28px] font-medium text-foreground group-hover:text-primary transition-colors underline underline-offset-[6px]">
                                             {blog.title}

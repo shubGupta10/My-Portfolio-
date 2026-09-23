@@ -1,8 +1,17 @@
 export const metadata = {
-  title: "Contact Me | Shubham Gupta",
-  description: "Get in touch with Shubham Gupta. I am available for freelance work, full-time opportunities, and interesting projects in full-stack web development.",
+  title: "Contact | Shubham Gupta",
+  description: "Get in touch for freelance full-stack web development projects, SaaS builds, or AI integration consulting. Book a 1:1 meeting or send me a message.",
   alternates: {
     canonical: "https://www.shubhamgupta.online/contact",
+  },
+  openGraph: {
+    title: "Contact | Shubham Gupta",
+    description: "Get in touch for freelance full-stack web development projects, SaaS builds, or AI integration consulting.",
+    url: "https://www.shubhamgupta.online/contact",
+  },
+  twitter: {
+    title: "Contact | Shubham Gupta",
+    description: "Get in touch for freelance full-stack web development projects.",
   },
 };
 

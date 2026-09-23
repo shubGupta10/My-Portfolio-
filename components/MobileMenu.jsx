@@ -33,7 +33,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                    className={`text-2xl font-medium text-white my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                 >
                     {link.label}
                 </Link>
@@ -42,7 +42,7 @@ function MobileMenu({ menuOpen, setMenuOpen }) {
             <Link 
                 href="/login"
                 onClick={() => setMenuOpen(false)}
-                className={`text-2xl font-semibold text-white my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>Login</Link>
+                className={`text-2xl font-medium text-white my-4 transform transition-transform duration-300 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>Login</Link>
         </div>
     )
 }

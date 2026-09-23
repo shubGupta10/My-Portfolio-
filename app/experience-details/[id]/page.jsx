@@ -26,7 +26,7 @@ function ExperienceDetails() {
                 <div className="mb-6">
                   <GoBackButton label="Return to Portfolio" />
                 </div>
-                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground mb-6">
+                <h2 className="typo-h1 mb-6">
                   Experience Not Found
                 </h2>
               </div>
@@ -50,8 +50,8 @@ function ExperienceDetails() {
               </div>
 
               {/* Header */}
-              <div className="mb-12">
-                <h1 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-4">
+              <div className="mb-8 sm:mb-12">
+                <h1 className="typo-h1 mb-4">
                   {exp.position}
                 </h1>
 
@@ -71,8 +71,7 @@ function ExperienceDetails() {
                   <a
                     href={exp.liveUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[14px] font-bold text-muted-foreground hover:text-foreground transition-colors"
+                    className="inline-flex items-center gap-2 text-[14px] font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Globe className="w-4 h-4" />
                     <span className="underline underline-offset-4 transition-colors">
@@ -83,11 +82,11 @@ function ExperienceDetails() {
                 )}
               </div>
 
-              <hr className="border-border mb-12" />
+              <hr className="border-border mb-8 sm:mb-12" />
 
               {/* Description */}
-              <div className="mb-12">
-                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
+              <div className="mb-8 sm:mb-12">
+                <h2 className="typo-h2 mb-6">
                   Overview & Responsibilities
                 </h2>
 
@@ -96,14 +95,14 @@ function ExperienceDetails() {
                     {exp.description.map((sentence, index) => (
                       <li
                         key={index}
-                        className="text-[16px] text-muted-foreground leading-relaxed pl-4 border-l-2 border-border"
+                        className="typo-body pl-4 border-l-2 border-border"
                       >
                         {sentence}
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-[16px] text-muted-foreground leading-relaxed">
+                  <p className="typo-body">
                     {exp.description}
                   </p>
                 )}
@@ -111,7 +110,7 @@ function ExperienceDetails() {
 
               {/* Tech Stack */}
               <div>
-                <h2 className="text-2xl sm:text-[28px] font-medium text-foreground tracking-tight mb-6">
+                <h2 className="typo-h2 mb-6">
                   Tech Stack
                 </h2>
                 <div className="flex flex-wrap gap-2">

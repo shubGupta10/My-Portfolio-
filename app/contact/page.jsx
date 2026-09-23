@@ -40,7 +40,7 @@ export default function ContactPage() {
                             Let's talk.
                         </h1>
                         
-                        <p className="text-muted-foreground text-[16px] sm:text-[18px] mb-12 font-normal leading-relaxed">
+                        <p className="text-muted-foreground text-[16px] sm:text-[18px] mb-8 sm:mb-12 font-normal leading-relaxed">
                             You can reach me directly at{" "}
                             <a 
                                 href="mailto:shubhamkgupta720@gmail.com" 
@@ -63,7 +63,7 @@ export default function ContactPage() {
                         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                             {/* Name Field */}
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Your Name</label>
+                                <label className="text-xs font-medium text-muted-foreground uppercase tracking-widest ml-1">Your Name</label>
                                 <input
                                     type="text"
                                     name="name"
@@ -77,7 +77,7 @@ export default function ContactPage() {
 
                             {/* Email Field */}
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Email Address</label>
+                                <label className="text-xs font-medium text-muted-foreground uppercase tracking-widest ml-1">Email Address</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -91,7 +91,7 @@ export default function ContactPage() {
 
                             {/* Message Field */}
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest ml-1">Your Message</label>
+                                <label className="text-xs font-medium text-muted-foreground uppercase tracking-widest ml-1">Your Message</label>
                                 <textarea
                                     name="message"
                                     rows={6}
@@ -106,7 +106,7 @@ export default function ContactPage() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full py-4 mt-4 rounded-xl flex items-center justify-center gap-3 text-[16px] font-bold bg-foreground text-background hover:scale-105 active:scale-95 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed group"
+                                className="w-full py-4 mt-4 rounded-xl flex items-center justify-center gap-3 text-[16px] font-medium bg-foreground text-background hover:scale-105 active:scale-95 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed group"
                             >
                                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                                 {!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
