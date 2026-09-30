@@ -71,7 +71,7 @@ function About() {
         {
             title: "Masters of Computer Applications",
             institute: "Chandigarh University",
-            year: "2024 - Present",
+            year: "2024 - 2026",
             cgpa: "8.8/10",
         },
     ];
