@@ -78,7 +78,7 @@
             "Shadcn UI"
         ],
         "image": "https://quillo-app.vercel.app/og-image.png",
-        "liveLink": "https://quillo.app",
+        "liveLink": "https://quillo-app.vercel.app/",
         "githubLink": "",
         "slug": "quillo"
     },
